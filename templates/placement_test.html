@@ -1,0 +1,105 @@
+
+{% extends "base.html" %}
+
+{% block title %}Đánh giá năng lực tiếng Anh{% endblock %}
+
+{% block content %}
+<div class="test-page">
+    <div class="test-container">
+
+        <div class="test-header">
+            <a href="{{ url_for('dashboard') }}" class="test-back">← Quay lại Dashboard</a>
+            <span class="test-label">ENGLISH10 · PLACEMENT TEST</span>
+            <h1>Khám phá năng lực tiếng Anh của bạn</h1>
+            <p>Hãy hoàn thành bài kiểm tra để hệ thống xác định trình độ và xây dựng lộ trình học phù hợp.</p>
+        </div>
+
+        <div class="test-info">
+            <div class="test-info-item">
+                <span>📝</span>
+                <div>
+                    <strong>{{ questions|length }}</strong>
+                    <small>Câu hỏi</small>
+                </div>
+            </div>
+
+            <div class="test-info-item">
+                <span>🎯</span>
+                <div>
+                    <strong>3 mức độ</strong>
+                    <small>Phân loại trình độ</small>
+                </div>
+            </div>
+
+            <div class="test-info-item">
+                <span>⏱️</span>
+                <div>
+                    <strong>Tự do</strong>
+                    <small>Thời gian làm bài</small>
+                </div>
+            </div>
+        </div>
+
+        {% if questions %}
+        <form method="POST" action="{{ url_for('placement_test') }}" id="placementForm">
+
+            <div class="test-progress">
+                <div class="test-progress-top">
+                    <strong>Tiến độ làm bài</strong>
+                    <span id="progressText">0/{{ questions|length }} câu</span>
+                </div>
+                <div class="test-progress-track">
+                    <div class="test-progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            {% for question in questions %}
+            <section class="question-card">
+                <div class="question-top">
+                    <span class="question-number">CÂU {{ loop.index }}</span>
+                    <span class="question-skill">{{ question.skill or "General" }}</span>
+                </div>
+
+                <h3>{{ question.content }}</h3>
+
+                <div class="answer-options">
+                    {% for option in question_options[question.id] %}
+                    <label class="answer-option">
+                        <input
+                            type="radio"
+                            name="question_{{ question.id }}"
+                            value="{{ option.letter }}"
+                            required
+                        >
+                        <span class="option-letter">{{ option.letter }}</span>
+                        <span class="option-text">{{ option.text }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endfor %}
+
+            <div class="test-submit-area">
+                <p id="unansweredMessage">Bạn hãy hoàn thành tất cả câu hỏi trước khi nộp bài.</p>
+                <button type="submit" class="test-submit-button">
+                    Nộp bài kiểm tra →
+                </button>
+            </div>
+
+        </form>
+        {% else %}
+        <div class="empty-test">
+            <div>📚</div>
+            <h2>Chưa có câu hỏi kiểm tra</h2>
+            <p>Giáo viên hoặc quản trị viên cần bổ sung câu hỏi trước khi bạn bắt đầu.</p>
+            <a href="{{ url_for('dashboard') }}">Quay lại Dashboard</a>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/placement_test.js') }}"></script>
+{% endblock %}

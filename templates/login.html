@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - English 7</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        :root {
+            --purple: #7665d8;
+            --purple-dark: #5c4db8;
+            --purple-light: #f0edff;
+            --ink: #292943;
+            --muted: #858398;
+            --background: #faf9ff;
+            --white: #fff;
+            --border: #eeedf4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 35px 20px;
+            background:
+                radial-gradient(circle at 10% 15%, #eeeaff 0, transparent 28%),
+                radial-gradient(circle at 90% 85%, #e5f5ec 0, transparent 25%),
+                var(--background);
+            color: var(--ink);
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 1050px;
+        }
+
+        .auth-logo {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--ink);
+            font-size: 24px;
+            font-weight: 950;
+            letter-spacing: -1px;
+        }
+
+        .auth-logo span {
+            color: var(--purple);
+        }
+
+        .auth-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 570px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 23px;
+            background: white;
+            box-shadow: 0 22px 65px rgba(58,49,110,.09);
+        }
+
+        /* LEFT SIDE */
+
+        .auth-visual {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+            padding: 43px;
+            overflow: hidden;
+            background: #eeeaff;
+        }
+
+        .visual-decoration {
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            top: 100px;
+            left: 50%;
+            border-radius: 50%;
+            background: #ded7ff;
+            transform: translateX(-50%);
+        }
+
+        .visual-decoration::before {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            top: 40px;
+            left: 40px;
+            border: 1px dashed rgba(118,101,216,.3);
+            border-radius: 50%;
+        }
+
+        .visual-top {
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-tag {
+            display: inline-flex;
+            padding: 8px 12px;
+            border: 1px solid rgba(118,101,216,.15);
+            border-radius: 30px;
+            background: rgba(255,255,255,.65);
+            color: var(--purple-dark);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .visual-title {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            color: var(--ink);
+            font-size: 31px;
+            font-weight: 950;
+            line-height: 1.3;
+            letter-spacing: -1px;
+        }
+
+        .visual-title span {
+            color: var(--purple);
+        }
+
+        .visual-description {
+            position: relative;
+            z-index: 2;
+            max-width: 330px;
+            margin-top: 12px;
+            color: #77738e;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .visual-image {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 230px;
+            margin: 10px -5px;
+        }
+
+        .visual-image img {
+            width: 100%;
+            max-width: 350px;
+            height: 230px;
+            border: 7px solid rgba(255,255,255,.7);
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(58,49,110,.12);
+            transform: rotate(-2deg);
+        }
+
+        .visual-bottom {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #77738e;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .visual-bottom span {
+            color: #d6a83f;
+            font-size: 17px;
+        }
+
+        /* RIGHT SIDE */
+
+        .auth-form-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 55px 55px 40px;
+        }
+
+        .auth-heading {
+            margin-bottom: 30px;
+        }
+
+        .eyebrow {
+            color: var(--purple);
+            font-size: 10px;
+            font-weight: 950;
+            letter-spacing: 1.8px;
+        }
+
+        .auth-heading h1 {
+            margin-top: 15px;
+            color: var(--ink);
+            font-size: 29px;
+            font-weight: 950;
+            letter-spacing: -.8px;
+        }
+
+        .auth-heading p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .flash-message {
+            margin-bottom: 18px;
+            padding: 12px 14px;
+            border: 1px solid #f1d5d5;
+            border-radius: 9px;
+            background: #fff3f3;
+            color: #b84f4f;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .auth-form label {
+            margin-bottom: 9px;
+            color: #45435b;
+            font-size: 11px;
+            font-weight: 850;
+        }
+
+        .auth-form input {
+            width: 100%;
+            height: 48px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+            background: #fcfbff;
+            color: var(--ink);
+            font-family: inherit;
+            font-size: 12px;
+            transition: .2s;
+        }
+
+        .auth-form input::placeholder {
+            color: #aaa7b8;
+        }
+
+        .auth-form input:focus {
+            border-color: var(--purple);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(118,101,216,.1);
+        }
+
+        .password-wrap {
+            position: relative;
+        }
+
+        .password-wrap input {
+            padding-right: 65px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 0;
+            right: 12px;
+            height: 48px;
+            border: none;
+            background: transparent;
+            color: var(--purple);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .auth-submit {
+            width: 100%;
+            height: 49px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 10px;
+            background: var(--purple);
+            color: white;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 900;
+            transition: .2s;
+        }
+
+        .auth-submit:hover {
+            background: var(--purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(118,101,216,.2);
+        }
+
+        .auth-switch {
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .auth-switch a {
+            color: var(--purple);
+            font-weight: 900;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 23px;
+            color: #858398;
+            font-size: 11px;
+            font-weight: 750;
+            transition: .2s;
+        }
+
+        .back-home:hover {
+            color: var(--purple);
+        }
+
+        @media (max-width: 800px) {
+            .auth-container {
+                max-width: 480px;
+            }
+
+            .auth-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-visual {
+                min-height: 280px;
+                padding: 28px;
+            }
+
+            .visual-title {
+                font-size: 25px;
+            }
+
+            .visual-image {
+                display: none;
+            }
+
+            .visual-decoration {
+                top: 80px;
+                left: 85%;
+                width: 200px;
+                height: 200px;
+            }
+
+            .visual-decoration::before {
+                width: 140px;
+                height: 140px;
+            }
+
+            .visual-bottom {
+                margin-top: 25px;
+            }
+
+            .auth-form-side {
+                padding: 38px 30px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body.auth-page {
+                padding: 20px 13px;
+            }
+
+            .auth-form-side {
+                padding: 32px 22px;
+            }
+
+            .auth-heading h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body class="auth-page">
+    <div class="auth-container">
+
+        <a href="/" class="auth-logo">ENGLISH<span>7</span></a>
+
+        <div class="auth-layout">
+
+            <section class="auth-visual">
+                <div class="visual-decoration"></div>
+
+                <div class="visual-top">
+                    <span class="visual-tag">ENGLISH 7 / LEARNING SPACE</span>
+
+                    <h2 class="visual-title">
+                        Mỗi ngày một chút,<br>
+                        <span>tiến bộ thật nhiều.</span>
+                    </h2>
+
+                    <p class="visual-description">
+                        Quay trở lại lớp học của bạn, tiếp tục khám phá kiến thức
+                        và chinh phục những thử thách tiếng Anh mới nhé!
+                    </p>
+                </div>
+
+                <div class="visual-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+                        alt="Học sinh trong lớp học"
+                    >
+                </div>
+
+                <div class="visual-bottom">
+                    <span>✦</span>
+                    Cùng bạn học tập và trưởng thành mỗi ngày
+                </div>
+            </section>
+
+            <section class="auth-form-side">
+                <div class="auth-heading">
+                    <span class="eyebrow">WELCOME BACK</span>
+                    <h1>Chào mừng trở lại!</h1>
+                    <p>
+                        Đăng nhập để tiếp tục hành trình học tiếng Anh
+                        và khám phá lộ trình học tập của bạn.
+                    </p>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-message">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form method="POST" action="{{ url_for('login') }}" class="auth-form">
+                    <label for="username">Tên đăng nhập</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Nhập tên đăng nhập"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="password">Mật khẩu</label>
+
+                    <div class="password-wrap">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Nhập mật khẩu"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                        >
+                            Hiện
+                        </button>
+                    </div>
+
+                    <button type="submit" class="auth-submit">
+                        Đăng nhập →
+                    </button>
+                </form>
+
+                <div class="auth-switch">
+                    Chưa có tài khoản?
+                    <a href="{{ url_for('register') }}">Đăng ký ngay</a>
+                </div>
+            </section>
+
+        </div>
+
+        <a href="/" class="back-home">← Quay lại trang chủ</a>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+            const isPassword = passwordInput.type === "password";
+
+            passwordInput.type = isPassword ? "text" : "password";
+            togglePassword.textContent = isPassword ? "Ẩn" : "Hiện";
+        });
+    </script>
+</body>
+</html>

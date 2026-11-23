@@ -1,0 +1,600 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ material.title }} - English 7{% endblock %}
+
+{% block styles %}
+<style>
+    .detail-page {
+        --purple: #7566d8;
+        --purple-dark: #5c4db8;
+        --ink: #292943;
+        --muted: #858398;
+        --line: #eeedf4;
+        max-width: 1100px;
+        margin: 34px auto 60px;
+        padding: 0 26px;
+        color: var(--ink);
+    }
+
+    .detail-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 20px;
+        color: #77718f;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 750;
+        transition: .2s;
+    }
+
+    .detail-back:hover {
+        color: var(--purple);
+        transform: translateX(-3px);
+    }
+
+    .detail-hero {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        min-height: 220px;
+        overflow: hidden;
+        margin-bottom: 23px;
+        border-radius: 21px;
+        background: #eeeaff;
+    }
+
+    .detail-hero-content {
+        align-self: center;
+        padding: 32px 38px;
+    }
+
+    .detail-kicker {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--purple);
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: 1.5px;
+    }
+
+    .detail-hero h1 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: clamp(25px, 3vw, 34px);
+        line-height: 1.3;
+        letter-spacing: -.7px;
+        overflow-wrap: anywhere;
+    }
+
+    .detail-hero p {
+        max-width: 430px;
+        margin: 0;
+        color: #73718b;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .detail-hero-image {
+        position: relative;
+        min-height: 220px;
+        overflow: hidden;
+    }
+
+    .detail-hero-image img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .detail-hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #eeeaff 0%, rgba(238,234,255,.05) 45%, rgba(30,25,55,.12));
+    }
+
+    .detail-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 285px;
+        align-items: start;
+        gap: 22px;
+    }
+
+    .detail-card {
+        min-width: 0;
+        padding: 29px;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: white;
+        box-shadow: 0 5px 22px rgba(40,35,80,.045);
+    }
+
+    .detail-type {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 12px;
+        margin-bottom: 16px;
+        border-radius: 7px;
+        background: #f0edff;
+        color: var(--purple);
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+    }
+
+    .detail-card h2 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 25px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .detail-description {
+        margin-bottom: 25px;
+        color: #77758b;
+        font-size: 13px;
+        line-height: 1.9;
+        white-space: pre-line;
+        overflow-wrap: anywhere;
+    }
+
+    .detail-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 27px;
+    }
+
+    .detail-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 9px 13px;
+        border: 1px solid #e9e6f7;
+        border-radius: 8px;
+        background: #faf9ff;
+        color: #615a9e;
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    .detail-tag.unit {
+        border-color: #f5e6b9;
+        background: #fff8e6;
+        color: #96732e;
+    }
+
+    .detail-section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-top: 22px;
+        margin-bottom: 18px;
+        border-top: 1px solid var(--line);
+    }
+
+    .detail-section-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: #f0edff;
+        color: var(--purple);
+        font-size: 17px;
+    }
+
+    .detail-section-title h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 850;
+    }
+
+    .detail-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px;
+    }
+
+    .info-item {
+        min-width: 0;
+        padding: 15px;
+        border: 1px solid #efedf5;
+        border-radius: 11px;
+        background: #fcfbff;
+    }
+
+    .info-label {
+        display: block;
+        margin-bottom: 7px;
+        color: #9996aa;
+        font-size: 10px;
+        font-weight: 750;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+    }
+
+    .info-value {
+        display: block;
+        color: #45435d;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .detail-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 23px;
+        margin-top: 24px;
+        border-top: 1px solid var(--line);
+    }
+
+    .detail-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 43px;
+        padding: 0 17px;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: 850;
+        text-decoration: none;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .btn-download {
+        background: var(--purple);
+        color: white;
+    }
+
+    .btn-download:hover {
+        background: var(--purple-dark);
+        transform: translateY(-1px);
+    }
+
+    .btn-edit {
+        background: #f0edff;
+        color: var(--purple-dark);
+    }
+
+    .btn-edit:hover {
+        background: #e5e0ff;
+    }
+
+    .btn-delete {
+        background: #fff0f0;
+        color: #d65b65;
+    }
+
+    .btn-delete:hover {
+        background: #ffe2e2;
+    }
+
+    .btn-back {
+        background: #f1f0f7;
+        color: #69677e;
+    }
+
+    .btn-back:hover {
+        background: #e7e5f0;
+    }
+
+    .delete-form {
+        display: inline;
+    }
+
+    .detail-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .detail-side-image {
+        height: 175px;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #eeeaff;
+    }
+
+    .detail-side-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .detail-side-card {
+        padding: 19px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+    }
+
+    .detail-side-card h3 {
+        margin: 0 0 13px;
+        font-size: 13px;
+        font-weight: 850;
+    }
+
+    .detail-side-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .detail-side-tip {
+        padding: 17px;
+        border-radius: 13px;
+        background: #e8f6ef;
+        color: #527e69;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .detail-side-tip strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #3e7058;
+        font-size: 12px;
+    }
+
+    @media (max-width: 850px) {
+        .detail-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .detail-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .detail-side-image {
+            height: 100%;
+            min-height: 160px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .detail-page {
+            margin: 22px auto 40px;
+            padding: 0 15px;
+        }
+
+        .detail-hero {
+            grid-template-columns: 1fr;
+        }
+
+        .detail-hero-content {
+            padding: 27px 23px;
+        }
+
+        .detail-hero-image {
+            min-height: 150px;
+        }
+
+        .detail-card {
+            padding: 21px;
+        }
+
+        .detail-card h2 {
+            font-size: 21px;
+        }
+
+        .detail-info {
+            grid-template-columns: 1fr;
+        }
+
+        .detail-sidebar {
+            grid-template-columns: 1fr;
+        }
+
+        .detail-side-image {
+            min-height: 150px;
+        }
+
+        .detail-actions {
+            flex-direction: column;
+        }
+
+        .detail-btn {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .delete-form {
+            display: block;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+
+    <a href="{{ url_for('materials') }}" class="detail-back">
+        ← Quay lại kho học liệu
+    </a>
+
+    <section class="detail-hero">
+        <div class="detail-hero-content">
+            <span class="detail-kicker">VIRTUAL ACADEMY / RESOURCE LIBRARY</span>
+            <h1>Explore your<br>Learning Resources.</h1>
+            <p>
+                Khám phá nội dung, thông tin và tài liệu học tập
+                được chia sẻ trong thư viện tiếng Anh lớp 7.
+            </p>
+        </div>
+
+        <div class="detail-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=85"
+                alt="Thư viện học tập"
+                onerror="this.style.display='none'"
+            >
+        </div>
+    </section>
+
+    <div class="detail-layout">
+
+        <main class="detail-card">
+
+            <span class="detail-type">
+                ▤ {{ material.material_type or "Tài liệu" }}
+            </span>
+
+            <h2>{{ material.title }}</h2>
+
+            <div class="detail-description">
+                {{ material.description or "Tài liệu này chưa có mô tả." }}
+            </div>
+
+            <div class="detail-tags">
+                {% if material.unit %}
+                <span class="detail-tag unit">
+                    ✦ Unit {{ material.unit }}
+                </span>
+                {% endif %}
+
+                {% if material.skill %}
+                <span class="detail-tag">
+                    ◈
+                    {% if material.skill == "vocabulary" %}Vocabulary
+                    {% elif material.skill == "grammar" %}Grammar
+                    {% elif material.skill == "reading" %}Reading
+                    {% elif material.skill == "listening" %}Listening
+                    {% elif material.skill == "speaking" %}Speaking
+                    {% elif material.skill == "writing" %}Writing
+                    {% else %}{{ material.skill }}
+                    {% endif %}
+                </span>
+                {% endif %}
+            </div>
+
+            <div class="detail-section-title">
+                <div class="detail-section-icon">▤</div>
+                <h3>Thông tin tài liệu</h3>
+            </div>
+
+            <div class="detail-info">
+
+                <div class="info-item">
+                    <span class="info-label">Tên tệp</span>
+                    <span class="info-value">
+                        {{ material.original_filename or material.file_path }}
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Dung lượng</span>
+                    <span class="info-value">
+                        {% if material.file_size %}
+                            {{ "%.2f"|format(material.file_size / 1048576) }} MB
+                        {% else %}
+                            Chưa xác định
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Người đăng</span>
+                    <span class="info-value">
+                        {% if material.uploader %}
+                            {{ material.uploader.username }}
+                        {% else %}
+                            Không xác định
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Ngày đăng</span>
+                    <span class="info-value">
+                        {% if material.uploaded_at %}
+                            {{ material.uploaded_at.strftime("%d/%m/%Y %H:%M") }}
+                        {% else %}
+                            Không xác định
+                        {% endif %}
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="detail-actions">
+
+                <a href="{{ url_for('material_download', material_id=material.id) }}"
+                   class="detail-btn btn-download">
+                    ↓ Tải xuống tài liệu
+                </a>
+
+                {% if current_user.role == "teacher" and material.uploaded_by == current_user.id %}
+
+                <a href="{{ url_for('material_edit', material_id=material.id) }}"
+                   class="detail-btn btn-edit">
+                    ✎ Chỉnh sửa
+                </a>
+
+                <form method="POST"
+                      action="{{ url_for('material_delete', material_id=material.id) }}"
+                      class="delete-form"
+                      onsubmit="return confirm('Bạn có chắc chắn muốn xóa học liệu này không?');">
+
+                    <button type="submit" class="detail-btn btn-delete">
+                        × Xóa học liệu
+                    </button>
+
+                </form>
+
+                {% endif %}
+
+                <a href="{{ url_for('materials') }}"
+                   class="detail-btn btn-back">
+                    Quay lại
+                </a>
+
+            </div>
+
+        </main>
+
+        <aside class="detail-sidebar">
+
+            <div class="detail-side-image">
+                <img
+                    src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80"
+                    alt="Sách và tài liệu học tập"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="detail-side-card">
+                <h3>RESOURCE LIBRARY</h3>
+                <p>
+                    Mỗi tài liệu là một nguồn kiến thức giúp bạn
+                    ôn tập, luyện kỹ năng và khám phá thêm những
+                    điều thú vị trong chương trình tiếng Anh lớp 7.
+                </p>
+            </div>
+
+            <div class="detail-side-tip">
+                <strong>✦ Learning tip</strong>
+                Hãy tải tài liệu về và kết hợp với bài học tương ứng
+                để ghi nhớ kiến thức hiệu quả hơn nhé!
+            </div>
+
+        </aside>
+
+    </div>
+</div>
+{% endblock %}

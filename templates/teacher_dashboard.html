@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Giáo viên - English 7</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher_dashboard.css') }}">
+
+    <style>
+        :root {
+            --teacher-purple: #7566d8;
+            --teacher-purple-dark: #5c4db8;
+            --teacher-purple-light: #f0edff;
+            --teacher-ink: #292943;
+            --teacher-muted: #858398;
+            --teacher-line: #eeedf4;
+            --teacher-yellow: #fff5dc;
+            --teacher-green: #e8f6ef;
+            --teacher-bg: #faf9ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body.teacher-dashboard {
+            background: var(--teacher-bg);
+            color: var(--teacher-ink);
+            font-family: inherit;
+        }
+
+        .teacher-dashboard .sidebar {
+            background: #fff;
+            border-right: 1px solid var(--teacher-line);
+            box-shadow: 3px 0 20px rgba(40,35,80,.025);
+        }
+
+        .teacher-dashboard .logo {
+            color: var(--teacher-ink);
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .teacher-dashboard .logo span {
+            color: var(--teacher-purple);
+        }
+
+        .teacher-dashboard .sidebar-label {
+            color: #a09db1;
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: 1.3px;
+        }
+
+        .teacher-dashboard .side-link {
+            border-radius: 10px;
+            color: #77758b;
+            font-size: 12px;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .teacher-dashboard .side-link:hover,
+        .teacher-dashboard .side-link.active {
+            background: var(--teacher-purple-light);
+            color: var(--teacher-purple-dark);
+        }
+
+        .teacher-dashboard .side-link span {
+            font-size: 17px;
+        }
+
+        .teacher-dashboard .sidebar-help {
+            padding: 18px;
+            border: 1px solid #e9e5fb;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #f2efff, #fff8e8);
+        }
+
+        .teacher-dashboard .help-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            background: white;
+            color: var(--teacher-purple);
+        }
+
+        .teacher-dashboard .sidebar-help strong {
+            color: var(--teacher-ink);
+            font-size: 12px;
+        }
+
+        .teacher-dashboard .sidebar-help p {
+            color: #858197;
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .teacher-dashboard .sidebar-help a {
+            color: var(--teacher-purple-dark);
+            font-size: 10px;
+            font-weight: 850;
+        }
+
+        .teacher-dashboard .dashboard-main {
+            background: var(--teacher-bg);
+            padding-bottom: 35px;
+        }
+
+        .teacher-dashboard .dashboard-header {
+            min-height: 76px;
+            margin-bottom: 25px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--teacher-line);
+        }
+
+        .teacher-dashboard .dashboard-date {
+            color: var(--teacher-purple);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .teacher-dashboard .dashboard-header h1 {
+            margin-top: 6px;
+            color: var(--teacher-ink);
+            font-size: 24px;
+            font-weight: 850;
+            letter-spacing: -.5px;
+        }
+
+        .teacher-dashboard .user-profile {
+            padding: 7px 12px 7px 7px;
+            border: 1px solid var(--teacher-line);
+            border-radius: 30px;
+            background: white;
+        }
+
+        .teacher-dashboard .user-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 39px;
+            height: 39px;
+            border-radius: 50%;
+            background: var(--teacher-purple-light);
+        }
+
+        .teacher-dashboard .user-profile strong {
+            color: var(--teacher-ink);
+            font-size: 11px;
+        }
+
+        .teacher-dashboard .user-profile span {
+            color: var(--teacher-muted);
+            font-size: 10px;
+        }
+
+        /* HERO */
+
+        .teacher-dashboard .teacher-welcome {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            min-height: 245px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            border-radius: 20px;
+            background: #eeeaff;
+            box-shadow: 0 7px 25px rgba(65,55,120,.06);
+        }
+
+        .teacher-dashboard .teacher-welcome-content {
+            position: relative;
+            z-index: 2;
+            align-self: center;
+            padding: 32px 35px;
+        }
+
+        .teacher-dashboard .teacher-welcome-content > span {
+            display: inline-block;
+            margin-bottom: 13px;
+            color: var(--teacher-purple);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+        }
+
+        .teacher-dashboard .teacher-welcome h2 {
+            margin: 0 0 11px;
+            color: #302d4b;
+            font-size: clamp(23px, 3vw, 32px);
+            font-weight: 900;
+            line-height: 1.3;
+            letter-spacing: -.8px;
+        }
+
+        .teacher-dashboard .teacher-welcome p {
+            max-width: 400px;
+            margin-bottom: 21px;
+            color: #77738e;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .teacher-dashboard .teacher-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 9px;
+            background: var(--teacher-purple);
+            color: white;
+            font-size: 11px;
+            font-weight: 850;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .teacher-dashboard .teacher-button:hover {
+            background: var(--teacher-purple-dark);
+            transform: translateY(-2px);
+        }
+
+        .teacher-dashboard .teacher-decoration {
+            position: relative;
+            display: block;
+            min-height: 245px;
+            overflow: hidden;
+            font-size: 0;
+            background: #ddd7f7;
+        }
+
+        .teacher-dashboard .teacher-decoration::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(90deg, #eeeaff 0%, rgba(238,234,255,.12) 40%, rgba(45,35,75,.12)),
+                url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* SECTION */
+
+        .teacher-dashboard .dashboard-section {
+            margin-bottom: 31px;
+        }
+
+        .teacher-dashboard .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 16px;
+        }
+
+        .teacher-dashboard .section-title h2 {
+            margin: 0 0 5px;
+            color: var(--teacher-ink);
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: -.3px;
+        }
+
+        .teacher-dashboard .section-title p {
+            margin: 0;
+            color: var(--teacher-muted);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .teacher-dashboard .section-title > a {
+            color: var(--teacher-purple);
+            font-size: 11px;
+            font-weight: 850;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .teacher-dashboard .section-title > a:hover {
+            color: var(--teacher-purple-dark);
+        }
+
+        /* STATS */
+
+        .teacher-dashboard .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 13px;
+            margin-bottom: 13px;
+        }
+
+        .teacher-dashboard .stat-card {
+            position: relative;
+            min-width: 0;
+            padding: 18px;
+            overflow: hidden;
+            border: 1px solid var(--teacher-line);
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 3px 14px rgba(40,35,80,.025);
+            transition: .2s;
+        }
+
+        .teacher-dashboard .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(40,35,80,.07);
+        }
+
+        .teacher-dashboard .stat-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 15px;
+            border-radius: 11px;
+            font-size: 17px;
+        }
+
+        .teacher-dashboard .stat-icon.purple {
+            background: #f0edff;
+            color: #7566d8;
+        }
+
+        .teacher-dashboard .stat-icon.green {
+            background: #e8f6ef;
+            color: #459c7c;
+        }
+
+        .teacher-dashboard .stat-icon.yellow {
+            background: #fff5dc;
+            color: #c39a42;
+        }
+
+        .teacher-dashboard .stat-icon.orange {
+            background: #fff0e7;
+            color: #df8c5c;
+        }
+
+        .teacher-dashboard .stat-card > span {
+            display: block;
+            min-height: 30px;
+            margin-bottom: 5px;
+            color: #858398;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .teacher-dashboard .stat-card > strong {
+            display: block;
+            color: var(--teacher-ink);
+            font-size: 27px;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -.8px;
+        }
+
+        .teacher-dashboard .stat-card > small {
+            display: block;
+            margin-top: 7px;
+            color: #aaa7b8;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        .teacher-dashboard .teacher-extra-stats {
+            margin-top: 12px;
+        }
+
+        /* STUDENT TABLE */
+
+        .teacher-dashboard .student-count {
+            padding: 7px 11px;
+            border-radius: 8px;
+            background: var(--teacher-purple-light);
+            color: var(--teacher-purple-dark);
+            font-size: 10px;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+        .teacher-dashboard .student-table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--teacher-line);
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 3px 14px rgba(40,35,80,.025);
+        }
+
+        .teacher-dashboard .student-table {
+            width: 100%;
+            min-width: 920px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .teacher-dashboard .student-table th {
+            padding: 14px 13px;
+            background: #f8f7fc;
+            color: #858398;
+            font-size: 9px;
+            font-weight: 900;
+            white-space: nowrap;
+            letter-spacing: .3px;
+        }
+
+        .teacher-dashboard .student-table td {
+            padding: 15px 13px;
+            border-top: 1px solid #f0eff5;
+            color: #4d4a63;
+            font-size: 11px;
+            vertical-align: middle;
+        }
+
+        .teacher-dashboard .student-table tbody tr {
+            transition: .15s;
+        }
+
+        .teacher-dashboard .student-table tbody tr:hover {
+            background: #fbfaff;
+        }
+
+        .teacher-dashboard .student-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 145px;
+        }
+
+        .teacher-dashboard .student-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #f0edff;
+            font-size: 15px;
+        }
+
+        .teacher-dashboard .student-name strong {
+            display: block;
+            color: var(--teacher-ink);
+            font-size: 10px;
+        }
+
+        .teacher-dashboard .student-name small,
+        .teacher-dashboard .table-subtext {
+            display: block;
+            margin-top: 4px;
+            color: #aaa7b8;
+            font-size: 9px;
+        }
+
+        .teacher-dashboard .accuracy-value {
+            display: inline-block;
+            padding: 6px 9px;
+            border-radius: 7px;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .teacher-dashboard .accuracy-good {
+            background: #e8f6ef;
+            color: #459c7c;
+        }
+
+        .teacher-dashboard .accuracy-medium {
+            background: #fff5dc;
+            color: #ae8736;
+        }
+
+        .teacher-dashboard .accuracy-low {
+            background: #fff0f0;
+            color: #d65b65;
+        }
+
+        .teacher-dashboard .activity-date {
+            display: block;
+            color: #514d6b;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .teacher-dashboard .no-activity {
+            color: #aaa7b8;
+            font-size: 10px;
+        }
+
+        .teacher-dashboard .empty-students {
+            padding: 38px 20px !important;
+            text-align: center;
+        }
+
+        .teacher-dashboard .empty-students div {
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .teacher-dashboard .empty-students strong {
+            color: var(--teacher-ink);
+            font-size: 13px;
+        }
+
+        .teacher-dashboard .empty-students p {
+            color: var(--teacher-muted);
+            font-size: 10px;
+        }
+
+        .teacher-dashboard .table-note {
+            margin: 11px 0 0;
+            color: #a09db1;
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        /* ACTION CARDS */
+
+        .teacher-dashboard .teacher-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .teacher-dashboard .action-card {
+            position: relative;
+            display: block;
+            padding: 22px;
+            overflow: hidden;
+            border: 1px solid var(--teacher-line);
+            border-radius: 15px;
+            background: white;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .teacher-dashboard .action-card:hover {
+            transform: translateY(-3px);
+            border-color: #d9d2fa;
+            box-shadow: 0 9px 22px rgba(40,35,80,.06);
+        }
+
+        .teacher-dashboard .action-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 43px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        .teacher-dashboard .action-icon.purple {
+            background: #f0edff;
+            color: var(--teacher-purple);
+        }
+
+        .teacher-dashboard .action-icon.yellow {
+            background: #fff5dc;
+            color: #c39a42;
+        }
+
+        .teacher-dashboard .action-card h3 {
+            margin: 0 0 7px;
+            color: var(--teacher-ink);
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .teacher-dashboard .action-card p {
+            margin: 0 0 16px;
+            color: var(--teacher-muted);
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .teacher-dashboard .action-card > span {
+            color: var(--teacher-purple);
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        /* RECENT MATERIALS */
+
+        .teacher-dashboard .recent-materials {
+            overflow: hidden;
+            border: 1px solid var(--teacher-line);
+            border-radius: 14px;
+            background: white;
+        }
+
+        .teacher-dashboard .material-row {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 15px 17px;
+            border-bottom: 1px solid #f0eff5;
+            transition: .15s;
+        }
+
+        .teacher-dashboard .material-row:last-child {
+            border-bottom: none;
+        }
+
+        .teacher-dashboard .material-row:hover {
+            background: #fbfaff;
+        }
+
+        .teacher-dashboard .material-file-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 39px;
+            height: 39px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #f0edff;
+            font-size: 17px;
+        }
+
+        .teacher-dashboard .material-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .teacher-dashboard .material-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--teacher-ink);
+            font-size: 11px;
+            overflow-wrap: anywhere;
+        }
+
+        .teacher-dashboard .material-info span {
+            display: block;
+            color: #a09db1;
+            font-size: 9px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .teacher-dashboard .material-date {
+            color: #9996aa;
+            font-size: 9px;
+            white-space: nowrap;
+        }
+
+        .teacher-dashboard .material-view {
+            color: var(--teacher-purple);
+            font-size: 10px;
+            font-weight: 850;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .teacher-dashboard .empty-materials {
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .teacher-dashboard .empty-materials > div {
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .teacher-dashboard .empty-materials strong {
+            color: var(--teacher-ink);
+            font-size: 13px;
+        }
+
+        .teacher-dashboard .empty-materials p {
+            color: var(--teacher-muted);
+            font-size: 10px;
+        }
+
+        .teacher-dashboard .empty-materials a {
+            display: inline-flex;
+            margin-top: 8px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--teacher-purple);
+            color: white;
+            font-size: 10px;
+            font-weight: 850;
+            text-decoration: none;
+        }
+
+        .teacher-dashboard .dashboard-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding-top: 20px;
+            margin-top: 25px;
+            border-top: 1px solid var(--teacher-line);
+            color: #aaa7b8;
+            font-size: 9px;
+            letter-spacing: .3px;
+        }
+
+        @media (max-width: 1100px) {
+            .teacher-dashboard .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .teacher-dashboard .teacher-welcome {
+                grid-template-columns: 1fr;
+            }
+
+            .teacher-dashboard .teacher-decoration {
+                min-height: 160px;
+            }
+
+            .teacher-dashboard .teacher-welcome-content {
+                padding: 25px;
+            }
+
+            .teacher-dashboard .teacher-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .teacher-dashboard .dashboard-footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .teacher-dashboard .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 9px;
+            }
+
+            .teacher-dashboard .stat-card {
+                padding: 13px;
+            }
+
+            .teacher-dashboard .stat-card > strong {
+                font-size: 23px;
+            }
+
+            .teacher-dashboard .stat-card > span {
+                font-size: 9px;
+            }
+
+            .teacher-dashboard .section-title {
+                align-items: flex-start;
+            }
+
+            .teacher-dashboard .material-row {
+                flex-wrap: wrap;
+            }
+
+            .teacher-dashboard .material-info {
+                flex-basis: calc(100% - 55px);
+            }
+
+            .teacher-dashboard .material-date {
+                margin-left: 52px;
+            }
+
+            .teacher-dashboard .material-view {
+                margin-left: auto;
+            }
+        
+        }
+    </style>
+</head>
+
+<body class="dashboard-page teacher-dashboard">
+
+    <aside class="sidebar">
+        <a href="/" class="logo">ENGLISH<span>7</span></a>
+
+        <div class="sidebar-label">MENU GIÁO VIÊN</div>
+
+        <nav class="sidebar-nav">
+            <a href="{{ url_for('teacher_dashboard') }}" class="side-link active">
+                <span>⌂</span> Tổng quan
+            </a>
+
+            <a href="{{ url_for('materials') }}" class="side-link">
+                <span>▤</span> Kho học liệu
+            </a>
+
+            <a href="{{ url_for('material_upload') }}" class="side-link">
+                <span>＋</span> Đăng tải học liệu
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <div class="help-icon">✦</div>
+                <strong>Không gian giảng dạy</strong>
+                <p>Chia sẻ học liệu để hỗ trợ học sinh học tiếng Anh hiệu quả hơn.</p>
+                <a href="{{ url_for('materials') }}">Xem kho học liệu →</a>
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="side-link logout-link">
+                <span>↪</span> Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <div>
+                <div class="dashboard-date">TEACHER DASHBOARD</div>
+                <h1>Tổng quan giảng dạy</h1>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-avatar">👩‍🏫</div>
+                <div>
+                    <strong>{{ current_user.full_name }}</strong>
+                    <span>Giáo viên</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="teacher-welcome">
+            <div class="teacher-welcome-content">
+                <span>YOUR TEACHING SPACE</span>
+                <h2>Xin chào, {{ current_user.full_name }}! 👋</h2>
+                <p>Quản lý học liệu và theo dõi quá trình học tập của học sinh.</p>
+
+                <a href="{{ url_for('material_upload') }}" class="teacher-button">
+                    ＋ Đăng tải học liệu
+                </a>
+            </div>
+
+            <div class="teacher-decoration"></div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="section-title">
+                <div>
+                    <h2>Tổng quan học sinh</h2>
+                    <p>Theo dõi tình hình học tập và mức độ hoạt động của học sinh.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon purple">👥</div>
+                    <span>Tổng số học sinh</span>
+                    <strong>{{ total_students }}</strong>
+                    <small>Tài khoản học sinh</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <span>Học sinh đã hoạt động</span>
+                    <strong>{{ active_students }}</strong>
+                    <small>Đã có dữ liệu học tập</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon yellow">✍️</div>
+                    <span>Lượt trả lời câu hỏi</span>
+                    <strong>{{ total_question_attempts }}</strong>
+                    <small>Từ Vocabulary, Grammar, Reading</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange">🎯</div>
+                    <span>Độ chính xác chung</span>
+                    <strong>{{ overall_accuracy }}%</strong>
+                    <small>Tỷ lệ câu trả lời đúng</small>
+                </article>
+
+            </div>
+
+            <div class="stats-grid teacher-extra-stats">
+
+                <article class="stat-card">
+                    <div class="stat-icon purple">📋</div>
+                    <span>Bài kiểm tra đầu vào</span>
+                    <strong>{{ total_placement_tests }}</strong>
+                    <small>Lượt hoàn thành</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon yellow">🎤</div>
+                    <span>Bài Speaking</span>
+                    <strong>{{ total_speaking_submissions }}</strong>
+                    <small>Lượt nộp bài</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green">📝</div>
+                    <span>Bài Writing</span>
+                    <strong>{{ total_writing_submissions }}</strong>
+                    <small>Lượt nộp bài</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange">📚</div>
+                    <span>Bài học hoàn thành</span>
+                    <strong>{{ total_completed_lessons }}</strong>
+                    <small>Lượt hoàn thành bài học</small>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="section-title">
+                <div>
+                    <h2>Hoạt động của học sinh</h2>
+                    <p>Thống kê quá trình học tập theo từng tài khoản.</p>
+                </div>
+                <span class="student-count">{{ student_overview|length }} học sinh</span>
+            </div>
+
+            <div class="student-table-wrapper">
+                <table class="student-table">
+                    <thead>
+                        <tr>
+                            <th>Học sinh</th>
+                            <th>Câu đã làm</th>
+                            <th>Độ chính xác</th>
+                            <th>Kiểm tra đầu vào</th>
+                            <th>Speaking</th>
+                            <th>Writing</th>
+                            <th>Bài học hoàn thành</th>
+                            <th>Hoạt động gần nhất</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for item in student_overview %}
+                        <tr>
+                            <td>
+                                <div class="student-name">
+                                    <div class="student-avatar">👤</div>
+                                    <div>
+                                        <strong>{{ item.student.full_name }}</strong>
+                                        <small>@{{ item.student.username }}</small>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <strong>{{ item.question_attempts }}</strong>
+                                <small class="table-subtext">
+                                    {{ item.question_correct }} câu đúng
+                                </small>
+                            </td>
+
+                            <td>
+                                <span class="accuracy-value
+                                    {% if item.accuracy >= 80 %}accuracy-good
+                                    {% elif item.accuracy >= 50 %}accuracy-medium
+                                    {% else %}accuracy-low{% endif %}">
+                                    {{ item.accuracy }}%
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong>{{ item.placement_tests }}</strong>
+                                <small class="table-subtext">
+                                    {% if item.placement_average is not none %}
+                                        TB {{ item.placement_average }}%
+                                    {% else %}
+                                        Chưa có điểm
+                                    {% endif %}
+                                </small>
+                            </td>
+
+                            <td>
+                                <strong>{{ item.speaking_submissions }}</strong>
+                                <small class="table-subtext">
+                                    {% if item.speaking_average is not none %}
+                                        TB {{ item.speaking_average }}
+                                    {% else %}
+                                        Chưa có điểm
+                                    {% endif %}
+                                </small>
+                            </td>
+
+                            <td>
+                                <strong>{{ item.writing_submissions }}</strong>
+                                <small class="table-subtext">
+                                    {% if item.writing_average is not none %}
+                                        TB {{ item.writing_average }}
+                                    {% else %}
+                                        Chưa có điểm
+                                    {% endif %}
+                                </small>
+                            </td>
+
+                            <td>
+                                <strong>{{ item.completed_lessons }}</strong>
+                                <small class="table-subtext">bài học</small>
+                            </td>
+
+                            <td>
+                                {% if item.latest_activity %}
+                                    <span class="activity-date">
+                                        {{ item.latest_activity.strftime('%d/%m/%Y') }}
+                                    </span>
+                                    <small class="table-subtext">
+                                        {{ item.latest_activity.strftime('%H:%M') }}
+                                    </small>
+                                {% else %}
+                                    <span class="no-activity">Chưa hoạt động</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="empty-students">
+                                <div>👥</div>
+                                <strong>Chưa có tài khoản học sinh</strong>
+                                <p>Danh sách học sinh sẽ xuất hiện tại đây sau khi có tài khoản đăng ký.</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="table-note">
+                * Số câu đã làm là tổng lượt trả lời được lưu trong hệ thống.
+                Điểm Speaking và Writing là điểm trung bình của các bài đã được chấm.
+            </p>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="section-title">
+                <div>
+                    <h2>Tổng quan học liệu</h2>
+                    <p>Thống kê tài liệu trong hệ thống.</p>
+                </div>
+
+                <a href="{{ url_for('materials') }}">Xem kho học liệu →</a>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon purple">▤</div>
+                    <span>Tổng số học liệu</span>
+                    <strong>{{ materials|length }}</strong>
+                    <small>Tài liệu trong hệ thống</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon yellow">📖</div>
+                    <span>Từ vựng</span>
+                    <strong>{{ materials|selectattr('skill', 'equalto', 'vocabulary')|list|length }}</strong>
+                    <small>Tài liệu luyện từ vựng</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green">✍️</div>
+                    <span>Ngữ pháp</span>
+                    <strong>{{ materials|selectattr('skill', 'equalto', 'grammar')|list|length }}</strong>
+                    <small>Tài liệu luyện ngữ pháp</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange">📚</div>
+                    <span>Đọc hiểu</span>
+                    <strong>{{ materials|selectattr('skill', 'equalto', 'reading')|list|length }}</strong>
+                    <small>Tài liệu luyện đọc</small>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="section-title">
+                <div>
+                    <h2>Quản lý học liệu</h2>
+                    <p>Các chức năng dành cho giáo viên.</p>
+                </div>
+            </div>
+
+            <div class="teacher-actions">
+
+                <a href="{{ url_for('material_upload') }}" class="action-card">
+                    <div class="action-icon purple">＋</div>
+                    <h3>Đăng tải học liệu</h3>
+                    <p>Thêm tài liệu mới và phân loại theo Unit, kỹ năng.</p>
+                    <span>Đăng tải ngay →</span>
+                </a>
+
+                <a href="{{ url_for('materials') }}" class="action-card">
+                    <div class="action-icon yellow">▤</div>
+                    <h3>Kho học liệu</h3>
+                    <p>Xem và tìm kiếm tài liệu tiếng Anh lớp 7.</p>
+                    <span>Mở kho học liệu →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="section-title">
+                <div>
+                    <h2>Học liệu mới đăng tải</h2>
+                    <p>Những tài liệu gần đây trong hệ thống.</p>
+                </div>
+
+                <a href="{{ url_for('materials') }}">Xem tất cả →</a>
+            </div>
+
+            <div class="recent-materials">
+
+                {% for material in materials[:5] %}
+                <div class="material-row">
+
+                    <div class="material-file-icon">📄</div>
+
+                    <div class="material-info">
+                        <strong>{{ material.title }}</strong>
+                        <span>
+                            Unit {{ material.unit or 'Chưa phân loại' }}
+                            ·
+                            {{ material.skill or 'Chưa phân loại' }}
+                            ·
+                            {{ material.original_filename or 'Tệp học liệu' }}
+                        </span>
+                    </div>
+
+                    <div class="material-date">
+                        {{ material.uploaded_at.strftime('%d/%m/%Y') if material.uploaded_at else '' }}
+                    </div>
+
+                    <a href="{{ url_for('material_detail', material_id=material.id) }}" class="material-view">
+                        Chi tiết →
+                    </a>
+
+                </div>
+                {% else %}
+
+                <div class="empty-materials">
+                    <div>📂</div>
+                    <strong>Chưa có học liệu nào</strong>
+                    <p>Hãy đăng tải tài liệu đầu tiên để xây dựng kho học liệu.</p>
+                    <a href="{{ url_for('material_upload') }}">＋ Đăng tải học liệu</a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>ENGLISH7 · HỌC TIẾNG ANH CÙNG NHÓM 10</span>
+            <span>Không gian quản lý và chia sẻ học liệu</span>
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

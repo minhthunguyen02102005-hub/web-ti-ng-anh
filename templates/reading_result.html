@@ -1,0 +1,869 @@
+
+{% extends "base.html" %}
+
+{% block title %}Reading Result - English 7{% endblock %}
+
+{% block styles %}
+<style>
+.rr-page {
+    --ink: #29264f;
+    --muted: #85839d;
+    --purple: #7665d8;
+    --lavender: #efedff;
+    --coral: #ff8b76;
+    --mint: #dff6eb;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 28px 25px 65px;
+    color: var(--ink);
+}
+
+.rr-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.rr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid #e9e7f3;
+    border-radius: 10px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+    transition: .2s;
+}
+
+.rr-back:hover {
+    color: var(--purple);
+    border-color: var(--purple);
+    transform: translateX(-3px);
+}
+
+.rr-top-label {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.8px;
+}
+
+.rr-hero {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    align-items: center;
+    gap: 25px;
+    padding: 34px 37px;
+    border-radius: 22px;
+    background: #eeebff;
+    overflow: hidden;
+    margin-bottom: 17px;
+}
+
+.rr-hero-copy {
+    min-width: 0;
+}
+
+.rr-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: white;
+    color: #7161c8;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    margin-bottom: 15px;
+}
+
+.rr-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--coral);
+}
+
+.rr-hero h1 {
+    margin: 0 0 10px;
+    color: #29264f;
+    font-size: 29px;
+    line-height: 1.3;
+    font-weight: 850;
+    letter-spacing: -.7px;
+}
+
+.rr-hero-copy p {
+    color: #777493;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.rr-hero-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 17px;
+    color: #5f579f;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.rr-score-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 205px;
+    padding: 19px;
+    background: white;
+    border-radius: 19px;
+    box-shadow: 0 10px 28px rgba(64,54,128,.08);
+}
+
+.rr-score-ring {
+    width: 135px;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: conic-gradient(#7867d9 var(--score), #efedfa 0);
+    position: relative;
+}
+
+.rr-score-ring::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: white;
+}
+
+.rr-score-value {
+    position: relative;
+    z-index: 1;
+    color: #302b61;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.rr-score-caption {
+    position: relative;
+    z-index: 1;
+    color: #9693ad;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+.rr-score-status {
+    margin-top: 12px;
+    color: #7161c8;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+.rr-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 27px;
+}
+
+.rr-stat {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px;
+    background: white;
+    border: 1px solid #ecebf3;
+    border-radius: 14px;
+}
+
+.rr-stat-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 19px;
+}
+
+.rr-stat:nth-child(1) .rr-stat-icon {
+    background: #efedff;
+}
+
+.rr-stat:nth-child(2) .rr-stat-icon {
+    background: #e4f7ed;
+}
+
+.rr-stat:nth-child(3) .rr-stat-icon {
+    background: #fff0eb;
+}
+
+.rr-stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.rr-stat strong {
+    display: block;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.rr-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.rr-kicker {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    margin-bottom: 6px;
+}
+
+.rr-section-heading h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: 21px;
+    font-weight: 850;
+}
+
+.rr-section-heading p {
+    color: var(--muted);
+    font-size: 11px;
+    margin: 6px 0 0;
+}
+
+.rr-ai {
+    position: relative;
+    overflow: hidden;
+    padding: 23px 25px;
+    margin-bottom: 30px;
+    background: #f5f3ff;
+    border: 1px solid #e8e4ff;
+    border-radius: 17px;
+}
+
+.rr-ai::after {
+    content: "AI";
+    position: absolute;
+    right: 20px;
+    top: -28px;
+    color: rgba(118,101,216,.06);
+    font-size: 120px;
+    line-height: 1;
+    font-weight: 950;
+    pointer-events: none;
+}
+
+.rr-ai-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.rr-ai-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.rr-ai-header h2 {
+    color: #51478d;
+    font-size: 16px;
+    margin: 0 0 4px;
+    font-weight: 850;
+}
+
+.rr-ai-header span {
+    color: #9691b8;
+    font-size: 10px;
+}
+
+.rr-ai-feedback {
+    position: relative;
+    z-index: 1;
+    padding: 15px 17px;
+    background: white;
+    border-radius: 11px;
+    color: #625d83;
+    font-size: 12px;
+    line-height: 1.85;
+    white-space: pre-line;
+}
+
+.rr-ai-groups {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    margin-top: 13px;
+}
+
+.rr-ai-group {
+    padding: 15px;
+    background: white;
+    border-radius: 11px;
+}
+
+.rr-ai-group:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+.rr-ai-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 10px;
+    color: #514b78;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.rr-ai-group ul {
+    padding-left: 17px;
+    margin: 0;
+}
+
+.rr-ai-group li {
+    color: #77738e;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+.rr-ai-note {
+    position: relative;
+    z-index: 1;
+    padding-top: 13px;
+    margin-top: 15px;
+    border-top: 1px solid #e6e1fb;
+    color: #9691b2;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.rr-ai-empty {
+    position: relative;
+    z-index: 1;
+    padding: 15px;
+    border-radius: 11px;
+    background: white;
+    color: #77738e;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.rr-answers {
+    margin-top: 5px;
+}
+
+.rr-answer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.rr-answer-card {
+    padding: 17px 19px;
+    background: white;
+    border: 1px solid #ecebf3;
+    border-radius: 13px;
+    transition: .2s;
+}
+
+.rr-answer-card:hover {
+    border-color: #d6d0fb;
+    box-shadow: 0 6px 18px rgba(60,50,120,.05);
+}
+
+.rr-answer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.rr-question {
+    color: #302d51;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.75;
+}
+
+.rr-question-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    margin-right: 6px;
+    border-radius: 7px;
+    background: #efedff;
+    color: #6d5dc4;
+    font-size: 10px;
+    font-weight: 900;
+    vertical-align: middle;
+}
+
+.rr-status {
+    flex-shrink: 0;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.rr-correct {
+    color: #25825b;
+    background: #e5f7ed;
+}
+
+.rr-incorrect {
+    color: #c15d59;
+    background: #fff0ed;
+}
+
+.rr-answer-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.rr-answer-box {
+    padding: 11px 12px;
+    border-radius: 9px;
+    background: #f7f6fc;
+    min-width: 0;
+}
+
+.rr-answer-box.rr-correct-answer {
+    background: #eef9f2;
+}
+
+.rr-answer-box span {
+    display: block;
+    color: #9692aa;
+    font-size: 9px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+
+.rr-answer-box strong {
+    display: block;
+    color: #514d70;
+    font-size: 11px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.rr-correct-answer strong {
+    color: #287b56;
+}
+
+.rr-explanation {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    padding: 11px 13px;
+    margin-top: 10px;
+    background: #fff9e9;
+    border-radius: 9px;
+    color: #89764c;
+    font-size: 11px;
+    line-height: 1.75;
+}
+
+.rr-explanation-icon {
+    flex-shrink: 0;
+}
+
+.rr-actions {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.rr-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 13px 12px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 850;
+    transition: .2s;
+}
+
+.rr-action:hover {
+    transform: translateY(-2px);
+}
+
+.rr-action-primary {
+    background: #7564d2;
+    color: white;
+}
+
+.rr-action-primary:hover {
+    background: #5f4dbd;
+    color: white;
+}
+
+.rr-action-secondary {
+    background: #efedff;
+    color: #6555b7;
+}
+
+.rr-action-secondary:hover {
+    background: #e3dfff;
+    color: #51419f;
+}
+
+@media (max-width: 700px) {
+    .rr-page {
+        padding: 18px 14px 40px;
+    }
+
+    .rr-hero {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .rr-hero h1 {
+        font-size: 24px;
+    }
+
+    .rr-score-panel {
+        min-height: 185px;
+    }
+
+    .rr-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .rr-ai-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .rr-ai-group:last-child:nth-child(odd) {
+        grid-column: auto;
+    }
+
+    .rr-answer-details {
+        grid-template-columns: 1fr;
+    }
+
+    .rr-answer-top {
+        flex-direction: column;
+    }
+
+    .rr-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .rr-top-label {
+        display: none;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="rr-page">
+
+    <div class="rr-topbar">
+        <a href="{{ url_for('reading.reading_home') }}" class="rr-back">
+            ← Quay lại Reading
+        </a>
+        <span class="rr-top-label">VIRTUAL ACADEMY · LEARNING REPORT</span>
+    </div>
+
+    <section class="rr-hero">
+        <div class="rr-hero-copy">
+            <div class="rr-eyebrow">READING PRACTICE COMPLETED</div>
+
+            <h1>{{ passage.title }}</h1>
+
+            <p>
+                Bạn đã hoàn thành bài đọc hiểu này.
+                Hãy xem lại kết quả, nhận xét từ AI và những câu hỏi
+                cần cải thiện để tiến bộ hơn trong lần luyện tập tiếp theo.
+            </p>
+
+            <div class="rr-hero-note">
+                ✦ Learning is a journey, not a race.
+            </div>
+        </div>
+
+        <div class="rr-score-panel">
+            <div class="rr-score-ring" style="--score: {{ percentage }}%;">
+                <strong class="rr-score-value">{{ percentage }}%</strong>
+                <span class="rr-score-caption">ACCURACY</span>
+            </div>
+            <div class="rr-score-status">
+                {{ correct_count }}/{{ total }} câu trả lời đúng
+            </div>
+        </div>
+    </section>
+
+    <section class="rr-stats">
+        <div class="rr-stat">
+            <div class="rr-stat-icon">📝</div>
+            <div>
+                <span>Tổng số câu hỏi</span>
+                <strong>{{ total }}</strong>
+            </div>
+        </div>
+
+        <div class="rr-stat">
+            <div class="rr-stat-icon">✓</div>
+            <div>
+                <span>Câu trả lời đúng</span>
+                <strong>{{ correct_count }}</strong>
+            </div>
+        </div>
+
+        <div class="rr-stat">
+            <div class="rr-stat-icon">↗</div>
+            <div>
+                <span>Câu trả lời sai</span>
+                <strong>{{ total - correct_count }}</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="rr-ai">
+        <div class="rr-ai-header">
+            <div class="rr-ai-icon">✦</div>
+            <div>
+                <h2>AI Learning Report</h2>
+                <span>Nhận xét Reading từ AI</span>
+            </div>
+        </div>
+
+        {% if ai_evaluation %}
+
+            <div class="rr-ai-feedback">
+                {{ ai_evaluation.feedback }}
+            </div>
+
+            <div class="rr-ai-groups">
+                {% if ai_evaluation.strengths %}
+                <div class="rr-ai-group">
+                    <h3>✓ Điểm mạnh</h3>
+                    <ul>
+                        {% for item in ai_evaluation.strengths %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if ai_evaluation.weaknesses %}
+                <div class="rr-ai-group">
+                    <h3>↗ Kỹ năng cần cải thiện</h3>
+                    <ul>
+                        {% for item in ai_evaluation.weaknesses %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if ai_evaluation.recommendations %}
+                <div class="rr-ai-group">
+                    <h3>✧ Gợi ý luyện tập tiếp theo</h3>
+                    <ul>
+                        {% for item in ai_evaluation.recommendations %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="rr-ai-note">
+                Nhận xét được AI tạo dựa trên bài đọc và câu trả lời thực tế.
+                Điểm số vẫn được tính theo đáp án chuẩn của hệ thống.
+            </div>
+
+        {% else %}
+
+            <p class="rr-ai-empty">
+                Hiện chưa thể tạo nhận xét AI. Kết quả chấm đáp án
+                của bạn vẫn được lưu và hiển thị đầy đủ.
+                Bạn có thể tiếp tục học và thử lại sau.
+            </p>
+
+        {% endif %}
+    </section>
+
+    <section class="rr-answers">
+        <div class="rr-section-heading">
+            <div>
+                <div class="rr-kicker">ANSWER ANALYSIS</div>
+                <h2>Chi tiết đáp án</h2>
+                <p>Kiểm tra câu trả lời và xem giải thích cho từng câu hỏi.</p>
+            </div>
+        </div>
+
+        <div class="rr-answer-list">
+            {% for item in results %}
+            <article class="rr-answer-card">
+
+                <div class="rr-answer-top">
+                    <div class="rr-question">
+                        <span class="rr-question-number">{{ loop.index }}</span>
+                        {{ item.question.question_text }}
+                    </div>
+
+                    {% if item.is_correct %}
+                    <span class="rr-status rr-correct">✓ CHÍNH XÁC</span>
+                    {% else %}
+                    <span class="rr-status rr-incorrect">✕ CHƯA CHÍNH XÁC</span>
+                    {% endif %}
+                </div>
+
+                {% set options = {
+                    'A': item.question.option_a,
+                    'B': item.question.option_b,
+                    'C': item.question.option_c,
+                    'D': item.question.option_d
+                } %}
+
+                {% set user_answer = item.user_answer %}
+                {% set correct_answer = item.question.correct_answer %}
+
+                {% if item.question.question_type in ['true_false_not_given', 'true_false', 'tfng'] %}
+
+                    {% set answer_labels = {
+                        'T': 'True',
+                        'F': 'False',
+                        'NG': 'Not Given',
+                        'TRUE': 'True',
+                        'FALSE': 'False',
+                        'NOT GIVEN': 'Not Given'
+                    } %}
+
+                    <div class="rr-answer-details">
+                        <div class="rr-answer-box">
+                            <span>Câu trả lời của bạn</span>
+                            <strong>
+                                {% if user_answer %}
+                                    {{ answer_labels.get(user_answer|upper, user_answer) }}
+                                {% else %}
+                                    Chưa trả lời
+                                {% endif %}
+                            </strong>
+                        </div>
+
+                        <div class="rr-answer-box rr-correct-answer">
+                            <span>Đáp án đúng</span>
+                            <strong>
+                                {{ answer_labels.get(correct_answer|upper, correct_answer) }}
+                            </strong>
+                        </div>
+                    </div>
+
+                {% else %}
+
+                    <div class="rr-answer-details">
+                        <div class="rr-answer-box">
+                            <span>Câu trả lời của bạn</span>
+                            <strong>
+                                {% if user_answer %}
+                                    {{ options.get(user_answer|upper, user_answer) or user_answer }}
+                                {% else %}
+                                    Chưa trả lời
+                                {% endif %}
+                            </strong>
+                        </div>
+
+                        <div class="rr-answer-box rr-correct-answer">
+                            <span>Đáp án đúng</span>
+                            <strong>
+                                {{ options.get(correct_answer|upper, correct_answer) or correct_answer }}
+                            </strong>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if item.question.explanation %}
+                <div class="rr-explanation">
+                    <span class="rr-explanation-icon">💡</span>
+                    <div>
+                        <strong>Giải thích:</strong>
+                        {{ item.question.explanation }}
+                    </div>
+                </div>
+                {% endif %}
+
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="rr-actions">
+        <a class="rr-action rr-action-primary"
+           href="{{ url_for('reading.reading_practice', passage_id=passage.id) }}">
+            ↻ Làm lại bài
+        </a>
+
+        <a class="rr-action rr-action-secondary"
+           href="{{ url_for('reading.reading_home') }}">
+            ← Quay lại Reading
+        </a>
+
+        <a class="rr-action rr-action-secondary"
+           href="{{ url_for('reading.reading_progress') }}">
+            ◷ Xem tiến độ
+        </a>
+    </div>
+
+</div>
+{% endblock %}

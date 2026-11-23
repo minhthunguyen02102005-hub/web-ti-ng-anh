@@ -1,0 +1,732 @@
+
+{% extends "base.html" %}
+
+{% block title %}Speaking Practice - English 7{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+.sp-page {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 26px 25px 55px;
+    color: #302d50;
+}
+
+.sp-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.sp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #756bb1;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+    transition: .2s;
+}
+
+.sp-back:hover {
+    color: #5145a5;
+    transform: translateX(-3px);
+}
+
+.sp-label {
+    color: #9994ae;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.6px;
+}
+
+.sp-hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    min-height: 275px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    border-radius: 25px;
+    background: #eae7ff;
+}
+
+.sp-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 36px 40px;
+}
+
+.sp-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    color: #7567c5;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.8px;
+}
+
+.sp-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 3px;
+    border-radius: 5px;
+    background: #f18c79;
+}
+
+.sp-hero h1 {
+    margin: 0 0 12px;
+    color: #302c59;
+    font-size: clamp(28px, 3vw, 39px);
+    line-height: 1.2;
+    letter-spacing: -1.1px;
+}
+
+.sp-hero p {
+    max-width: 480px;
+    margin: 0;
+    color: #716d94;
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.sp-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 21px;
+}
+
+.sp-tag {
+    padding: 8px 11px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 8px;
+    background: rgba(255,255,255,.65);
+    color: #625a9f;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sp-hero-image {
+    position: relative;
+    min-height: 275px;
+}
+
+.sp-hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 275px;
+    object-fit: cover;
+}
+
+.sp-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(234,231,255,.25), transparent 48%);
+}
+
+.sp-image-note {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.93);
+    color: #5c548e;
+    font-size: 10px;
+    font-weight: 850;
+    box-shadow: 0 6px 20px rgba(38,32,82,.12);
+}
+
+.sp-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.sp-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 93px;
+    padding: 18px 20px;
+    border: 1px solid #eceaf3;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(46,42,83,.035);
+}
+
+.sp-summary-card:first-child {
+    background: #f0edff;
+    border-color: #e5e0ff;
+}
+
+.sp-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 13px;
+    background: #e5e0ff;
+    font-size: 21px;
+}
+
+.sp-summary-card:nth-child(2) .sp-summary-icon {
+    background: #fff0e9;
+}
+
+.sp-summary-card:nth-child(3) .sp-summary-icon {
+    background: #e3f5ed;
+}
+
+.sp-summary-card span {
+    display: block;
+    margin-bottom: 5px;
+    color: #918ca5;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.sp-summary-card strong {
+    display: block;
+    color: #39345f;
+    font-size: 19px;
+    font-weight: 850;
+}
+
+.sp-summary-card:first-child strong {
+    color: #6656bd;
+}
+
+.sp-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    margin-bottom: 19px;
+}
+
+.sp-section-kicker {
+    margin-bottom: 7px;
+    color: #938bbf;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.8px;
+}
+
+.sp-section-heading h2 {
+    margin: 0 0 6px;
+    color: #302d50;
+    font-size: 22px;
+    letter-spacing: -.5px;
+}
+
+.sp-section-heading p {
+    margin: 0;
+    color: #9692a8;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.sp-progress-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: #7062c3;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 850;
+    transition: .2s;
+}
+
+.sp-progress-button:hover {
+    background: #574ba6;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.sp-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.sp-unit-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 21px;
+    overflow: hidden;
+    border: 1px solid #eceaf3;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(46,42,83,.035);
+    transition: .25s ease;
+}
+
+.sp-unit-card:hover {
+    transform: translateY(-4px);
+    border-color: #d8d1ff;
+    box-shadow: 0 12px 25px rgba(46,42,83,.08);
+}
+
+.sp-unit-card:nth-child(4n+1) {
+    border-top: 3px solid #8273d5;
+}
+
+.sp-unit-card:nth-child(4n+2) {
+    border-top: 3px solid #f09a83;
+}
+
+.sp-unit-card:nth-child(4n+3) {
+    border-top: 3px solid #78bda0;
+}
+
+.sp-unit-card:nth-child(4n) {
+    border-top: 3px solid #e9bd65;
+}
+
+.sp-unit-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.sp-unit-number {
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: #eeeaff;
+    color: #7567c5;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1px;
+}
+
+.sp-unit-card:nth-child(4n+2) .sp-unit-number {
+    background: #fff0e9;
+    color: #d7836e;
+}
+
+.sp-unit-card:nth-child(4n+3) .sp-unit-number {
+    background: #e5f5ed;
+    color: #579777;
+}
+
+.sp-unit-card:nth-child(4n) .sp-unit-number {
+    background: #fff5df;
+    color: #b78c3d;
+}
+
+.sp-unit-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    background: #f3f1ff;
+    font-size: 19px;
+}
+
+.sp-unit-card:nth-child(4n+2) .sp-unit-symbol {
+    background: #fff5f0;
+}
+
+.sp-unit-card:nth-child(4n+3) .sp-unit-symbol {
+    background: #eef8f2;
+}
+
+.sp-unit-card:nth-child(4n) .sp-unit-symbol {
+    background: #fff8e9;
+}
+
+.sp-unit-card h3 {
+    margin: 0 0 6px;
+    color: #393651;
+    font-size: 17px;
+    font-weight: 850;
+}
+
+.sp-unit-description {
+    margin: 0 0 17px;
+    color: #9692a8;
+    font-size: 11px;
+}
+
+.sp-topic-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-top: 13px;
+    border-top: 1px solid #f0eef5;
+    color: #89849f;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sp-topic-heading span:last-child {
+    color: #aaa5b9;
+    font-weight: 650;
+}
+
+.sp-topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sp-topic-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 12px;
+    border: 1px solid #efedf5;
+    border-radius: 10px;
+    background: #faf9ff;
+    color: #615b91;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 1.5;
+    transition: .2s;
+}
+
+.sp-topic-link span:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.sp-topic-link span:last-child {
+    flex-shrink: 0;
+    color: #a39bcf;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.sp-topic-link:hover {
+    border-color: #d9d2ff;
+    background: #f0edff;
+    color: #5145a5;
+}
+
+.sp-topic-link:hover span:last-child {
+    transform: translateX(3px);
+}
+
+.sp-unit-card:nth-child(4n+2) .sp-topic-link {
+    background: #fffaf7;
+    color: #a36e62;
+}
+
+.sp-unit-card:nth-child(4n+2) .sp-topic-link:hover {
+    background: #fff0e9;
+    border-color: #f7d9ce;
+}
+
+.sp-unit-card:nth-child(4n+3) .sp-topic-link {
+    background: #f7fcf9;
+    color: #55836b;
+}
+
+.sp-unit-card:nth-child(4n+3) .sp-topic-link:hover {
+    background: #eaf6ef;
+    border-color: #cfe9d9;
+}
+
+.sp-unit-card:nth-child(4n) .sp-topic-link {
+    background: #fffdf7;
+    color: #92743e;
+}
+
+.sp-unit-card:nth-child(4n) .sp-topic-link:hover {
+    background: #fff5df;
+    border-color: #f0e1b9;
+}
+
+.sp-no-topic {
+    padding: 13px;
+    border: 1px dashed #e5e2ed;
+    border-radius: 10px;
+    background: #faf9fc;
+    color: #aaa5b5;
+    text-align: center;
+    font-size: 11px;
+}
+
+.sp-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 28px;
+    padding: 17px 19px;
+    border-radius: 14px;
+    background: #f0edff;
+}
+
+.sp-footer p {
+    margin: 0;
+    color: #716b96;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.sp-footer a {
+    flex-shrink: 0;
+    color: #7062c3;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+.sp-footer a:hover {
+    color: #5145a5;
+}
+
+@media (max-width: 900px) {
+    .sp-unit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-hero {
+        grid-template-columns: 1fr .75fr;
+    }
+
+    .sp-hero-content {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 650px) {
+    .sp-page {
+        padding: 19px 14px 40px;
+    }
+
+    .sp-label {
+        display: none;
+    }
+
+    .sp-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .sp-hero-content {
+        padding: 27px 22px;
+    }
+
+    .sp-hero-image {
+        min-height: 175px;
+        max-height: 190px;
+    }
+
+    .sp-hero-image img {
+        min-height: 175px;
+        max-height: 190px;
+    }
+
+    .sp-summary {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .sp-summary-card {
+        min-height: 76px;
+    }
+
+    .sp-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .sp-unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sp-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sp-unit-card,
+    .sp-topic-link,
+    .sp-progress-button {
+        transition: none;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="sp-page">
+
+    <div class="sp-topbar">
+        <a href="{{ url_for('dashboard') }}" class="sp-back">
+            ← Quay lại trang chủ
+        </a>
+
+        <span class="sp-label">LEARNING SPACE · ENGLISH 7</span>
+    </div>
+
+    <header class="sp-hero">
+        <div class="sp-hero-content">
+            <div class="sp-eyebrow">ENGLISH 7 · GLOBAL SUCCESS</div>
+
+            <h1>Speak with confidence.</h1>
+
+            <p>
+                Phát triển kỹ năng giao tiếp tiếng Anh qua các chủ đề
+                quen thuộc trong chương trình Tiếng Anh lớp 7.
+                Luyện cách diễn đạt ý tưởng và tự tin sử dụng tiếng Anh.
+            </p>
+
+            <div class="sp-hero-tags">
+                <span class="sp-tag">🗣️ Speaking practice</span>
+                <span class="sp-tag">📚 English 7</span>
+                <span class="sp-tag">🎤 Communication</span>
+            </div>
+        </div>
+
+        <div class="sp-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&auto=format&fit=crop&q=85"
+                alt="Học sinh thực hành thuyết trình và giao tiếp"
+            >
+            <div class="sp-image-overlay"></div>
+            <div class="sp-image-note">Find your voice ✦</div>
+        </div>
+    </header>
+
+    <section class="sp-summary">
+        <div class="sp-summary-card">
+            <div class="sp-summary-icon">🗣️</div>
+            <div>
+                <span>Kỹ năng đang học</span>
+                <strong>Speaking</strong>
+            </div>
+        </div>
+
+        <div class="sp-summary-card">
+            <div class="sp-summary-icon">📚</div>
+            <div>
+                <span>Chương trình</span>
+                <strong>6 Units</strong>
+            </div>
+        </div>
+
+        <div class="sp-summary-card">
+            <div class="sp-summary-icon">🎤</div>
+            <div>
+                <span>Hình thức học</span>
+                <strong>Luyện nói</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="sp-units-section">
+        <div class="sp-section-heading">
+            <div>
+                <div class="sp-section-kicker">CHOOSE YOUR TOPIC</div>
+                <h2>Chọn Unit để luyện nói</h2>
+                <p>Khám phá các chủ đề và bắt đầu thực hành giao tiếp.</p>
+            </div>
+
+            <a
+                href="{{ url_for('speaking.speaking_progress') }}"
+                class="sp-progress-button"
+            >
+                <span>📊</span>
+                Tiến độ học tập
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="sp-unit-grid">
+            {% for unit in units %}
+            <article class="sp-unit-card">
+
+                <div class="sp-unit-top">
+                    <span class="sp-unit-number">
+                        UNIT {{ "%02d"|format(unit.number|int) }}
+                    </span>
+
+                    <span class="sp-unit-symbol">
+                        {% if unit.number == 1 %}🎨
+                        {% elif unit.number == 2 %}🥗
+                        {% elif unit.number == 3 %}🤝
+                        {% elif unit.number == 4 %}🎵
+                        {% elif unit.number == 5 %}🍜
+                        {% elif unit.number == 6 %}🏫
+                        {% else %}🗣️
+                        {% endif %}
+                    </span>
+                </div>
+
+                <h3>Unit {{ unit.number }}</h3>
+
+                <p class="sp-unit-description">
+                    {{ unit.topics|length }} chủ đề luyện nói
+                </p>
+
+                <div class="sp-topic-heading">
+                    <span>DANH SÁCH CHỦ ĐỀ</span>
+                    <span>{{ unit.topics|length }} topics</span>
+                </div>
+
+                {% if unit.topics %}
+                <div class="sp-topic-list">
+                    {% for topic in unit.topics %}
+                    <a
+                        href="{{ url_for('speaking.speaking_practice', topic_id=topic.id) }}"
+                        class="sp-topic-link"
+                    >
+                        <span>{{ topic.title }}</span>
+                        <span>→</span>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="sp-no-topic">
+                    Chưa có chủ đề luyện nói
+                </div>
+                {% endif %}
+
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="sp-footer">
+        <p>
+            <strong>💡 Speaking tip:</strong>
+            Đừng ngại mắc lỗi khi luyện nói. Hãy bắt đầu bằng những câu đơn giản
+            và luyện tập thường xuyên.
+        </p>
+
+        <a href="{{ url_for('dashboard') }}">← Quay lại trang chủ</a>
+    </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ cá nhân - Virtual Academy</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+
+<body class="dashboard-page profile-page">
+
+<div class="dashboard-layout">
+
+    <aside class="academy-sidebar">
+        <div class="academy-logo">
+            <span class="logo-mark">V</span>
+            <div>
+                <strong>VIRTUAL</strong>
+                <span>ACADEMY</span>
+            </div>
+        </div>
+
+        <div class="sidebar-caption">LEARNING SPACE</div>
+
+        <nav class="academy-nav">
+            <a href="{{ url_for('dashboard') }}" class="academy-link">
+                <span class="nav-icon">⌂</span>
+                <span>Tổng quan</span>
+            </a>
+
+            <a href="{{ url_for('learning_path') }}" class="academy-link">
+                <span class="nav-icon">⌁</span>
+                <span>Lộ trình học</span>
+            </a>
+
+            <a href="{{ url_for('progress') }}" class="academy-link">
+                <span class="nav-icon">▥</span>
+                <span>Tiến độ học tập</span>
+            </a>
+
+            <a href="{{ url_for('vocabulary') }}" class="academy-link">
+                <span class="nav-icon">A</span>
+                <span>Từ vựng</span>
+            </a>
+
+            <a href="{{ url_for('grammar.grammar_home') }}" class="academy-link">
+                <span class="nav-icon">文</span>
+                <span>Ngữ pháp</span>
+            </a>
+
+            <a href="{{ url_for('reading.reading_home') }}" class="academy-link">
+                <span class="nav-icon">▤</span>
+                <span>Reading</span>
+            </a>
+
+            <a href="{{ url_for('speaking.speaking_home') }}" class="academy-link">
+                <span class="nav-icon">◉</span>
+                <span>Speaking</span>
+            </a>
+
+            <a href="{{ url_for('writing.writing_home') }}" class="academy-link">
+                <span class="nav-icon">✎</span>
+                <span>Writing</span>
+            </a>
+
+            <a href="{{ url_for('placement_test') }}" class="academy-link">
+                <span class="nav-icon">✓</span>
+                <span>Kiểm tra đầu vào</span>
+            </a>
+
+            <a href="{{ url_for('tutor') }}" class="academy-link">
+                <span class="nav-icon">✧</span>
+                <span>AI Tutor</span>
+            </a>
+
+            <a href="{{ url_for('profile') }}" class="academy-link active">
+                <span class="nav-icon">○</span>
+                <span>Hồ sơ cá nhân</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="{{ url_for('logout') }}" class="academy-logout">
+                <span class="nav-icon">↪</span>
+                <span>Đăng xuất</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="profile-main">
+
+        <header class="profile-header">
+            <div>
+                <div class="breadcrumb">VIRTUAL ACADEMY <span>/</span> PROFILE</div>
+                <h1>Hồ sơ cá nhân</h1>
+                <p>Quản lý thông tin và theo dõi năng lực học tập của bạn.</p>
+            </div>
+
+            <a href="{{ url_for('dashboard') }}" class="back-dashboard">
+                ← Dashboard
+            </a>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="profile-messages">
+                    {% for category, message in messages %}
+                        <div class="profile-message {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="profile-section">
+            <div class="section-heading">
+                <h2>Thông tin cá nhân</h2>
+                <p>Thông tin tài khoản của bạn</p>
+            </div>
+
+            <div class="profile-info-card">
+
+                <form
+                    action="{{ url_for('upload_profile_avatar') }}"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="avatar-form"
+                >
+                    <div class="avatar-preview" id="avatarPreview">
+                        {% if current_user.avatar %}
+                            <img
+                                src="{{ url_for('static', filename='uploads/avatars/' ~ current_user.avatar) }}"
+                                alt="Ảnh đại diện"
+                                id="avatarImage"
+                            >
+                        {% else %}
+                            <div class="avatar-placeholder" id="avatarPlaceholder">
+                                {{ current_user.full_name[0]|upper if current_user.full_name else 'U' }}
+                            </div>
+                            <img id="avatarImage" alt="Ảnh đại diện" hidden>
+                        {% endif %}
+                    </div>
+
+                    <input
+                        type="file"
+                        name="avatar"
+                        id="avatarInput"
+                        accept=".png,.jpg,.jpeg,.webp"
+                        hidden
+                    >
+
+                    <label for="avatarInput" class="choose-avatar">
+                        Chọn ảnh
+                    </label>
+
+                    <button type="submit" class="save-avatar" id="saveAvatar" disabled>
+                        Lưu ảnh
+                    </button>
+
+                    <span class="avatar-note">PNG, JPG hoặc WEBP · Tối đa 5MB</span>
+                </form>
+
+                <div class="profile-details">
+                    <div class="profile-name">
+                        <h3>{{ current_user.full_name }}</h3>
+                        <span>Student · Grade 7</span>
+                    </div>
+
+                    <div class="profile-detail-row">
+                        <span>Họ và tên</span>
+                        <strong>{{ current_user.full_name }}</strong>
+                    </div>
+
+                    <div class="profile-detail-row">
+                        <span>Tên đăng nhập</span>
+                        <strong>{{ current_user.username }}</strong>
+                    </div>
+
+                    <div class="profile-detail-row">
+                        <span>Email</span>
+                        <strong>{{ current_user.email or 'Chưa cập nhật' }}</strong>
+                    </div>
+
+                    <div class="profile-detail-row">
+                        <span>Ngày tham gia</span>
+                        <strong>
+                            {{ current_user.created_at.strftime('%d/%m/%Y') if current_user.created_at else '—' }}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <div class="section-heading">
+                <h2>Năng lực tiếng Anh</h2>
+                <p>Thông tin trình độ và kết quả theo từng kỹ năng</p>
+            </div>
+
+            <div class="level-card">
+                <span>Trình độ hiện tại</span>
+                <strong>{{ profile.current_level or 'Chưa đánh giá' }}</strong>
+            </div>
+
+            <div class="skills-card">
+                {% set skills = [
+                    ('Từ vựng', profile.vocabulary_score),
+                    ('Ngữ pháp', profile.grammar_score),
+                    ('Reading', profile.reading_score),
+                    ('Listening', profile.listening_score),
+                    ('Speaking', profile.speaking_score),
+                    ('Writing', profile.writing_score)
+                ] %}
+
+                {% for name, score in skills %}
+                    {% set value = [[score|default(0)|float, 0]|max, 100]|min %}
+
+                    <div class="skill-row">
+                        <div class="skill-label">
+                            <span>{{ name }}</span>
+                            <strong>{{ "%.0f"|format(value) }}%</strong>
+                        </div>
+
+                        <div class="skill-track">
+                          <div class="skill-fill" data-progress="{{ value|int }}"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <div class="section-heading">
+                <h2>Mục tiêu học tập</h2>
+                <p>Đặt mục tiêu để định hướng quá trình học tiếng Anh</p>
+            </div>
+
+            <form method="POST" action="{{ url_for('profile') }}" class="goal-card">
+                <label for="learningGoal">Mục tiêu của bạn</label>
+
+                <textarea
+                    name="learning_goal"
+                    id="learningGoal"
+                    rows="4"
+                    placeholder="Ví dụ: Cải thiện vốn từ vựng, nắm vững ngữ pháp và tự tin giao tiếp bằng tiếng Anh..."
+                >{{ profile.learning_goal or '' }}</textarea>
+
+                <button type="submit" class="save-goal">
+                    Lưu mục tiêu
+                </button>
+            </form>
+        </section>
+
+        {% if profile.strengths or profile.weaknesses %}
+            <section class="profile-section">
+                <div class="section-heading">
+                    <h2>Nhận xét học tập</h2>
+                    <p>Điểm mạnh và nội dung cần cải thiện</p>
+                </div>
+
+                <div class="feedback-grid">
+                    {% if profile.strengths %}
+                        <div class="feedback-card">
+                            <h3>Điểm mạnh</h3>
+                            <p>{{ profile.strengths }}</p>
+                        </div>
+                    {% endif %}
+
+                    {% if profile.weaknesses %}
+                        <div class="feedback-card">
+                            <h3>Cần cải thiện</h3>
+                            <p>{{ profile.weaknesses }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+        {% endif %}
+
+    </main>
+</div>
+
+<script>
+const avatarInput = document.getElementById("avatarInput");
+const avatarImage = document.getElementById("avatarImage");
+const avatarPlaceholder = document.getElementById("avatarPlaceholder");
+const saveAvatar = document.getElementById("saveAvatar");
+
+avatarInput.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) {
+        saveAvatar.disabled = true;
+        return;
+    }
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+        alert("Vui lòng chọn ảnh PNG, JPG hoặc WEBP.");
+        this.value = "";
+        saveAvatar.disabled = true;
+        return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+        alert("Ảnh không được vượt quá 5MB.");
+        this.value = "";
+        saveAvatar.disabled = true;
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        avatarImage.src = event.target.result;
+        avatarImage.hidden = false;
+
+        if (avatarPlaceholder) {
+            avatarPlaceholder.style.display = "none";
+        }
+
+        saveAvatar.disabled = false;
+    };
+
+    reader.readAsDataURL(file);
+});
+document.querySelectorAll(".skill-fill").forEach(function (bar) {
+    const progress = Number(bar.dataset.progress) || 0;
+    bar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+});
+</script>
+
+</body>
+</html>

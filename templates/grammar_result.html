@@ -1,0 +1,974 @@
+
+{% extends "base.html" %}
+
+{% block title %}Kết quả luyện tập ngữ pháp{% endblock %}
+
+{% block styles %}
+<style>
+.grr-page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 28px 25px 65px;
+    color: #282344;
+    font-family: inherit;
+}
+
+.grr-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 12px;
+}
+
+.grr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e8e4f3;
+    border-radius: 10px;
+    background: #fff;
+    color: #62568f;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.grr-top-label {
+    color: #9992b2;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.grr-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 25px;
+    align-items: center;
+    overflow: hidden;
+    padding: 35px 38px;
+    border-radius: 25px;
+    background: #eeeaff;
+    margin-bottom: 22px;
+}
+
+.grr-hero::before {
+    content: "";
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    top: -150px;
+    right: 25%;
+}
+
+.grr-hero-content,
+.grr-score-area {
+    position: relative;
+    z-index: 1;
+}
+
+.grr-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #7465c3;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    margin-bottom: 15px;
+}
+
+.grr-hero h1 {
+    color: #302851;
+    font-size: 30px;
+    line-height: 1.25;
+    margin: 0 0 12px;
+}
+
+.grr-hero p {
+    max-width: 510px;
+    color: #77708f;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.grr-unit-tag {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 8px 13px;
+    border-radius: 9px;
+    background: white;
+    color: #7465c3;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.grr-score-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grr-score-ring {
+    --score: 0%;
+    width: 155px;
+    height: 155px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: conic-gradient(#7867d9 var(--score), rgba(255,255,255,.7) 0);
+    position: relative;
+}
+
+.grr-score-ring::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.grr-score-ring strong,
+.grr-score-ring span {
+    position: relative;
+    z-index: 1;
+}
+
+.grr-score-ring strong {
+    color: #473b82;
+    font-size: 35px;
+    line-height: 1.1;
+}
+
+.grr-score-ring span {
+    color: #a19ab8;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.grr-score-caption {
+    max-width: 130px;
+}
+
+.grr-score-caption .grr-result-icon {
+    font-size: 31px;
+    margin-bottom: 8px;
+}
+
+.grr-score-caption strong {
+    display: block;
+    color: #40366e;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.grr-score-caption span {
+    display: block;
+    color: #827b9b;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 6px;
+}
+
+.grr-feedback {
+    padding: 15px 18px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.72);
+    color: #62578f;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 23px;
+}
+
+.grr-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.grr-stat {
+    position: relative;
+    overflow: hidden;
+    padding: 19px 21px;
+    border: 1px solid #ece9f5;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.grr-stat::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    right: -20px;
+    top: -22px;
+    background: #f0edff;
+}
+
+.grr-stat:nth-child(2)::after {
+    background: #e5f6ed;
+}
+
+.grr-stat:nth-child(3)::after {
+    background: #fff0e9;
+}
+
+.grr-stat-label {
+    display: block;
+    color: #9992ad;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.grr-stat strong {
+    color: #40366e;
+    font-size: 27px;
+    position: relative;
+    z-index: 1;
+}
+
+.grr-stat:nth-child(2) strong {
+    color: #45a47b;
+}
+
+.grr-stat:nth-child(3) strong {
+    color: #df896e;
+}
+
+.grr-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin: 34px 0 17px;
+}
+
+.grr-section-heading h2 {
+    color: #302851;
+    font-size: 21px;
+    margin: 0 0 6px;
+}
+
+.grr-section-heading p {
+    color: #9891aa;
+    font-size: 12px;
+    margin: 0;
+}
+
+.grr-ai {
+    overflow: hidden;
+    border: 1px solid #e9e4f7;
+    border-radius: 19px;
+    background: #fff;
+    margin-bottom: 34px;
+}
+
+.grr-ai-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 21px 24px;
+    background: linear-gradient(110deg, #f0edff, #faf8ff);
+}
+
+.grr-ai-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #ded8ff;
+    font-size: 23px;
+}
+
+.grr-ai-header h2 {
+    color: #40366e;
+    font-size: 17px;
+    margin: 0 0 4px;
+}
+
+.grr-ai-header p {
+    color: #9991b1;
+    font-size: 11px;
+    margin: 0;
+}
+
+.grr-ai-body {
+    padding: 22px 24px 24px;
+}
+
+.grr-ai-feedback {
+    padding: 16px 18px;
+    border-left: 4px solid #8a78df;
+    border-radius: 10px;
+    background: #f8f6ff;
+    color: #665c87;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 17px;
+}
+
+.grr-ai-feedback strong {
+    display: block;
+    color: #514582;
+    margin-bottom: 5px;
+}
+
+.grr-ai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.grr-ai-card {
+    padding: 17px;
+    border: 1px solid #eeebf5;
+    border-radius: 13px;
+    background: #fff;
+}
+
+.grr-ai-card h3 {
+    color: #4d8d70;
+    font-size: 13px;
+    margin: 0 0 12px;
+}
+
+.grr-ai-card.weakness h3 {
+    color: #d17f69;
+}
+
+.grr-ai-card.recommendation {
+    grid-column: 1 / -1;
+    background: #fffbf1;
+    border-color: #f4ead0;
+}
+
+.grr-ai-card.recommendation h3 {
+    color: #b18a42;
+}
+
+.grr-ai-card ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.grr-ai-card li {
+    color: #77718b;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+.grr-ai-card p {
+    color: #9690a5;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.grr-ai-empty {
+    padding: 18px;
+    border-radius: 12px;
+    background: #f8f6ff;
+    color: #817997;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.grr-review-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 36px 0 16px;
+    gap: 12px;
+}
+
+.grr-review-heading h2 {
+    color: #302851;
+    font-size: 21px;
+    margin: 0;
+}
+
+.grr-review-heading span {
+    padding: 7px 11px;
+    border-radius: 8px;
+    background: #f0edff;
+    color: #7867c9;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.grr-question {
+    overflow: hidden;
+    border: 1px solid #ece9f3;
+    border-radius: 15px;
+    background: #fff;
+    margin-bottom: 13px;
+}
+
+.grr-question.correct {
+    border-left: 4px solid #62b58a;
+}
+
+.grr-question.incorrect {
+    border-left: 4px solid #e59a80;
+}
+
+.grr-question-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 19px;
+    background: #fbfaff;
+    border-bottom: 1px solid #f0edf6;
+}
+
+.grr-question-number {
+    color: #7565c2;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.grr-status {
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.grr-question.correct .grr-status {
+    background: #e8f7ef;
+    color: #398c65;
+}
+
+.grr-question.incorrect .grr-status {
+    background: #fff0eb;
+    color: #c47761;
+}
+
+.grr-question-body {
+    padding: 18px 20px 20px;
+}
+
+.grr-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 12px;
+}
+
+.grr-tag {
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #f0edff;
+    color: #7868bd;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.grr-tag.type {
+    background: #fff5e5;
+    color: #ae8a48;
+}
+
+.grr-question-text {
+    color: #383151;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+    white-space: pre-line;
+    margin-bottom: 15px;
+}
+
+.grr-answer {
+    padding: 11px 14px;
+    border-radius: 9px;
+    background: #f8f7fb;
+    color: #77718a;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    margin-top: 8px;
+}
+
+.grr-answer strong {
+    color: #4a4264;
+}
+
+.grr-answer.correct-answer {
+    background: #edf8f1;
+    color: #438b67;
+}
+
+.grr-answer.correct-answer strong {
+    color: #347a57;
+}
+
+.grr-answer.user-wrong {
+    background: #fff3ef;
+    color: #bd745e;
+}
+
+.grr-explanation {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: #fff9eb;
+    color: #8d7952;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+.grr-explanation strong {
+    color: #9b7938;
+}
+
+.grr-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 30px;
+}
+
+.grr-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s ease;
+}
+
+.grr-action.primary {
+    background: #7565ca;
+    color: #fff;
+}
+
+.grr-action.primary:hover {
+    background: #6252b5;
+    transform: translateY(-2px);
+}
+
+.grr-action.secondary {
+    background: #f0edff;
+    color: #695bb0;
+}
+
+.grr-action.secondary:hover {
+    background: #e6e1ff;
+    transform: translateY(-2px);
+}
+
+.grr-scroll {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 43px;
+    height: 43px;
+    border: none;
+    border-radius: 13px;
+    background: #7565ca;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: .2s;
+    z-index: 100;
+}
+
+.grr-scroll.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+    .grr-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .grr-score-area {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .grr-page {
+        padding: 20px 14px 45px;
+    }
+
+    .grr-hero {
+        padding: 25px 21px;
+    }
+
+    .grr-hero h1 {
+        font-size: 24px;
+    }
+
+    .grr-score-ring {
+        width: 125px;
+        height: 125px;
+    }
+
+    .grr-score-ring strong {
+        font-size: 29px;
+    }
+
+    .grr-summary {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .grr-stat {
+        padding: 15px 18px;
+    }
+
+    .grr-stat strong {
+        font-size: 23px;
+    }
+
+    .grr-ai-header {
+        padding: 17px;
+    }
+
+    .grr-ai-body {
+        padding: 16px;
+    }
+
+    .grr-ai-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grr-ai-card.recommendation {
+        grid-column: auto;
+    }
+
+    .grr-question-body {
+        padding: 15px;
+    }
+
+    .grr-top-label {
+        display: none;
+    }
+
+    .grr-scroll {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="grr-page">
+
+    <div class="grr-topbar">
+        <a href="{{ url_for('grammar.grammar_home') }}" class="grr-back">
+            ← Quay lại Grammar
+        </a>
+        <span class="grr-top-label">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="grr-hero">
+        <div class="grr-hero-content">
+            <div class="grr-eyebrow">✦ LEARNING REPORT</div>
+            <h1>Bạn đã hoàn thành bài luyện tập!</h1>
+            <p>
+                Cùng xem lại kết quả Unit {{ unit }}, khám phá điểm mạnh
+                và xác định những kiến thức ngữ pháp cần cải thiện.
+            </p>
+            <span class="grr-unit-tag">GRAMMAR · UNIT {{ unit }}</span>
+
+            <div class="grr-feedback">
+                {% if percentage >= 90 %}
+                    🏆 Xuất sắc! Bạn đã nắm rất tốt kiến thức ngữ pháp trong bài.
+                {% elif percentage >= 70 %}
+                    🎉 Làm tốt lắm! Bạn đã hiểu phần lớn kiến thức. Hãy tiếp tục phát huy nhé.
+                {% elif percentage >= 50 %}
+                    🌱 Bạn đã có nền tảng cơ bản. Hãy xem lại những câu sai để tiến bộ hơn.
+                {% else %}
+                    💪 Đừng nản lòng! Hãy đọc kỹ phần giải thích và luyện tập lại từng dạng bài.
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="grr-score-area">
+            <div class="grr-score-ring" style="--score: {{ [0, [percentage|float, 100]|min]|max }}%;">
+                <strong>{{ percentage|round|int }}%</strong>
+                <span>ACCURACY</span>
+            </div>
+
+            <div class="grr-score-caption">
+                <div class="grr-result-icon">
+                    {% if percentage >= 90 %}
+                        🏆
+                    {% elif percentage >= 70 %}
+                        🎉
+                    {% elif percentage >= 50 %}
+                        🌱
+                    {% else %}
+                        💪
+                    {% endif %}
+                </div>
+                <strong>
+                    {% if percentage >= 90 %}
+                        Thành tích xuất sắc
+                    {% elif percentage >= 70 %}
+                        Kết quả tốt
+                    {% elif percentage >= 50 %}
+                        Đang tiến bộ
+                    {% else %}
+                        Cần luyện tập thêm
+                    {% endif %}
+                </strong>
+                <span>Tiếp tục luyện tập để nâng cao khả năng sử dụng ngữ pháp.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="grr-summary">
+        <div class="grr-stat">
+            <span class="grr-stat-label">Tổng số câu hỏi</span>
+            <strong>{{ total }}</strong>
+        </div>
+
+        <div class="grr-stat">
+            <span class="grr-stat-label">Số câu trả lời đúng</span>
+            <strong>{{ correct_count }}</strong>
+        </div>
+
+        <div class="grr-stat">
+            <span class="grr-stat-label">Số câu trả lời sai</span>
+            <strong>{{ total - correct_count }}</strong>
+        </div>
+    </section>
+
+    <div class="grr-section-heading">
+        <div>
+            <h2>AI Learning Report</h2>
+            <p>Phân tích kết quả và gợi ý lộ trình ôn tập của bạn</p>
+        </div>
+    </div>
+
+    <section class="grr-ai">
+        <div class="grr-ai-header">
+            <div class="grr-ai-icon">🤖</div>
+            <div>
+                <h2>Nhận xét Grammar từ AI</h2>
+                <p>YOUR PERSONAL LEARNING ASSISTANT</p>
+            </div>
+        </div>
+
+        <div class="grr-ai-body">
+            {% if ai_evaluation %}
+
+                {% if ai_evaluation.feedback %}
+                <div class="grr-ai-feedback">
+                    <strong>📝 Nhận xét tổng quan</strong>
+                    {{ ai_evaluation.feedback }}
+                </div>
+                {% endif %}
+
+                <div class="grr-ai-grid">
+                    <div class="grr-ai-card">
+                        <h3>✦ Điểm mạnh</h3>
+                        {% if ai_evaluation.strengths %}
+                        <ul>
+                            {% for item in ai_evaluation.strengths %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p>Chưa có nhận xét cụ thể.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="grr-ai-card weakness">
+                        <h3>◎ Kiến thức cần cải thiện</h3>
+                        {% if ai_evaluation.weaknesses %}
+                        <ul>
+                            {% for item in ai_evaluation.weaknesses %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p>Chưa có nhận xét cụ thể.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="grr-ai-card recommendation">
+                        <h3>✎ Đề xuất ôn tập</h3>
+                        {% if ai_evaluation.recommendations %}
+                        <ul>
+                            {% for item in ai_evaluation.recommendations %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p>Hãy tiếp tục luyện tập để củng cố kiến thức.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="grr-ai-empty">
+                    Hiện chưa thể tạo nhận xét AI. Kết quả chấm đáp án
+                    của bạn vẫn được lưu và hiển thị đầy đủ.
+                    Bạn có thể tiếp tục học và thử lại sau.
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <div class="grr-review-heading">
+        <h2>Chi tiết bài làm</h2>
+        <span>{{ results|length }} CÂU HỎI</span>
+    </div>
+
+    {% for item in results %}
+    <article class="grr-question {% if item.is_correct %}correct{% else %}incorrect{% endif %}">
+        <div class="grr-question-head">
+            <span class="grr-question-number">QUESTION {{ loop.index }}</span>
+
+            {% if item.is_correct %}
+            <span class="grr-status">✓ Chính xác</span>
+            {% else %}
+            <span class="grr-status">✕ Chưa chính xác</span>
+            {% endif %}
+        </div>
+
+        <div class="grr-question-body">
+            <div class="grr-tags">
+                {% if item.question.topic %}
+                <span class="grr-tag">{{ item.question.topic }}</span>
+                {% endif %}
+
+                <span class="grr-tag type">
+                    {% if item.question.question_type == "multiple_choice" %}
+                        Trắc nghiệm
+                    {% elif item.question.question_type == "fill_in" %}
+                        Điền từ
+                    {% elif item.question.question_type == "error_correction" %}
+                        Sửa lỗi sai
+                    {% else %}
+                        Bài tập ngữ pháp
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="grr-question-text">
+                {{ item.question.question_text }}
+            </div>
+
+            <div class="grr-answer {% if not item.is_correct %}user-wrong{% endif %}">
+                <strong>Câu trả lời của bạn:</strong>
+                {{ item.user_answer if item.user_answer else "Chưa trả lời" }}
+            </div>
+
+            <div class="grr-answer correct-answer">
+                <strong>Đáp án chính xác:</strong>
+
+                {% if item.question.question_type == "multiple_choice" %}
+                    {% set correct = item.question.correct_answer|upper|trim %}
+
+                    {% if correct == "A" %}
+                        A. {{ item.question.option_a }}
+                    {% elif correct == "B" %}
+                        B. {{ item.question.option_b }}
+                    {% elif correct == "C" %}
+                        C. {{ item.question.option_c }}
+                    {% elif correct == "D" %}
+                        D. {{ item.question.option_d }}
+                    {% else %}
+                        {{ item.question.correct_answer }}
+                    {% endif %}
+                {% else %}
+                    {{ item.question.correct_answer }}
+                {% endif %}
+            </div>
+
+            {% if item.question.explanation %}
+            <div class="grr-explanation">
+                <span>💡</span>
+                <div>
+                    <strong>Giải thích:</strong>
+                    {{ item.question.explanation }}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+
+    <div class="grr-actions">
+        <a href="{{ url_for('grammar.grammar_practice', unit=unit) }}"
+           class="grr-action primary">
+            ↻ Làm lại Unit {{ unit }}
+        </a>
+
+        <a href="{{ url_for('grammar.grammar_home') }}"
+           class="grr-action secondary">
+            Danh sách Unit
+        </a>
+
+        <a href="{{ url_for('grammar.grammar_progress') }}"
+           class="grr-action secondary">
+            Xem tiến độ học tập
+        </a>
+    </div>
+</div>
+
+<button class="grr-scroll" id="grr-scroll" type="button" aria-label="Cuộn lên đầu trang">
+    ↑
+</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollButton = document.getElementById("grr-scroll");
+
+    if (!scrollButton) return;
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+            scrollButton.classList.add("show");
+        } else {
+            scrollButton.classList.remove("show");
+        }
+    });
+
+    scrollButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+</script>
+{% endblock %}

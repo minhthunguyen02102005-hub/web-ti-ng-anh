@@ -1,0 +1,938 @@
+
+{% extends "base.html" %}
+
+{% block title %}Reading Practice - English 7{% endblock %}
+
+{% block styles %}
+<style>
+.rpr-page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 25px 26px 60px;
+    color: #292746;
+}
+
+.rpr-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 23px;
+}
+
+.rpr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e9e6f4;
+    border-radius: 11px;
+    background: #fff;
+    color: #625b86;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.rpr-back:hover {
+    background: #f1efff;
+    transform: translateX(-3px);
+}
+
+.rpr-top-label {
+    color: #aaa6bd;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.7px;
+}
+
+.rpr-hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    min-height: 235px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #eae6ff;
+    margin-bottom: 20px;
+}
+
+.rpr-hero-content {
+    padding: 32px 36px;
+}
+
+.rpr-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 30px;
+    background: #fff;
+    color: #7869c8;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.3px;
+}
+
+.rpr-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f28b79;
+}
+
+.rpr-hero h1 {
+    max-width: 520px;
+    margin: 18px 0 10px;
+    color: #292746;
+    font-size: clamp(25px, 3vw, 35px);
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.rpr-hero p {
+    max-width: 490px;
+    margin: 0;
+    color: #77728f;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.rpr-hero-image {
+    position: relative;
+    min-height: 235px;
+    overflow: hidden;
+}
+
+.rpr-hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rpr-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eae6ff 0%, rgba(234,230,255,.08) 50%, rgba(41,39,70,.08));
+}
+
+.rpr-hero-note {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: #fff2c9;
+    color: #79602b;
+    font-size: 10px;
+    font-weight: 850;
+    transform: rotate(-3deg);
+    box-shadow: 0 6px 20px rgba(40,35,70,.12);
+}
+
+.rpr-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 21px;
+}
+
+.rpr-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 66px;
+    padding: 13px 16px;
+    border: 1px solid #eeecf5;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.rpr-meta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: #f0edff;
+    color: #7869c8;
+    font-size: 17px;
+}
+
+.rpr-meta-item:nth-child(2) .rpr-meta-icon {
+    background: #fff0e9;
+    color: #d47e68;
+}
+
+.rpr-meta-item:nth-child(3) .rpr-meta-icon {
+    background: #e5f5ed;
+    color: #438d70;
+}
+
+.rpr-meta-text span {
+    display: block;
+    margin-bottom: 4px;
+    color: #a09caf;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: .6px;
+}
+
+.rpr-meta-text strong {
+    color: #45415f;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.rpr-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 265px;
+    align-items: start;
+    gap: 18px;
+}
+
+.rpr-main {
+    min-width: 0;
+}
+
+.rpr-passage {
+    overflow: hidden;
+    border: 1px solid #eeecf5;
+    border-radius: 19px;
+    background: #fff;
+    margin-bottom: 18px;
+}
+
+.rpr-passage-top {
+    padding: 22px 25px;
+    background: #e3f4ec;
+}
+
+.rpr-passage-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #43866b;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 1.7px;
+}
+
+.rpr-topic {
+    display: inline-flex;
+    margin-left: 7px;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: rgba(255,255,255,.75);
+    color: #43866b;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .3px;
+}
+
+.rpr-passage-top h2 {
+    margin: 0;
+    color: #285b45;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.rpr-passage-description {
+    margin: 8px 0 0;
+    color: #6f8b7d;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.rpr-passage-content {
+    padding: 24px 26px 28px;
+    color: #4d5860;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.rpr-passage-content::first-letter {
+    color: #7869c8;
+    font-size: 34px;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    padding-right: 7px;
+    padding-top: 6px;
+}
+
+.rpr-questions-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 23px;
+    border-radius: 17px;
+    background: #292746;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.rpr-questions-heading h2 {
+    margin: 0 0 5px;
+    font-size: 17px;
+    letter-spacing: -.4px;
+}
+
+.rpr-questions-heading p {
+    margin: 0;
+    color: #c0bdd4;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.rpr-count {
+    flex-shrink: 0;
+    padding: 9px 11px;
+    border-radius: 10px;
+    background: #45415f;
+    color: #f8d979;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+.rpr-task {
+    padding: 21px 23px;
+    margin-bottom: 15px;
+    border: 1px solid #eeecf5;
+    border-radius: 18px;
+    background: #fff;
+}
+
+.rpr-task-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 14px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #f0eef6;
+}
+
+.rpr-task-heading h3 {
+    margin: 0;
+    color: #393550;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.rpr-task-badge {
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #7869c8;
+    font-size: 9px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.rpr-task-description {
+    margin: 0 0 9px;
+    color: #9b97aa;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.rpr-question {
+    padding: 17px 0;
+    border-bottom: 1px solid #f0eef6;
+}
+
+.rpr-question:last-child {
+    padding-bottom: 2px;
+    border-bottom: none;
+}
+
+.rpr-question-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 13px;
+    color: #3e3a58;
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.75;
+}
+
+.rpr-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 27px;
+    height: 27px;
+    border-radius: 9px;
+    background: #ffe9df;
+    color: #c87560;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.rpr-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.rpr-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid #eceaf3;
+    border-radius: 11px;
+    background: #fcfbff;
+    cursor: pointer;
+    transition: .18s ease;
+}
+
+.rpr-option:hover {
+    border-color: #b9adee;
+    background: #f7f5ff;
+    transform: translateY(-1px);
+}
+
+.rpr-option:has(input:checked) {
+    border-color: #8979d7;
+    background: #f0edff;
+    box-shadow: 0 0 0 2px rgba(137,121,215,.09);
+}
+
+.rpr-option input {
+    flex-shrink: 0;
+    margin: 3px 0 0;
+    accent-color: #7869c8;
+}
+
+.rpr-option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background: #eeecf6;
+    color: #77718f;
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.rpr-option:has(input:checked) .rpr-option-letter {
+    background: #7869c8;
+    color: #fff;
+}
+
+.rpr-option span:last-child {
+    color: #68647d;
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.rpr-text-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #e9e6f2;
+    border-radius: 11px;
+    outline: none;
+    background: #fcfbff;
+    color: #393550;
+    font-family: inherit;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.rpr-text-input:focus {
+    border-color: #8979d7;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(137,121,215,.1);
+}
+
+.rpr-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rpr-side-card {
+    padding: 20px;
+    border-radius: 17px;
+    background: #fff2c9;
+}
+
+.rpr-side-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 11px;
+    background: rgba(255,255,255,.7);
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+
+.rpr-side-card h3 {
+    margin: 0 0 8px;
+    color: #62512d;
+    font-size: 13px;
+}
+
+.rpr-side-card p {
+    margin: 0;
+    color: #88784f;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.rpr-side-card.mint {
+    background: #e2f4eb;
+}
+
+.rpr-side-card.mint h3 {
+    color: #34765b;
+}
+
+.rpr-side-card.mint p {
+    color: #648a77;
+}
+
+.rpr-submit {
+    padding: 21px;
+    border-radius: 17px;
+    background: #f0edff;
+    text-align: center;
+    margin-top: 17px;
+}
+
+.rpr-submit p {
+    margin: 0 0 13px;
+    color: #77718f;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.rpr-submit-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 14px 17px;
+    border: none;
+    border-radius: 11px;
+    background: #7566cb;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 850;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.rpr-submit-button:hover {
+    background: #5e50b1;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 17px rgba(94,80,177,.2);
+}
+
+.rpr-empty {
+    padding: 35px 25px;
+    border: 1px solid #eeecf5;
+    border-radius: 17px;
+    background: #fff;
+    text-align: center;
+}
+
+.rpr-empty-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.rpr-empty h2 {
+    margin: 0 0 8px;
+    color: #45415f;
+    font-size: 17px;
+}
+
+.rpr-empty p {
+    margin: 0 0 17px;
+    color: #9692a8;
+    font-size: 11px;
+}
+
+.rpr-empty a {
+    display: inline-flex;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #7566cb;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+@media (max-width: 850px) {
+    .rpr-workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .rpr-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .rpr-page {
+        padding: 18px 14px 40px;
+    }
+
+    .rpr-top-label {
+        display: none;
+    }
+
+    .rpr-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .rpr-hero-content {
+        padding: 25px 22px;
+    }
+
+    .rpr-hero-image {
+        min-height: 145px;
+    }
+
+    .rpr-hero-image::after {
+        background: linear-gradient(180deg, #eae6ff 0%, rgba(234,230,255,.08) 65%);
+    }
+
+    .rpr-meta {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .rpr-meta-item {
+        min-height: 55px;
+    }
+
+    .rpr-passage-top {
+        padding: 19px;
+    }
+
+    .rpr-passage-content {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .rpr-task {
+        padding: 17px 15px;
+    }
+
+    .rpr-options {
+        grid-template-columns: 1fr;
+    }
+
+    .rpr-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .rpr-questions-heading {
+        padding: 17px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="rpr-page">
+
+    <div class="rpr-topbar">
+        <a href="{{ url_for('reading.reading_home') }}" class="rpr-back">
+            ← Quay lại Reading
+        </a>
+        <span class="rpr-top-label">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="rpr-hero">
+        <div class="rpr-hero-content">
+            <span class="rpr-eyebrow">READING WORKSPACE</span>
+            <h1>{{ passage.title }}</h1>
+            <p>
+                Đọc đoạn văn, tìm kiếm thông tin và vận dụng khả năng
+                suy luận để hoàn thành các nhiệm vụ đọc hiểu.
+            </p>
+        </div>
+
+        <div class="rpr-hero-image">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000&auto=format&fit=crop&q=85" alt="Reading workspace">
+            <div class="rpr-hero-note">Focus & discover ✦</div>
+        </div>
+    </section>
+
+    {% if questions %}
+
+    <div class="rpr-meta">
+        <div class="rpr-meta-item">
+            <div class="rpr-meta-icon">📖</div>
+            <div class="rpr-meta-text">
+                <span>LEARNING SKILL</span>
+                <strong>Reading</strong>
+            </div>
+        </div>
+
+        <div class="rpr-meta-item">
+            <div class="rpr-meta-icon">✎</div>
+            <div class="rpr-meta-text">
+                <span>QUESTION COUNT</span>
+                <strong>{{ questions|length }} câu hỏi</strong>
+            </div>
+        </div>
+
+        <div class="rpr-meta-item">
+            <div class="rpr-meta-icon">◎</div>
+            <div class="rpr-meta-text">
+                <span>YOUR MISSION</span>
+                <strong>Read & Answer</strong>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST"
+          action="{{ url_for('reading.reading_practice', passage_id=passage.id) }}">
+
+        <div class="rpr-workspace">
+
+            <main class="rpr-main">
+
+                <section class="rpr-passage">
+
+                    <div class="rpr-passage-top">
+                        <div class="rpr-passage-label">READING PASSAGE</div>
+
+                        {% if passage.topic %}
+                            <span class="rpr-topic">{{ passage.topic }}</span>
+                        {% endif %}
+
+                        <h2>{{ passage.title }}</h2>
+
+                        {% if passage.description %}
+                            <p class="rpr-passage-description">
+                                {{ passage.description }}
+                            </p>
+                        {% endif %}
+                    </div>
+
+                    <div class="rpr-passage-content">{{ passage.content }}</div>
+
+                </section>
+
+                <div class="rpr-questions-heading">
+                    <div>
+                        <h2>Reading Comprehension</h2>
+                        <p>Hoàn thành từng nhiệm vụ dựa trên nội dung bài đọc.</p>
+                    </div>
+                    <span class="rpr-count">{{ questions|length }} QUESTIONS</span>
+                </div>
+
+                {% set task_names = {
+                    "A": "Task A – Reading for Details",
+                    "B": "Task B – Main Idea",
+                    "C": "Task C – Vocabulary and Inference",
+                    "D": "Task D – True / False / Not Given"
+                } %}
+
+                {% set task_descriptions = {
+                    "A": "Đọc kỹ thông tin và tìm câu trả lời chi tiết trong đoạn văn.",
+                    "B": "Xác định tiêu đề phù hợp và ý chính của bài đọc.",
+                    "C": "Đoán nghĩa từ vựng và suy luận dựa trên ngữ cảnh.",
+                    "D": "Xác định thông tin là True, False hoặc Not Given."
+                } %}
+
+                {% set state = namespace(current_task="") %}
+
+                {% for question in questions %}
+
+                    {% if question.task_type != state.current_task %}
+
+                        {% if not loop.first %}
+                            </section>
+                        {% endif %}
+
+                        <section class="rpr-task">
+                            <div class="rpr-task-heading">
+                                <h3>
+                                    {{ task_names.get(question.task_type, "Reading Questions") }}
+                                </h3>
+                                <span class="rpr-task-badge">
+                                    TASK {{ question.task_type }}
+                                </span>
+                            </div>
+
+                            <p class="rpr-task-description">
+                                {{ task_descriptions.get(question.task_type, "Hoàn thành các câu hỏi sau.") }}
+                            </p>
+
+                        {% set state.current_task = question.task_type %}
+
+                    {% endif %}
+
+                    <div class="rpr-question">
+
+                        <div class="rpr-question-text">
+                            <span class="rpr-number">{{ loop.index }}</span>
+                            <span>{{ question.question_text }}</span>
+                        </div>
+
+                        {% if question.question_type == "multiple_choice" %}
+
+                            <div class="rpr-options">
+                                {% set options = [
+                                    ("A", question.option_a),
+                                    ("B", question.option_b),
+                                    ("C", question.option_c),
+                                    ("D", question.option_d)
+                                ] %}
+
+                                {% for letter, option in options %}
+                                    {% if option %}
+                                        <label class="rpr-option">
+                                            <input
+                                                type="radio"
+                                                name="question_{{ question.id }}"
+                                                value="{{ letter }}"
+                                            >
+                                            <span class="rpr-option-letter">{{ letter }}</span>
+                                            <span>{{ option }}</span>
+                                        </label>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        {% elif question.question_type in ["true_false_not_given", "true_false", "tfng"] %}
+
+                            <div class="rpr-options">
+
+                                {% if question.question_type in ["true_false_not_given", "tfng"] %}
+
+                                    <label class="rpr-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="T">
+                                        <span class="rpr-option-letter">T</span>
+                                        <span>True</span>
+                                    </label>
+
+                                    <label class="rpr-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="F">
+                                        <span class="rpr-option-letter">F</span>
+                                        <span>False</span>
+                                    </label>
+
+                                    <label class="rpr-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="NG">
+                                        <span class="rpr-option-letter">?</span>
+                                        <span>Not Given</span>
+                                    </label>
+
+                                {% else %}
+
+                                    <label class="rpr-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="True">
+                                        <span class="rpr-option-letter">T</span>
+                                        <span>True</span>
+                                    </label>
+
+                                    <label class="rpr-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="False">
+                                        <span class="rpr-option-letter">F</span>
+                                        <span>False</span>
+                                    </label>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% else %}
+
+                            <input
+                                type="text"
+                                name="question_{{ question.id }}"
+                                class="rpr-text-input"
+                                placeholder="Nhập câu trả lời của bạn..."
+                            >
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+                </section>
+
+                <div class="rpr-submit">
+                    <p>
+                        Bạn hãy kiểm tra lại câu trả lời trước khi hoàn thành bài luyện tập.
+                    </p>
+                    <button type="submit" class="rpr-submit-button">
+                        Nộp bài và xem kết quả <span>→</span>
+                    </button>
+                </div>
+
+            </main>
+
+            <aside class="rpr-sidebar">
+
+                <div class="rpr-side-card">
+                    <div class="rpr-side-icon">💡</div>
+                    <h3>Reading strategy</h3>
+                    <p>
+                        Đọc lướt để nắm ý chính trước, sau đó quay lại
+                        đoạn văn để tìm từ khóa và thông tin liên quan
+                        đến từng câu hỏi.
+                    </p>
+                </div>
+
+                <div class="rpr-side-card mint">
+                    <div class="rpr-side-icon">✦</div>
+                    <h3>Think beyond words</h3>
+                    <p>
+                        Đừng chỉ tìm những từ giống hệt trong câu hỏi.
+                        Hãy chú ý cách diễn đạt tương đương và ngữ cảnh
+                        của toàn đoạn văn.
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </form>
+
+    {% else %}
+
+        <div class="rpr-empty">
+            <div class="rpr-empty-icon">📖</div>
+            <h2>Chưa có câu hỏi cho bài đọc này</h2>
+            <p>Bài đọc hiện chưa có dữ liệu câu hỏi. Bạn có thể quay lại danh sách bài đọc.</p>
+            <a href="{{ url_for('reading.reading_home') }}">Quay lại Reading</a>
+        </div>
+
+    {% endif %}
+
+</div>
+{% endblock %}

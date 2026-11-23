@@ -1,0 +1,950 @@
+
+{% extends "base.html" %}
+
+{% block title %}Tiến độ học ngữ pháp{% endblock %}
+
+{% block styles %}
+<style>
+.grp-page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 26px 25px 65px;
+    color: #30294e;
+}
+
+.grp-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.grp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e9e5f3;
+    border-radius: 10px;
+    background: #fff;
+    color: #6c5da9;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.grp-back:hover {
+    background: #f2efff;
+    transform: translateX(-3px);
+}
+
+.grp-top-label {
+    color: #a09ab5;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+}
+
+.grp-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    min-height: 275px;
+    overflow: hidden;
+    border-radius: 23px;
+    background: #eeeaff;
+    margin-bottom: 20px;
+}
+
+.grp-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 34px 35px;
+    align-self: center;
+}
+
+.grp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #7868c7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    margin-bottom: 14px;
+}
+
+.grp-hero h1 {
+    max-width: 480px;
+    color: #342b5b;
+    font-size: 30px;
+    line-height: 1.25;
+    margin: 0 0 12px;
+}
+
+.grp-hero p {
+    max-width: 490px;
+    color: #77718f;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.grp-hero-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    margin-top: 19px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.8);
+    color: #6f60b5;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.grp-hero-image {
+    position: relative;
+    min-height: 275px;
+}
+
+.grp-hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grp-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eeeaff 0%, rgba(238,234,255,.2) 35%, rgba(48,39,82,.05) 100%);
+}
+
+.grp-image-label {
+    position: absolute;
+    z-index: 2;
+    right: 19px;
+    bottom: 18px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.9);
+    color: #51477b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .8px;
+}
+
+.grp-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-bottom: 19px;
+}
+
+.grp-stat {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    overflow: hidden;
+    border: 1px solid #ece9f4;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.grp-stat-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f0edff;
+    font-size: 20px;
+}
+
+.grp-stat:nth-child(2) .grp-stat-icon {
+    background: #e7f7ef;
+}
+
+.grp-stat:nth-child(3) .grp-stat-icon {
+    background: #fff2e9;
+}
+
+.grp-stat-label {
+    display: block;
+    color: #9992ac;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.grp-stat strong {
+    color: #463b78;
+    font-size: 25px;
+    line-height: 1;
+}
+
+.grp-stat:nth-child(2) strong {
+    color: #439a70;
+}
+
+.grp-stat:nth-child(3) strong {
+    color: #d48b61;
+}
+
+.grp-feedback {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 17px 19px;
+    border: 1px solid #e9e4f7;
+    border-radius: 13px;
+    background: #f8f6ff;
+    margin-bottom: 25px;
+}
+
+.grp-feedback-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #fff;
+    font-size: 20px;
+}
+
+.grp-feedback strong {
+    display: block;
+    color: #514580;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.grp-feedback p {
+    color: #817a99;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.grp-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr);
+    gap: 17px;
+    align-items: start;
+}
+
+.grp-panel {
+    border: 1px solid #ece9f4;
+    border-radius: 16px;
+    background: #fff;
+    padding: 22px;
+    margin-bottom: 17px;
+}
+
+.grp-panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.grp-panel-heading h2 {
+    color: #393157;
+    font-size: 17px;
+    margin: 0 0 6px;
+}
+
+.grp-panel-heading p {
+    color: #9992a9;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.grp-panel-badge {
+    flex-shrink: 0;
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #7566bf;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.grp-unit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.grp-unit {
+    padding: 15px;
+    border: 1px solid #efedf5;
+    border-radius: 12px;
+    background: #fcfbff;
+    transition: .2s;
+}
+
+.grp-unit:hover {
+    border-color: #d8d0f5;
+    background: #f9f7ff;
+    transform: translateY(-2px);
+}
+
+.grp-unit-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+.grp-unit-name {
+    color: #443b67;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.grp-unit-score {
+    color: #7666c3;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.grp-track {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #eae7f2;
+}
+
+.grp-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #a99be9, #7666d1);
+    transition: width 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.grp-unit:nth-child(3n+2) .grp-fill {
+    background: linear-gradient(90deg, #9bd8b8, #4ca77a);
+}
+
+.grp-unit:nth-child(3n) .grp-fill {
+    background: linear-gradient(90deg, #ffc5a6, #e58e69);
+}
+
+.grp-unit-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 11px;
+}
+
+.grp-unit-detail {
+    color: #9992a9;
+    font-size: 10px;
+}
+
+.grp-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.grp-status.good {
+    color: #39875f;
+    background: #e7f6ed;
+}
+
+.grp-status.medium {
+    color: #a47b38;
+    background: #fff4df;
+}
+
+.grp-status.low {
+    color: #c27661;
+    background: #fff0eb;
+}
+
+.grp-errors {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grp-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #f1eae5;
+    border-radius: 11px;
+    background: #fffaf7;
+    transition: .2s;
+}
+
+.grp-error:hover {
+    border-color: #efcfc1;
+    transform: translateX(2px);
+}
+
+.grp-error-name {
+    color: #5c4a48;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.grp-error-description {
+    color: #a39791;
+    font-size: 10px;
+    line-height: 1.6;
+    margin-top: 4px;
+}
+
+.grp-error-count {
+    flex-shrink: 0;
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: #ffede6;
+    color: #c4775f;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.grp-side-panel {
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff7e9;
+    border: 1px solid #f4ead4;
+    margin-bottom: 16px;
+}
+
+.grp-side-panel.mint {
+    background: #edf8f2;
+    border-color: #dcefe3;
+}
+
+.grp-side-icon {
+    font-size: 25px;
+    margin-bottom: 11px;
+}
+
+.grp-side-panel h3 {
+    color: #816a3f;
+    font-size: 14px;
+    margin: 0 0 8px;
+}
+
+.grp-side-panel.mint h3 {
+    color: #477b5f;
+}
+
+.grp-side-panel p {
+    color: #9a896c;
+    font-size: 11px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.grp-side-panel.mint p {
+    color: #779581;
+}
+
+.grp-side-link {
+    display: inline-flex;
+    margin-top: 13px;
+    color: #9a7942;
+    font-size: 11px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.grp-side-panel.mint .grp-side-link {
+    color: #478460;
+}
+
+.grp-empty {
+    text-align: center;
+    padding: 30px 15px;
+    border-radius: 12px;
+    background: #faf9fd;
+}
+
+.grp-empty-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.grp-empty h3 {
+    color: #514775;
+    font-size: 14px;
+    margin: 0 0 7px;
+}
+
+.grp-empty p {
+    color: #9992a9;
+    font-size: 11px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.grp-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 26px;
+}
+
+.grp-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 19px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    transition: .2s;
+}
+
+.grp-action.primary {
+    color: #fff;
+    background: #7565c9;
+}
+
+.grp-action.primary:hover {
+    background: #6152b0;
+    transform: translateY(-2px);
+}
+
+.grp-action.secondary {
+    color: #6d5fae;
+    background: #f0edff;
+}
+
+.grp-action.secondary:hover {
+    background: #e5e0ff;
+    transform: translateY(-2px);
+}
+
+.grp-scroll {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 12px;
+    background: #7565c9;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: .2s;
+    z-index: 100;
+}
+
+.grp-scroll.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 850px) {
+    .grp-main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grp-side-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 650px) {
+    .grp-page {
+        padding: 19px 14px 45px;
+    }
+
+    .grp-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .grp-hero-content {
+        padding: 25px 22px 15px;
+    }
+
+    .grp-hero h1 {
+        font-size: 25px;
+    }
+
+    .grp-hero-image {
+        min-height: 155px;
+    }
+
+    .grp-hero-image::after {
+        background: linear-gradient(180deg, #eeeaff 0%, rgba(238,234,255,.05) 55%);
+    }
+
+    .grp-overview {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .grp-stat {
+        padding: 14px 16px;
+    }
+
+    .grp-stat strong {
+        font-size: 22px;
+    }
+
+    .grp-panel {
+        padding: 16px;
+    }
+
+    .grp-side-column {
+        grid-template-columns: 1fr;
+    }
+
+    .grp-top-label {
+        display: none;
+    }
+
+    .grp-scroll {
+        right: 14px;
+        bottom: 14px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="grp-page">
+
+    <div class="grp-topbar">
+        <a href="{{ url_for('grammar.grammar_home') }}" class="grp-back">
+            ← Quay lại Grammar
+        </a>
+        <span class="grp-top-label">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="grp-hero">
+        <div class="grp-hero-content">
+            <div class="grp-eyebrow">✦ YOUR LEARNING JOURNEY</div>
+            <h1>Hành trình chinh phục ngữ pháp</h1>
+            <p>
+                Mỗi bài tập là một bước tiến. Theo dõi kết quả luyện tập,
+                khám phá điểm mạnh và tìm ra những kiến thức cần cải thiện.
+            </p>
+            <div class="grp-hero-note">
+                📖 GRAMMAR LEARNING TRACKER
+            </div>
+        </div>
+
+        <div class="grp-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&auto=format&fit=crop&q=85"
+                alt="Góc học tập và ghi chép ngữ pháp"
+            >
+            <span class="grp-image-label">KEEP LEARNING · KEEP GROWING</span>
+        </div>
+    </section>
+
+    <section class="grp-overview">
+        <div class="grp-stat">
+            <div class="grp-stat-icon">📝</div>
+            <div>
+                <span class="grp-stat-label">Tổng lượt trả lời</span>
+                <strong>{{ total_attempts }}</strong>
+            </div>
+        </div>
+
+        <div class="grp-stat">
+            <div class="grp-stat-icon">✓</div>
+            <div>
+                <span class="grp-stat-label">Số câu trả lời đúng</span>
+                <strong>{{ correct_attempts }}</strong>
+            </div>
+        </div>
+
+        <div class="grp-stat">
+            <div class="grp-stat-icon">🎯</div>
+            <div>
+                <span class="grp-stat-label">Độ chính xác</span>
+                <strong>{{ accuracy }}%</strong>
+            </div>
+        </div>
+    </section>
+
+    {% if total_attempts > 0 %}
+    <section class="grp-feedback">
+        <div class="grp-feedback-icon">
+            {% if accuracy >= 90 %}
+                🏆
+            {% elif accuracy >= 70 %}
+                🌟
+            {% elif accuracy >= 50 %}
+                🌱
+            {% else %}
+                💪
+            {% endif %}
+        </div>
+
+        <div>
+            {% if accuracy >= 90 %}
+                <strong>Kết quả xuất sắc!</strong>
+                <p>
+                    Bạn đang nắm khá vững kiến thức ngữ pháp.
+                    Hãy tiếp tục luyện tập để duy trì phong độ.
+                </p>
+            {% elif accuracy >= 70 %}
+                <strong>Bạn đang tiến bộ rất tốt!</strong>
+                <p>
+                    Bạn đã có nền tảng tương đối vững.
+                    Hãy tập trung sửa những lỗi còn lặp lại để cải thiện kết quả.
+                </p>
+            {% elif accuracy >= 50 %}
+                <strong>Bạn đang từng bước tiến bộ.</strong>
+                <p>
+                    Hãy xem lại các câu trả lời sai và ôn tập những chủ điểm
+                    ngữ pháp còn chưa chắc chắn.
+                </p>
+            {% else %}
+                <strong>Đừng nản lòng, hãy tiếp tục nhé!</strong>
+                <p>
+                    Bạn nên học lại kiến thức cơ bản của từng Unit,
+                    sau đó làm lại bài tập để củng cố kiến thức.
+                </p>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
+    <div class="grp-main-grid">
+        <div class="grp-content-column">
+
+            <section class="grp-panel">
+                <div class="grp-panel-heading">
+                    <div>
+                        <h2>Tiến độ theo từng Unit</h2>
+                        <p>Kết quả luyện tập được tổng hợp theo từng chủ điểm ngữ pháp.</p>
+                    </div>
+                    <span class="grp-panel-badge">UNIT TRACKER</span>
+                </div>
+
+                {% if total_attempts > 0 %}
+                <div class="grp-unit-list">
+                    {% for item in unit_results %}
+                    <div class="grp-unit">
+                        <div class="grp-unit-top">
+                            <span class="grp-unit-name">UNIT {{ item.unit }}</span>
+                            <span class="grp-unit-score">{{ item.accuracy }}%</span>
+                        </div>
+
+                        <div class="grp-track">
+                            <div class="grp-fill" data-width="{{ item.accuracy }}"></div>
+                        </div>
+
+                        <div class="grp-unit-bottom">
+                            <span class="grp-unit-detail">
+                                {{ item.correct }}/{{ item.total }} câu đúng
+                                · {{ item.total }} lượt trả lời
+                            </span>
+
+                            {% if item.total == 0 %}
+                            <span class="grp-status medium">Chưa bắt đầu</span>
+                            {% elif item.accuracy >= 80 %}
+                            <span class="grp-status good">Nắm vững</span>
+                            {% elif item.accuracy >= 50 %}
+                            <span class="grp-status medium">Cần luyện thêm</span>
+                            {% else %}
+                            <span class="grp-status low">Cần ôn tập</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="grp-empty">
+                    <div class="grp-empty-icon">📚</div>
+                    <h3>Bạn chưa có dữ liệu học tập</h3>
+                    <p>
+                        Hãy bắt đầu luyện tập một Unit để hệ thống
+                        ghi nhận và thống kê kết quả của bạn.
+                    </p>
+                </div>
+                {% endif %}
+            </section>
+
+            <section class="grp-panel">
+                <div class="grp-panel-heading">
+                    <div>
+                        <h2>Những kiến thức cần cải thiện</h2>
+                        <p>Các lỗi sai được tổng hợp từ những câu hỏi bạn đã thực hiện.</p>
+                    </div>
+                    <span class="grp-panel-badge">ERROR ANALYSIS</span>
+                </div>
+
+                {% if error_stats %}
+                {% set error_names = {
+                    "PS_SUBJECT_VERB_AGREEMENT": "Sự hòa hợp chủ ngữ và động từ",
+                    "PS_DOES_BASE_VERB": "Cấu trúc Does + động từ nguyên mẫu",
+                    "FREQ_ADV_POSITION": "Vị trí trạng từ chỉ tần suất",
+                    "POSSESSIVE_APOSTROPHE": "Sở hữu cách",
+                    "PREPOSITION_PLACE": "Giới từ chỉ vị trí",
+                    "PC_BE_OMISSION": "Cách dùng động từ To be",
+                    "PC_ING_FORM": "Quy tắc thêm -ing",
+                    "COMPARATIVE_FORM": "Cấu trúc so sánh hơn",
+                    "COMPARATIVE_THAN": "Cách dùng Than trong so sánh",
+                    "COUNTABILITY": "Danh từ đếm được và không đếm được",
+                    "MUST_BASE_VERB": "Cấu trúc Must + động từ nguyên mẫu",
+                    "SHOULD_BASE_VERB": "Cấu trúc Should + động từ nguyên mẫu",
+                    "SOME_ANY_USAGE": "Cách sử dụng Some và Any"
+                } %}
+                {% set has_errors = namespace(value=false) %}
+
+                <div class="grp-errors">
+                    {% for tag, stats in error_stats.items() %}
+                        {% if stats.incorrect > 0 %}
+                            {% set has_errors.value = true %}
+                            <div class="grp-error">
+                                <div>
+                                    <div class="grp-error-name">
+                                        {{ error_names.get(tag, tag) }}
+                                    </div>
+                                    <div class="grp-error-description">
+                                        Sai {{ stats.incorrect }} lần
+                                        trên {{ stats.total }} lượt trả lời.
+                                    </div>
+                                </div>
+                                <span class="grp-error-count">
+                                    {{ stats.incorrect }} lỗi sai
+                                </span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                {% if not has_errors.value %}
+                <div class="grp-empty">
+                    <div class="grp-empty-icon">🌟</div>
+                    <h3>Bạn chưa mắc lỗi nào!</h3>
+                    <p>Hãy tiếp tục luyện tập để duy trì kết quả tốt nhé.</p>
+                </div>
+                {% endif %}
+
+                {% else %}
+                <div class="grp-empty">
+                    <div class="grp-empty-icon">🌱</div>
+                    <h3>Chưa có dữ liệu lỗi sai</h3>
+                    <p>
+                        Sau khi hoàn thành bài tập, hệ thống sẽ thống kê
+                        những chủ điểm bạn cần ôn tập thêm.
+                    </p>
+                </div>
+                {% endif %}
+            </section>
+        </div>
+
+        <aside class="grp-side-column">
+            <div class="grp-side-panel">
+                <div class="grp-side-icon">💡</div>
+                <h3>Mẹo học hiệu quả</h3>
+                <p>
+                    Đừng chỉ ghi nhớ đáp án. Hãy đọc phần giải thích,
+                    thử tự đặt câu và luyện lại dạng bài mình thường mắc lỗi.
+                </p>
+                <a href="{{ url_for('grammar.grammar_home') }}" class="grp-side-link">
+                    Luyện tập ngay →
+                </a>
+            </div>
+
+            <div class="grp-side-panel mint">
+                <div class="grp-side-icon">🌿</div>
+                <h3>Tiến bộ từng ngày</h3>
+                <p>
+                    Học từng chủ điểm nhỏ, luyện tập thường xuyên
+                    và theo dõi kết quả để nhận ra sự tiến bộ của mình.
+                </p>
+                <a href="{{ url_for('grammar.grammar_home') }}" class="grp-side-link">
+                    Khám phá các Unit →
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <div class="grp-actions">
+        <a href="{{ url_for('grammar.grammar_home') }}" class="grp-action primary">
+            Tiếp tục luyện tập →
+        </a>
+        <a href="{{ url_for('dashboard') }}" class="grp-action secondary">
+            Về Dashboard
+        </a>
+    </div>
+
+</div>
+
+<button class="grp-scroll" id="grp-scroll" type="button" aria-label="Cuộn lên đầu trang">
+    ↑
+</button>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".grp-fill");
+
+    progressBars.forEach(function (bar) {
+        const value = parseFloat(bar.dataset.width) || 0;
+        const safeValue = Math.min(100, Math.max(0, value));
+
+        requestAnimationFrame(function () {
+            bar.style.width = safeValue + "%";
+        });
+    });
+
+    const scrollButton = document.getElementById("grp-scroll");
+
+    if (scrollButton) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                scrollButton.classList.add("show");
+            } else {
+                scrollButton.classList.remove("show");
+            }
+        });
+
+        scrollButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

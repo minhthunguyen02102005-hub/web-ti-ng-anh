@@ -1,0 +1,1192 @@
+
+{% extends "base.html" %}
+
+{% block title %}Luyện tập từ vựng - Unit {{ unit }}{% endblock %}
+
+{% block content %}
+
+<style>
+.vce-practice {
+    --ink: #25253c;
+    --muted: #818096;
+    --purple: #625bd7;
+    --lavender: #eeecff;
+    --yellow: #ffda72;
+    --coral: #ff897b;
+    --mint: #c9edda;
+    --paper: #faf9f6;
+    min-height: 100vh;
+    padding: 27px 5.5% 60px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.vce-practice * {
+    box-sizing: border-box;
+}
+
+.vce-practice-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vce-practice a {
+    text-decoration: none;
+}
+
+.vce-practice-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.vce-practice-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.vce-practice-brand-mark {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--purple);
+    color: white;
+}
+
+.vce-practice-back {
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.vce-practice-back:hover {
+    text-decoration: underline;
+}
+
+.vce-practice-hero {
+    display: grid;
+    grid-template-columns: 1fr .75fr;
+    min-height: 225px;
+    border-radius: 24px;
+    background: #e9e7ff;
+    overflow: hidden;
+    margin-bottom: 21px;
+}
+
+.vce-practice-hero-copy {
+    padding: 30px 20px 30px 37px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vce-practice-kicker {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    margin-bottom: 12px;
+}
+
+.vce-practice-hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(27px, 3.5vw, 39px);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.vce-practice-hero h1 span {
+    color: var(--purple);
+}
+
+.vce-practice-hero p {
+    color: #696782;
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: 420px;
+    margin: 0;
+}
+
+.vce-practice-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 17px;
+}
+
+.vce-practice-tag {
+    padding: 7px 11px;
+    border-radius: 8px;
+    background: white;
+    color: var(--purple);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.vce-practice-hero-visual {
+    min-height: 225px;
+    position: relative;
+    overflow: hidden;
+}
+
+.vce-practice-hero-visual img {
+    position: absolute;
+    width: 78%;
+    height: 82%;
+    top: 9%;
+    right: 8%;
+    object-fit: cover;
+    border-radius: 17px;
+    transform: rotate(2deg);
+    box-shadow: 0 14px 28px rgba(49,45,105,.17);
+}
+
+.vce-practice-orbit {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 21px solid var(--yellow);
+    border-radius: 50%;
+    top: -38px;
+    right: -30px;
+}
+
+.vce-practice-shape {
+    position: absolute;
+    width: 43px;
+    height: 43px;
+    left: 4%;
+    bottom: 9%;
+    border-radius: 13px;
+    background: var(--coral);
+    transform: rotate(-13deg);
+}
+
+.vce-type-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: white;
+    border: 1px solid #eeedf2;
+    border-radius: 16px;
+    padding: 17px 20px;
+    margin-bottom: 22px;
+}
+
+.vce-type-title {
+    flex-shrink: 0;
+}
+
+.vce-type-title strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.vce-type-title span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.vce-type-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: flex-end;
+}
+
+.vce-type-filter a {
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: #f5f4fa;
+    color: #77758d;
+    font-size: 9px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.vce-type-filter a:hover {
+    background: var(--lavender);
+    color: var(--purple);
+}
+
+.vce-type-filter a.active {
+    background: var(--purple);
+    color: white;
+}
+
+.vce-practice-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 18px;
+    align-items: start;
+}
+
+.vce-main-panel,
+.vce-side-panel {
+    background: white;
+    border: 1px solid #eeedf2;
+    border-radius: 18px;
+}
+
+.vce-main-panel {
+    padding: 24px;
+    min-width: 0;
+}
+
+.vce-side-panel {
+    padding: 21px;
+    position: sticky;
+    top: 20px;
+}
+
+.vce-progress-box {
+    background: #f4f2ff;
+    border-radius: 13px;
+    padding: 16px 17px;
+    margin-bottom: 23px;
+}
+
+.vce-progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.vce-progress-top strong {
+    font-size: 10px;
+}
+
+.vce-progress-top span {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.vce-progress-track {
+    height: 8px;
+    background: #dedbf6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.vce-progress-fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #a59cf6, #625bd7);
+    border-radius: 20px;
+    transition: width .25s ease;
+}
+
+.vce-question-card {
+    padding: 20px;
+    margin-bottom: 13px;
+    border: 1px solid #eeedf2;
+    border-radius: 15px;
+    transition: .2s;
+}
+
+.vce-question-card:focus-within {
+    border-color: #a7a0ed;
+    box-shadow: 0 5px 18px rgba(98,91,215,.07);
+}
+
+.vce-question-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+}
+
+.vce-question-number {
+    padding: 6px 10px;
+    background: var(--lavender);
+    color: var(--purple);
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.vce-question-topic {
+    padding: 6px 10px;
+    background: #fff3d4;
+    color: #9c7522;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.vce-question-text {
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.8;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.vce-answer-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.vce-answer-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    min-height: 48px;
+    border: 1px solid #e9e8ef;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #646278;
+    background: white;
+    font-size: 11px;
+    line-height: 1.6;
+    transition: .2s;
+}
+
+.vce-answer-option:hover {
+    border-color: #aaa4ef;
+    background: #f8f7ff;
+}
+
+.vce-answer-option:has(input:checked) {
+    border-color: var(--purple);
+    background: var(--lavender);
+    color: #4841ad;
+}
+
+.vce-answer-option input {
+    accent-color: var(--purple);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.vce-text-answer {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #e5e3ed;
+    border-radius: 10px;
+    background: #fcfbff;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    transition: .2s;
+}
+
+.vce-text-answer:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px #eeecff;
+    background: white;
+}
+
+.vce-text-answer::placeholder {
+    color: #aaa8b9;
+}
+
+.vce-mistake-instruction {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.vce-mistake-sentence {
+    background: #fff5dc;
+    border-left: 4px solid var(--yellow);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 14px;
+    color: #655638;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.vce-matching-board {
+    padding: 21px;
+    margin-bottom: 22px;
+    background: #f3f1ff;
+    border-radius: 16px;
+}
+
+.vce-matching-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 19px;
+    letter-spacing: -.5px;
+    margin: 0 0 7px;
+}
+
+.vce-matching-instruction {
+    color: #77758d;
+    font-size: 10px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+.vce-matching-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 14px;
+}
+
+.vce-matching-column-title {
+    color: #77758d;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.vce-matching-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vce-matching-item {
+    width: 100%;
+    min-height: 49px;
+    padding: 11px 12px;
+    border: 1px solid #e4e1f4;
+    background: white;
+    border-radius: 9px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 10px;
+    line-height: 1.6;
+    color: #55536d;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.vce-matching-item:hover {
+    border-color: #9a93e9;
+    background: #faf9ff;
+}
+
+.vce-matching-item.selected {
+    border: 2px solid var(--purple);
+    background: #e8e5ff;
+    color: #4841ad;
+}
+
+.vce-matching-item.matched {
+    border-color: #8acba7;
+    background: #e5f5eb;
+    color: #347653;
+}
+
+.vce-matching-item:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.vce-matching-status {
+    margin: 14px 0 0;
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.vce-submit-area {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 23px;
+    padding-top: 19px;
+    border-top: 1px solid #efedf3;
+}
+
+.vce-submit-btn,
+.vce-cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.vce-submit-btn {
+    background: var(--purple);
+    color: white;
+    box-shadow: 0 6px 14px rgba(98,91,215,.18);
+}
+
+.vce-submit-btn:hover {
+    background: #5049c2;
+    transform: translateY(-2px);
+}
+
+.vce-cancel-btn {
+    background: #f3f2f7;
+    color: #77758d;
+}
+
+.vce-cancel-btn:hover {
+    background: #eae8f2;
+}
+
+.vce-side-heading {
+    font-size: 11px;
+    font-weight: 800;
+    margin: 0 0 15px;
+}
+
+.vce-side-item {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.vce-side-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--lavender);
+    font-size: 15px;
+}
+
+.vce-side-item:nth-of-type(2) .vce-side-icon {
+    background: #fff1cb;
+}
+
+.vce-side-item:nth-of-type(3) .vce-side-icon {
+    background: #e1f4e9;
+}
+
+.vce-side-item h3 {
+    font-size: 10px;
+    margin: 2px 0 5px;
+}
+
+.vce-side-item p {
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.vce-side-divider {
+    border: 0;
+    border-top: 1px solid #eeedf2;
+    margin: 19px 0;
+}
+
+.vce-side-note {
+    padding: 14px;
+    border-radius: 12px;
+    background: #fff3d4;
+}
+
+.vce-side-note strong {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+
+.vce-side-note p {
+    color: #88734b;
+    font-size: 9px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.vce-empty {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.vce-empty-icon {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+    background: var(--lavender);
+    font-size: 28px;
+}
+
+.vce-empty h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.vce-empty p {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+@media (max-width: 900px) {
+    .vce-practice-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .vce-side-panel {
+        position: static;
+    }
+
+    .vce-type-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .vce-type-filter {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 650px) {
+    .vce-practice {
+        padding: 20px 14px 40px;
+    }
+
+    .vce-practice-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .vce-practice-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .vce-practice-hero-copy {
+        padding: 27px 23px 12px;
+    }
+
+    .vce-practice-hero-visual {
+        min-height: 190px;
+    }
+
+    .vce-practice-hero-visual img {
+        width: 76%;
+        height: 83%;
+        right: 12%;
+        top: 5%;
+    }
+
+    .vce-main-panel {
+        padding: 15px;
+    }
+
+    .vce-answer-options {
+        grid-template-columns: 1fr;
+    }
+
+    .vce-matching-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .vce-question-card {
+        padding: 15px;
+    }
+
+    .vce-submit-area {
+        flex-direction: column;
+    }
+
+    .vce-submit-btn,
+    .vce-cancel-btn {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="vce-practice">
+    <div class="vce-practice-container">
+
+        <div class="vce-practice-topbar">
+            <div class="vce-practice-brand">
+                <div class="vce-practice-brand-mark">✳</div>
+                <span>WORDSPACE</span>
+            </div>
+
+            <a href="{{ url_for('vocabulary') }}" class="vce-practice-back">
+                ← Quay lại danh sách Unit
+            </a>
+        </div>
+
+        <section class="vce-practice-hero">
+            <div class="vce-practice-hero-copy">
+                <div class="vce-practice-kicker">VOCABULARY WORKSHOP</div>
+                <h1>Practice, learn & <span>grow.</span></h1>
+                <p>
+                    Cùng củng cố vốn từ vựng tiếng Anh lớp 7 qua các dạng bài tương tác.
+                    Hoàn thành từng câu hỏi và theo dõi tiến độ ngay trong quá trình học.
+                </p>
+
+                <div class="vce-practice-tags">
+                    <span class="vce-practice-tag">UNIT {{ unit }}</span>
+                    <span class="vce-practice-tag">{{ questions|length }} CÂU HỎI</span>
+                    <span class="vce-practice-tag">ENGLISH 7</span>
+                </div>
+            </div>
+
+            <div class="vce-practice-hero-visual">
+                <div class="vce-practice-orbit"></div>
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1100&auto=format&fit=crop&q=85" alt="Không gian học tập và ghi chép">
+                <div class="vce-practice-shape"></div>
+            </div>
+        </section>
+
+        <section class="vce-type-panel">
+            <div class="vce-type-title">
+                <strong>Chọn dạng bài luyện tập</strong>
+                <span>Lọc nội dung theo kỹ năng bạn muốn ôn tập</span>
+            </div>
+
+            <div class="vce-type-filter">
+                <a href="{{ url_for('vocabulary_practice', unit=unit) }}"
+                   class="{% if not selected_type %}active{% endif %}">
+                    Tất cả
+                </a>
+
+                {% for item in question_types %}
+                <a href="{{ url_for('vocabulary_practice', unit=unit, type=item.value) }}"
+                   class="{% if selected_type == item.value %}active{% endif %}">
+                    {{ item.label }}
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <div class="vce-practice-layout">
+
+            <main class="vce-main-panel">
+
+                {% if questions %}
+
+                <div class="vce-progress-box">
+                    <div class="vce-progress-top">
+                        <strong>TIẾN ĐỘ HOÀN THÀNH</strong>
+                        <span id="progress-text">0/{{ questions|length }} câu</span>
+                    </div>
+
+                    <div class="vce-progress-track">
+                        <div class="vce-progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <form method="POST" id="vocab-form">
+
+                    {% set matching_questions = questions|selectattr("question_type", "equalto", "matching")|list %}
+
+                    {% if matching_questions %}
+                    <section class="vce-matching-board">
+
+                        <h2 class="vce-matching-heading">Connect the words</h2>
+
+                        <p class="vce-matching-instruction">
+                            Chọn một từ ở cột bên trái, sau đó chọn nghĩa tương ứng ở cột bên phải.
+                        </p>
+
+                        <div class="vce-matching-columns">
+
+                            <div>
+                                <div class="vce-matching-column-title">ENGLISH WORDS</div>
+
+                                <div class="vce-matching-list">
+                                    {% for question in matching_questions %}
+                                    <button type="button"
+                                            class="vce-matching-item matching-word"
+                                            data-question-id="{{ question.id }}">
+                                        {{ question.question_text.split(':')[-1].strip() }}
+                                    </button>
+
+                                    <input type="hidden"
+                                           name="question_{{ question.id }}"
+                                           class="matching-answer"
+                                           data-question-id="{{ question.id }}">
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="vce-matching-column-title">MEANINGS</div>
+
+                                <div class="vce-matching-list" id="matching-meanings">
+                                    {% for question in matching_questions %}
+                                    <button type="button"
+                                            class="vce-matching-item matching-meaning"
+                                            data-meaning="{{ question.correct_answer }}">
+                                        {{ question.correct_answer }}
+                                    </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="vce-matching-status" id="matching-status">
+                            Đã ghép 0/{{ matching_questions|length }} cặp từ.
+                        </p>
+
+                    </section>
+                    {% endif %}
+
+                    {% set ns = namespace(index=0) %}
+
+                    {% for question in questions %}
+
+                        {% if question.question_type != "matching" %}
+
+                        {% set ns.index = ns.index + 1 %}
+
+                        <article class="vce-question-card">
+
+                            <div class="vce-question-meta">
+                                <span class="vce-question-number">QUESTION {{ ns.index }}</span>
+
+                                {% if question.topic %}
+                                <span class="vce-question-topic">{{ question.topic }}</span>
+                                {% endif %}
+                            </div>
+
+                            {% if question.question_type == "find_mistake" %}
+
+                            <p class="vce-mistake-instruction">
+                                Tìm từ hoặc cụm từ sai trong câu và nhập cách sửa đúng.
+                            </p>
+
+                            <div class="vce-mistake-sentence">
+                                {{ question.question_text.split(':', 1)[-1].strip() }}
+                            </div>
+
+                            <input type="text"
+                                   name="question_{{ question.id }}"
+                                   class="vce-text-answer"
+                                   placeholder="Nhập phần sửa đúng..."
+                                   required>
+
+                            {% else %}
+
+                            <div class="vce-question-text">
+                                {{ question.question_text }}
+                            </div>
+
+                                {% if question.question_type in ["multiple_choice", "contextual_vocabulary"] %}
+
+                                <div class="vce-answer-options">
+
+                                    {% if question.option_a %}
+                                    <label class="vce-answer-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="A" required>
+                                        <span>A. {{ question.option_a }}</span>
+                                    </label>
+                                    {% endif %}
+
+                                    {% if question.option_b %}
+                                    <label class="vce-answer-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="B" required>
+                                        <span>B. {{ question.option_b }}</span>
+                                    </label>
+                                    {% endif %}
+
+                                    {% if question.option_c %}
+                                    <label class="vce-answer-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="C" required>
+                                        <span>C. {{ question.option_c }}</span>
+                                    </label>
+                                    {% endif %}
+
+                                    {% if question.option_d %}
+                                    <label class="vce-answer-option">
+                                        <input type="radio" name="question_{{ question.id }}" value="D" required>
+                                        <span>D. {{ question.option_d }}</span>
+                                    </label>
+                                    {% endif %}
+
+                                </div>
+
+                                {% elif question.question_type == "word_form" %}
+
+                                <input type="text"
+                                       name="question_{{ question.id }}"
+                                       class="vce-text-answer"
+                                       placeholder="Nhập dạng đúng của từ..."
+                                       required>
+
+                                {% else %}
+
+                                <input type="text"
+                                       name="question_{{ question.id }}"
+                                       class="vce-text-answer"
+                                       placeholder="Nhập câu trả lời của bạn..."
+                                       required>
+
+                                {% endif %}
+
+                            {% endif %}
+
+                        </article>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    <div class="vce-submit-area">
+                        <button type="submit" class="vce-submit-btn">
+                            Nộp bài và xem kết quả →
+                        </button>
+
+                        <a href="{{ url_for('vocabulary') }}" class="vce-cancel-btn">
+                            Thoát bài luyện tập
+                        </a>
+                    </div>
+
+                </form>
+
+                {% else %}
+
+                <div class="vce-empty">
+                    <div class="vce-empty-icon">📚</div>
+                    <h3>Chưa có câu hỏi</h3>
+                    <p>Hiện tại dạng bài này chưa có dữ liệu. Bạn hãy chọn dạng bài khác nhé.</p>
+
+                    <a href="{{ url_for('vocabulary_practice', unit=unit) }}"
+                       class="vce-submit-btn">
+                        Xem tất cả dạng bài
+                    </a>
+                </div>
+
+                {% endif %}
+
+            </main>
+
+            <aside class="vce-side-panel">
+
+                <h3 class="vce-side-heading">HƯỚNG DẪN LUYỆN TẬP</h3>
+
+                <div class="vce-side-item">
+                    <div class="vce-side-icon">📖</div>
+                    <div>
+                        <h3>Đọc kỹ câu hỏi</h3>
+                        <p>Xác định yêu cầu trước khi chọn hoặc nhập đáp án.</p>
+                    </div>
+                </div>
+
+                <div class="vce-side-item">
+                    <div class="vce-side-icon">✍️</div>
+                    <div>
+                        <h3>Hoàn thành bài làm</h3>
+                        <p>Trả lời tất cả câu hỏi và kiểm tra phần nối từ nếu có.</p>
+                    </div>
+                </div>
+
+                <div class="vce-side-item">
+                    <div class="vce-side-icon">🎯</div>
+                    <div>
+                        <h3>Xem lại kết quả</h3>
+                        <p>Đọc đáp án và phần giải thích sau khi nộp bài.</p>
+                    </div>
+                </div>
+
+                <hr class="vce-side-divider">
+
+                <div class="vce-side-note">
+                    <strong>✦ Study tip</strong>
+                    <p>Đừng chỉ ghi nhớ nghĩa của từ. Hãy chú ý cách viết và cách sử dụng từ trong ngữ cảnh.</p>
+                </div>
+
+                <hr class="vce-side-divider">
+
+                <h3 class="vce-side-heading">THÔNG TIN BÀI HỌC</h3>
+
+                <div class="vce-side-item">
+                    <div class="vce-side-icon">📚</div>
+                    <div>
+                        <h3>Unit {{ unit }}</h3>
+                        <p>Chủ đề từ vựng tiếng Anh lớp 7.</p>
+                    </div>
+                </div>
+
+                <div class="vce-side-item">
+                    <div class="vce-side-icon">☷</div>
+                    <div>
+                        <h3>{{ questions|length }} câu hỏi</h3>
+                        <p>Hoàn thành bài luyện tập để xem kết quả.</p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("vocab-form");
+
+    if (!form) return;
+
+    const wordButtons = Array.from(form.querySelectorAll(".matching-word"));
+    const meaningContainer = document.getElementById("matching-meanings");
+    const progressText = document.getElementById("progress-text");
+    const progressFill = document.getElementById("progress-fill");
+    const total = Number("{{ questions|length }}");
+
+    let selectedWord = null;
+
+    function updateProgress() {
+        let answered = 0;
+
+        form.querySelectorAll(".matching-answer").forEach(input => {
+            if (input.value.trim() !== "") answered++;
+        });
+
+        form.querySelectorAll(".vce-question-card").forEach(question => {
+            const radios = question.querySelectorAll('input[type="radio"]');
+            const textInput = question.querySelector('input[type="text"]');
+
+            if (radios.length > 0) {
+                if (Array.from(radios).some(radio => radio.checked)) answered++;
+            } else if (textInput && textInput.value.trim() !== "") {
+                answered++;
+            }
+        });
+
+        const percentage = total ? (answered / total) * 100 : 0;
+
+        if (progressText) {
+            progressText.textContent = answered + "/" + total + " câu";
+        }
+
+        if (progressFill) {
+            progressFill.style.width = percentage + "%";
+        }
+    }
+
+    if (meaningContainer) {
+        const meaningButtons = Array.from(
+            meaningContainer.querySelectorAll(".matching-meaning")
+        );
+
+        for (let i = meaningButtons.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [meaningButtons[i], meaningButtons[j]] = [meaningButtons[j], meaningButtons[i]];
+        }
+
+        meaningButtons.forEach(button => meaningContainer.appendChild(button));
+
+        function updateMatchingStatus() {
+            const answers = Array.from(form.querySelectorAll(".matching-answer"));
+            const completed = answers.filter(input => input.value !== "").length;
+            const status = document.getElementById("matching-status");
+
+            if (status) {
+                status.textContent = "Đã ghép " + completed + "/" + answers.length + " cặp từ.";
+            }
+
+            updateProgress();
+        }
+
+        wordButtons.forEach(wordButton => {
+            wordButton.addEventListener("click", function () {
+                const questionId = wordButton.dataset.questionId;
+                const answerInput = form.querySelector(
+                    '.matching-answer[data-question-id="' + questionId + '"]'
+                );
+
+                if (selectedWord === wordButton) {
+                    wordButton.classList.remove("selected");
+                    selectedWord = null;
+                    return;
+                }
+
+                if (answerInput.value !== "") {
+                    const oldMeaning = meaningButtons.find(
+                        button => button.dataset.meaning === answerInput.value
+                    );
+
+                    if (oldMeaning) {
+                        oldMeaning.classList.remove("matched");
+                        oldMeaning.disabled = false;
+                    }
+
+                    answerInput.value = "";
+                    wordButton.classList.remove("matched");
+                }
+
+                wordButtons.forEach(button => button.classList.remove("selected"));
+
+                selectedWord = wordButton;
+                wordButton.classList.add("selected");
+            });
+        });
+
+        meaningButtons.forEach(meaningButton => {
+            meaningButton.addEventListener("click", function () {
+                if (!selectedWord || meaningButton.disabled) return;
+
+                const questionId = selectedWord.dataset.questionId;
+                const answerInput = form.querySelector(
+                    '.matching-answer[data-question-id="' + questionId + '"]'
+                );
+
+                answerInput.value = meaningButton.dataset.meaning;
+
+                meaningButton.disabled = true;
+                meaningButton.classList.add("matched");
+
+                selectedWord.classList.remove("selected");
+                selectedWord.classList.add("matched");
+                selectedWord = null;
+
+                updateMatchingStatus();
+            });
+        });
+    }
+
+    form.addEventListener("input", updateProgress);
+    form.addEventListener("change", updateProgress);
+
+    form.addEventListener("submit", function (event) {
+        const incomplete = Array.from(
+            form.querySelectorAll(".matching-answer")
+        ).some(input => input.value.trim() === "");
+
+        if (incomplete) {
+            event.preventDefault();
+            alert("Bạn hãy ghép đầy đủ các cặp từ trước khi nộp bài nhé!");
+        }
+    });
+
+    updateProgress();
+});
+</script>
+
+{% endblock %}

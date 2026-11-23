@@ -1,0 +1,816 @@
+
+{% extends "base.html" %}
+
+{% block title %}Kết quả bài viết - Unit {{ attempt.writing_unit.unit }}{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+.wres-page {
+    max-width: 1120px;
+    margin: auto;
+    padding: 30px 24px 65px;
+    color: #302d50;
+}
+
+.wres-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    color: #77748e;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.wres-back:hover {
+    color: #7566d8;
+}
+
+.wres-hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #eeebff;
+    margin-bottom: 22px;
+}
+
+.wres-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 38px 40px;
+}
+
+.wres-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #7868d5;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+}
+
+.wres-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 3px;
+    border-radius: 5px;
+    background: #f28b7c;
+}
+
+.wres-hero h1 {
+    color: #302b5b;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+}
+
+.wres-hero p {
+    color: #77738f;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+    max-width: 440px;
+}
+
+.wres-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.wres-hero-tag {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.75);
+    color: #7164c5;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wres-hero-image {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.wres-hero-image img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+}
+
+.wres-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(37,31,76,.35));
+}
+
+.wres-image-note {
+    position: absolute;
+    z-index: 1;
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    padding: 15px 17px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.94);
+}
+
+.wres-image-note strong {
+    display: block;
+    color: #49417e;
+    font-size: 12px;
+}
+
+.wres-image-note span {
+    display: block;
+    color: #9995ad;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.wres-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.wres-stat {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid #ebe9f3;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.wres-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f0edff;
+    font-size: 18px;
+}
+
+.wres-stat:nth-child(2) .wres-stat-icon {
+    background: #fff0e9;
+}
+
+.wres-stat:nth-child(3) .wres-stat-icon {
+    background: #e8f7ef;
+}
+
+.wres-stat span {
+    display: block;
+    color: #9692a8;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.wres-stat strong {
+    display: block;
+    color: #49417e;
+    font-size: 23px;
+    font-weight: 850;
+}
+
+.wres-stat small {
+    font-size: 11px;
+    color: #9995ad;
+    font-weight: 600;
+}
+
+.wres-section {
+    padding: 23px;
+    border: 1px solid #ebe9f3;
+    border-radius: 17px;
+    background: #fff;
+    margin-bottom: 17px;
+}
+
+.wres-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.wres-heading-main {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.wres-heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #f0edff;
+    font-size: 16px;
+}
+
+.wres-heading h2 {
+    margin: 0;
+    color: #39345f;
+    font-size: 16px;
+    font-weight: 850;
+}
+
+.wres-heading p {
+    margin: 4px 0 0;
+    color: #aaa6b8;
+    font-size: 10px;
+}
+
+.wres-content {
+    padding: 20px;
+    border-radius: 13px;
+    background: #f8f7fc;
+    border: 1px solid #efedf5;
+    color: #5c5872;
+    font-size: 13px;
+    line-height: 2;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.wres-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.wres-tag {
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #7566d8;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.wres-tag:nth-child(2) {
+    background: #fff0e9;
+    color: #c87962;
+}
+
+.wres-tag:nth-child(3) {
+    background: #eaf7ef;
+    color: #538b68;
+}
+
+.wres-tag:nth-child(4) {
+    background: #f5f3f9;
+    color: #88839b;
+}
+
+.wres-evaluation {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+}
+
+.wres-score-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f5f2ff;
+}
+
+.wres-score-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background: conic-gradient(#7867d9 var(--score), #e6e1f7 0);
+    position: relative;
+}
+
+.wres-score-ring::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.wres-score-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.wres-score-inner strong {
+    display: block;
+    color: #49417e;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.wres-score-inner span {
+    display: block;
+    margin-top: 5px;
+    color: #aaa6b8;
+    font-size: 10px;
+}
+
+.wres-score-caption {
+    margin-top: 16px;
+    color: #77718e;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.wres-score-caption span {
+    color: #7566d8;
+}
+
+.wres-score-list {
+    display: grid;
+    gap: 17px;
+}
+
+.wres-score-item {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap: 8px 12px;
+    align-items: center;
+}
+
+.wres-score-name {
+    color: #66617c;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.wres-score-value {
+    color: #7566d8;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.wres-score-track {
+    grid-column: 1 / -1;
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f0eef6;
+}
+
+.wres-score-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #a99af2, #7161d0);
+    transition: width .7s ease;
+}
+
+.wres-score-item:nth-child(2) .wres-score-fill {
+    background: linear-gradient(90deg, #ffb69e, #ef8c79);
+}
+
+.wres-score-item:nth-child(3) .wres-score-fill {
+    background: linear-gradient(90deg, #91d5b0, #59aa7d);
+}
+
+.wres-score-item:nth-child(4) .wres-score-fill {
+    background: linear-gradient(90deg, #a6b9fa, #7189d8);
+}
+
+.wres-score-item:nth-child(5) .wres-score-fill {
+    background: linear-gradient(90deg, #f2d58b, #d7a94d);
+}
+
+.wres-feedback {
+    padding: 19px;
+    border-radius: 13px;
+    background: #f8f7fc;
+    border: 1px solid #efedf5;
+    color: #625e78;
+    font-size: 13px;
+    line-height: 1.95;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.wres-ai-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    margin-bottom: 12px;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #7566d8;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.wres-notice {
+    display: flex;
+    gap: 13px;
+    padding: 18px;
+    border: 1px solid #f2e7cf;
+    border-radius: 13px;
+    background: #fff9eb;
+    color: #8a7950;
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+.wres-notice-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.wres-notice strong {
+    display: block;
+    color: #79683e;
+    margin-bottom: 4px;
+}
+
+.wres-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.wres-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 43px;
+    padding: 11px 17px;
+    border: 1px solid #7566d8;
+    border-radius: 10px;
+    background: #7566d8;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 850;
+    transition: .2s;
+}
+
+.wres-button:hover {
+    background: #6253c1;
+    border-color: #6253c1;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.wres-button.secondary {
+    background: #fff;
+    border-color: #e7e4f0;
+    color: #77728e;
+}
+
+.wres-button.secondary:hover {
+    background: #f5f2ff;
+    border-color: #d7d0f5;
+    color: #6253c1;
+}
+
+@media (max-width: 800px) {
+    .wres-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .wres-hero-image {
+        min-height: 220px;
+        grid-row: 1;
+    }
+
+    .wres-overview {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .wres-stat:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .wres-evaluation {
+        grid-template-columns: 1fr;
+    }
+
+    .wres-score-panel {
+        min-height: 210px;
+    }
+}
+
+@media (max-width: 550px) {
+    .wres-page {
+        padding: 20px 14px 40px;
+    }
+
+    .wres-hero-content {
+        padding: 27px 23px;
+    }
+
+    .wres-hero h1 {
+        font-size: 29px;
+    }
+
+    .wres-overview {
+        gap: 9px;
+    }
+
+    .wres-stat {
+        padding: 13px;
+        gap: 9px;
+    }
+
+    .wres-stat-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .wres-stat strong {
+        font-size: 20px;
+    }
+
+    .wres-section {
+        padding: 17px;
+    }
+
+    .wres-content,
+    .wres-feedback {
+        padding: 15px;
+    }
+
+    .wres-actions {
+        flex-direction: column;
+    }
+
+    .wres-button {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="wres-page">
+
+    <a class="wres-back" href="{{ url_for('writing.writing_home') }}">
+        ← Quay lại Writing
+    </a>
+
+    <header class="wres-hero">
+        <div class="wres-hero-content">
+            <div class="wres-eyebrow">WRITING · COMPLETED</div>
+
+            <h1>Your words,<br>your progress.</h1>
+
+            <p>
+                Bạn đã hoàn thành bài viết của mình.
+                Hãy xem lại nội dung, khám phá kết quả đánh giá
+                và tìm ra những điểm cần cải thiện.
+            </p>
+
+            <div class="wres-hero-tags">
+                <span class="wres-hero-tag">✍️ Unit {{ attempt.writing_unit.unit }}</span>
+                <span class="wres-hero-tag">📝 English 7</span>
+                <span class="wres-hero-tag">✓ Đã lưu bài viết</span>
+            </div>
+        </div>
+
+        <div class="wres-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&auto=format&fit=crop&q=85"
+                alt="Không gian viết và học tập"
+            >
+            <div class="wres-image-note">
+                <strong>Every sentence is a step forward.</strong>
+                <span>Keep writing. Keep improving.</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wres-overview">
+        <div class="wres-stat">
+            <div class="wres-stat-icon">📝</div>
+            <div>
+                <span>Số từ trong bài viết</span>
+                <strong>{{ attempt.word_count }}</strong>
+            </div>
+        </div>
+
+        <div class="wres-stat">
+            <div class="wres-stat-icon">🏆</div>
+            <div>
+                <span>Điểm đánh giá</span>
+                {% if attempt.ai_feedback %}
+                    <strong>{{ "%.1f"|format(attempt.total_score or 0) }}<small>/10</small></strong>
+                {% else %}
+                    <strong>--</strong>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="wres-stat">
+            <div class="wres-stat-icon">📅</div>
+            <div>
+                <span>Thời gian nộp bài</span>
+                <strong style="font-size:16px;">
+                    {{ attempt.submitted_at.strftime('%d/%m/%Y') }}
+                </strong>
+                <small>{{ attempt.submitted_at.strftime('%H:%M') }}</small>
+            </div>
+        </div>
+    </div>
+
+    <section class="wres-section">
+        <div class="wres-heading">
+            <div class="wres-heading-main">
+                <div class="wres-heading-icon">✎</div>
+                <div>
+                    <h2>Bài viết của bạn</h2>
+                    <p>Nội dung đã được lưu sau khi nộp bài</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wres-content">{{ attempt.user_text }}</div>
+
+        <div class="wres-tags">
+            <span class="wres-tag">UNIT {{ attempt.writing_unit.unit }}</span>
+            <span class="wres-tag">{{ attempt.writing_unit.title }}</span>
+            <span class="wres-tag">{{ attempt.word_count }} từ</span>
+            <span class="wres-tag">Đã nộp thành công</span>
+        </div>
+    </section>
+
+    <section class="wres-section">
+        <div class="wres-heading">
+            <div class="wres-heading-main">
+                <div class="wres-heading-icon">📊</div>
+                <div>
+                    <h2>Đánh giá bài viết</h2>
+                    <p>Kết quả theo 5 tiêu chí đánh giá</p>
+                </div>
+            </div>
+        </div>
+
+        {% if attempt.ai_feedback %}
+
+            {% set total_percentage = [0, [((attempt.total_score or 0)|float / 10 * 100), 100]|min]|max %}
+
+            <div class="wres-evaluation">
+                <div class="wres-score-panel">
+                    <div class="wres-score-ring" style="--score: {{ total_percentage }}%;">
+                        <div class="wres-score-inner">
+                            <strong>{{ "%.1f"|format(attempt.total_score or 0) }}</strong>
+                            <span>TRÊN 10 ĐIỂM</span>
+                        </div>
+                    </div>
+                    <div class="wres-score-caption">
+                        <span>✦</span> Tổng điểm bài viết
+                    </div>
+                </div>
+
+                <div class="wres-score-list">
+
+                    <div class="wres-score-item">
+                        <span class="wres-score-name">Hoàn thành yêu cầu đề bài</span>
+                        <strong class="wres-score-value">{{ attempt.task_score or 0 }}/2</strong>
+                        <div class="wres-score-track">
+                            <div class="wres-score-fill" data-score="{{ attempt.task_score or 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="wres-score-item">
+                        <span class="wres-score-name">Bố cục và liên kết</span>
+                        <strong class="wres-score-value">{{ attempt.organization_score or 0 }}/2</strong>
+                        <div class="wres-score-track">
+                            <div class="wres-score-fill" data-score="{{ attempt.organization_score or 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="wres-score-item">
+                        <span class="wres-score-name">Ngữ pháp và cấu trúc câu</span>
+                        <strong class="wres-score-value">{{ attempt.grammar_score or 0 }}/2</strong>
+                        <div class="wres-score-track">
+                            <div class="wres-score-fill" data-score="{{ attempt.grammar_score or 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="wres-score-item">
+                        <span class="wres-score-name">Từ vựng</span>
+                        <strong class="wres-score-value">{{ attempt.vocabulary_score or 0 }}/2</strong>
+                        <div class="wres-score-track">
+                            <div class="wres-score-fill" data-score="{{ attempt.vocabulary_score or 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="wres-score-item">
+                        <span class="wres-score-name">Chính tả và dấu câu</span>
+                        <strong class="wres-score-value">{{ attempt.spelling_score or 0 }}/2</strong>
+                        <div class="wres-score-track">
+                            <div class="wres-score-fill" data-score="{{ attempt.spelling_score or 0 }}"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="margin-top:25px;">
+                <div class="wres-heading">
+                    <div class="wres-heading-main">
+                        <div class="wres-heading-icon">🤖</div>
+                        <div>
+                            <h2>Nhận xét từ AI</h2>
+                            <p>Phản hồi dành cho bài viết của bạn</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wres-ai-label">✦ AI WRITING FEEDBACK</div>
+                <div class="wres-feedback">{{ attempt.ai_feedback }}</div>
+            </div>
+
+        {% else %}
+
+            <div class="wres-notice">
+                <div class="wres-notice-icon">💡</div>
+                <div>
+                    <strong>Bài viết chưa được AI đánh giá</strong>
+                    Bài làm đã được lưu thành công. Hiện tại chức năng
+                    chấm điểm tự động và nhận xét chi tiết chưa được kết nối
+                    với quy trình nộp bài.
+                </div>
+            </div>
+
+        {% endif %}
+    </section>
+
+    <div class="wres-actions">
+        <a
+            href="{{ url_for('writing.writing_practice', unit_number=attempt.writing_unit.unit) }}"
+            class="wres-button"
+        >
+            ✍️ Viết lại Unit {{ attempt.writing_unit.unit }}
+        </a>
+
+        <a
+            href="{{ url_for('writing.writing_home') }}"
+            class="wres-button secondary"
+        >
+            Quay lại Writing
+        </a>
+
+        <a
+            href="{{ url_for('writing.writing_progress') }}"
+            class="wres-button secondary"
+        >
+            📈 Xem tiến độ
+        </a>
+    </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+document.querySelectorAll(".wres-score-fill").forEach(function(bar) {
+    const score = Number(bar.dataset.score) || 0;
+    const percentage = Math.min(Math.max(score / 2 * 100, 0), 100);
+    bar.style.width = percentage + "%";
+});
+</script>
+{% endblock %}

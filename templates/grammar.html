@@ -1,0 +1,716 @@
+
+{% extends "base.html" %}
+
+{% block title %}Ngữ pháp tiếng Anh 7 - Grammar{% endblock %}
+
+{% block styles %}
+<style>
+.grm-page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 26px 26px 60px;
+    color: #292746;
+}
+
+.grm-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+    gap: 12px;
+}
+
+.grm-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid #e9e6f4;
+    border-radius: 11px;
+    background: #fff;
+    color: #625b86;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.grm-back:hover {
+    background: #f1efff;
+    transform: translateX(-3px);
+}
+
+.grm-top-label {
+    color: #aaa6bd;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.7px;
+}
+
+.grm-hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #eae6ff;
+    margin-bottom: 20px;
+}
+
+.grm-hero-content {
+    padding: 36px 38px;
+    position: relative;
+    z-index: 1;
+}
+
+.grm-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 30px;
+    background: #fff;
+    color: #7869c8;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.3px;
+}
+
+.grm-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f28b79;
+}
+
+.grm-hero h1 {
+    max-width: 470px;
+    margin: 19px 0 11px;
+    color: #292746;
+    font-size: clamp(28px, 3.5vw, 39px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.grm-hero p {
+    max-width: 465px;
+    margin: 0;
+    color: #77728f;
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+.grm-hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 21px;
+}
+
+.grm-chip {
+    padding: 8px 11px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.78);
+    color: #7164b6;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.grm-hero-visual {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+.grm-hero-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grm-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eae6ff 0%, rgba(234,230,255,.08) 55%, rgba(41,39,70,.08));
+}
+
+.grm-hero-note {
+    position: absolute;
+    z-index: 2;
+    right: 22px;
+    bottom: 22px;
+    padding: 12px 15px;
+    border-radius: 13px;
+    background: #fff2c9;
+    color: #79602b;
+    font-size: 10px;
+    font-weight: 850;
+    transform: rotate(-4deg);
+    box-shadow: 0 7px 22px rgba(40,35,70,.13);
+}
+
+.grm-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-bottom: 35px;
+}
+
+.grm-stat {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 92px;
+    padding: 17px 19px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.grm-stat:nth-child(1) {
+    background: #dff4eb;
+}
+
+.grm-stat:nth-child(2) {
+    background: #ffe9df;
+}
+
+.grm-stat:nth-child(3) {
+    background: #fff2c9;
+}
+
+.grm-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.72);
+    font-size: 19px;
+}
+
+.grm-stat span {
+    display: block;
+    margin-bottom: 5px;
+    color: #827e92;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.grm-stat strong {
+    display: block;
+    color: #393550;
+    font-size: 22px;
+    font-weight: 850;
+    line-height: 1.1;
+}
+
+.grm-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.grm-section-heading h2 {
+    margin: 0 0 6px;
+    color: #302d4c;
+    font-size: 21px;
+    letter-spacing: -.6px;
+}
+
+.grm-section-heading p {
+    margin: 0;
+    color: #9692a8;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.grm-section-tag {
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: #f0edff;
+    color: #7869c8;
+    font-size: 9px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.grm-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.grm-unit-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #eeecf5;
+    border-radius: 18px;
+    background: #fff;
+    transition: .25s ease;
+}
+
+.grm-unit-card:hover {
+    transform: translateY(-5px);
+    border-color: #c3b9ef;
+    box-shadow: 0 13px 28px rgba(54,45,100,.09);
+}
+
+.grm-unit-image {
+    position: relative;
+    height: 145px;
+    overflow: hidden;
+    background: #eeecf8;
+}
+
+.grm-unit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .45s ease;
+}
+
+.grm-unit-card:hover .grm-unit-image img {
+    transform: scale(1.06);
+}
+
+.grm-unit-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(30,25,60,.02), rgba(30,25,60,.25));
+}
+
+.grm-unit-number {
+    position: absolute;
+    z-index: 1;
+    left: 14px;
+    top: 13px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.94);
+    color: #7061bd;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.grm-unit-symbol {
+    position: absolute;
+    z-index: 1;
+    right: 13px;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: rgba(255,255,255,.93);
+    font-size: 18px;
+}
+
+.grm-unit-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 17px 18px 16px;
+}
+
+.grm-unit-body h3 {
+    min-height: 43px;
+    margin: 0 0 7px;
+    color: #393550;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.grm-unit-body p {
+    min-height: 55px;
+    margin: 0;
+    color: #9290a3;
+    font-size: 10px;
+    line-height: 1.75;
+}
+
+.grm-unit-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-top: 14px;
+    margin-top: 14px;
+    border-top: 1px solid #f0eef6;
+}
+
+.grm-question-count {
+    color: #9692a8;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.grm-practice-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    background: #7566cb;
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 850;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.grm-practice-link:hover {
+    background: #5f50b2;
+    transform: translateY(-2px);
+}
+
+.grm-unavailable {
+    color: #aaa6b9;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.grm-progress-banner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+    padding: 23px 25px;
+    border-radius: 18px;
+    background: #292746;
+    overflow: hidden;
+}
+
+.grm-progress-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.grm-progress-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 47px;
+    height: 47px;
+    border-radius: 14px;
+    background: #45415f;
+    color: #f8d979;
+    font-size: 21px;
+}
+
+.grm-progress-banner h3 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.grm-progress-banner p {
+    max-width: 530px;
+    margin: 0;
+    color: #c0bdd4;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.grm-progress-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: #f8d979;
+    color: #514525;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 900;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.grm-progress-link:hover {
+    background: #ffe79c;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .grm-unit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .grm-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .grm-hero-content {
+        padding: 28px 24px;
+    }
+
+    .grm-hero-visual {
+        min-height: 160px;
+    }
+
+    .grm-hero-visual::after {
+        background: linear-gradient(180deg, #eae6ff 0%, rgba(234,230,255,.08) 70%);
+    }
+
+    .grm-summary {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .grm-stat {
+        min-height: 75px;
+    }
+
+    .grm-progress-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .grm-progress-link {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 550px) {
+    .grm-page {
+        padding: 18px 14px 40px;
+    }
+
+    .grm-top-label {
+        display: none;
+    }
+
+    .grm-unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grm-unit-image {
+        height: 175px;
+    }
+
+    .grm-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .grm-unit-body h3,
+    .grm-unit-body p {
+        min-height: 0;
+    }
+
+    .grm-progress-content {
+        align-items: flex-start;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="grm-page">
+
+    <div class="grm-topbar">
+        <a href="{{ url_for('dashboard') }}" class="grm-back">
+            ← Quay lại Dashboard
+        </a>
+        <span class="grm-top-label">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="grm-hero">
+        <div class="grm-hero-content">
+            <span class="grm-eyebrow">GRAMMAR LEARNING SPACE</span>
+
+            <h1>Build your English, one rule at a time.</h1>
+
+            <p>
+                Khám phá các chủ điểm ngữ pháp tiếng Anh lớp 7.
+                Hệ thống bài tập được sắp xếp theo từng Unit,
+                giúp bạn luyện tập, củng cố kiến thức và nhận ra
+                những phần cần cải thiện.
+            </p>
+
+            <div class="grm-hero-chips">
+                <span class="grm-chip">📚 English 7</span>
+                <span class="grm-chip">✍️ Practice</span>
+                <span class="grm-chip">🎯 Learn by Unit</span>
+            </div>
+        </div>
+
+        <div class="grm-hero-visual">
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&auto=format&fit=crop&q=85"
+                alt="English grammar study"
+            >
+            <div class="grm-hero-note">Learn the rules ✦</div>
+        </div>
+    </section>
+
+    <section class="grm-summary">
+
+        <div class="grm-stat">
+            <div class="grm-stat-icon">📚</div>
+            <div>
+                <span>CHỦ ĐỀ HỌC TẬP</span>
+                <strong>{{ units|length }} Units</strong>
+            </div>
+        </div>
+
+        <div class="grm-stat">
+            <div class="grm-stat-icon">✎</div>
+            <div>
+                <span>TỔNG SỐ CÂU HỎI</span>
+                <strong>{{ units|sum(attribute='total') }}</strong>
+            </div>
+        </div>
+
+        <div class="grm-stat">
+            <div class="grm-stat-icon">✦</div>
+            <div>
+                <span>TRẠNG THÁI HỌC LIỆU</span>
+                <strong>Đã sẵn sàng</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="grm-unit-section">
+
+        <div class="grm-section-heading">
+            <div>
+                <h2>Explore Grammar Units</h2>
+                <p>Chọn một chủ đề để bắt đầu luyện tập ngữ pháp.</p>
+            </div>
+            <span class="grm-section-tag">YOUR CLASSROOM</span>
+        </div>
+
+        {% set descriptions = {
+            1: "Luyện tập thì hiện tại đơn và trạng từ chỉ tần suất.",
+            2: "Ôn tập sở hữu cách và giới từ chỉ vị trí.",
+            3: "Thực hành thì hiện tại tiếp diễn trong các tình huống.",
+            4: "Củng cố cấu trúc so sánh hơn của tính từ.",
+            5: "Phân biệt danh từ đếm được, không đếm được và cách dùng Must/Mustn't.",
+            6: "Luyện tập Should/Shouldn't và cách sử dụng Some/Any."
+        } %}
+
+        {% set symbols = {
+            1: "🏫",
+            2: "🏠",
+            3: "👥",
+            4: "🏙️",
+            5: "🏞️",
+            6: "🧧"
+        } %}
+
+        {% set images = {
+            1: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=85",
+            2: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&auto=format&fit=crop&q=85",
+            3: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=85",
+            4: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&auto=format&fit=crop&q=85",
+            5: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&auto=format&fit=crop&q=85",
+            6: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&auto=format&fit=crop&q=85"
+        } %}
+
+        <div class="grm-unit-grid">
+
+            {% for unit in units %}
+
+                <article class="grm-unit-card">
+
+                    <div class="grm-unit-image">
+                        {% if images.get(unit.number) %}
+                            <img
+                                src="{{ images.get(unit.number) }}"
+                                alt="Grammar Unit {{ unit.number }}"
+                                loading="lazy"
+                            >
+                        {% endif %}
+
+                        <span class="grm-unit-number">
+                            UNIT {{ unit.number }}
+                        </span>
+
+                        <span class="grm-unit-symbol">
+                            {{ symbols.get(unit.number, "📘") }}
+                        </span>
+                    </div>
+
+                    <div class="grm-unit-body">
+
+                        <h3>{{ unit.title }}</h3>
+
+                        <p>
+                            {{ descriptions.get(unit.number, "Khám phá kiến thức ngữ pháp và luyện tập qua các câu hỏi của Unit này.") }}
+                        </p>
+
+                        <div class="grm-unit-footer">
+                            <span class="grm-question-count">
+                                {{ unit.total }} câu hỏi
+                            </span>
+
+                            {% if unit.total > 0 %}
+                                <a
+                                    href="{{ url_for('grammar.grammar_practice', unit=unit.number) }}"
+                                    class="grm-practice-link"
+                                >
+                                    Bắt đầu học <span>→</span>
+                                </a>
+                            {% else %}
+                                <span class="grm-unavailable">Chưa có bài</span>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <section class="grm-progress-banner">
+
+        <div class="grm-progress-content">
+            <div class="grm-progress-icon">↗</div>
+            <div>
+                <h3>Your Grammar Journey</h3>
+                <p>
+                    Theo dõi số câu đã hoàn thành, tỷ lệ trả lời đúng
+                    và những chủ điểm ngữ pháp bạn cần cải thiện.
+                </p>
+            </div>
+        </div>
+
+        <a
+            href="{{ url_for('grammar.grammar_progress') }}"
+            class="grm-progress-link"
+        >
+            Xem tiến độ học tập <span>→</span>
+        </a>
+
+    </section>
+
+</div>
+{% endblock %}

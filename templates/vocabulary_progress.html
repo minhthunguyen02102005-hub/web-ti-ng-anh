@@ -1,0 +1,692 @@
+
+{% extends "base.html" %}
+
+{% block title %}Theo dõi tiến độ học tập{% endblock %}
+
+{% block content %}
+
+<style>
+.vcp-page {
+    --ink: #25253c;
+    --muted: #818096;
+    --purple: #625bd7;
+    --lavender: #eeecff;
+    --yellow: #ffda72;
+    --coral: #ff897b;
+    --mint: #c9edda;
+    --paper: #faf9f6;
+    min-height: 100vh;
+    padding: 30px 5.5% 65px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.vcp-page * {
+    box-sizing: border-box;
+}
+
+.vcp-container {
+    max-width: 1180px;
+    margin: auto;
+}
+
+.vcp-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 27px;
+}
+
+.vcp-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.vcp-brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--purple);
+    color: white;
+}
+
+.vcp-back {
+    color: var(--purple);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.vcp-back:hover {
+    text-decoration: underline;
+}
+
+.vcp-hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    background: #e9e7ff;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    min-height: 265px;
+}
+
+.vcp-hero-copy {
+    padding: 35px 20px 35px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.vcp-kicker {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+}
+
+.vcp-hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(31px, 4vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+    margin: 0 0 12px;
+    max-width: 420px;
+}
+
+.vcp-hero h1 span {
+    color: var(--purple);
+}
+
+.vcp-hero p {
+    color: #696782;
+    font-size: 12px;
+    line-height: 1.8;
+    max-width: 410px;
+    margin: 0;
+}
+
+.vcp-hero-tag {
+    width: fit-content;
+    padding: 9px 13px;
+    border-radius: 9px;
+    background: white;
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    margin-top: 19px;
+}
+
+.vcp-hero-visual {
+    position: relative;
+    min-height: 265px;
+    overflow: hidden;
+}
+
+.vcp-hero-visual img {
+    position: absolute;
+    width: 78%;
+    height: 83%;
+    right: 8%;
+    top: 9%;
+    object-fit: cover;
+    border-radius: 19px;
+    transform: rotate(2deg);
+    box-shadow: 0 15px 30px rgba(49, 45, 105, .17);
+}
+
+.vcp-decoration {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 22px solid var(--yellow);
+    border-radius: 50%;
+    right: -35px;
+    top: -45px;
+}
+
+.vcp-decoration-square {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: var(--coral);
+    border-radius: 13px;
+    left: 4%;
+    bottom: 10%;
+    transform: rotate(-14deg);
+}
+
+.vcp-overview {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 16px;
+    margin-bottom: 42px;
+}
+
+.vcp-main-stat {
+    background: var(--ink);
+    color: white;
+    border-radius: 21px;
+    padding: 26px 29px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    min-height: 175px;
+}
+
+.vcp-main-stat::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border: 30px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+    right: -80px;
+    bottom: -120px;
+}
+
+.vcp-main-stat-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.vcp-stat-label {
+    color: #c6c3e9;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.vcp-stat-number {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -2px;
+    margin: 7px 0;
+}
+
+.vcp-stat-description {
+    color: #c3c1d8;
+    font-size: 10px;
+}
+
+.vcp-stat-symbol {
+    width: 86px;
+    height: 86px;
+    border-radius: 27px;
+    background: var(--yellow);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    font-size: 36px;
+    transform: rotate(7deg);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.vcp-stat-list {
+    background: white;
+    border: 1px solid #eeedf2;
+    border-radius: 21px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vcp-stat-list-title {
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.vcp-stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0eff4;
+}
+
+.vcp-stat-item:last-child {
+    border-bottom: 0;
+}
+
+.vcp-stat-item span {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.vcp-stat-item strong {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+}
+
+.vcp-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.vcp-section-kicker {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
+}
+
+.vcp-section-heading h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 25px;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.vcp-section-heading p {
+    color: var(--muted);
+    font-size: 10px;
+    margin: 0 0 3px;
+}
+
+.vcp-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.vcp-unit-card {
+    background: white;
+    border: 1px solid #eeedf2;
+    border-radius: 17px;
+    padding: 21px 22px;
+    transition: transform .2s ease, box-shadow .2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vcp-unit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 43, 85, .07);
+}
+
+.vcp-unit-card:nth-child(4n+1) .vcp-unit-icon {
+    background: var(--lavender);
+}
+
+.vcp-unit-card:nth-child(4n+2) .vcp-unit-icon {
+    background: #fff1ca;
+}
+
+.vcp-unit-card:nth-child(4n+3) .vcp-unit-icon {
+    background: #e1f4e9;
+}
+
+.vcp-unit-card:nth-child(4n+4) .vcp-unit-icon {
+    background: #ffe8e2;
+}
+
+.vcp-unit-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.vcp-unit-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vcp-unit-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.vcp-unit-identity h3 {
+    font-size: 13px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.vcp-unit-identity span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.vcp-unit-percent {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--purple);
+}
+
+.vcp-progress-track {
+    width: 100%;
+    height: 9px;
+    background: #f0eff5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.vcp-progress-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #a59cf6, #625bd7);
+    transition: width 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.vcp-unit-card:nth-child(4n+2) .vcp-progress-fill {
+    background: linear-gradient(90deg, #ffe08b, #f2b94f);
+}
+
+.vcp-unit-card:nth-child(4n+3) .vcp-progress-fill {
+    background: linear-gradient(90deg, #9bdbb6, #4eae7c);
+}
+
+.vcp-unit-card:nth-child(4n+4) .vcp-progress-fill {
+    background: linear-gradient(90deg, #ffb3a6, #f17d70);
+}
+
+.vcp-unit-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 13px;
+}
+
+.vcp-unit-footer span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.vcp-unit-footer strong {
+    color: #3d8d68;
+    font-size: 10px;
+}
+
+.vcp-empty {
+    grid-column: 1 / -1;
+    background: white;
+    border: 1px dashed #d6d1f4;
+    border-radius: 20px;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.vcp-empty-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    border-radius: 21px;
+    display: grid;
+    place-items: center;
+    background: var(--lavender);
+    font-size: 29px;
+}
+
+.vcp-empty h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.vcp-empty p {
+    color: var(--muted);
+    font-size: 11px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.vcp-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 34px;
+    padding-top: 23px;
+    border-top: 1px solid #eae8ef;
+}
+
+.vcp-bottom a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 20px;
+    background: var(--purple);
+    color: white;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.vcp-bottom a:hover {
+    background: #5049c2;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+    .vcp-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .vcp-hero-copy {
+        padding: 30px 27px 15px;
+    }
+
+    .vcp-hero-visual {
+        min-height: 205px;
+    }
+
+    .vcp-hero-visual img {
+        width: 75%;
+        height: 85%;
+        right: 12%;
+        top: 5%;
+    }
+
+    .vcp-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .vcp-page {
+        padding: 20px 15px 40px;
+    }
+
+    .vcp-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .vcp-unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vcp-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .vcp-main-stat {
+        padding: 22px;
+    }
+
+    .vcp-stat-number {
+        font-size: 46px;
+    }
+
+    .vcp-stat-symbol {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+}
+</style>
+
+<section class="vcp-page">
+    <div class="vcp-container">
+
+        <div class="vcp-topbar">
+            <div class="vcp-brand">
+                <div class="vcp-brand-mark">✳</div>
+                <span>WORDSPACE</span>
+            </div>
+
+            <a href="{{ url_for('vocabulary') }}" class="vcp-back">
+                ← Quay lại luyện tập từ vựng
+            </a>
+        </div>
+
+        <section class="vcp-hero">
+            <div class="vcp-hero-copy">
+                <div class="vcp-kicker">YOUR LEARNING JOURNEY</div>
+                <h1>Học mỗi ngày, <span>tiến bộ mỗi bước.</span></h1>
+                <p>
+                    Hành trình học từ vựng tiếng Anh lớp 7 của bạn được tổng hợp tại đây.
+                    Theo dõi kết quả và khám phá những Unit cần luyện tập thêm.
+                </p>
+                <div class="vcp-hero-tag">MY LEARNING PROGRESS · ENGLISH 7</div>
+            </div>
+
+            <div class="vcp-hero-visual">
+                <div class="vcp-decoration"></div>
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1100&auto=format&fit=crop&q=85" alt="Sổ ghi chép và dụng cụ học tập">
+                <div class="vcp-decoration-square"></div>
+            </div>
+        </section>
+
+        <section class="vcp-overview">
+            <div class="vcp-main-stat">
+                <div class="vcp-main-stat-copy">
+                    <div class="vcp-stat-label">TOTAL PRACTICE</div>
+                    <div class="vcp-stat-number">{{ total_attempts }}</div>
+                    <div class="vcp-stat-description">Tổng lượt trả lời từ trước đến nay</div>
+                </div>
+                <div class="vcp-stat-symbol">✎</div>
+            </div>
+
+            <div class="vcp-stat-list">
+                <div class="vcp-stat-list-title">TỔNG QUAN HỌC TẬP</div>
+
+                <div class="vcp-stat-item">
+                    <span>✓ &nbsp; Số câu trả lời đúng</span>
+                    <strong>{{ correct_attempts }}</strong>
+                </div>
+
+                <div class="vcp-stat-item">
+                    <span>◎ &nbsp; Tỷ lệ chính xác</span>
+                    <strong>{{ accuracy }}%</strong>
+                </div>
+
+                <div class="vcp-stat-item">
+                    <span>▦ &nbsp; Số câu chưa đúng</span>
+                    <strong>{{ total_attempts - correct_attempts }}</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="vcp-units">
+            <div class="vcp-section-heading">
+                <div>
+                    <div class="vcp-section-kicker">UNIT PERFORMANCE</div>
+                    <h2>Tiến độ theo từng Unit</h2>
+                </div>
+                <p>Kết quả dựa trên các lượt trả lời của bạn</p>
+            </div>
+
+            <div class="vcp-unit-grid">
+
+                {% for item in unit_results %}
+                <article class="vcp-unit-card">
+
+                    <div class="vcp-unit-top">
+                        <div class="vcp-unit-identity">
+                            <div class="vcp-unit-icon">📖</div>
+                            <div>
+                                <h3>Unit {{ item.unit }}</h3>
+                                <span>VOCABULARY · ENGLISH 7</span>
+                            </div>
+                        </div>
+
+                        <div class="vcp-unit-percent">{{ item.accuracy }}%</div>
+                    </div>
+
+                    <div class="vcp-progress-track">
+                        <div class="vcp-progress-fill" data-width="{{ item.accuracy }}"></div>
+                    </div>
+
+                    <div class="vcp-unit-footer">
+                        <span>{{ item.total }} lượt trả lời</span>
+                        <strong>{{ item.correct }} câu đúng</strong>
+                    </div>
+
+                </article>
+                {% endfor %}
+
+                {% if total_attempts == 0 %}
+                <div class="vcp-empty">
+                    <div class="vcp-empty-icon">📚</div>
+                    <h3>Bắt đầu hành trình của bạn!</h3>
+                    <p>
+                        Bạn chưa có dữ liệu học tập.<br>
+                        Hãy làm bài luyện tập từ vựng để theo dõi tiến độ tại đây.
+                    </p>
+                </div>
+                {% endif %}
+
+            </div>
+        </section>
+
+        <div class="vcp-bottom">
+            <a href="{{ url_for('vocabulary') }}">
+                ← Tiếp tục luyện tập từ vựng
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.querySelectorAll(".vcp-progress-fill").forEach(function(bar) {
+    const width = Number(bar.dataset.width);
+
+    if (Number.isFinite(width)) {
+        bar.style.width = Math.min(100, Math.max(0, width)) + "%";
+    }
+});
+</script>
+
+{% endblock %}

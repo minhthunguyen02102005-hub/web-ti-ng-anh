@@ -1,0 +1,693 @@
+
+{% extends "base.html" %}
+
+{% block title %}Reading Progress - English 7{% endblock %}
+
+{% block styles %}
+<style>
+.rp-page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 28px 26px 60px;
+    color: #292746;
+    font-family: inherit;
+}
+
+.rp-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 15px;
+}
+
+.rp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border-radius: 11px;
+    background: #fff;
+    border: 1px solid #e9e6f4;
+    color: #5c5680;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+    transition: .2s ease;
+}
+
+.rp-back:hover {
+    background: #f2efff;
+    transform: translateX(-3px);
+}
+
+.rp-brand {
+    color: #aaa6c0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.rp-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    min-height: 265px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #eae6ff;
+    margin-bottom: 22px;
+}
+
+.rp-hero-content {
+    padding: 35px 38px;
+    position: relative;
+    z-index: 2;
+}
+
+.rp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.75);
+    color: #7465c6;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.3px;
+}
+
+.rp-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f28b79;
+}
+
+.rp-hero h1 {
+    margin: 19px 0 10px;
+    max-width: 430px;
+    color: #292746;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.13;
+    letter-spacing: -1.6px;
+}
+
+.rp-hero p {
+    max-width: 430px;
+    margin: 0;
+    color: #77728f;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.rp-hero-visual {
+    position: relative;
+    min-height: 265px;
+    overflow: hidden;
+}
+
+.rp-hero-visual img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+}
+
+.rp-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eae6ff 0%, rgba(234,230,255,.12) 55%, rgba(41,39,70,.08) 100%);
+}
+
+.rp-hero-sticker {
+    position: absolute;
+    z-index: 2;
+    right: 25px;
+    bottom: 22px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: #fff4c9;
+    color: #79602b;
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: 0 8px 25px rgba(40,35,70,.12);
+    transform: rotate(-4deg);
+}
+
+.rp-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.rp-stat {
+    position: relative;
+    min-height: 132px;
+    padding: 20px 21px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.rp-stat:nth-child(1) {
+    background: #dff4eb;
+}
+
+.rp-stat:nth-child(2) {
+    background: #ffe8df;
+}
+
+.rp-stat:nth-child(3) {
+    background: #292746;
+    color: #fff;
+}
+
+.rp-stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 750;
+    opacity: .72;
+    margin-bottom: 15px;
+}
+
+.rp-stat-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.rp-stat:nth-child(1) .rp-stat-value {
+    color: #28775d;
+}
+
+.rp-stat:nth-child(2) .rp-stat-value {
+    color: #c66e56;
+}
+
+.rp-stat:nth-child(3) .rp-stat-value {
+    color: #f8d979;
+}
+
+.rp-stat-note {
+    display: block;
+    margin-top: 10px;
+    font-size: 10px;
+    opacity: .65;
+}
+
+.rp-stat-decoration {
+    position: absolute;
+    right: 17px;
+    bottom: 9px;
+    font-size: 45px;
+    opacity: .12;
+    font-weight: 900;
+}
+
+.rp-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 18px;
+    align-items: start;
+}
+
+.rp-results {
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #eeecf5;
+}
+
+.rp-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+}
+
+.rp-section-heading h2 {
+    margin: 0;
+    color: #292746;
+    font-size: 19px;
+    letter-spacing: -.5px;
+}
+
+.rp-section-tag {
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: #f0edff;
+    color: #7869c8;
+    font-size: 9px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.rp-description {
+    margin: 0 0 20px;
+    color: #9692a8;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.rp-passage {
+    padding: 17px 0;
+    border-bottom: 1px solid #f0eef6;
+}
+
+.rp-passage:last-child {
+    border-bottom: none;
+    padding-bottom: 2px;
+}
+
+.rp-passage-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+
+.rp-passage-title {
+    color: #383550;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.rp-passage-type {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #eff8f3;
+    color: #43866b;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.rp-passage-score {
+    color: #7061c5;
+    font-size: 17px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.rp-track {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0eef7;
+}
+
+.rp-track progress {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.rp-track progress::-webkit-progress-bar {
+    background: #f0eef7;
+    border-radius: 20px;
+}
+
+.rp-track progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #8c7be0, #b3a8f0);
+    border-radius: 20px;
+}
+
+.rp-track progress::-moz-progress-bar {
+    background: #8c7be0;
+    border-radius: 20px;
+}
+
+.rp-passage-stats {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+    color: #9995a9;
+    font-size: 10px;
+}
+
+.rp-passage-stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rp-correct {
+    color: #389475;
+    font-weight: 750;
+}
+
+.rp-incorrect {
+    color: #d17e71;
+    font-weight: 750;
+}
+
+.rp-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rp-insight {
+    padding: 21px;
+    border-radius: 19px;
+    background: #fff2c9;
+    color: #5c4d2c;
+}
+
+.rp-insight-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.7);
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.rp-insight h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.rp-insight p {
+    margin: 0;
+    color: #88784f;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.rp-tip {
+    padding: 21px;
+    border-radius: 19px;
+    background: #e4f3f7;
+}
+
+.rp-tip h3 {
+    margin: 0 0 9px;
+    color: #35677b;
+    font-size: 14px;
+}
+
+.rp-tip p {
+    margin: 0;
+    color: #668b9a;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.rp-empty {
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 14px;
+    background: #f8f7fc;
+}
+
+.rp-empty-icon {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.rp-empty h3 {
+    margin: 0 0 7px;
+    color: #494565;
+    font-size: 15px;
+}
+
+.rp-empty p {
+    margin: 0;
+    color: #9692a8;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.rp-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.rp-actions span {
+    color: #a09caf;
+    font-size: 10px;
+}
+
+.rp-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 17px;
+    border-radius: 11px;
+    background: #7566cb;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .2s ease;
+}
+
+.rp-primary:hover {
+    background: #5f50b2;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 850px) {
+    .rp-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .rp-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .rp-page {
+        padding: 18px 14px 40px;
+    }
+
+    .rp-brand {
+        display: none;
+    }
+
+    .rp-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .rp-hero-content {
+        padding: 27px 23px;
+    }
+
+    .rp-hero-visual {
+        min-height: 150px;
+    }
+
+    .rp-hero-visual::after {
+        background: linear-gradient(180deg, #eae6ff 0%, rgba(234,230,255,.1) 70%);
+    }
+
+    .rp-overview {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rp-stat:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    .rp-results {
+        padding: 19px 16px;
+    }
+
+    .rp-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .rp-passage-top {
+        align-items: flex-start;
+    }
+
+    .rp-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="rp-page">
+
+    <div class="rp-topbar">
+        <a href="{{ url_for('reading.reading_home') }}" class="rp-back">
+            ← Quay lại Reading
+        </a>
+        <span class="rp-brand">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="rp-hero">
+        <div class="rp-hero-content">
+            <span class="rp-eyebrow">YOUR LEARNING JOURNEY</span>
+            <h1>Every page makes you a better reader.</h1>
+            <p>
+                Theo dõi hành trình đọc hiểu của bạn, nhìn lại kết quả
+                từng bài đọc và khám phá những kỹ năng cần cải thiện.
+            </p>
+        </div>
+
+        <div class="rp-hero-visual">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000&auto=format&fit=crop&q=85" alt="Reading progress">
+            <div class="rp-hero-sticker">Keep learning ✦</div>
+        </div>
+    </section>
+
+    <div class="rp-overview">
+
+        <div class="rp-stat">
+            <span class="rp-stat-label">TỔNG LƯỢT TRẢ LỜI</span>
+            <strong class="rp-stat-value">{{ total_attempts }}</strong>
+            <span class="rp-stat-note">Tất cả lượt luyện Reading</span>
+            <span class="rp-stat-decoration">↗</span>
+        </div>
+
+        <div class="rp-stat">
+            <span class="rp-stat-label">SỐ CÂU TRẢ LỜI ĐÚNG</span>
+            <strong class="rp-stat-value">{{ correct_attempts }}</strong>
+            <span class="rp-stat-note">Câu trả lời chính xác</span>
+            <span class="rp-stat-decoration">✓</span>
+        </div>
+
+        <div class="rp-stat">
+            <span class="rp-stat-label">ĐỘ CHÍNH XÁC TỔNG THỂ</span>
+            <strong class="rp-stat-value">{{ accuracy }}%</strong>
+            <span class="rp-stat-note">Tổng quan kết quả đọc hiểu</span>
+            <span class="rp-stat-decoration">%</span>
+        </div>
+
+    </div>
+
+    <div class="rp-layout">
+
+        <section class="rp-results">
+
+            <div class="rp-section-heading">
+                <h2>Reading performance</h2>
+                <span class="rp-section-tag">BY PASSAGE</span>
+            </div>
+
+            <p class="rp-description">
+                Kết quả chi tiết về số lượt trả lời, số câu đúng, số câu sai
+                và tỷ lệ chính xác của từng bài đọc.
+            </p>
+
+            {% if passage_results %}
+
+                {% for item in passage_results %}
+
+                    <div class="rp-passage">
+
+                        <div class="rp-passage-top">
+                            <div>
+                                <div class="rp-passage-title">
+                                    {{ item.passage.title }}
+                                </div>
+
+                                <span class="rp-passage-type">
+                                    {% if item.passage.section_type == "unit" %}
+                                        UNIT {{ item.passage.unit }}
+                                    {% else %}
+                                        REVIEW {{ item.passage.review_number }}
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <div class="rp-passage-score">
+                                {{ item.accuracy }}%
+                            </div>
+                        </div>
+
+                        <div class="rp-track">
+                            <progress
+                                value="{{ [0, [item.accuracy|float, 100]|min]|max }}"
+                                max="100">
+                            </progress>
+                        </div>
+
+                        <div class="rp-passage-stats">
+                            <span>{{ item.total }} lượt trả lời</span>
+                            <span class="rp-correct">✓ {{ item.correct }} câu đúng</span>
+                            <span class="rp-incorrect">✕ {{ item.total - item.correct }} câu sai</span>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="rp-empty">
+                    <div class="rp-empty-icon">📖</div>
+                    <h3>Chưa có dữ liệu Reading</h3>
+                    <p>
+                        Bạn chưa hoàn thành bài đọc nào.<br>
+                        Hãy bắt đầu luyện tập để theo dõi tiến độ tại đây nhé!
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </section>
+
+        <aside class="rp-sidebar">
+
+            <div class="rp-insight">
+                <div class="rp-insight-icon">✦</div>
+                <h3>Your learning insight</h3>
+                <p>
+                    Mỗi bài đọc là một cơ hội để mở rộng vốn từ,
+                    cải thiện khả năng nắm bắt thông tin và rèn luyện
+                    kỹ năng đọc hiểu tiếng Anh.
+                </p>
+            </div>
+
+            <div class="rp-tip">
+                <h3>Reading tip of the day</h3>
+                <p>
+                    Đừng chỉ đọc để tìm đáp án. Hãy thử xác định ý chính
+                    của từng đoạn, chú ý từ khóa và dựa vào ngữ cảnh
+                    để hiểu những từ mới.
+                </p>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <div class="rp-actions">
+        <span>VIRTUAL ACADEMY · ENGLISH 7</span>
+        <a href="{{ url_for('reading.reading_home') }}" class="rp-primary">
+            Tiếp tục luyện Reading <span>→</span>
+        </a>
+    </div>
+
+</div>
+{% endblock %}

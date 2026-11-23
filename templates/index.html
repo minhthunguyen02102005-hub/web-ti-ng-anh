@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English 7 - Học tiếng Anh cùng nhóm 10</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        :root {
+            --purple: #7665d8;
+            --purple-dark: #5c4db8;
+            --purple-light: #f0edff;
+            --ink: #292943;
+            --muted: #858398;
+            --yellow: #fff2ce;
+            --mint: #e5f5ec;
+            --coral: #ffede6;
+            --background: #faf9ff;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--ink);
+            font-family: inherit;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            padding: 0 7%;
+            background: rgba(255,255,255,.94);
+            border-bottom: 1px solid #eeedf4;
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            color: var(--ink);
+            font-size: 23px;
+            font-weight: 950;
+            letter-spacing: -1.2px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .navbar nav a {
+            color: #77758b;
+            font-size: 12px;
+            font-weight: 750;
+            transition: .2s;
+        }
+
+        .navbar nav a:hover {
+            color: var(--purple);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login-link {
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 19px;
+            border: 1px solid var(--purple);
+            border-radius: 10px;
+            background: var(--purple);
+            color: white;
+            font-size: 12px;
+            font-weight: 850;
+            transition: .2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--purple-dark);
+            border-color: var(--purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(118,101,216,.2);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 45px;
+            max-width: 1440px;
+            min-height: 610px;
+            margin: auto;
+            padding: 75px 8%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--purple);
+            font-size: 10px;
+            font-weight: 950;
+            letter-spacing: 1.8px;
+        }
+
+        .hero-content .eyebrow::before {
+            content: "";
+            width: 23px;
+            height: 2px;
+            background: var(--purple);
+        }
+
+        .hero h1 {
+            margin: 24px 0 19px;
+            color: var(--ink);
+            font-size: clamp(38px, 5vw, 62px);
+            font-weight: 950;
+            line-height: 1.12;
+            letter-spacing: -2.5px;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+        }
+
+        .hero-content > p {
+            max-width: 490px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 30px;
+        }
+
+        .btn-primary.large {
+            padding: 15px 23px;
+            border-radius: 11px;
+            font-size: 12px;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border: 1px solid #e5e2f0;
+            border-radius: 11px;
+            background: white;
+            color: #66627c;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 28px;
+            color: #9290a2;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .hero-note span {
+            color: #e2ae4c;
+            font-size: 17px;
+        }
+
+        /* HERO VISUAL */
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 440px;
+        }
+
+        .visual-background {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            border-radius: 50%;
+            background: #eae5ff;
+        }
+
+        .main-card {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 370px);
+            padding: 21px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 20px 55px rgba(58,49,110,.12);
+            transform: rotate(-2deg);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .card-top > span:first-child {
+            color: #9995ae;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .status {
+            color: #4caa82;
+            font-size: 9px;
+            font-weight: 900;
+        }
+
+        .learning-image {
+            position: relative;
+            height: 175px;
+            margin: 19px 0;
+            overflow: hidden;
+            border-radius: 13px;
+            background: #e8e3fb;
+        }
+
+        .learning-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-card h3 {
+            color: var(--ink);
+            font-size: 19px;
+            font-weight: 900;
+        }
+
+        .main-card > p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 22px;
+            color: #858398;
+            font-size: 10px;
+        }
+
+        .progress-label strong {
+            color: var(--purple);
+        }
+
+        .progress-track {
+            height: 7px;
+            margin-top: 9px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #f0eef7;
+        }
+
+        .progress-fill {
+            width: 75%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #7665d8, #a99bf0);
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 21px;
+            padding-top: 17px;
+            border-top: 1px solid #f0eff5;
+        }
+
+        .mini-stats div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mini-stats strong {
+            color: var(--ink);
+            font-size: 17px;
+            font-weight: 950;
+        }
+
+        .mini-stats span {
+            color: #a09db1;
+            font-size: 9px;
+        }
+
+        .floating-card {
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 13px 16px;
+            border: 1px solid #f0edf7;
+            border-radius: 13px;
+            background: white;
+            box-shadow: 0 9px 25px rgba(48,43,85,.09);
+        }
+
+        .floating-card > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--purple-light);
+            font-size: 17px;
+        }
+
+        .floating-card strong,
+        .floating-card small {
+            display: block;
+        }
+
+        .floating-card strong {
+            color: var(--ink);
+            font-size: 11px;
+        }
+
+        .floating-card small {
+            margin-top: 4px;
+            color: #9996aa;
+            font-size: 9px;
+        }
+
+        .ai-card {
+            top: 45px;
+            right: -10px;
+        }
+
+        .level-card {
+            bottom: 35px;
+            left: -25px;
+        }
+
+        .level-card > span {
+            background: var(--yellow);
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 85px 8%;
+            background: white;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 17px 0 12px;
+            color: var(--ink);
+            font-size: clamp(27px, 3vw, 38px);
+            font-weight: 950;
+            line-height: 1.3;
+            letter-spacing: -1px;
+        }
+
+        .section-heading h2 span {
+            color: var(--purple);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 17px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .feature-card {
+            padding: 24px 21px;
+            border: 1px solid #eeedf4;
+            border-radius: 16px;
+            background: #fff;
+            transition: .25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #ded8fa;
+            box-shadow: 0 12px 30px rgba(48,43,85,.06);
+        }
+
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 43px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            font-size: 19px;
+        }
+
+        .feature-icon.purple {
+            background: var(--purple-light);
+            color: var(--purple);
+        }
+
+        .feature-icon.yellow {
+            background: var(--yellow);
+            color: #c39a42;
+        }
+
+        .feature-icon.green {
+            background: var(--mint);
+            color: #459c7c;
+        }
+
+        .feature-icon.orange {
+            background: var(--coral);
+            color: #df8c5c;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.9;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            max-width: 1250px;
+            margin: auto;
+            padding: 90px 8%;
+        }
+
+        .about h2 {
+            margin-top: 18px;
+            color: var(--ink);
+            font-size: 35px;
+            font-weight: 950;
+            line-height: 1.3;
+            letter-spacing: -1px;
+        }
+
+        .about > p {
+            padding: 25px;
+            border-left: 3px solid var(--purple);
+            border-radius: 0 13px 13px 0;
+            background: white;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* FOOTER */
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 25px 8%;
+            border-top: 1px solid #eeedf4;
+            background: white;
+        }
+
+        footer p {
+            color: #9996aa;
+            font-size: 10px;
+        }
+
+        @media (max-width: 1050px) {
+            .hero {
+                gap: 20px;
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .ai-card {
+                right: 0;
+            }
+
+            .level-card {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .navbar nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 65px 7% 55px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content .eyebrow,
+            .hero-actions,
+            .hero-note {
+                justify-content: center;
+            }
+
+            .hero-content > p {
+                margin: auto;
+            }
+
+            .hero-visual {
+                min-height: 420px;
+                margin-top: 10px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 65px 7%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar {
+                min-height: 68px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-actions {
+                gap: 12px;
+            }
+
+            .login-link {
+                font-size: 10px;
+            }
+
+            .nav-actions .btn-primary {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .hero-content > p {
+                font-size: 12px;
+            }
+
+            .hero-visual {
+                min-height: 370px;
+            }
+
+            .visual-background {
+                width: 290px;
+                height: 290px;
+            }
+
+            .main-card {
+                padding: 16px;
+            }
+
+            .learning-image {
+                height: 135px;
+            }
+
+            .ai-card {
+                top: 10px;
+                right: -5px;
+                padding: 10px;
+            }
+
+            .level-card {
+                bottom: 10px;
+                left: -5px;
+                padding: 10px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                padding: 65px 7%;
+            }
+
+            .about h2 {
+                font-size: 29px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 23px 7%;
+            }
+            /* HOME PAGE - ISOLATED LAYOUT */
+
+body.home-page {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
+.home-page .navbar {
+    width: 100%;
+    min-height: 76px;
+    height: auto;
+}
+
+.home-page .hero {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 610px;
+    height: auto;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.home-page .hero-content,
+.home-page .hero-visual {
+    min-width: 0;
+}
+
+.home-page .hero h1 {
+    overflow-wrap: break-word;
+}
+
+.home-page .hero-visual {
+    width: 100%;
+    min-width: 0;
+}
+
+.home-page .main-card {
+    width: min(100%, 370px);
+}
+
+.home-page .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.home-page .features {
+    display: block;
+    width: 100%;
+}
+
+.home-page .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-page .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home-page footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1050px) {
+    .home-page .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .home-page .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .home-page .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+        }
+    </style>
+</head>
+
+<body class="home-page">
+
+    <header class="navbar">
+        <a href="/" class="logo">ENGLISH<span>7</span></a>
+
+        <nav>
+            <a href="/">Trang chủ</a>
+            <a href="#features">Tính năng</a>
+            <a href="#about">Giới thiệu</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="{{ url_for('login') }}" class="login-link">Đăng nhập</a>
+            <a href="{{ url_for('register') }}" class="btn-primary">Đăng ký</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">NỀN TẢNG HỌC TIẾNG ANH LỚP 7</span>
+
+                <h1>
+                    Học tiếng Anh<br>
+                    theo cách <span>của bạn.</span>
+                </h1>
+
+                <p>
+                    Khám phá năng lực tiếng Anh, xây dựng lộ trình học tập
+                    cá nhân hóa và đồng hành cùng gia sư AI trong hành trình
+                    chinh phục tiếng Anh.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="{{ url_for('register') }}" class="btn-primary large">
+                        Khám phá ngay <span>→</span>
+                    </a>
+
+                    <a href="#features" class="btn-outline">
+                        Tìm hiểu thêm
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    Học tập cá nhân hóa dành cho học sinh lớp 7
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-background"></div>
+
+                <div class="main-card">
+                    <div class="card-top">
+                        <span>YOUR LEARNING SPACE</span>
+                        <span class="status">● ONLINE</span>
+                    </div>
+
+                    <div class="learning-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+                            alt="Không gian lớp học"
+                        >
+                    </div>
+
+                    <h3>Ready to learn?</h3>
+                    <p>Your English journey starts here.</p>
+
+                    <div class="progress-label">
+                        <span>Learning progress</span>
+                        <strong>75%</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="mini-stats">
+                        <div>
+                            <strong>12</strong>
+                            <span>Lessons</span>
+                        </div>
+                        <div>
+                            <strong>85%</strong>
+                            <span>Accuracy</span>
+                        </div>
+                        <div>
+                            <strong>7</strong>
+                            <span>Day streak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-card ai-card">
+                    <span>✦</span>
+                    <div>
+                        <strong>AI Tutor</strong>
+                        <small>Always here to help</small>
+                    </div>
+                </div>
+
+                <div class="floating-card level-card">
+                    <span>🎯</span>
+                    <div>
+                        <strong>Your own path</strong>
+                        <small>Personalized learning</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="section-heading">
+                <span class="eyebrow">LEARN SMARTER</span>
+
+                <h2>
+                    Một hành trình học tập<br>
+                    <span>được thiết kế cho bạn.</span>
+                </h2>
+
+                <p>
+                    Không chỉ học tiếng Anh, mà còn hiểu rõ năng lực
+                    và tiến bộ mỗi ngày.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon purple">✦</div>
+                    <h3>Đánh giá năng lực</h3>
+                    <p>
+                        Kiểm tra trình độ tiếng Anh và xác định
+                        những kỹ năng cần cải thiện.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon yellow">◈</div>
+                    <h3>Lộ trình cá nhân hóa</h3>
+                    <p>
+                        Đề xuất nội dung học tập phù hợp với trình độ
+                        và mục tiêu của từng học sinh.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon green">✧</div>
+                    <h3>Gia sư AI</h3>
+                    <p>
+                        Đồng hành giải đáp thắc mắc, giải thích kiến thức
+                        và hỗ trợ luyện tập.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon orange">↗</div>
+                    <h3>Theo dõi tiến độ</h3>
+                    <p>
+                        Quan sát kết quả học tập và sự tiến bộ
+                        qua từng bài học.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div>
+                <span class="eyebrow">ABOUT OUR PROJECT</span>
+                <h2>
+                    Học đúng trình độ.<br>
+                    Tiến bộ từng ngày.
+                </h2>
+            </div>
+
+            <p>
+                Học tiếng Anh cùng nhóm 10 là nền tảng hỗ trợ học sinh lớp 7
+                học tập thông qua đánh giá năng lực, cá nhân hóa lộ trình
+                và ứng dụng trí tuệ nhân tạo.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <a href="/" class="logo">ENGLISH<span>7</span></a>
+        <p>© 2026 Học tiếng Anh cùng nhóm 10.</p>
+    </footer>
+
+</body>
+</html>

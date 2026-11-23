@@ -1,0 +1,982 @@
+
+{% extends "base.html" %}
+
+{% block title %}Luyện tập ngữ pháp - Unit {{ unit }}{% endblock %}
+
+{% block content %}
+
+<style>
+.gpr-page {
+    --gpr-ink: #292747;
+    --gpr-muted: #85839b;
+    --gpr-purple: #7566d8;
+    --gpr-lavender: #f0edff;
+    --gpr-border: #eae8f3;
+    --gpr-coral: #f18b79;
+    --gpr-mint: #dff4e9;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 30px 65px;
+    color: var(--gpr-ink);
+}
+
+.gpr-page * {
+    box-sizing: border-box;
+}
+
+.gpr-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.gpr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #68648c;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.gpr-back:hover {
+    color: var(--gpr-purple);
+    transform: translateX(-3px);
+}
+
+.gpr-breadcrumb {
+    color: #aaa7bc;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.gpr-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    min-height: 275px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #eeebff;
+    margin-bottom: 23px;
+}
+
+.gpr-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 37px 40px;
+}
+
+.gpr-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #7566c8;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+}
+
+.gpr-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 3px;
+    border-radius: 5px;
+    background: var(--gpr-coral);
+}
+
+.gpr-hero h1 {
+    max-width: 550px;
+    margin: 0 0 13px;
+    color: #302b5b;
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.2;
+    letter-spacing: -1.3px;
+}
+
+.gpr-hero-description {
+    max-width: 470px;
+    color: #777392;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.gpr-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 23px;
+}
+
+.gpr-chip {
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.72);
+    color: #6c63b0;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.gpr-hero-visual {
+    position: relative;
+    min-height: 275px;
+}
+
+.gpr-hero-visual img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.gpr-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eeebff 0%, rgba(238,235,255,.18) 38%, rgba(41,35,82,.08) 100%);
+}
+
+.gpr-visual-note {
+    position: absolute;
+    z-index: 2;
+    right: 22px;
+    bottom: 22px;
+    padding: 13px 16px;
+    background: rgba(255,255,255,.93);
+    border-radius: 13px;
+    box-shadow: 0 8px 25px rgba(35,30,80,.12);
+}
+
+.gpr-visual-note strong {
+    display: block;
+    color: #49417f;
+    font-size: 12px;
+}
+
+.gpr-visual-note span {
+    display: block;
+    color: #9995ad;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.gpr-filter {
+    padding: 19px 22px;
+    border: 1px solid var(--gpr-border);
+    border-radius: 17px;
+    background: #fff;
+    margin-bottom: 22px;
+}
+
+.gpr-filter-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+
+.gpr-filter-heading h2 {
+    margin: 0;
+    color: #393653;
+    font-size: 14px;
+}
+
+.gpr-filter-heading span {
+    color: #aaa7bb;
+    font-size: 11px;
+}
+
+.gpr-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.gpr-filter-list a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 13px;
+    border: 1px solid #eeedf5;
+    border-radius: 9px;
+    background: #faf9fd;
+    color: #77748d;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.gpr-filter-list a:hover {
+    border-color: #c9c2f4;
+    color: var(--gpr-purple);
+    background: #f4f1ff;
+}
+
+.gpr-filter-list a.active {
+    background: #7566d8;
+    border-color: #7566d8;
+    color: #fff;
+    box-shadow: 0 5px 13px rgba(117,102,216,.2);
+}
+
+.gpr-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 275px;
+    gap: 21px;
+    align-items: start;
+}
+
+.gpr-main {
+    min-width: 0;
+    padding: 23px;
+    background: #fff;
+    border: 1px solid var(--gpr-border);
+    border-radius: 19px;
+}
+
+.gpr-progress {
+    padding: 17px 19px;
+    border-radius: 13px;
+    background: #f7f5ff;
+    margin-bottom: 22px;
+}
+
+.gpr-progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+.gpr-progress-top strong {
+    color: #514a87;
+    font-size: 12px;
+}
+
+.gpr-progress-top span {
+    color: #827ba9;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.gpr-progress-track {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e5e1f7;
+}
+
+.gpr-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #8b7be8, #6b9fda);
+    transition: width .3s ease;
+}
+
+.gpr-question {
+    position: relative;
+    padding: 21px;
+    border: 1px solid #eceaf3;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+    transition: .2s;
+}
+
+.gpr-question:focus-within {
+    border-color: #c6bdf3;
+    box-shadow: 0 7px 22px rgba(91,77,160,.07);
+}
+
+.gpr-question-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.gpr-question-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #7162c6;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.gpr-question-number::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f18b79;
+}
+
+.gpr-topic {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 7px;
+    background: #eaf6ef;
+    color: #5b9a79;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.gpr-question-text {
+    color: #35324f;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.85;
+    margin: 0 0 17px;
+    white-space: pre-line;
+}
+
+.gpr-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gpr-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 13px;
+    border: 1px solid #eae8f1;
+    border-radius: 10px;
+    background: #fcfbfe;
+    color: #68667e;
+    font-size: 12px;
+    line-height: 1.6;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.gpr-option:hover {
+    border-color: #bcb2ef;
+    background: #f7f5ff;
+}
+
+.gpr-option:has(input:checked) {
+    border-color: #8b7be0;
+    background: #f0edff;
+    color: #55499e;
+}
+
+.gpr-option input {
+    flex-shrink: 0;
+    margin-top: 3px;
+    accent-color: #7566d8;
+}
+
+.gpr-answer-input {
+    display: block;
+    width: 100%;
+    min-height: 47px;
+    padding: 13px 15px;
+    border: 1px solid #e4e1ef;
+    border-radius: 10px;
+    outline: none;
+    background: #fcfbfe;
+    color: #393653;
+    font-family: inherit;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.gpr-answer-input:focus {
+    border-color: #9183df;
+    background: #fff;
+    box-shadow: 0 0 0 3px #f0edff;
+}
+
+.gpr-answer-input::placeholder {
+    color: #aaa7b9;
+}
+
+.gpr-error-instruction {
+    margin: 0 0 10px;
+    color: #8d89a0;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.gpr-error-sentence {
+    padding: 15px 17px;
+    margin-bottom: 14px;
+    border-left: 4px solid #f0b35d;
+    border-radius: 9px;
+    background: #fff8eb;
+    color: #665b4e;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.gpr-submit-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.gpr-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #7566d8;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.gpr-submit:hover {
+    background: #6253c1;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 17px rgba(117,102,216,.2);
+}
+
+.gpr-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 17px;
+    border: 1px solid #e9e7f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #77748c;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.gpr-cancel:hover {
+    background: #f7f6fb;
+    color: #5e56a1;
+}
+
+.gpr-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.gpr-side-card {
+    padding: 19px;
+    border: 1px solid var(--gpr-border);
+    border-radius: 16px;
+    background: #fff;
+}
+
+.gpr-side-card.gpr-side-purple {
+    background: #f0edff;
+    border-color: #f0edff;
+}
+
+.gpr-side-card.gpr-side-yellow {
+    background: #fff8e9;
+    border-color: #fff8e9;
+}
+
+.gpr-side-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: #f0edff;
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+
+.gpr-side-purple .gpr-side-icon {
+    background: rgba(255,255,255,.75);
+}
+
+.gpr-side-yellow .gpr-side-icon {
+    background: rgba(255,255,255,.8);
+}
+
+.gpr-side-card h3 {
+    margin: 0 0 10px;
+    color: #3c385b;
+    font-size: 13px;
+}
+
+.gpr-side-card p,
+.gpr-side-card li {
+    color: #858198;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.gpr-side-card p {
+    margin: 0;
+}
+
+.gpr-side-card ul {
+    padding-left: 17px;
+    margin: 0;
+}
+
+.gpr-side-card li {
+    padding-left: 2px;
+    margin-bottom: 5px;
+}
+
+.gpr-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gpr-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #858198;
+    font-size: 11px;
+}
+
+.gpr-info-row strong {
+    color: #514c73;
+    font-weight: 800;
+}
+
+.gpr-empty {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.gpr-empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 66px;
+    border-radius: 20px;
+    background: #f0edff;
+    font-size: 30px;
+    margin-bottom: 17px;
+}
+
+.gpr-empty h3 {
+    margin: 0 0 9px;
+    color: #393653;
+    font-size: 18px;
+}
+
+.gpr-empty p {
+    max-width: 360px;
+    margin: 0 auto 20px;
+    color: #89869d;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media (max-width: 950px) {
+    .gpr-layout {
+        grid-template-columns: minmax(0, 1fr) 235px;
+    }
+
+    .gpr-hero-content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .gpr-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .gpr-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gpr-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .gpr-hero-visual {
+        min-height: 180px;
+    }
+
+    .gpr-hero-visual::after {
+        background: linear-gradient(180deg, #eeebff 0%, rgba(238,235,255,.05) 50%);
+    }
+}
+
+@media (max-width: 560px) {
+    .gpr-page {
+        padding: 20px 14px 40px;
+    }
+
+    .gpr-breadcrumb {
+        display: none;
+    }
+
+    .gpr-hero-content {
+        padding: 27px 22px;
+    }
+
+    .gpr-hero h1 {
+        font-size: 27px;
+    }
+
+    .gpr-main {
+        padding: 14px;
+    }
+
+    .gpr-question {
+        padding: 16px;
+    }
+
+    .gpr-options {
+        grid-template-columns: 1fr;
+    }
+
+    .gpr-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .gpr-filter {
+        padding: 16px;
+    }
+
+    .gpr-filter-heading span {
+        display: none;
+    }
+
+    .gpr-submit-area {
+        flex-direction: column;
+    }
+
+    .gpr-submit,
+    .gpr-cancel {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="gpr-page">
+
+    <div class="gpr-topbar">
+        <a href="{{ url_for('grammar.grammar_home') }}" class="gpr-back">
+            ← Quay lại danh sách Unit
+        </a>
+        <span class="gpr-breadcrumb">VIRTUAL ACADEMY / GRAMMAR / UNIT {{ unit }}</span>
+    </div>
+
+    <section class="gpr-hero">
+        <div class="gpr-hero-content">
+            <div class="gpr-eyebrow">GRAMMAR WORKSPACE</div>
+            <h1>Luyện ngữ pháp.<br>Vững từng cấu trúc.</h1>
+            <p class="gpr-hero-description">
+                Cùng củng cố kiến thức tiếng Anh lớp 7 qua những câu hỏi thực hành.
+                Tập trung vào cách sử dụng cấu trúc trong từng ngữ cảnh.
+            </p>
+
+            <div class="gpr-hero-meta">
+                <span class="gpr-chip">📚 Unit {{ unit }}</span>
+                <span class="gpr-chip">✍️ {{ questions|length }} câu hỏi</span>
+                <span class="gpr-chip">🎯 English 7</span>
+            </div>
+        </div>
+
+        <div class="gpr-hero-visual">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&auto=format&fit=crop&q=85"
+                 alt="Không gian học tập và ghi chép">
+            <div class="gpr-visual-note">
+                <strong>Practice makes progress</strong>
+                <span>Learn · Apply · Improve</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="gpr-filter">
+        <div class="gpr-filter-heading">
+            <h2>Chọn dạng bài luyện tập</h2>
+            <span>Lọc câu hỏi theo chủ đề</span>
+        </div>
+
+        <div class="gpr-filter-list">
+            <a href="{{ url_for('grammar.grammar_practice', unit=unit) }}"
+               class="{% if not selected_type %}active{% endif %}">
+                Tất cả dạng bài
+            </a>
+
+            {% for item in question_types %}
+            <a href="{{ url_for('grammar.grammar_practice', unit=unit, type=item.value) }}"
+               class="{% if selected_type == item.value %}active{% endif %}">
+                {{ item.label }}
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="gpr-layout">
+
+        <main class="gpr-main">
+
+            {% if questions %}
+
+            <div class="gpr-progress">
+                <div class="gpr-progress-top">
+                    <strong>Tiến độ hoàn thành</strong>
+                    <span id="progress-text">0/{{ questions|length }} câu</span>
+                </div>
+                <div class="gpr-progress-track">
+                    <div class="gpr-progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <form method="POST" id="grammar-form">
+
+                {% for question in questions %}
+
+                <div class="gpr-question">
+
+                    <div class="gpr-question-top">
+                        <span class="gpr-question-number">CÂU {{ loop.index }}</span>
+
+                        {% if question.topic %}
+                        <span class="gpr-topic">{{ question.topic }}</span>
+                        {% endif %}
+                    </div>
+
+                    {% if question.question_type == "error_correction" %}
+
+                    <p class="gpr-error-instruction">
+                        Hãy tìm và sửa lỗi sai trong câu. Bạn có thể viết lại câu đúng
+                        hoặc chỉ ghi phần sửa đúng vào ô bên dưới.
+                    </p>
+
+                    <div class="gpr-error-sentence">
+                        {{ question.question_text }}
+                    </div>
+
+                    <input type="text"
+                           name="question_{{ question.id }}"
+                           class="gpr-answer-input"
+                           placeholder="Nhập câu đúng hoặc phần sửa đúng..."
+                           autocomplete="off">
+
+                    {% else %}
+
+                    <p class="gpr-question-text">{{ question.question_text }}</p>
+
+                    {% if question.question_type == "multiple_choice" %}
+
+                    <div class="gpr-options">
+
+                        {% if question.option_a %}
+                        <label class="gpr-option">
+                            <input type="radio" name="question_{{ question.id }}" value="A">
+                            <span>A. {{ question.option_a }}</span>
+                        </label>
+                        {% endif %}
+
+                        {% if question.option_b %}
+                        <label class="gpr-option">
+                            <input type="radio" name="question_{{ question.id }}" value="B">
+                            <span>B. {{ question.option_b }}</span>
+                        </label>
+                        {% endif %}
+
+                        {% if question.option_c %}
+                        <label class="gpr-option">
+                            <input type="radio" name="question_{{ question.id }}" value="C">
+                            <span>C. {{ question.option_c }}</span>
+                        </label>
+                        {% endif %}
+
+                        {% if question.option_d %}
+                        <label class="gpr-option">
+                            <input type="radio" name="question_{{ question.id }}" value="D">
+                            <span>D. {{ question.option_d }}</span>
+                        </label>
+                        {% endif %}
+
+                    </div>
+
+                    {% elif question.question_type == "fill_in" %}
+
+                    <input type="text"
+                           name="question_{{ question.id }}"
+                           class="gpr-answer-input"
+                           placeholder="Nhập đáp án của bạn..."
+                           autocomplete="off">
+
+                    {% endif %}
+
+                    {% endif %}
+
+                </div>
+
+                {% endfor %}
+
+                <div class="gpr-submit-area">
+                    <button type="submit" class="gpr-submit">
+                        Nộp bài và xem kết quả →
+                    </button>
+
+                    <a href="{{ url_for('grammar.grammar_home') }}" class="gpr-cancel">
+                        Thoát bài luyện tập
+                    </a>
+                </div>
+
+            </form>
+
+            {% else %}
+
+            <div class="gpr-empty">
+                <div class="gpr-empty-icon">📚</div>
+                <h3>Chưa có câu hỏi</h3>
+                <p>
+                    Hiện tại dạng bài này chưa có dữ liệu.
+                    Bạn có thể chọn dạng bài khác để tiếp tục luyện tập.
+                </p>
+                <a href="{{ url_for('grammar.grammar_practice', unit=unit) }}"
+                   class="gpr-submit">
+                    Xem tất cả dạng bài →
+                </a>
+            </div>
+
+            {% endif %}
+
+        </main>
+
+        <aside class="gpr-sidebar">
+
+            <section class="gpr-side-card gpr-side-purple">
+                <div class="gpr-side-icon">📖</div>
+                <h3>Hướng dẫn làm bài</h3>
+                <ul>
+                    <li>Đọc kỹ yêu cầu của từng câu hỏi.</li>
+                    <li>Chú ý cấu trúc và ngữ cảnh sử dụng.</li>
+                    <li>Kiểm tra dạng động từ khi điền từ.</li>
+                    <li>Đọc lại câu trả lời trước khi nộp.</li>
+                </ul>
+            </section>
+
+            <section class="gpr-side-card gpr-side-yellow">
+                <div class="gpr-side-icon">💡</div>
+                <h3>Mẹo học hiệu quả</h3>
+                <p>
+                    Đừng chỉ học thuộc công thức. Hãy tự đặt câu ví dụ
+                    và thử áp dụng cấu trúc vào tình huống thực tế.
+                </p>
+            </section>
+
+            <section class="gpr-side-card">
+                <div class="gpr-side-icon">🎯</div>
+                <h3>Thông tin bài tập</h3>
+                <div class="gpr-info-list">
+                    <div class="gpr-info-row">
+                        <span>Unit</span>
+                        <strong>{{ unit }}</strong>
+                    </div>
+                    <div class="gpr-info-row">
+                        <span>Số câu hỏi</span>
+                        <strong>{{ questions|length }}</strong>
+                    </div>
+                    <div class="gpr-info-row">
+                        <span>Môn học</span>
+                        <strong>English 7</strong>
+                    </div>
+                    <div class="gpr-info-row">
+                        <span>Kỹ năng</span>
+                        <strong>Grammar</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gpr-side-card">
+                <div class="gpr-side-icon">🌱</div>
+                <h3>Tiến bộ từng ngày</h3>
+                <p>
+                    Sau khi nộp bài, hãy xem lại phần giải thích.
+                    Hiểu nguyên nhân sai sẽ giúp bạn ghi nhớ lâu hơn.
+                </p>
+            </section>
+
+        </aside>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("grammar-form");
+
+    if (!form) return;
+
+    const total = Number("{{ questions|length }}");
+    const progressText = document.getElementById("progress-text");
+    const progressFill = document.getElementById("progress-fill");
+
+    function updateProgress() {
+        let answered = 0;
+
+        const questionCards = form.querySelectorAll(".gpr-question");
+
+        questionCards.forEach(card => {
+            const radios = card.querySelectorAll('input[type="radio"]');
+            const textInput = card.querySelector('input[type="text"]');
+
+            if (radios.length > 0) {
+                if (Array.from(radios).some(radio => radio.checked)) {
+                    answered++;
+                }
+            } else if (textInput && textInput.value.trim() !== "") {
+                answered++;
+            }
+        });
+
+        const percentage = total > 0 ? (answered / total) * 100 : 0;
+
+        if (progressText) {
+            progressText.textContent = answered + "/" + total + " câu";
+        }
+
+        if (progressFill) {
+            progressFill.style.width = percentage + "%";
+        }
+    }
+
+    form.addEventListener("input", updateProgress);
+    form.addEventListener("change", updateProgress);
+
+    updateProgress();
+});
+</script>
+
+{% endblock %}

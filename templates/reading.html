@@ -1,0 +1,1022 @@
+
+{% extends "base.html" %}
+
+{% block title %}Reading – English 7{% endblock %}
+
+{% block styles %}
+<style>
+.reading-page {
+    --ink: #252443;
+    --muted: #85839d;
+    --purple: #7665d8;
+    --purple-light: #efedff;
+    --coral: #ff8b76;
+    --mint: #bcebdc;
+    --yellow: #ffe49a;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 28px 65px;
+    color: var(--ink);
+    font-family: inherit;
+}
+
+.rd-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.rd-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid #e9e7f3;
+    border-radius: 12px;
+    color: var(--ink);
+    background: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.rd-back:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+    transform: translateX(-3px);
+}
+
+.rd-top-note {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.rd-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    min-height: 320px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #eeebff;
+    margin-bottom: 23px;
+}
+
+.rd-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 43px 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.rd-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    background: white;
+    color: #7564cc;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+
+.rd-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--coral);
+    border-radius: 50%;
+}
+
+.rd-hero h1 {
+    max-width: 460px;
+    margin: 0 0 14px;
+    color: #29264f;
+    font-size: clamp(29px, 3.2vw, 43px);
+    line-height: 1.13;
+    letter-spacing: -1.5px;
+    font-weight: 850;
+}
+
+.rd-hero h1 span {
+    color: #7868d8;
+}
+
+.rd-hero-content > p {
+    max-width: 450px;
+    color: #777493;
+    font-size: 13px;
+    line-height: 1.85;
+    margin: 0;
+}
+
+.rd-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 23px;
+}
+
+.rd-hero-tag {
+    padding: 8px 11px;
+    border: 1px solid rgba(118,101,216,.13);
+    border-radius: 8px;
+    background: rgba(255,255,255,.7);
+    color: #6558b0;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.rd-hero-visual {
+    position: relative;
+    min-height: 320px;
+    padding: 22px;
+}
+
+.rd-hero-image {
+    position: absolute;
+    inset: 22px 22px 22px 0;
+    overflow: hidden;
+    border-radius: 18px 80px 18px 18px;
+    background: #d6d1f1;
+}
+
+.rd-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rd-image-caption {
+    position: absolute;
+    left: 0;
+    bottom: 42px;
+    padding: 13px 17px;
+    background: white;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 8px 24px rgba(44,38,91,.12);
+}
+
+.rd-image-caption strong {
+    display: block;
+    color: var(--ink);
+    font-size: 12px;
+}
+
+.rd-image-caption span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.rd-hero-sticker {
+    position: absolute;
+    top: 31px;
+    right: 12px;
+    z-index: 2;
+    width: 61px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--yellow);
+    border: 5px solid #eeebff;
+    border-radius: 50%;
+    font-size: 25px;
+    transform: rotate(12deg);
+}
+
+.rd-progress-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 19px 22px;
+    margin-bottom: 29px;
+    background: #29264f;
+    border-radius: 16px;
+    color: white;
+}
+
+.rd-progress-copy {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rd-progress-icon {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.13);
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.rd-progress-copy strong {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.rd-progress-copy p {
+    color: #c2c0d9;
+    font-size: 11px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.rd-progress-link {
+    flex-shrink: 0;
+    padding: 11px 15px;
+    background: var(--yellow);
+    border-radius: 9px;
+    color: #39334f;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 850;
+    transition: .2s;
+}
+
+.rd-progress-link:hover {
+    background: white;
+    color: var(--purple);
+    transform: translateY(-2px);
+}
+
+.rd-overview {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 13px;
+    margin-bottom: 39px;
+}
+
+.rd-stat {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 18px;
+    min-height: 86px;
+    background: white;
+    border: 1px solid #eeedf4;
+    border-radius: 15px;
+}
+
+.rd-stat-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    font-size: 20px;
+}
+
+.rd-stat:nth-child(1) .rd-stat-icon {
+    background: #efedff;
+}
+
+.rd-stat:nth-child(2) .rd-stat-icon {
+    background: #fff0eb;
+}
+
+.rd-stat:nth-child(3) .rd-stat-icon {
+    background: #e5f8ef;
+}
+
+.rd-stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.rd-stat strong {
+    display: block;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 850;
+}
+
+.rd-section {
+    margin-top: 38px;
+}
+
+.rd-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 19px;
+}
+
+.rd-section-kicker {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+    margin-bottom: 7px;
+}
+
+.rd-section-heading h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: 23px;
+    font-weight: 850;
+    letter-spacing: -.6px;
+}
+
+.rd-section-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 7px 0 0;
+}
+
+.rd-section-count {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    background: #f1efff;
+    color: #7161c8;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.rd-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.rd-unit-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+    padding: 19px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #ecebf3;
+    border-radius: 17px;
+    transition: .25s ease;
+}
+
+.rd-unit-card:not(.rd-locked):hover {
+    transform: translateY(-5px);
+    border-color: #c8c0fa;
+    box-shadow: 0 13px 28px rgba(67,57,135,.09);
+}
+
+.rd-unit-card::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -43px;
+    top: -43px;
+    border-radius: 50%;
+    background: var(--card-accent, #efedff);
+    opacity: .8;
+    pointer-events: none;
+}
+
+.rd-unit-card:nth-child(4n+1) {
+    --card-accent: #e8e4ff;
+}
+
+.rd-unit-card:nth-child(4n+2) {
+    --card-accent: #ffe9df;
+}
+
+.rd-unit-card:nth-child(4n+3) {
+    --card-accent: #dff6eb;
+}
+
+.rd-unit-card:nth-child(4n) {
+    --card-accent: #fff0c9;
+}
+
+.rd-locked {
+    background: #f8f8fb;
+    border-color: #edecf1;
+}
+
+.rd-locked::after {
+    background: #e9e9ee;
+}
+
+.rd-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rd-unit-number {
+    padding: 7px 10px;
+    background: var(--card-accent);
+    color: #5d55a1;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.rd-locked .rd-unit-number {
+    background: #e9e9ee;
+    color: #89899a;
+}
+
+.rd-unit-symbol {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-accent);
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.rd-locked .rd-unit-symbol {
+    background: #e9e9ee;
+    filter: grayscale(1);
+}
+
+.rd-unit-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 135px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 14px 0 2px;
+    background: #efedff;
+}
+
+.rd-unit-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.rd-unit-card:not(.rd-locked):hover .rd-unit-image img {
+    transform: scale(1.06);
+}
+
+.rd-locked .rd-unit-image img {
+    filter: grayscale(.65);
+    opacity: .65;
+}
+
+.rd-unit-card h3 {
+    position: relative;
+    z-index: 1;
+    color: #302d51;
+    font-size: 17px;
+    line-height: 1.4;
+    margin: 15px 0 7px;
+    font-weight: 850;
+}
+
+.rd-unit-description {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    color: #85839b;
+    font-size: 11px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.rd-unit-description strong {
+    display: block;
+    color: #5f5b83;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.rd-status {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 13px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.rd-status-completed {
+    color: #30936b;
+}
+
+.rd-status-available {
+    color: #7161c8;
+}
+
+.rd-status-locked {
+    color: #9999a8;
+}
+
+.rd-card-footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    margin-top: 17px;
+    padding-top: 13px;
+    border-top: 1px solid #efedf4;
+}
+
+.rd-question-count {
+    color: #9391a5;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.rd-practice-button,
+.rd-locked-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 850;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.rd-practice-button {
+    background: #7564d2;
+    color: white;
+}
+
+.rd-practice-button:hover {
+    background: #5e4cbd;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.rd-completed-button {
+    background: #e2f6eb;
+    color: #30845e;
+}
+
+.rd-completed-button:hover {
+    background: #cceedd;
+    color: #236b49;
+}
+
+.rd-locked-button {
+    background: #ececf1;
+    color: #9999a5;
+    cursor: not-allowed;
+}
+
+.rd-unavailable {
+    color: #aaa9b6;
+    font-size: 10px;
+}
+
+.rd-review-card {
+    min-height: 225px;
+}
+
+.rd-review-card:nth-child(1) {
+    --card-accent: #ffe9df;
+}
+
+.rd-review-card:nth-child(2) {
+    --card-accent: #e5e2ff;
+}
+
+.rd-review-card h3 {
+    font-size: 19px;
+}
+
+.rd-review-description {
+    flex: 1;
+    color: #85839b;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.rd-unlock-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 20px;
+    padding: 17px 19px;
+    border: 1px solid #e9e5ff;
+    border-radius: 14px;
+    background: #f6f4ff;
+}
+
+.rd-unlock-icon {
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.rd-unlock-note strong {
+    display: block;
+    color: #51478d;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.rd-unlock-note p {
+    color: #8580a7;
+    font-size: 11px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .rd-hero {
+        grid-template-columns: 1fr .8fr;
+    }
+
+    .rd-hero-content {
+        padding: 32px 27px;
+    }
+
+    .rd-unit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .reading-page {
+        padding: 18px 14px 40px;
+    }
+
+    .rd-top-note {
+        display: none;
+    }
+
+    .rd-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .rd-hero-content {
+        padding: 29px 23px 20px;
+    }
+
+    .rd-hero h1 {
+        font-size: 31px;
+    }
+
+    .rd-hero-visual {
+        min-height: 190px;
+        padding: 0 18px 18px;
+    }
+
+    .rd-hero-image {
+        inset: 0 18px 18px;
+        border-radius: 15px 45px 15px 15px;
+    }
+
+    .rd-image-caption {
+        bottom: 31px;
+        left: 18px;
+    }
+
+    .rd-hero-sticker {
+        top: -12px;
+        right: 7px;
+        width: 48px;
+        height: 48px;
+        font-size: 19px;
+        border-width: 4px;
+    }
+
+    .rd-progress-strip {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px;
+    }
+
+    .rd-overview {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .rd-stat {
+        min-height: 70px;
+    }
+
+    .rd-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .rd-unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rd-unit-card {
+        min-height: 340px;
+    }
+
+    .rd-card-footer {
+        flex-wrap: wrap;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="reading-page">
+
+    <div class="rd-topbar">
+        <a href="{{ url_for('dashboard') }}" class="rd-back">
+            ← Quay lại Dashboard
+        </a>
+        <span class="rd-top-note">VIRTUAL ACADEMY · ENGLISH 7</span>
+    </div>
+
+    <section class="rd-hero">
+        <div class="rd-hero-content">
+            <div class="rd-eyebrow">READING LEARNING SPACE</div>
+
+            <h1>Read more.<br><span>Discover more.</span></h1>
+
+            <p>
+                Mỗi bài đọc là một hành trình khám phá. Rèn luyện khả năng
+                tìm ý chính, đọc hiểu chi tiết, tìm kiếm thông tin và
+                mở rộng vốn từ tiếng Anh qua các chủ đề quen thuộc.
+            </p>
+
+            <div class="rd-hero-tags">
+                <span class="rd-hero-tag">📚 6 Units</span>
+                <span class="rd-hero-tag">📝 2 Reviews</span>
+                <span class="rd-hero-tag">🎯 English 7</span>
+            </div>
+        </div>
+
+        <div class="rd-hero-visual">
+            <div class="rd-hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000&auto=format&fit=crop&q=85"
+                    alt="Không gian đọc sách và học tập"
+                >
+            </div>
+            <div class="rd-hero-sticker">📖</div>
+            <div class="rd-image-caption">
+                <strong>Explore the world through reading</strong>
+                <span>Learn · Understand · Grow</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="rd-progress-strip">
+        <div class="rd-progress-copy">
+            <div class="rd-progress-icon">✦</div>
+            <div>
+                <strong>Your reading journey</strong>
+                <p>Theo dõi kết quả và hành trình luyện đọc của bạn.</p>
+            </div>
+        </div>
+
+        <a href="{{ url_for('reading.reading_progress') }}" class="rd-progress-link">
+            Xem tiến độ học tập →
+        </a>
+    </section>
+
+    <section class="rd-overview">
+        <div class="rd-stat">
+            <div class="rd-stat-icon">📚</div>
+            <div>
+                <span>Bài đọc theo chủ đề</span>
+                <strong>{{ units|length }} Units</strong>
+            </div>
+        </div>
+
+        <div class="rd-stat">
+            <div class="rd-stat-icon">✍️</div>
+            <div>
+                <span>Tổng số câu hỏi</span>
+                <strong>{{ units|sum(attribute='total') + reviews|sum(attribute='total') }}</strong>
+            </div>
+        </div>
+
+        <div class="rd-stat">
+            <div class="rd-stat-icon">🌱</div>
+            <div>
+                <span>Bài ôn tập</span>
+                <strong>{{ reviews|length }} Reviews</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="rd-section">
+        <div class="rd-section-heading">
+            <div>
+                <div class="rd-section-kicker">01 / LEARNING LIBRARY</div>
+                <h2>Reading by Unit</h2>
+                <p>Khám phá từng chủ đề và hoàn thành bài đọc theo lộ trình.</p>
+            </div>
+            <span class="rd-section-count">UNIT 01 — 06</span>
+        </div>
+
+        <div class="rd-unit-grid">
+            {% set unit_names = {
+                1: "Hobbies",
+                2: "Healthy Living",
+                3: "Community Service",
+                4: "Music and Arts",
+                5: "Food and Drink",
+                6: "A Visit to a School"
+            } %}
+
+            {% set reading_titles = {
+                1: "Hobbies in My Family",
+                2: "Linh's Healthy Habits",
+                3: "My Volunteer Summer",
+                4: "Two Cousins, Two Hobbies",
+                5: "Bun Cha – My Favourite Lunch",
+                6: "A Visit to Sunshine Lower Secondary School"
+            } %}
+
+            {% set descriptions = {
+                1: "Khám phá các sở thích và hoạt động trong thời gian rảnh.",
+                2: "Đọc hiểu về lối sống lành mạnh và những thói quen tốt.",
+                3: "Tìm hiểu các hoạt động tình nguyện và phục vụ cộng đồng.",
+                4: "Khám phá âm nhạc, nghệ thuật và sở thích cá nhân.",
+                5: "Tìm hiểu món ăn, đồ uống và văn hóa ẩm thực.",
+                6: "Khám phá môi trường học tập và các hoạt động ở trường."
+            } %}
+
+            {% set symbols = {
+                1: "🎨",
+                2: "🥗",
+                3: "🤝",
+                4: "🎵",
+                5: "🍜",
+                6: "🏫"
+            } %}
+
+            {% set unit_images = {
+                1: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=85",
+                2: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=85",
+                3: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&auto=format&fit=crop&q=85",
+                4: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&auto=format&fit=crop&q=85",
+                5: "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&auto=format&fit=crop&q=85",
+                6: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=85"
+            } %}
+
+            {% for unit in units %}
+            <article class="rd-unit-card {% if unit.locked %}rd-locked{% endif %}">
+                <div class="rd-card-top">
+                    <span class="rd-unit-number">UNIT {{ unit.number }}</span>
+                    <span class="rd-unit-symbol">
+                        {% if unit.locked %}🔒{% else %}{{ symbols[unit.number] }}{% endif %}
+                    </span>
+                </div>
+
+                <div class="rd-unit-image">
+                    <img
+                        src="{{ unit_images[unit.number] }}"
+                        alt="{{ unit_names[unit.number] }}"
+                        loading="lazy"
+                    >
+                </div>
+
+                <h3>{{ unit_names[unit.number] }}</h3>
+
+                <p class="rd-unit-description">
+                    <strong>{{ reading_titles[unit.number] }}</strong>
+                    {{ descriptions[unit.number] }}
+                </p>
+
+                {% if unit.completed %}
+                <span class="rd-status rd-status-completed">✓ Đã hoàn thành</span>
+                {% elif unit.locked %}
+                <span class="rd-status rd-status-locked">🔒 Cần hoàn thành Review 1 để mở khóa</span>
+                {% else %}
+                <span class="rd-status rd-status-available">● Có thể học</span>
+                {% endif %}
+
+                <div class="rd-card-footer">
+                    <span class="rd-question-count">{{ unit.total }} câu hỏi</span>
+
+                    {% if unit.passage_id and unit.locked %}
+                    <span class="rd-locked-button">🔒 Đang khóa</span>
+                    {% elif unit.passage_id %}
+                    <a href="{{ url_for('reading.reading_practice', passage_id=unit.passage_id) }}"
+                       class="rd-practice-button {% if unit.completed %}rd-completed-button{% endif %}">
+                        {% if unit.completed %}Ôn tập lại →{% else %}Bắt đầu đọc →{% endif %}
+                    </a>
+                    {% else %}
+                    <span class="rd-unavailable">Chưa có bài</span>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="rd-section">
+        <div class="rd-section-heading">
+            <div>
+                <div class="rd-section-kicker">02 / KNOWLEDGE CHECK</div>
+                <h2>Review – Ôn tập tổng hợp</h2>
+                <p>Kiểm tra khả năng đọc hiểu sau mỗi chặng học tập.</p>
+            </div>
+            <span class="rd-section-count">2 REVIEWS</span>
+        </div>
+
+        <div class="rd-unit-grid">
+            {% for review in reviews %}
+            <article class="rd-unit-card rd-review-card {% if review.locked %}rd-locked{% endif %}">
+                <div class="rd-card-top">
+                    <span class="rd-unit-number">REVIEW {{ review.number }}</span>
+                    <span class="rd-unit-symbol">
+                        {% if review.locked %}🔒{% else %}📖{% endif %}
+                    </span>
+                </div>
+
+                <h3>{{ review.title }}</h3>
+
+                <p class="rd-review-description">
+                    {% if review.number == 1 %}
+                    Ôn tập kỹ năng đọc hiểu từ Unit 1 đến Unit 3.
+                    {% else %}
+                    Ôn tập kỹ năng đọc hiểu từ Unit 4 đến Unit 6.
+                    {% endif %}
+                </p>
+
+                {% if review.completed %}
+                <span class="rd-status rd-status-completed">✓ Đã hoàn thành</span>
+                {% elif review.locked %}
+                <span class="rd-status rd-status-locked">🔒 Cần hoàn thành các Unit trước</span>
+                {% else %}
+                <span class="rd-status rd-status-available">● Đã mở khóa</span>
+                {% endif %}
+
+                <div class="rd-card-footer">
+                    <span class="rd-question-count">{{ review.total }} câu hỏi</span>
+
+                    {% if review.passage_id and review.locked %}
+                    <span class="rd-locked-button">🔒 Đang khóa</span>
+                    {% elif review.passage_id %}
+                    <a href="{{ url_for('reading.reading_practice', passage_id=review.passage_id) }}"
+                       class="rd-practice-button {% if review.completed %}rd-completed-button{% endif %}">
+                        {% if review.completed %}Ôn tập lại →{% else %}Bắt đầu đọc →{% endif %}
+                    </a>
+                    {% else %}
+                    <span class="rd-unavailable">Chưa có bài</span>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="rd-unlock-note">
+            <div class="rd-unlock-icon">🔐</div>
+            <div>
+                <strong>Reading unlock system</strong>
+                <p>
+                    Hoàn thành Unit 1, 2 và 3 để mở Review 1.
+                    Sau khi hoàn thành Review 1, Unit 4, 5 và 6 sẽ được mở.
+                    Hoàn thành cả ba Unit này để mở Review 2.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

@@ -1,0 +1,959 @@
+
+{% extends "base.html" %}
+
+{% block title %}Tiến độ Speaking{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.spg-page {
+    --spg-purple: #7666d9;
+    --spg-purple-dark: #5143ad;
+    --spg-lavender: #efedff;
+    --spg-yellow: #fff2c9;
+    --spg-orange: #ff9674;
+    --spg-mint: #dff5ed;
+    --spg-dark: #26243b;
+    --spg-muted: #85849a;
+    font-family: "Be Vietnam Pro", sans-serif;
+    color: var(--spg-dark);
+    background: #faf9ff;
+    min-height: 100vh;
+    padding: 30px 5% 65px;
+}
+
+.spg-page *,
+.spg-page *::before,
+.spg-page *::after {
+    box-sizing: border-box;
+}
+
+.spg-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.spg-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.spg-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #77748e;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.spg-back:hover {
+    color: var(--spg-purple);
+    transform: translateX(-3px);
+}
+
+.spg-label {
+    color: var(--spg-purple);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+}
+
+.spg-hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 27px;
+    background: var(--spg-lavender);
+    margin-bottom: 24px;
+}
+
+.spg-hero-content {
+    padding: 39px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.spg-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    border-radius: 30px;
+    background: white;
+    color: var(--spg-purple-dark);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .8px;
+    margin-bottom: 19px;
+}
+
+.spg-hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.18;
+    font-weight: 900;
+    letter-spacing: -1.8px;
+}
+
+.spg-hero-description {
+    max-width: 480px;
+    color: #77738f;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.spg-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 21px;
+}
+
+.spg-hero-tag {
+    padding: 8px 11px;
+    background: rgba(255,255,255,.8);
+    color: #665e9c;
+    border-radius: 9px;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.spg-hero-visual {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    background: #d5d0f2;
+}
+
+.spg-hero-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spg-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(36,29,73,.58));
+}
+
+.spg-visual-caption {
+    position: absolute;
+    z-index: 1;
+    bottom: 23px;
+    left: 24px;
+    right: 24px;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.spg-visual-caption span {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: .85;
+}
+
+.spg-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 34px;
+}
+
+.spg-stat {
+    position: relative;
+    min-height: 145px;
+    padding: 24px 27px;
+    overflow: hidden;
+    border-radius: 19px;
+    background: white;
+    border: 1px solid #eeecf7;
+}
+
+.spg-stat:first-child {
+    background: #fff9e9;
+    border-color: #f5edd9;
+}
+
+.spg-stat:last-child {
+    background: #f0edff;
+    border-color: #e7e2ff;
+}
+
+.spg-stat-label {
+    display: block;
+    color: #85849a;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.spg-stat strong {
+    display: block;
+    color: var(--spg-dark);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.spg-stat small {
+    display: block;
+    margin-top: 7px;
+    color: #9995ac;
+    font-size: 10px;
+}
+
+.spg-stat-icon {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,.8);
+    font-size: 21px;
+}
+
+.spg-section {
+    margin-bottom: 35px;
+}
+
+.spg-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 19px;
+}
+
+.spg-section-heading h2 {
+    margin: 0 0 6px;
+    color: var(--spg-dark);
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: -.5px;
+}
+
+.spg-section-heading p {
+    margin: 0;
+    color: var(--spg-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.spg-section-index {
+    color: #aaa5c5;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.spg-unit-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.spg-unit-item {
+    padding: 20px 21px;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid #eeecf7;
+    transition: .2s;
+}
+
+.spg-unit-item:hover {
+    border-color: #d8d1ff;
+    transform: translateY(-2px);
+}
+
+.spg-unit-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.spg-unit-name {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.spg-unit-number {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--spg-lavender);
+    color: var(--spg-purple-dark);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.spg-unit-name strong {
+    color: var(--spg-dark);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.spg-unit-score {
+    color: var(--spg-purple-dark);
+    font-size: 11px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.spg-unit-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 9px;
+    color: var(--spg-muted);
+    font-size: 9px;
+}
+
+.spg-unit-track {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0eef6;
+}
+
+.spg-unit-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #a69ae9, #6c5bc8);
+    transition: width .7s ease;
+}
+
+.spg-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spg-history-item {
+    padding: 23px 25px;
+    border: 1px solid #eeecf7;
+    border-radius: 18px;
+    background: white;
+    transition: .2s;
+}
+
+.spg-history-item:hover {
+    border-color: #dcd6f6;
+}
+
+.spg-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.spg-history-info {
+    min-width: 0;
+}
+
+.spg-history-info strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--spg-dark);
+    font-size: 14px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.spg-history-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.spg-history-meta span {
+    color: #817d99;
+    font-size: 10px;
+}
+
+.spg-history-meta .spg-meta-tag {
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: var(--spg-lavender);
+    color: var(--spg-purple-dark);
+    font-weight: 800;
+}
+
+.spg-history-score {
+    flex-shrink: 0;
+    min-width: 75px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--spg-mint);
+    color: #398568;
+    text-align: center;
+}
+
+.spg-history-score strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.spg-history-score span {
+    display: block;
+    margin-top: 3px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .6px;
+}
+
+.spg-history-no-score {
+    background: var(--spg-yellow);
+    color: #927a39;
+}
+
+.spg-audio {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: 40px;
+    margin: 0 0 16px;
+}
+
+.spg-score-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.spg-score-item {
+    padding: 13px 15px;
+    border: 1px solid #eeecf7;
+    border-radius: 11px;
+    background: #fcfbff;
+}
+
+.spg-score-item span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--spg-muted);
+    font-size: 9px;
+}
+
+.spg-score-item strong {
+    color: var(--spg-purple-dark);
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.spg-feedback {
+    margin-top: 17px;
+    padding: 18px 19px;
+    border-radius: 13px;
+    background: #f4f2ff;
+    border-left: 3px solid var(--spg-purple);
+}
+
+.spg-feedback h3 {
+    margin: 0 0 9px;
+    color: var(--spg-purple-dark);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.spg-feedback p {
+    margin: 0;
+    color: #68647f;
+    font-size: 11px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.spg-feedback .spg-feedback-note {
+    margin-top: 10px;
+    color: #9691aa;
+    font-size: 9px;
+}
+
+.spg-transcript {
+    margin-top: 16px;
+    border-top: 1px solid #efedf6;
+    padding-top: 13px;
+}
+
+.spg-transcript summary {
+    color: var(--spg-purple-dark);
+    font-size: 10px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.spg-transcript p {
+    margin: 12px 0 0;
+    padding: 15px;
+    border-radius: 10px;
+    background: #faf9ff;
+    color: #66627c;
+    font-size: 11px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.spg-empty {
+    padding: 36px 20px;
+    border: 1px dashed #d4cfee;
+    border-radius: 17px;
+    background: #fff;
+    text-align: center;
+}
+
+.spg-empty-icon {
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 13px;
+    border-radius: 16px;
+    background: var(--spg-lavender);
+    font-size: 23px;
+}
+
+.spg-empty strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--spg-dark);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.spg-empty p {
+    margin: 0;
+    color: var(--spg-muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.spg-empty-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17px;
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: var(--spg-purple);
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 900;
+    transition: .2s;
+}
+
+.spg-empty-action:hover {
+    background: var(--spg-purple-dark);
+    transform: translateY(-2px);
+}
+
+.spg-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+    padding-top: 22px;
+    border-top: 1px solid #eeecf7;
+}
+
+.spg-footer p {
+    margin: 0;
+    color: var(--spg-muted);
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.spg-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 17px;
+    border: 1px solid #e6e2f4;
+    border-radius: 11px;
+    background: white;
+    color: var(--spg-purple-dark);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 900;
+    transition: .2s;
+    white-space: nowrap;
+}
+
+.spg-footer a:hover {
+    background: var(--spg-lavender);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 850px) {
+    .spg-hero {
+        grid-template-columns: 1.1fr .9fr;
+    }
+
+    .spg-hero-content {
+        padding: 29px;
+    }
+
+    .spg-unit-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .spg-page {
+        padding: 20px 14px 40px;
+    }
+
+    .spg-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .spg-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .spg-hero-content {
+        padding: 27px 22px;
+    }
+
+    .spg-hero-visual {
+        min-height: 210px;
+    }
+
+    .spg-hero h1 {
+        font-size: 32px;
+    }
+
+    .spg-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .spg-stat {
+        min-height: 125px;
+    }
+
+    .spg-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .spg-history-item {
+        padding: 18px;
+    }
+
+    .spg-history-header {
+        align-items: flex-start;
+    }
+
+    .spg-score-list {
+        grid-template-columns: 1fr;
+    }
+
+    .spg-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="spg-page">
+    <div class="spg-container">
+
+        <div class="spg-topbar">
+            <a href="{{ url_for('speaking.speaking_home') }}" class="spg-back">
+                ← Quay lại Speaking
+            </a>
+            <span class="spg-label">LEARNING SPACE / ENGLISH 7</span>
+        </div>
+
+        <section class="spg-hero">
+            <div class="spg-hero-content">
+                <div class="spg-eyebrow">
+                    ✦ ENGLISH 7 · GLOBAL SUCCESS
+                </div>
+
+                <h1>Speaking<br>Progress.</h1>
+
+                <p class="spg-hero-description">
+                    Mỗi lần luyện tập là một bước tiến. Theo dõi kết quả,
+                    nhìn lại hành trình và cải thiện khả năng giao tiếp
+                    tiếng Anh của bạn qua từng Unit.
+                </p>
+
+                <div class="spg-hero-tags">
+                    <span class="spg-hero-tag">🎤 Speaking practice</span>
+                    <span class="spg-hero-tag">🤖 AI assessment</span>
+                    <span class="spg-hero-tag">✦ Learning journey</span>
+                </div>
+            </div>
+
+            <div class="spg-hero-visual">
+                <img
+                    src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&auto=format&fit=crop&q=85"
+                    alt="English speaking practice"
+                >
+                <div class="spg-visual-caption">
+                    Your voice, your progress.
+                    <span>Practice today. Speak better tomorrow.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="spg-summary">
+            <div class="spg-stat">
+                <span class="spg-stat-label">TỔNG SỐ LƯỢT LUYỆN TẬP</span>
+                <strong>{{ total_attempts }}</strong>
+                <small>Lượt luyện nói đã được lưu</small>
+                <div class="spg-stat-icon">🎙️</div>
+            </div>
+
+            <div class="spg-stat">
+                <span class="spg-stat-label">ĐIỂM TRUNG BÌNH</span>
+                <strong>{{ average_score }}<span style="font-size:17px">/100</span></strong>
+                <small>Điểm trung bình các bài được đánh giá</small>
+                <div class="spg-stat-icon">⭐</div>
+            </div>
+        </section>
+
+        <section class="spg-section">
+            <div class="spg-section-heading">
+                <div>
+                    <h2>Unit learning progress</h2>
+                    <p>Thống kê số lượt luyện tập và điểm trung bình của mỗi Unit.</p>
+                </div>
+                <span class="spg-section-index">01 / PROGRESS</span>
+            </div>
+
+            {% if unit_results %}
+            <div class="spg-unit-list">
+                {% for item in unit_results %}
+                <div class="spg-unit-item">
+                    <div class="spg-unit-top">
+                        <div class="spg-unit-name">
+                            <div class="spg-unit-number">
+                                {{ "%02d"|format(item.unit|int) if item.unit else "—" }}
+                            </div>
+                            <strong>
+                                {% if item.unit %}
+                                    UNIT {{ item.unit }}
+                                {% else %}
+                                    REVIEW
+                                {% endif %}
+                            </strong>
+                        </div>
+
+                        <span class="spg-unit-score">
+                            {% if item.total > 0 and item.average > 0 %}
+                                {{ item.average }}/100
+                            {% else %}
+                                Chưa có điểm
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="spg-unit-info">
+                        <span>{{ item.total }} lượt luyện tập</span>
+                        <span>
+                            {% if item.total > 0 %}
+                                Đã luyện tập
+                            {% else %}
+                                Chưa bắt đầu
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="spg-unit-track">
+                        <div
+                            class="spg-unit-fill"
+                            data-score="{{ item.average or 0 }}"
+                        ></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="spg-empty">
+                <div class="spg-empty-icon">📊</div>
+                <strong>Chưa có dữ liệu tiến độ</strong>
+                <p>Kết quả luyện tập theo Unit sẽ được hiển thị tại đây.</p>
+            </div>
+            {% endif %}
+        </section>
+
+        <section class="spg-section">
+            <div class="spg-section-heading">
+                <div>
+                    <h2>Your practice history</h2>
+                    <p>Các bài nói bạn đã ghi âm và lưu lại.</p>
+                </div>
+                <span class="spg-section-index">02 / HISTORY</span>
+            </div>
+
+            {% if attempts %}
+            <div class="spg-history-list">
+                {% for attempt in attempts %}
+                <article class="spg-history-item">
+
+                    <div class="spg-history-header">
+                        <div class="spg-history-info">
+                            <strong>{{ attempt.speaking_topic.title }}</strong>
+
+                            <div class="spg-history-meta">
+                                <span class="spg-meta-tag">
+                                    {% if attempt.speaking_topic.unit %}
+                                        UNIT {{ attempt.speaking_topic.unit }}
+                                    {% else %}
+                                        REVIEW {{ attempt.speaking_topic.review_number }}
+                                    {% endif %}
+                                </span>
+
+                                <span>
+                                    {{ attempt.attempted_at.strftime('%d/%m/%Y · %H:%M') if attempt.attempted_at else '' }}
+                                </span>
+                            </div>
+                        </div>
+
+                        {% if attempt.overall_score is not none %}
+                        <div class="spg-history-score">
+                            <strong>{{ attempt.overall_score }}</strong>
+                            <span>POINTS</span>
+                        </div>
+                        {% else %}
+                        <div class="spg-history-score spg-history-no-score">
+                            <strong>--</strong>
+                            <span>NO SCORE</span>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% if attempt.audio_path %}
+                    <audio class="spg-audio" controls preload="none">
+                        <source src="{{ url_for('static', filename=attempt.audio_path) }}">
+                    </audio>
+                    {% endif %}
+
+                    {% if attempt.overall_score is not none %}
+                    <div class="spg-score-list">
+                        <div class="spg-score-item">
+                            <span>Mạch lạc câu trả lời</span>
+                            <strong>{{ attempt.fluency_score }}/100</strong>
+                        </div>
+
+                        <div class="spg-score-item">
+                            <span>Từ vựng</span>
+                            <strong>{{ attempt.vocabulary_score }}/100</strong>
+                        </div>
+
+                        <div class="spg-score-item">
+                            <span>Ngữ pháp</span>
+                            <strong>{{ attempt.grammar_score }}/100</strong>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if attempt.ai_feedback %}
+                    <div class="spg-feedback">
+                        <h3>✦ Nhận xét từ AI</h3>
+                        <p>{{ attempt.ai_feedback }}</p>
+                        <p class="spg-feedback-note">
+                            Điểm được đánh giá dựa trên bản chép lời.
+                            Chưa bao gồm đánh giá phát âm và tốc độ nói.
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% if attempt.transcript %}
+                    <details class="spg-transcript">
+                        <summary>Xem nội dung bài nói</summary>
+                        <p>{{ attempt.transcript }}</p>
+                    </details>
+                    {% endif %}
+
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="spg-empty">
+                <div class="spg-empty-icon">🎤</div>
+                <strong>Chưa có lịch sử luyện tập</strong>
+                <p>
+                    Những bài Speaking bạn ghi âm và lưu sẽ xuất hiện tại đây.
+                    Hãy bắt đầu với một chủ đề để theo dõi tiến độ của mình.
+                </p>
+                <a href="{{ url_for('speaking.speaking_home') }}" class="spg-empty-action">
+                    Bắt đầu luyện Speaking →
+                </a>
+            </div>
+            {% endif %}
+        </section>
+
+        <footer class="spg-footer">
+            <p>
+                Every practice makes you more confident.<br>
+                Keep learning, keep speaking.
+            </p>
+
+            <a href="{{ url_for('speaking.speaking_home') }}">
+                ← Quay lại Speaking
+            </a>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".spg-unit-fill").forEach(function (bar) {
+        const score = Number(bar.dataset.score) || 0;
+        const safeScore = Math.min(100, Math.max(0, score));
+        bar.style.width = safeScore + "%";
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,864 @@
+
+{% extends "base.html" %}
+
+{% block title %}Viết tiếng Anh 7 - Writing{% endblock %}
+
+{% block styles %}
+<style>
+.wri-page {
+    --wri-ink: #292747;
+    --wri-muted: #85839b;
+    --wri-purple: #7566d8;
+    --wri-lavender: #f0edff;
+    --wri-border: #eae8f3;
+    --wri-coral: #f18b79;
+    --wri-mint: #e3f4eb;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 30px 65px;
+    color: var(--wri-ink);
+}
+
+.wri-page * {
+    box-sizing: border-box;
+}
+
+.wri-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.wri-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid var(--wri-border);
+    border-radius: 10px;
+    background: #fff;
+    color: #68648c;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.wri-back:hover {
+    color: var(--wri-purple);
+    border-color: #c8c1f1;
+    transform: translateX(-3px);
+}
+
+.wri-breadcrumb {
+    color: #aaa7bc;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.wri-hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    min-height: 310px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #eeebff;
+    margin-bottom: 23px;
+}
+
+.wri-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 39px 40px;
+}
+
+.wri-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #7566c8;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+}
+
+.wri-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 3px;
+    border-radius: 5px;
+    background: var(--wri-coral);
+}
+
+.wri-hero h1 {
+    max-width: 530px;
+    color: #302b5b;
+    font-size: clamp(29px, 3.2vw, 41px);
+    line-height: 1.17;
+    letter-spacing: -1.5px;
+    margin: 0 0 15px;
+}
+
+.wri-hero-description {
+    max-width: 480px;
+    color: #777392;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.wri-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 23px;
+}
+
+.wri-chip {
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.78);
+    color: #6c63b0;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wri-hero-visual {
+    position: relative;
+    min-height: 310px;
+}
+
+.wri-hero-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wri-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eeebff 0%, rgba(238,235,255,.15) 38%, rgba(41,35,82,.05) 100%);
+}
+
+.wri-hero-note {
+    position: absolute;
+    z-index: 2;
+    right: 22px;
+    bottom: 22px;
+    padding: 14px 17px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 8px 25px rgba(35,30,80,.12);
+}
+
+.wri-hero-note strong {
+    display: block;
+    color: #49417f;
+    font-size: 12px;
+}
+
+.wri-hero-note span {
+    display: block;
+    color: #9995ad;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.wri-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.wri-stat {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 95px;
+    padding: 18px;
+    border: 1px solid var(--wri-border);
+    border-radius: 15px;
+    background: #fff;
+    transition: .2s;
+}
+
+.wri-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(53,45,105,.06);
+}
+
+.wri-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--wri-lavender);
+    font-size: 20px;
+}
+
+.wri-stat:nth-child(2) .wri-stat-icon {
+    background: #e4f5eb;
+}
+
+.wri-stat:nth-child(3) .wri-stat-icon {
+    background: #fff0e9;
+}
+
+.wri-stat-label {
+    display: block;
+    color: #89869e;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.wri-stat-value {
+    display: block;
+    color: #393653;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -.7px;
+}
+
+.wri-stat-value small {
+    color: #aaa7bb;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.wri-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 19px;
+}
+
+.wri-section-kicker {
+    color: #8b80d3;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    margin-bottom: 7px;
+}
+
+.wri-section-heading h2 {
+    color: #302d50;
+    font-size: 24px;
+    letter-spacing: -.6px;
+    margin: 0;
+}
+
+.wri-section-heading p {
+    color: #89869e;
+    font-size: 12px;
+    margin: 7px 0 0;
+    line-height: 1.7;
+}
+
+.wri-progress-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #7566d8;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.wri-progress-link:hover {
+    background: #6253c1;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 17px rgba(117,102,216,.2);
+}
+
+.wri-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.wri-unit-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--wri-border);
+    border-radius: 17px;
+    background: #fff;
+    transition: .25s ease;
+}
+
+.wri-unit-card:not(.wri-empty-card):hover {
+    transform: translateY(-5px);
+    border-color: #c8c0f0;
+    box-shadow: 0 12px 25px rgba(53,45,105,.09);
+}
+
+.wri-unit-image {
+    position: relative;
+    height: 145px;
+    overflow: hidden;
+    background: #f0edff;
+}
+
+.wri-unit-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.wri-unit-card:hover .wri-unit-image img {
+    transform: scale(1.06);
+}
+
+.wri-unit-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31,27,65,.02), rgba(31,27,65,.25));
+    pointer-events: none;
+}
+
+.wri-image-number {
+    position: absolute;
+    z-index: 1;
+    top: 13px;
+    left: 14px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 8px;
+    background: rgba(255,255,255,.92);
+    color: #5d53a1;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.wri-unit-symbol {
+    position: absolute;
+    z-index: 1;
+    right: 13px;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.94);
+    font-size: 19px;
+}
+
+.wri-unit-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 235px;
+    padding: 17px 18px 16px;
+}
+
+.wri-unit-content h3 {
+    color: #353151;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.wri-writing-topic {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: #f0edff;
+    color: #7566c8;
+    font-size: 9px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.wri-unit-description {
+    color: #89869d;
+    font-size: 11px;
+    line-height: 1.75;
+    margin: 0;
+    flex: 1;
+}
+
+.wri-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 13px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wri-status-completed {
+    color: #4d9a76;
+}
+
+.wri-status-available {
+    color: #7566d8;
+}
+
+.wri-status-empty {
+    color: #a5a2b3;
+}
+
+.wri-unit-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid #eeedf4;
+}
+
+.wri-attempt-count {
+    color: #9692a8;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.wri-practice-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: #7566d8;
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.wri-practice-button:hover {
+    background: #6253c1;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.wri-completed-button {
+    background: #e5f4eb;
+    color: #43866b;
+}
+
+.wri-completed-button:hover {
+    background: #d3eadb;
+    color: #347653;
+}
+
+.wri-empty-card {
+    background: #fbfaff;
+}
+
+.wri-empty-card .wri-unit-image {
+    background: #f1eff8;
+}
+
+.wri-empty-card .wri-unit-image img {
+    filter: grayscale(1);
+    opacity: .45;
+}
+
+.wri-empty-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: #f0eff5;
+    color: #9996a8;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wri-learning-note {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 14px;
+    margin-top: 23px;
+    padding: 18px 20px;
+    border: 1px solid #e5e0fb;
+    border-radius: 14px;
+    background: #f7f5ff;
+}
+
+.wri-note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 20px;
+}
+
+.wri-note-content strong {
+    display: block;
+    color: #514a87;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.wri-note-content p {
+    color: #8985a7;
+    font-size: 11px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.wri-note-tag {
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: #fff;
+    color: #8278c4;
+    font-size: 9px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+@media (max-width: 950px) {
+    .wri-unit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .wri-hero-content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .wri-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .wri-hero-visual {
+        min-height: 190px;
+    }
+
+    .wri-hero-visual::after {
+        background: linear-gradient(180deg, #eeebff 0%, rgba(238,235,255,.05) 50%);
+    }
+
+    .wri-overview {
+        gap: 10px;
+    }
+
+    .wri-stat {
+        padding: 14px;
+    }
+
+    .wri-stat-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .wri-stat-value {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    .wri-page {
+        padding: 20px 14px 40px;
+    }
+
+    .wri-breadcrumb {
+        display: none;
+    }
+
+    .wri-hero-content {
+        padding: 27px 22px;
+    }
+
+    .wri-hero h1 {
+        font-size: 29px;
+    }
+
+    .wri-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .wri-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .wri-section-heading h2 {
+        font-size: 21px;
+    }
+
+    .wri-unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wri-unit-image {
+        height: 175px;
+    }
+
+    .wri-unit-content {
+        min-height: 210px;
+    }
+
+    .wri-learning-note {
+        grid-template-columns: auto 1fr;
+    }
+
+    .wri-note-tag {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="wri-page">
+
+    <div class="wri-topbar">
+        <a href="{{ url_for('dashboard') }}" class="wri-back">
+            ← Quay lại Dashboard
+        </a>
+
+        <span class="wri-breadcrumb">VIRTUAL ACADEMY / WRITING</span>
+    </div>
+
+    <section class="wri-hero">
+        <div class="wri-hero-content">
+            <div class="wri-eyebrow">WRITING LEARNING SPACE</div>
+
+            <h1>Turn your ideas<br>into words.</h1>
+
+            <p class="wri-hero-description">
+                Phát triển kỹ năng viết tiếng Anh lớp 7 qua những chủ đề quen thuộc.
+                Học cách xây dựng câu, sắp xếp ý tưởng, lập dàn ý và hoàn thiện
+                đoạn văn hoặc email bằng tiếng Anh.
+            </p>
+
+            <div class="wri-hero-meta">
+                <span class="wri-chip">✍️ 6 Units</span>
+                <span class="wri-chip">📝 Paragraph & Email</span>
+                <span class="wri-chip">🎯 English 7</span>
+            </div>
+        </div>
+
+        <div class="wri-hero-visual">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1100&auto=format&fit=crop&q=85"
+                 alt="Bàn học và sổ ghi chép">
+
+            <div class="wri-hero-note">
+                <strong>Write your own story</strong>
+                <span>Plan · Write · Improve</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="wri-overview">
+
+        <div class="wri-stat">
+            <div class="wri-stat-icon">✍️</div>
+            <div>
+                <span class="wri-stat-label">Chủ đề luyện viết</span>
+                <strong class="wri-stat-value">6 <small>Units</small></strong>
+            </div>
+        </div>
+
+        <div class="wri-stat">
+            <div class="wri-stat-icon">✓</div>
+            <div>
+                <span class="wri-stat-label">Unit đã hoàn thành</span>
+                <strong class="wri-stat-value">{{ completed_units }}<small>/6</small></strong>
+            </div>
+        </div>
+
+        <div class="wri-stat">
+            <div class="wri-stat-icon">📝</div>
+            <div>
+                <span class="wri-stat-label">Tổng bài đã nộp</span>
+                <strong class="wri-stat-value">{{ total_attempts }}</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="wri-unit-section">
+
+        <div class="wri-section-heading">
+            <div>
+                <div class="wri-section-kicker">YOUR WRITING JOURNEY</div>
+                <h2>Writing by Unit</h2>
+                <p>Chọn một chủ đề và bắt đầu hoàn thiện kỹ năng viết của bạn.</p>
+            </div>
+
+            <a href="{{ url_for('writing.writing_progress') }}" class="wri-progress-link">
+                <span>↗</span>
+                <span>Xem tiến độ học tập</span>
+            </a>
+        </div>
+
+        {% set unit_names = {
+            1: "Hobbies",
+            2: "Healthy Living",
+            3: "Community Service",
+            4: "Music and Arts",
+            5: "Food and Drink",
+            6: "A Visit to a School"
+        } %}
+
+        {% set descriptions = {
+            1: "Viết đoạn văn khoảng 70 từ về sở thích của bản thân.",
+            2: "Viết về những cách giữ gìn sức khỏe và phòng tránh virus.",
+            3: "Viết email kể về hoạt động tình nguyện.",
+            4: "Viết email mời bạn tham gia lễ hội nghệ thuật.",
+            5: "Viết đoạn văn về thói quen ăn uống tại địa phương.",
+            6: "Viết về một hoạt động ngoài trời ở trường."
+        } %}
+
+        {% set symbols = {
+            1: "🎨",
+            2: "🥗",
+            3: "🤝",
+            4: "🎵",
+            5: "🍜",
+            6: "🏫"
+        } %}
+
+        {% set images = {
+            1: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=85",
+            2: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=85",
+            3: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&auto=format&fit=crop&q=85",
+            4: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&auto=format&fit=crop&q=85",
+            5: "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&auto=format&fit=crop&q=85",
+            6: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=85"
+        } %}
+
+        <div class="wri-unit-grid">
+
+            {% for number in range(1, 7) %}
+                {% set found = namespace(item=none) %}
+
+                {% for item in units %}
+                    {% if item.unit.unit == number %}
+                        {% set found.item = item %}
+                    {% endif %}
+                {% endfor %}
+
+                <article class="wri-unit-card {% if not found.item %}wri-empty-card{% endif %}">
+
+                    <div class="wri-unit-image">
+                        <img src="{{ images[number] }}"
+                             alt="{{ unit_names[number] }}"
+                             loading="lazy">
+
+                        <span class="wri-image-number">UNIT {{ number }}</span>
+
+                        <span class="wri-unit-symbol">
+                            {{ symbols[number] }}
+                        </span>
+                    </div>
+
+                    <div class="wri-unit-content">
+
+                        <h3>{{ unit_names[number] }}</h3>
+
+                        <span class="wri-writing-topic">
+                            {% if found.item and found.item.unit.writing_topic %}
+                                {{ found.item.unit.writing_topic }}
+                            {% else %}
+                                WRITING TOPIC
+                            {% endif %}
+                        </span>
+
+                        <p class="wri-unit-description">
+                            {{ descriptions[number] }}
+                        </p>
+
+                        {% if found.item and found.item.completed %}
+                        <span class="wri-status wri-status-completed">
+                            ✓ Đã nộp bài
+                        </span>
+                        {% elif found.item %}
+                        <span class="wri-status wri-status-available">
+                            ● Có thể học
+                        </span>
+                        {% else %}
+                        <span class="wri-status wri-status-empty">
+                            ○ Đang cập nhật học liệu
+                        </span>
+                        {% endif %}
+
+                        <div class="wri-unit-footer">
+                            <span class="wri-attempt-count">
+                                {% if found.item %}
+                                    {{ found.item.attempts|length }} bài đã nộp
+                                {% else %}
+                                    Chưa có học liệu
+                                {% endif %}
+                            </span>
+
+                            {% if found.item %}
+                            <a href="{{ url_for('writing.writing_unit', unit_number=number) }}"
+                               class="wri-practice-button {% if found.item.completed %}wri-completed-button{% endif %}">
+                                {% if found.item.completed %}
+                                    Học lại →
+                                {% else %}
+                                    Bắt đầu →
+                                {% endif %}
+                            </a>
+                            {% else %}
+                            <span class="wri-empty-button">
+                                Chưa mở
+                            </span>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="wri-learning-note">
+            <div class="wri-note-icon">💡</div>
+
+            <div class="wri-note-content">
+                <strong>Build your writing step by step</strong>
+                <p>
+                    Mỗi Unit giúp bạn thực hành cách xây dựng câu, sắp xếp ý tưởng,
+                    lập dàn ý và hoàn thiện bài viết theo chủ đề.
+                </p>
+            </div>
+
+            <span class="wri-note-tag">LEARN BY DOING</span>
+        </div>
+
+    </section>
+
+</div>
+{% endblock %}

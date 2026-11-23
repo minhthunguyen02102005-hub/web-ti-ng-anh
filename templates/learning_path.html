@@ -1,0 +1,138 @@
+
+{% extends "base.html" %}
+
+{% block title %}Lộ trình học tập - English 7{% endblock %}
+
+{% block styles %}
+<style>
+.learning-path {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 24px 60px;
+    color: #202b40;
+}
+
+.path-heading {
+    margin-bottom: 28px;
+}
+
+.path-heading h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.path-heading p {
+    color: #778196;
+}
+
+.path-summary {
+    background: #fff;
+    border: 1px solid #e8ebf2;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.unit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.unit-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e8ebf2;
+    border-radius: 16px;
+    padding: 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: .2s ease;
+}
+
+.unit-card:hover {
+    transform: translateY(-3px);
+    border-color: #a5a6ed;
+    box-shadow: 0 8px 24px rgba(35, 45, 80, .07);
+}
+
+.unit-number {
+    color: #7778d9;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.unit-card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.unit-meta {
+    color: #7c8495;
+    font-size: 14px;
+}
+
+.unit-action {
+    margin-top: 18px;
+    color: #6869c9;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media (max-width: 650px) {
+    .unit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-path {
+        padding: 24px 16px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="learning-path">
+
+    <div class="path-heading">
+        <h1>Lộ trình học tập</h1>
+        <p>
+            Chọn một Unit để khám phá các bài học và bài tập
+            theo từng kỹ năng Tiếng Anh 7.
+        </p>
+    </div>
+
+    <div class="path-summary">
+        <strong>Chương trình Tiếng Anh 7</strong>
+        <p class="unit-meta">
+            7 Unit · 6 kỹ năng · Học tập và luyện tập theo tiến độ của bạn
+        </p>
+    </div>
+
+    <div class="unit-grid">
+        {% for unit in units %}
+        <a class="unit-card"
+           href="{{ url_for('unit_detail', unit_number=unit.number) }}">
+
+            <div class="unit-number">
+                UNIT {{ unit.number }}
+            </div>
+
+            <h2>{{ unit.title }}</h2>
+
+            <div class="unit-meta">
+                {{ unit.available_skills }}/{{ unit.total_skills }}
+                kỹ năng đã có học liệu hoặc bài tập
+            </div>
+
+            <div class="unit-action">
+                Xem nội dung Unit →
+            </div>
+
+        </a>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

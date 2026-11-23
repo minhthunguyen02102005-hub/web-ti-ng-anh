@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Academy - English 7</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard-page">
+
+    <aside class="academy-sidebar">
+        <a href="/" class="academy-logo">
+            <span class="logo-symbol">E</span>
+            <span>VIRTUAL<span class="logo-light">ACADEMY</span></span>
+        </a>
+
+        <div class="sidebar-caption">MAIN MENU</div>
+
+        <nav class="academy-nav">
+            <a href="{{ url_for('dashboard') }}" class="academy-link active">
+                <span class="nav-icon">⌂</span>
+                <span>Tổng quan</span>
+            </a>
+
+            <a href="{{ url_for('learning_path') }}" class="academy-link">
+                <span class="nav-icon">▤</span>
+                <span>Lộ trình học</span>
+            </a>
+
+            <a href="{{ url_for('materials') }}" class="academy-link">
+                <span class="nav-icon">▧</span>
+                <span>Kho học liệu</span>
+            </a>
+
+            <a href="{{ url_for('progress') }}" class="academy-link">
+                <span class="nav-icon">◷</span>
+                <span>Tiến độ học tập</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-caption">LEARNING</div>
+
+        <nav class="academy-nav">
+            <a href="{{ url_for('vocabulary') }}" class="academy-link">
+                <span class="nav-icon">Aa</span>
+                <span>Từ vựng</span>
+            </a>
+
+            <a href="{{ url_for('grammar.grammar_home') }}" class="academy-link">
+                <span class="nav-icon">A</span>
+                <span>Ngữ pháp</span>
+            </a>
+
+            <a href="{{ url_for('reading.reading_home') }}" class="academy-link">
+                <span class="nav-icon">▧</span>
+                <span>Đọc hiểu</span>
+            </a>
+
+            <a href="{{ url_for('speaking.speaking_home') }}" class="academy-link">
+                <span class="nav-icon">◉</span>
+                <span>Luyện nói</span>
+            </a>
+
+            <a href="{{ url_for('writing.writing_home') }}" class="academy-link">
+                <span class="nav-icon">✎</span>
+                <span>Luyện viết</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-caption">ACADEMY SERVICES</div>
+
+        <nav class="academy-nav">
+            <a href="{{ url_for('placement_test') }}" class="academy-link">
+                <span class="nav-icon">◎</span>
+                <span>Kiểm tra trình độ</span>
+            </a>
+
+            <a href="{{ url_for('tutor') }}" class="academy-link">
+                <span class="nav-icon">✧</span>
+                <span>Gia sư AI</span>
+            </a>
+
+            <a href="{{ url_for('profile') }}" class="academy-link">
+                <span class="nav-icon">◯</span>
+                <span>Hồ sơ cá nhân</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-ai-card">
+                <div class="ai-card-icon">✦</div>
+                <strong>AI Learning Assistant</strong>
+                <p>Người bạn đồng hành trong hành trình học tiếng Anh.</p>
+                <a href="{{ url_for('tutor') }}">Trò chuyện với AI →</a>
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="academy-logout">
+                <span>↪</span> Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <main class="academy-main">
+
+        <header class="academy-header">
+            <div class="header-title">
+                <div class="breadcrumb">VIRTUAL ACADEMY <span>/</span> DASHBOARD</div>
+                <h1>Không gian học tập</h1>
+                <p>Chào mừng bạn quay trở lại học viện!</p>
+            </div>
+
+            <a href="{{ url_for('profile') }}" class="student-profile">
+                <div class="student-avatar">
+                    {% if current_user.avatar %}
+                        <img
+                            src="{{ url_for('static', filename='uploads/avatars/' ~ current_user.avatar) }}"
+                            alt="Ảnh đại diện"
+                        >
+                    {% else %}
+                        {{ current_user.full_name[0]|upper if current_user.full_name else 'U' }}
+                    {% endif %}
+                </div>
+                <div>
+                    <strong>{{ current_user.full_name }}</strong>
+                    <span>Student · Grade 7</span>
+                </div>
+                <span class="profile-chevron">⌄</span>
+            </a>
+        </header>
+
+        <section class="academy-hero">
+            <div class="hero-copy">
+                <div class="hero-label">
+                    <span></span> YOUR LEARNING JOURNEY
+                </div>
+
+                <h2>Khám phá thế giới<br>tiếng Anh cùng chúng mình!</h2>
+
+                <p>
+                    Mỗi bài học là một bước tiến mới.
+                    Hãy cùng Virtual Academy xây dựng nền tảng tiếng Anh
+                    vững chắc qua từng ngày.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="{{ url_for('learning_path') }}" class="hero-primary">
+                        Khám phá lớp học <span>→</span>
+                    </a>
+                    <a href="{{ url_for('placement_test') }}" class="hero-outline">
+                        Đánh giá trình độ
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span> Learn at your own pace, grow at your own speed.
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Không gian lớp học trực tuyến"
+                    onerror="this.style.display='none'"
+                >
+                <div class="hero-image-overlay"></div>
+
+                <div class="hero-image-caption">
+                    <span>01</span>
+                    <div>
+                        <strong>ENGLISH LEARNING SPACE</strong>
+                        <small>Explore · Practice · Improve</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-overview">
+            <div class="overview-heading">
+                <div>
+                    <span class="section-kicker">YOUR ACADEMIC PROFILE</span>
+                    <h2>Tổng quan học tập</h2>
+                </div>
+                <a href="{{ url_for('progress') }}">Chi tiết tiến độ →</a>
+            </div>
+
+            <div class="overview-grid">
+                <article class="overview-item">
+                    <div class="overview-icon navy-icon">◎</div>
+                    <div>
+                        <span>Trình độ hiện tại</span>
+                        <strong class="overview-value">
+                            {{ current_user.profile.current_level if current_user.profile else 'Chưa đánh giá' }}
+                        </strong>
+                        <small>Qua bài kiểm tra đầu vào</small>
+                    </div>
+                </article>
+
+                <article class="overview-item">
+                    <div class="overview-icon gold-icon">▤</div>
+                    <div>
+                        <span>Bài học hoàn thành</span>
+                        <strong class="overview-value">0</strong>
+                        <small>Tiếp tục hành trình học tập</small>
+                    </div>
+                </article>
+
+                <article class="overview-item">
+                    <div class="overview-icon mint-icon">◈</div>
+                    <div>
+                        <span>Điểm trung bình</span>
+                        <strong class="overview-value">--</strong>
+                        <small>Chưa có dữ liệu đánh giá</small>
+                    </div>
+                </article>
+
+                <article class="overview-item">
+                    <div class="overview-icon blue-icon">✧</div>
+                    <div>
+                        <span>Chuỗi ngày học</span>
+                        <strong class="overview-value">0 ngày</strong>
+                        <small>Duy trì thói quen mỗi ngày</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="classroom-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">EXPLORE YOUR CLASSROOM</span>
+                    <h2>My Classroom</h2>
+                    <p>Chọn một lớp học và bắt đầu khám phá kiến thức mới.</p>
+                </div>
+
+                <span class="classroom-badge">GRADE 7 · ENGLISH</span>
+            </div>
+
+            <div class="classroom-grid">
+
+                <a href="{{ url_for('vocabulary') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80"
+                            alt="Sách học từ vựng"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">01</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">WORD BANK</span>
+                        <h3>Vocabulary</h3>
+                        <p>Khám phá từ vựng theo chủ đề và từng Unit.</p>
+                        <span class="classroom-link">Enter classroom <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('grammar.grammar_home') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=80"
+                            alt="Ghi chép và học ngữ pháp"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">02</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">LANGUAGE STRUCTURE</span>
+                        <h3>Grammar</h3>
+                        <p>Hệ thống kiến thức và thực hành ngữ pháp.</p>
+                        <span class="classroom-link">Enter classroom <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('reading.reading_home') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=700&q=80"
+                            alt="Thư viện đọc sách"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">03</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">READING ROOM</span>
+                        <h3>Reading</h3>
+                        <p>Luyện đọc hiểu qua các đoạn văn và chủ đề.</p>
+                        <span class="classroom-link">Enter classroom <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('materials') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=700&q=80"
+                            alt="Tài liệu luyện nghe"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">04</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">LISTENING LAB</span>
+                        <h3>Listening</h3>
+                        <p>Luyện nghe thông qua file audio và học liệu theo từng Unit.</p>
+                        <span class="classroom-link">Explore materials <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('speaking.speaking_home') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=700&q=80"
+                            alt="Thực hành thuyết trình"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">05</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">SPEAKING STUDIO</span>
+                        <h3>Speaking</h3>
+                        <p>Thực hành giao tiếp và nói theo chủ đề.</p>
+                        <span class="classroom-link">Enter classroom <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('writing.writing_home') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=80"
+                            alt="Không gian luyện viết"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">06</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">WRITING WORKSHOP</span>
+                        <h3>Writing</h3>
+                        <p>Rèn luyện kỹ năng viết và xây dựng câu.</p>
+                        <span class="classroom-link">Enter classroom <b>→</b></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('materials') }}" class="classroom-card">
+                    <div class="classroom-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=700&q=80"
+                            alt="Kho học liệu tiếng Anh"
+                            loading="lazy"
+                        >
+                        <span class="classroom-number">07</span>
+                    </div>
+                    <div class="classroom-content">
+                        <span class="classroom-category">LEARNING RESOURCES</span>
+                        <h3>Learning Materials</h3>
+                        <p>Truy cập tài liệu học tập được phân loại theo Unit và kỹ năng.</p>
+                        <span class="classroom-link">Explore materials <b>→</b></span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="bottom-academy-grid">
+
+            <div class="skill-panel">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">PERSONAL DEVELOPMENT</span>
+                        <h2>Skill Progress</h2>
+                    </div>
+                    <span class="progress-label">YOUR PROFILE</span>
+                </div>
+
+                {% set profile = current_user.profile %}
+
+                <div class="progress-list">
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Vocabulary</span>
+                            <strong>{{ profile.vocabulary_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-navy" data-score="{{ profile.vocabulary_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Grammar</span>
+                            <strong>{{ profile.grammar_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-gold" data-score="{{ profile.grammar_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Reading</span>
+                            <strong>{{ profile.reading_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-mint" data-score="{{ profile.reading_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Listening</span>
+                            <strong>{{ profile.listening_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-orange" data-score="{{ profile.listening_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Speaking</span>
+                            <strong>{{ profile.speaking_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-blue" data-score="{{ profile.speaking_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div class="progress-info">
+                            <span>Writing</span>
+                            <strong>{{ profile.writing_score|int if profile else 0 }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill progress-pink" data-score="{{ profile.writing_score|int if profile else 0 }}"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="{{ url_for('progress') }}" class="panel-footer-link">
+                    Xem toàn bộ tiến độ <span>→</span>
+                </a>
+            </div>
+
+            <div class="academy-side-panels">
+
+                <a href="{{ url_for('tutor') }}" class="ai-feature-card">
+                    <div class="ai-feature-text">
+                        <span class="section-kicker">YOUR AI COMPANION</span>
+                        <h2>Meet your<br>AI Tutor.</h2>
+                        <p>Học tập, đặt câu hỏi và khám phá kiến thức cùng trợ lý AI.</p>
+                        <span class="ai-feature-link">Start conversation →</span>
+                    </div>
+
+                    <div class="ai-feature-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80"
+                            alt="Trợ lý công nghệ AI"
+                            loading="lazy"
+                        >
+                    </div>
+                </a>
+
+                <a href="{{ url_for('learning_path') }}" class="path-feature-card">
+                    <div class="path-feature-icon">◇</div>
+                    <div>
+                        <span class="section-kicker">YOUR NEXT STEP</span>
+                        <h3>Learning Path</h3>
+                        <p>Khám phá lộ trình học tập của bạn.</p>
+                    </div>
+                    <span class="path-arrow">→</span>
+                </a>
+
+                <a href="{{ url_for('materials') }}" class="path-feature-card">
+                    <div class="path-feature-icon">▧</div>
+                    <div>
+                        <span class="section-kicker">LEARNING RESOURCES</span>
+                        <h3>Learning Materials</h3>
+                        <p>Truy cập kho tài liệu học tập.</p>
+                    </div>
+                    <span class="path-arrow">→</span>
+                </a>
+
+                <a href="{{ url_for('placement_test') }}" class="path-feature-card">
+                    <div class="path-feature-icon gold-path-icon">◎</div>
+                    <div>
+                        <span class="section-kicker">TEST YOUR LEVEL</span>
+                        <h3>Placement Test</h3>
+                        <p>Kiểm tra và đánh giá năng lực tiếng Anh.</p>
+                    </div>
+                    <span class="path-arrow">→</span>
+                </a>
+
+            </div>
+        </section>
+
+        <footer class="academy-footer">
+            <div>
+                <strong>VIRTUAL ACADEMY</strong>
+                <span>ENGLISH 7 · HỌC TIẾNG ANH CÙNG NHÓM 10</span>
+            </div>
+            <span>Learn smarter. Grow every day.</span>
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".progress-fill").forEach(function (bar) {
+                const score = Math.min(100, Math.max(0, Number(bar.dataset.score) || 0));
+                bar.style.width = score + "%";
+            });
+        });
+    </script>
+
+</body>
+</html>

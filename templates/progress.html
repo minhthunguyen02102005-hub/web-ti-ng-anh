@@ -1,0 +1,130 @@
+
+{% extends "base.html" %}
+
+{% block title %}Tiến độ học tập{% endblock %}
+
+{% block content %}
+<div class="progress-page">
+    <div class="progress-container">
+
+        <a href="{{ url_for('dashboard') }}" class="progress-back">← Quay lại Dashboard</a>
+
+        <div class="progress-heading">
+            <span class="progress-label">ENGLISH10 · LEARNING ANALYTICS</span>
+            <h1>Hành trình học tập của bạn</h1>
+            <p>Theo dõi kết quả và khám phá sự tiến bộ của bản thân.</p>
+        </div>
+
+        <div class="progress-overview">
+            <div class="progress-card">
+                <span class="progress-icon">🎯</span>
+                <span class="progress-card-label">Trình độ hiện tại</span>
+                <strong>{{ profile.current_level or "Chưa xác định" }}</strong>
+            </div>
+
+            <div class="progress-card">
+                <span class="progress-icon">📚</span>
+                <span class="progress-card-label">Bài học hoàn thành</span>
+                <strong>{{ completed_lessons }}</strong>
+            </div>
+
+            <div class="progress-card">
+                <span class="progress-icon">📝</span>
+                <span class="progress-card-label">Số lần kiểm tra</span>
+                <strong>{{ test_results|length }}</strong>
+            </div>
+
+            <div class="progress-card">
+                <span class="progress-icon">⭐</span>
+                <span class="progress-card-label">Điểm gần nhất</span>
+                <strong>
+                    {% if test_results %}
+                        {{ "%.1f"|format(test_results[0].score) }}%
+                    {% else %}
+                        --
+                    {% endif %}
+                </strong>
+            </div>
+        </div>
+
+        <section class="progress-section">
+            <div class="progress-section-heading">
+                <div>
+                    <span class="progress-label">SKILL ANALYSIS</span>
+                    <h2>Năng lực theo từng kỹ năng</h2>
+                </div>
+            </div>
+
+            {% set skills = [
+                ("Từ vựng", profile.vocabulary_score),
+                ("Ngữ pháp", profile.grammar_score),
+                ("Đọc hiểu", profile.reading_score),
+                ("Nghe", profile.listening_score),
+                ("Nói", profile.speaking_score),
+                ("Viết", profile.writing_score)
+            ] %}
+
+            <div class="skill-analysis">
+                {% for name, score in skills %}
+                <div class="progress-skill">
+                    <div class="progress-skill-top">
+                        <span>{{ name }}</span>
+                        <strong>{{ "%.1f"|format(score or 0) }}%</strong>
+                    </div>
+                    <div class="progress-skill-track">
+                        <div class="progress-skill-fill" data-score="{{ score or 0 }}"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <div class="progress-section-heading">
+                <div>
+                    <span class="progress-label">TEST HISTORY</span>
+                    <h2>Lịch sử kiểm tra</h2>
+                </div>
+            </div>
+
+            {% if test_results %}
+            <div class="test-history">
+                {% for result in test_results %}
+                <div class="history-item">
+                    <div class="history-icon">📝</div>
+                    <div class="history-info">
+                        <strong>Bài kiểm tra đầu vào</strong>
+                        <span>{{ result.completed_at.strftime("%d/%m/%Y") if result.completed_at else "Chưa có ngày" }}</span>
+                    </div>
+                    <div class="history-result">
+                        <strong>{{ "%.1f"|format(result.score) }}%</strong>
+                        <span>{{ result.level }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="progress-empty">
+                <span>📖</span>
+                <h3>Bạn chưa có kết quả kiểm tra</h3>
+                <p>Hãy làm bài kiểm tra đầu vào để bắt đầu theo dõi tiến độ.</p>
+                <a href="{{ url_for('placement_test') }}">Làm bài kiểm tra →</a>
+            </div>
+            {% endif %}
+        </section>
+
+        <div class="progress-bottom">
+            <div>
+                <h2>Tiếp tục hành trình nhé!</h2>
+                <p>Mỗi bài học hoàn thành là một bước tiến gần hơn đến mục tiêu của bạn.</p>
+            </div>
+            <a href="{{ url_for('learning_path') }}">Xem lộ trình học →</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}

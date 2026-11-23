@@ -1,0 +1,163 @@
+{% if current_user.is_authenticated and current_user.role == "student" %}
+<div
+    id="aiTutorWidget"
+    class="ai-tutor-widget"
+    data-api-url="{{ url_for('tutor_chat_api') }}"
+>
+    <section
+        class="ai-tutor-panel"
+        id="aiTutorPanel"
+        aria-label="Gia sư tiếng Anh AI"
+        aria-hidden="true"
+    >
+        <header class="ai-tutor-header">
+            <div class="ai-tutor-header-info">
+                <div class="ai-tutor-avatar">
+                    <svg viewBox="0 0 100 100" role="img" aria-label="Gia sư AI">
+                        <circle cx="50" cy="50" r="48" fill="#f0edff"/>
+                        <path d="M18 91 Q20 66 50 65 Q80 66 82 91" fill="#7868d8"/>
+                        <path d="M34 67 L50 83 L66 67" fill="#fff"/>
+                        <path d="M38 61 L38 72 Q50 86 62 72 L62 61" fill="#f0bd98"/>
+                        <path d="M26 42 Q22 13 51 13 Q80 13 75 48 L70 63 Q64 76 50 76 Q34 75 29 60Z" fill="#51382f"/>
+                        <path d="M29 43 Q27 24 44 20 Q64 13 73 34 L70 48 Q65 35 54 33 Q42 44 29 43Z" fill="#51382f"/>
+                        <path d="M34 43 Q35 34 45 35 Q50 35 50 42 Q50 35 57 35 Q68 35 68 44 L66 56 Q63 68 50 69 Q37 68 34 56Z" fill="#f6c9a8"/>
+                        <path d="M35 44 Q42 40 48 44 M53 44 Q60 40 66 44" fill="none" stroke="#51382f" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="43" cy="48" r="2.2" fill="#302d43"/>
+                        <circle cx="59" cy="48" r="2.2" fill="#302d43"/>
+                        <path d="M46 58 Q50 61 55 58" fill="none" stroke="#b96e65" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="30" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                        <rect x="53" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                        <path d="M47 46 H53" stroke="#5c4db8" stroke-width="2"/>
+                        <path d="M31 76 Q50 88 69 76" fill="none" stroke="#5c4db8" stroke-width="3"/>
+                        <path d="M43 78 L50 86 L57 78" fill="#fff2ce"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3>AI Buddy</h3>
+                    <p><span class="ai-tutor-online-dot"></span> Gia sư tiếng Anh của bạn</p>
+                </div>
+            </div>
+
+            <div class="ai-tutor-header-actions">
+                <button
+                    type="button"
+                    class="ai-tutor-icon-button"
+                    id="aiTutorNewChat"
+                    title="Cuộc trò chuyện mới"
+                    aria-label="Cuộc trò chuyện mới"
+                >＋</button>
+
+                <button
+                    type="button"
+                    class="ai-tutor-icon-button"
+                    id="aiTutorClose"
+                    title="Đóng"
+                    aria-label="Đóng gia sư"
+                >×</button>
+            </div>
+        </header>
+
+        <div class="ai-tutor-context" id="aiTutorContext">
+            <span class="ai-tutor-context-icon">✦</span>
+            <span id="aiTutorContextText">Mình đang ở đây để giúp bạn học tốt hơn!</span>
+        </div>
+
+        <div
+            class="ai-tutor-messages"
+            id="aiTutorMessages"
+            aria-live="polite"
+        >
+            <div class="ai-tutor-welcome" id="aiTutorWelcome">
+                <div class="ai-tutor-welcome-avatar">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="48" fill="#f0edff"/>
+                        <path d="M18 91 Q20 66 50 65 Q80 66 82 91" fill="#7868d8"/>
+                        <path d="M38 61 L38 72 Q50 86 62 72 L62 61" fill="#f0bd98"/>
+                        <path d="M26 42 Q22 13 51 13 Q80 13 75 48 L70 63 Q64 76 50 76 Q34 75 29 60Z" fill="#51382f"/>
+                        <path d="M29 43 Q27 24 44 20 Q64 13 73 34 L70 48 Q65 35 54 33 Q42 44 29 43Z" fill="#51382f"/>
+                        <path d="M34 43 Q35 34 45 35 Q50 35 50 42 Q50 35 57 35 Q68 35 68 44 L66 56 Q63 68 50 69 Q37 68 34 56Z" fill="#f6c9a8"/>
+                        <circle cx="43" cy="48" r="2.2" fill="#302d43"/>
+                        <circle cx="59" cy="48" r="2.2" fill="#302d43"/>
+                        <path d="M46 58 Q50 61 55 58" fill="none" stroke="#b96e65" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="30" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                        <rect x="53" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                        <path d="M47 46 H53" stroke="#5c4db8" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <h4>Hi! Hôm nay học gì nhỉ?</h4>
+                <p>Bạn cứ hỏi bất cứ điều gì về tiếng Anh nhé. Mình sẽ giải thích thật dễ hiểu!</p>
+
+                <div class="ai-tutor-suggestions">
+                    <button type="button" data-question="Giải thích giúp mình phần kiến thức của bài học này nhé.">
+                        <span>📖</span> Giải thích bài học
+                    </button>
+                    <button type="button" data-question="Cho mình một vài ví dụ dễ hiểu về kiến thức này nhé.">
+                        <span>💡</span> Cho ví dụ
+                    </button>
+                    <button type="button" data-question="Hãy tạo một bài luyện tập ngắn về nội dung mình đang học nhé.">
+                        <span>✏️</span> Luyện tập
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-tutor-error" id="aiTutorError" role="alert"></div>
+
+        <form class="ai-tutor-form" id="aiTutorForm">
+            <textarea
+                id="aiTutorInput"
+                name="question"
+                rows="1"
+                maxlength="2000"
+                placeholder="Nhập câu hỏi của bạn..."
+                aria-label="Nhập câu hỏi"
+            ></textarea>
+
+            <button
+                type="submit"
+                id="aiTutorSend"
+                class="ai-tutor-send"
+                aria-label="Gửi câu hỏi"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 11.5L21 3L14 21L11 13L3 11.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M11 13L21 3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+            </button>
+        </form>
+
+        <div class="ai-tutor-footer">
+            AI Buddy có thể mắc lỗi. Hãy kiểm tra lại kiến thức quan trọng nhé!
+        </div>
+    </section>
+
+    <button
+        type="button"
+        class="ai-tutor-launcher"
+        id="aiTutorLauncher"
+        aria-label="Mở gia sư AI"
+        aria-expanded="false"
+    >
+        <span class="ai-tutor-launcher-avatar">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="48" fill="#f0edff"/>
+                <path d="M18 91 Q20 66 50 65 Q80 66 82 91" fill="#7868d8"/>
+                <path d="M38 61 L38 72 Q50 86 62 72 L62 61" fill="#f0bd98"/>
+                <path d="M26 42 Q22 13 51 13 Q80 13 75 48 L70 63 Q64 76 50 76 Q34 75 29 60Z" fill="#51382f"/>
+                <path d="M29 43 Q27 24 44 20 Q64 13 73 34 L70 48 Q65 35 54 33 Q42 44 29 43Z" fill="#51382f"/>
+                <path d="M34 43 Q35 34 45 35 Q50 35 50 42 Q50 35 57 35 Q68 35 68 44 L66 56 Q63 68 50 69 Q37 68 34 56Z" fill="#f6c9a8"/>
+                <circle cx="43" cy="48" r="2.2" fill="#302d43"/>
+                <circle cx="59" cy="48" r="2.2" fill="#302d43"/>
+                <path d="M46 58 Q50 61 55 58" fill="none" stroke="#b96e65" stroke-width="2" stroke-linecap="round"/>
+                <rect x="30" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                <rect x="53" y="40" width="17" height="14" rx="6" fill="none" stroke="#5c4db8" stroke-width="2.5"/>
+                <path d="M47 46 H53" stroke="#5c4db8" stroke-width="2"/>
+            </svg>
+        </span>
+        <span class="ai-tutor-launcher-label">Hỏi AI Buddy</span>
+        <span class="ai-tutor-launcher-dot"></span>
+    </button>
+</div>
+{% endif %}

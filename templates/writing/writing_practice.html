@@ -1,0 +1,986 @@
+
+{% extends "base.html" %}
+
+{% block title %}Writing Practice - Unit {{ unit.unit }}{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+.wpr-page {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 26px 25px 55px;
+    color: #302d50;
+}
+
+.wpr-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.wpr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #756bb1;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+    transition: .2s;
+}
+
+.wpr-back:hover {
+    color: #5145a5;
+    transform: translateX(-3px);
+}
+
+.wpr-course-label {
+    color: #9994ae;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+.wpr-hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    min-height: 245px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    border-radius: 24px;
+    background: #eae7ff;
+}
+
+.wpr-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 38px;
+}
+
+.wpr-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 13px;
+    color: #7667c4;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.8px;
+}
+
+.wpr-eyebrow::before {
+    content: "";
+    width: 21px;
+    height: 3px;
+    border-radius: 5px;
+    background: #f18c79;
+}
+
+.wpr-hero h1 {
+    margin: 0 0 10px;
+    color: #302c59;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.wpr-hero-description {
+    max-width: 490px;
+    margin: 0;
+    color: #716d94;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.wpr-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 19px;
+}
+
+.wpr-meta-tag {
+    padding: 7px 11px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 8px;
+    background: rgba(255,255,255,.65);
+    color: #625a9f;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wpr-hero-image {
+    position: relative;
+    min-height: 245px;
+}
+
+.wpr-hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 245px;
+    object-fit: cover;
+}
+
+.wpr-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(234,231,255,.28), transparent 50%);
+}
+
+.wpr-image-caption {
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    padding: 10px 13px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.93);
+    color: #5b548e;
+    font-size: 10px;
+    font-weight: 800;
+    box-shadow: 0 5px 18px rgba(38,32,82,.12);
+}
+
+.wpr-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 285px;
+    gap: 19px;
+    align-items: start;
+}
+
+.wpr-main,
+.wpr-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    min-width: 0;
+}
+
+.wpr-card {
+    padding: 22px;
+    border: 1px solid #eceaf3;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(46,42,83,.035);
+}
+
+.wpr-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 15px;
+}
+
+.wpr-heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    border-radius: 11px;
+    background: #eeeaff;
+    color: #7466c5;
+    font-size: 17px;
+}
+
+.wpr-card-heading h2 {
+    margin: 0;
+    color: #393651;
+    font-size: 15px;
+    font-weight: 850;
+}
+
+.wpr-card-heading p {
+    margin: 4px 0 0;
+    color: #9994aa;
+    font-size: 11px;
+}
+
+.wpr-prompt-card {
+    background: #f4f1ff;
+    border-color: #e8e3ff;
+}
+
+.wpr-prompt-card .wpr-heading-icon {
+    background: #e6e0ff;
+}
+
+.wpr-prompt-content {
+    padding: 16px 17px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.8);
+    color: #514b7c;
+    font-size: 14px;
+    line-height: 1.9;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.wpr-topic-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: #8a83b5;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.2px;
+}
+
+.wpr-guide-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.wpr-guide-item {
+    overflow: hidden;
+    border: 1px solid #efedf5;
+    border-radius: 11px;
+    background: #fff;
+}
+
+.wpr-guide-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 15px;
+    color: #625b91;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    list-style: none;
+}
+
+.wpr-guide-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.wpr-guide-item summary::after {
+    content: "+";
+    color: #8b7bd1;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wpr-guide-item[open] summary::after {
+    content: "−";
+}
+
+.wpr-guide-content {
+    padding: 0 15px 15px;
+    color: #747087;
+    font-size: 12px;
+    line-height: 1.85;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.wpr-writing-card {
+    padding: 24px;
+    border-top: 3px solid #8171d2;
+}
+
+.wpr-writing-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.wpr-writing-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.wpr-writing-title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    background: #eeeaff;
+    font-size: 18px;
+}
+
+.wpr-writing-title h2 {
+    margin: 0;
+    color: #383451;
+    font-size: 17px;
+}
+
+.wpr-writing-title p {
+    margin: 4px 0 0;
+    color: #9994aa;
+    font-size: 11px;
+}
+
+.wpr-word-counter {
+    flex-shrink: 0;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: #f0edff;
+    color: #7063bb;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.wpr-word-counter strong {
+    font-size: 16px;
+}
+
+.wpr-progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #9994aa;
+    font-size: 10px;
+}
+
+.wpr-progress-info strong {
+    color: #7567c5;
+}
+
+.wpr-progress-track {
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    margin-bottom: 17px;
+    border-radius: 20px;
+    background: #f0eff5;
+}
+
+.wpr-progress-bar {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #b2a5f3, #7665d1);
+    transition: width .2s ease;
+}
+
+.wpr-textarea {
+    display: block;
+    width: 100%;
+    min-height: 310px;
+    padding: 19px;
+    border: 1px solid #e5e2ef;
+    border-radius: 13px;
+    outline: none;
+    resize: vertical;
+    background: #fdfcff;
+    color: #393651;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.9;
+    transition: .2s;
+}
+
+.wpr-textarea::placeholder {
+    color: #aaa6b9;
+}
+
+.wpr-textarea:focus {
+    border-color: #9385dc;
+    box-shadow: 0 0 0 4px rgba(129,113,210,.1);
+    background: #fff;
+}
+
+.wpr-writing-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 13px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.wpr-writing-hint {
+    color: #9691a7;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.wpr-submit {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: #7062c3;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 850;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.wpr-submit:hover {
+    background: #574ba6;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(91,77,174,.2);
+}
+
+.wpr-submit:disabled {
+    opacity: .65;
+    cursor: wait;
+    transform: none;
+}
+
+.wpr-side-card {
+    padding: 20px;
+    border: 1px solid #eceaf3;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(46,42,83,.035);
+}
+
+.wpr-side-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 16px;
+    color: #403b62;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.wpr-side-title span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 9px;
+    background: #eeeaff;
+    font-size: 14px;
+}
+
+.wpr-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.wpr-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: #77738c;
+    font-size: 11px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.wpr-check-item input {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+    margin: 2px 0 0;
+    accent-color: #7868ce;
+}
+
+.wpr-check-item input:checked + span {
+    color: #aaa6b5;
+    text-decoration: line-through;
+}
+
+.wpr-check-progress {
+    margin-top: 17px;
+    padding-top: 13px;
+    border-top: 1px solid #f0eef5;
+}
+
+.wpr-check-progress-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #9994aa;
+    font-size: 10px;
+}
+
+.wpr-check-progress-top strong {
+    color: #7667c5;
+}
+
+.wpr-check-track {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0eff5;
+}
+
+.wpr-check-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: #7ab99b;
+    transition: width .25s;
+}
+
+.wpr-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.wpr-tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #77738b;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.wpr-tip-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 8px;
+    background: #eeeaff;
+    color: #7465c5;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.wpr-tip-item:nth-child(2) .wpr-tip-number {
+    background: #fff0e9;
+    color: #d7836e;
+}
+
+.wpr-tip-item:nth-child(3) .wpr-tip-number {
+    background: #e5f5ed;
+    color: #579777;
+}
+
+.wpr-tip-item:nth-child(4) .wpr-tip-number {
+    background: #fff5df;
+    color: #b78c3d;
+}
+
+.wpr-error-card {
+    background: #fff7f3;
+    border-color: #f7e8df;
+}
+
+.wpr-error-card .wpr-side-title span {
+    background: #ffe9df;
+}
+
+.wpr-side-text {
+    color: #8a786f;
+    font-size: 11px;
+    line-height: 1.85;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.wpr-reminder {
+    padding: 17px;
+    border-radius: 14px;
+    background: #e9f6ef;
+    color: #638b75;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.wpr-reminder strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #4e8063;
+    font-size: 12px;
+}
+
+@media (max-width: 850px) {
+    .wpr-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .wpr-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .wpr-reminder {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 620px) {
+    .wpr-page {
+        padding: 19px 14px 40px;
+    }
+
+    .wpr-course-label {
+        display: none;
+    }
+
+    .wpr-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .wpr-hero-content {
+        padding: 26px 22px;
+    }
+
+    .wpr-hero-image {
+        min-height: 165px;
+        max-height: 185px;
+    }
+
+    .wpr-hero-image img {
+        min-height: 165px;
+        max-height: 185px;
+    }
+
+    .wpr-card,
+    .wpr-writing-card,
+    .wpr-side-card {
+        padding: 17px;
+    }
+
+    .wpr-sidebar {
+        display: flex;
+    }
+
+    .wpr-writing-top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .wpr-textarea {
+        min-height: 245px;
+        padding: 14px;
+    }
+
+    .wpr-writing-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .wpr-submit {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wpr-progress-bar,
+    .wpr-check-fill,
+    .wpr-submit {
+        transition: none;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="wpr-page">
+
+    <div class="wpr-topbar">
+        <a class="wpr-back" href="{{ url_for('writing.writing_home') }}">
+            ← Quay lại danh sách Unit
+        </a>
+        <span class="wpr-course-label">ENGLISH 7 · WRITING PRACTICE</span>
+    </div>
+
+    <header class="wpr-hero">
+        <div class="wpr-hero-content">
+            <div class="wpr-eyebrow">LET'S START WRITING</div>
+
+            <h1>{{ unit.title }}</h1>
+
+            <p class="wpr-hero-description">
+                {{ unit.writing_topic or unit.topic or "Luyện viết tiếng Anh theo chủ đề." }}
+            </p>
+
+            <div class="wpr-hero-meta">
+                <span class="wpr-meta-tag">✍️ Writing</span>
+                <span class="wpr-meta-tag">📚 Unit {{ unit.unit }}</span>
+                <span class="wpr-meta-tag">🌱 Practice & Improve</span>
+            </div>
+        </div>
+
+        <div class="wpr-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&auto=format&fit=crop&q=85"
+                alt="Bàn học với sổ tay và bút viết"
+            >
+            <div class="wpr-image-overlay"></div>
+            <div class="wpr-image-caption">Your ideas matter ✦</div>
+        </div>
+    </header>
+
+    <div class="wpr-layout">
+
+        <main class="wpr-main">
+
+            <section class="wpr-card wpr-prompt-card">
+                <div class="wpr-topic-line">01 · WRITING TASK</div>
+
+                <div class="wpr-card-heading">
+                    <div class="wpr-heading-icon">✎</div>
+                    <div>
+                        <h2>Đề bài của bạn</h2>
+                        <p>Đọc kỹ yêu cầu trước khi bắt đầu viết</p>
+                    </div>
+                </div>
+
+                <div class="wpr-prompt-content">{{ unit.writing_prompt or unit.writing_topic or "Hãy viết một đoạn văn theo chủ đề của Unit này." }}</div>
+            </section>
+
+            {% if unit.grammar_focus or unit.sentence_guide or unit.outline %}
+            <section class="wpr-card">
+                <div class="wpr-topic-line">02 · LEARNING SUPPORT</div>
+
+                <div class="wpr-card-heading">
+                    <div class="wpr-heading-icon">📘</div>
+                    <div>
+                        <h2>Gợi ý làm bài</h2>
+                        <p>Mở từng mục để xem nội dung hỗ trợ</p>
+                    </div>
+                </div>
+
+                <div class="wpr-guide-list">
+                    {% if unit.grammar_focus %}
+                    <details class="wpr-guide-item" open>
+                        <summary>Kiến thức ngữ pháp</summary>
+                        <div class="wpr-guide-content">{{ unit.grammar_focus }}</div>
+                    </details>
+                    {% endif %}
+
+                    {% if unit.sentence_guide %}
+                    <details class="wpr-guide-item">
+                        <summary>Hướng dẫn viết câu</summary>
+                        <div class="wpr-guide-content">{{ unit.sentence_guide }}</div>
+                    </details>
+                    {% endif %}
+
+                    {% if unit.outline %}
+                    <details class="wpr-guide-item">
+                        <summary>Dàn ý gợi ý</summary>
+                        <div class="wpr-guide-content">{{ unit.outline }}</div>
+                    </details>
+                    {% endif %}
+                </div>
+            </section>
+            {% endif %}
+
+            <section class="wpr-card wpr-writing-card">
+                <div class="wpr-topic-line">03 · YOUR WRITING SPACE</div>
+
+                <div class="wpr-writing-top">
+                    <div class="wpr-writing-title">
+                        <div class="wpr-writing-title-icon">✍️</div>
+                        <div>
+                            <h2>Bài viết của bạn</h2>
+                            <p>Hãy diễn đạt ý tưởng bằng tiếng Anh</p>
+                        </div>
+                    </div>
+
+                    <div class="wpr-word-counter">
+                        <strong id="wprWordCount">0</strong> từ
+                    </div>
+                </div>
+
+                <div class="wpr-progress-info">
+                    <span>Tiến độ mục tiêu 70 từ</span>
+                    <strong id="wprProgressText">0%</strong>
+                </div>
+
+                <div class="wpr-progress-track">
+                    <div class="wpr-progress-bar" id="wprProgressBar"></div>
+                </div>
+
+                <form
+                    method="POST"
+                    action="{{ url_for('writing.writing_practice', unit_number=unit.unit) }}"
+                    id="wprWritingForm"
+                >
+                    <textarea
+                        class="wpr-textarea"
+                        id="wprWritingText"
+                        name="user_text"
+                        placeholder="Start writing here...
+
+Write your ideas in English. Take your time and remember to check your grammar."
+                        required
+                    ></textarea>
+
+                    <div class="wpr-writing-footer">
+                        <span class="wpr-writing-hint">
+                            💡 Đọc lại bài viết trước khi nhấn nộp bài.
+                        </span>
+
+                        <button type="submit" class="wpr-submit" id="wprSubmit">
+                            Nộp bài viết <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+        </main>
+
+        <aside class="wpr-sidebar">
+
+            <section class="wpr-side-card">
+                <h2 class="wpr-side-title">
+                    <span>✓</span>
+                    Tự kiểm tra
+                </h2>
+
+                <div class="wpr-checklist" id="wprChecklist">
+                    <label class="wpr-check-item">
+                        <input type="checkbox">
+                        <span>Đã viết đúng chủ đề và yêu cầu đề bài.</span>
+                    </label>
+
+                    <label class="wpr-check-item">
+                        <input type="checkbox">
+                        <span>Đã sử dụng đúng thì và cấu trúc ngữ pháp.</span>
+                    </label>
+
+                    <label class="wpr-check-item">
+                        <input type="checkbox">
+                        <span>Các câu được sắp xếp rõ ràng, hợp lý.</span>
+                    </label>
+
+                    <label class="wpr-check-item">
+                        <input type="checkbox">
+                        <span>Đã kiểm tra chính tả và dấu câu.</span>
+                    </label>
+                </div>
+
+                <div class="wpr-check-progress">
+                    <div class="wpr-check-progress-top">
+                        <span>Hoàn thành checklist</span>
+                        <strong id="wprCheckCount">0/4</strong>
+                    </div>
+                    <div class="wpr-check-track">
+                        <div class="wpr-check-fill" id="wprCheckFill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wpr-side-card">
+                <h2 class="wpr-side-title">
+                    <span>💡</span>
+                    Mẹo viết tốt hơn
+                </h2>
+
+                <div class="wpr-tips">
+                    <div class="wpr-tip-item">
+                        <span class="wpr-tip-number">01</span>
+                        <span>Đọc kỹ đề bài và xác định nội dung cần viết.</span>
+                    </div>
+
+                    <div class="wpr-tip-item">
+                        <span class="wpr-tip-number">02</span>
+                        <span>Lập dàn ý ngắn trước khi bắt đầu viết.</span>
+                    </div>
+
+                    <div class="wpr-tip-item">
+                        <span class="wpr-tip-number">03</span>
+                        <span>Ưu tiên câu đơn giản, rõ nghĩa và đúng ngữ pháp.</span>
+                    </div>
+
+                    <div class="wpr-tip-item">
+                        <span class="wpr-tip-number">04</span>
+                        <span>Đọc lại bài và sửa lỗi trước khi nộp.</span>
+                    </div>
+                </div>
+            </section>
+
+            {% if unit.common_errors %}
+            <section class="wpr-side-card wpr-error-card">
+                <h2 class="wpr-side-title">
+                    <span>!</span>
+                    Lỗi thường gặp
+                </h2>
+
+                <div class="wpr-side-text">{{ unit.common_errors }}</div>
+            </section>
+            {% endif %}
+
+            <div class="wpr-reminder">
+                <strong>🌱 Remember</strong>
+                Một bài viết tốt không cần dùng câu quá phức tạp. Hãy ưu tiên diễn đạt rõ ràng và chính xác.
+            </div>
+
+        </aside>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const writingText = document.getElementById("wprWritingText");
+    const wordCount = document.getElementById("wprWordCount");
+    const progressBar = document.getElementById("wprProgressBar");
+    const progressText = document.getElementById("wprProgressText");
+    const writingForm = document.getElementById("wprWritingForm");
+    const checklist = document.getElementById("wprChecklist");
+    const checkCount = document.getElementById("wprCheckCount");
+    const checkFill = document.getElementById("wprCheckFill");
+    const submitButton = document.getElementById("wprSubmit");
+
+    if (!writingText || !writingForm) return;
+
+    function updateWritingStats() {
+        const text = writingText.value.trim();
+        const words = text ? text.match(/\b[\w'-]+\b/g) || [] : [];
+        const count = words.length;
+        const progress = Math.min((count / 70) * 100, 100);
+
+        wordCount.textContent = count;
+        progressBar.style.width = progress + "%";
+        progressText.textContent = Math.round(progress) + "%";
+    }
+
+    function updateChecklist() {
+        const boxes = checklist.querySelectorAll('input[type="checkbox"]');
+        const checked = checklist.querySelectorAll('input[type="checkbox"]:checked').length;
+
+        checkCount.textContent = checked + "/" + boxes.length;
+        checkFill.style.width = (boxes.length ? checked / boxes.length * 100 : 0) + "%";
+    }
+
+    writingText.addEventListener("input", updateWritingStats);
+    checklist.addEventListener("change", updateChecklist);
+
+    writingForm.addEventListener("submit", function(event) {
+        if (!writingText.value.trim()) {
+            event.preventDefault();
+            writingText.focus();
+            alert("Bạn hãy nhập bài viết trước khi nộp.");
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Đang nộp bài...";
+    });
+
+    updateWritingStats();
+    updateChecklist();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,355 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}Unit {{ unit_number }} - {{ unit_title }}{% endblock %}
+
+{% block styles %}
+<style>
+.unit-detail {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 24px 60px;
+    color: #202b40;
+}
+
+.unit-header {
+    background: #fff;
+    border: 1px solid #e8ebf2;
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 25px;
+}
+
+.unit-header a {
+    color: #7778d9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.unit-header a:hover {
+    color: #5556b5;
+}
+
+.unit-header h1 {
+    margin: 15px 0 8px;
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+.unit-header p {
+    color: #7c8495;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.skill-card {
+    background: #fff;
+    border: 1px solid #e8ebf2;
+    border-radius: 16px;
+    padding: 22px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(32, 43, 64, 0.06);
+}
+
+.skill-top {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 15px;
+}
+
+.skill-icon {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #f0efff;
+    color: #7475d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.skill-card h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #202b40;
+}
+
+.skill-description {
+    color: #7c8495;
+    font-size: 14px;
+    min-height: 40px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.skill-count {
+    font-size: 13px;
+    color: #7c8495;
+    margin: 12px 0;
+}
+
+.skill-action {
+    display: inline-block;
+    text-decoration: none;
+    color: #696acb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.skill-action:hover {
+    color: #4f50ae;
+}
+
+.skill-disabled {
+    display: inline-block;
+    color: #a0a6b2;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.extra-list {
+    margin-top: 25px;
+    background: #fff;
+    border: 1px solid #e8ebf2;
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.extra-list h2 {
+    font-size: 18px;
+    margin: 0 0 15px;
+    color: #202b40;
+}
+
+.extra-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.extra-item:last-child {
+    border-bottom: 0;
+}
+
+.extra-item a {
+    color: #696acb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.extra-item a:hover {
+    color: #4f50ae;
+}
+
+.extra-item p {
+    color: #7c8495;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 5px 0 0;
+}
+
+.empty-content {
+    color: #a0a6b2;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+@media (max-width: 650px) {
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .unit-detail {
+        padding: 24px 16px;
+    }
+
+    .unit-header {
+        padding: 20px;
+    }
+
+    .unit-header h1 {
+        font-size: 23px;
+    }
+
+    .skill-card {
+        padding: 18px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="unit-detail">
+
+    <!-- UNIT HEADER -->
+    <div class="unit-header">
+        <a href="{{ url_for('learning_path') }}">
+            ← Quay lại lộ trình
+        </a>
+
+        <h1>Unit {{ unit_number }} – {{ unit_title }}</h1>
+
+        <p>
+            Chọn kỹ năng bạn muốn học và luyện tập.
+        </p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="skill-grid">
+
+        {% for skill in skills %}
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <div class="skill-icon">
+                    {% if skill.name == "Vocabulary" %}
+                        Aa
+                    {% elif skill.name == "Grammar" %}
+                        ✎
+                    {% elif skill.name == "Reading" %}
+                        ▤
+                    {% elif skill.name == "Listening" %}
+                        ♫
+                    {% elif skill.name == "Speaking" %}
+                        ◉
+                    {% elif skill.name == "Writing" %}
+                        ✒
+                    {% else %}
+                        📘
+                    {% endif %}
+                </div>
+
+                <h2>{{ skill.name }}</h2>
+            </div>
+
+            <p class="skill-description">
+                {{ skill.description or "Luyện tập kỹ năng tiếng Anh." }}
+            </p>
+
+            <div class="skill-count">
+                {% if skill.count|default(0) > 0 %}
+                    {% if skill.name == "Speaking" %}
+                        {{ skill.count }} chủ đề
+                    {% elif skill.name == "Listening" %}
+                        {{ skill.count }} học liệu
+                    {% elif skill.name == "Writing" %}
+                        Có bài luyện viết
+                    {% else %}
+                        {{ skill.count }} câu hỏi
+                    {% endif %}
+                {% else %}
+                    Chưa có bài tập hoặc học liệu
+                {% endif %}
+            </div>
+
+            {% if skill.url %}
+                <a class="skill-action" href="{{ skill.url }}">
+                    Bắt đầu học →
+                </a>
+            {% else %}
+                <span class="skill-disabled">
+                    Đang cập nhật
+                </span>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <!-- SPEAKING TOPICS -->
+    {% if speaking_topics %}
+    <div class="extra-list">
+
+        <h2>Chủ đề Speaking của Unit {{ unit_number }}</h2>
+
+        {% for topic in speaking_topics %}
+        <div class="extra-item">
+
+            <a href="{{ url_for('speaking.speaking_practice', topic_id=topic.id) }}">
+                {{ topic.title }}
+            </a>
+
+            {% if topic.description %}
+            <p>{{ topic.description }}</p>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+    <!-- LISTENING MATERIALS -->
+    {% if listening_materials %}
+    <div class="extra-list">
+
+        <h2>Học liệu Listening</h2>
+
+        {% for material in listening_materials %}
+        <div class="extra-item">
+
+            <a href="{{ url_for('material_detail', material_id=material.id) }}">
+                {{ material.title }}
+            </a>
+
+            {% if material.description %}
+            <p>{{ material.description }}</p>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+    <!-- READING PASSAGE -->
+    {% if reading_passage %}
+    <div class="extra-list">
+
+        <h2>Bài đọc của Unit {{ unit_number }}</h2>
+
+        <div class="extra-item">
+
+            <strong>{{ reading_passage.title }}</strong>
+
+            {% if reading_passage.description %}
+            <p>{{ reading_passage.description }}</p>
+            {% endif %}
+
+            <a href="{{ url_for('reading.reading_home') }}">
+                Mở phần Reading →
+            </a>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+    <!-- EMPTY STATE -->
+    {% if not speaking_topics and not listening_materials and not reading_passage %}
+    <div class="extra-list">
+        <p class="empty-content">
+            Các nội dung học bổ sung của Unit này sẽ được cập nhật.
+        </p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

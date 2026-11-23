@@ -1,0 +1,1475 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Buddy - Gia sư tiếng Anh</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --purple: #7868d8;
+            --purple-dark: #5c4db8;
+            --purple-light: #f0edff;
+            --mint: #dff5eb;
+            --mint-dark: #459c7c;
+            --yellow: #fff2ce;
+            --bg: #faf9ff;
+            --white: #ffffff;
+            --dark: #302d43;
+            --text: #56536a;
+            --muted: #9996aa;
+            --border: #eeecf6;
+            --shadow: 0 8px 28px rgba(73, 60, 140, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        button, textarea {
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .ai-layout {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR */
+
+        .ai-sidebar {
+            width: 245px;
+            min-width: 245px;
+            height: 100%;
+            background: #fff;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 22px 16px;
+        }
+
+        .ai-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 2px 7px;
+            margin-bottom: 30px;
+        }
+
+        .ai-brand-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--purple-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple);
+        }
+
+        .ai-brand-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .ai-brand-name {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        .ai-brand-sub {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .ai-new-chat {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 13px;
+            background: var(--purple);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 5px 13px rgba(120, 104, 216, 0.2);
+            transition: .2s;
+        }
+
+        .ai-new-chat:hover {
+            background: var(--purple-dark);
+            transform: translateY(-1px);
+        }
+
+        .ai-new-chat svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        .ai-history-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 28px 5px 12px;
+        }
+
+        .ai-history-heading span {
+            font-size: 10px;
+            font-weight: 800;
+            color: #aaa6bb;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ai-history-heading svg {
+            width: 15px;
+            height: 15px;
+            color: #aaa6bb;
+        }
+
+        .ai-history-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .ai-history-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .ai-history-list::-webkit-scrollbar-thumb {
+            background: #e8e5f2;
+            border-radius: 10px;
+        }
+
+        .ai-history-item {
+            min-height: 39px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            color: #777389;
+            transition: .2s;
+        }
+
+        .ai-history-item:hover,
+        .ai-history-item.active {
+            background: var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .ai-history-item svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .ai-history-item span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .ai-sidebar-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .ai-learning-tip {
+            background: linear-gradient(135deg, #f0edff, #e9f8f2);
+            border-radius: 15px;
+            padding: 14px;
+        }
+
+        .ai-tip-icon {
+            width: 31px;
+            height: 31px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple);
+            margin-bottom: 9px;
+        }
+
+        .ai-tip-icon svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        .ai-learning-tip strong {
+            font-size: 11px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ai-learning-tip p {
+            color: #77758b;
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .ai-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 7px 0;
+            color: #88859a;
+            font-size: 11px;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        .ai-back:hover {
+            color: var(--purple);
+        }
+
+        .ai-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* MAIN */
+
+        .ai-main {
+            flex: 1;
+            min-width: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .ai-topbar {
+            height: 67px;
+            min-height: 67px;
+            background: rgba(255, 255, 255, .9);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 2;
+        }
+
+        .ai-topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .ai-status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #58c99b;
+            box-shadow: 0 0 0 4px #e5f8ef;
+        }
+
+        .ai-topbar-title {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .ai-topbar-subtitle {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .ai-topbar-badge {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: var(--mint);
+            color: var(--mint-dark);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .ai-topbar-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* CHAT AREA */
+
+        .ai-chat-area {
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            padding: 28px 20px 25px;
+            scroll-behavior: smooth;
+        }
+
+        .ai-chat-area::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .ai-chat-area::-webkit-scrollbar-thumb {
+            background: #e8e5f2;
+            border-radius: 10px;
+        }
+
+        .ai-chat-inner {
+            width: 100%;
+            max-width: 790px;
+            margin: 0 auto;
+        }
+
+        /* WELCOME */
+
+        .ai-welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px 0 25px;
+        }
+
+        .ai-mascot-wrap {
+            width: 180px;
+            height: 180px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .ai-mascot-halo {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: #efedff;
+            border-radius: 50%;
+            top: 15px;
+            left: 15px;
+        }
+
+        .ai-mascot-svg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+            animation: tutorFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes tutorFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .ai-welcome-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--yellow);
+            color: #a17d34;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .ai-welcome-tag svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .ai-welcome h1 {
+            font-size: clamp(22px, 3vw, 29px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .ai-welcome h1 span {
+            color: var(--purple);
+        }
+
+        .ai-welcome-description {
+            font-size: 12px;
+            color: #8d899f;
+            line-height: 1.8;
+            margin-top: 8px;
+            max-width: 440px;
+        }
+
+        .ai-suggestion-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #858197;
+            margin: 12px 0;
+            text-align: left;
+        }
+
+        .ai-suggestions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        .ai-suggestion {
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px 14px;
+            text-align: left;
+            min-height: 103px;
+            transition: .2s;
+            color: var(--dark);
+        }
+
+        .ai-suggestion:hover {
+            border-color: #c9c1f4;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .ai-suggestion-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .ai-suggestion-icon svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        .ai-suggestion:nth-child(1) .ai-suggestion-icon {
+            background: var(--purple-light);
+            color: var(--purple);
+        }
+
+        .ai-suggestion:nth-child(2) .ai-suggestion-icon {
+            background: var(--mint);
+            color: var(--mint-dark);
+        }
+
+        .ai-suggestion:nth-child(3) .ai-suggestion-icon {
+            background: var(--yellow);
+            color: #c28e35;
+        }
+
+        .ai-suggestion strong {
+            font-size: 11px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ai-suggestion p {
+            font-size: 9px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* MESSAGE LIST */
+
+        .ai-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+            padding-bottom: 10px;
+        }
+
+        .ai-message {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            width: 100%;
+        }
+
+        .ai-message.user {
+            justify-content: flex-end;
+        }
+
+        .ai-message-avatar {
+            width: 39px;
+            height: 39px;
+            flex-shrink: 0;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ai-message-avatar svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ai-message.user .ai-message-avatar {
+            background: var(--mint);
+            color: var(--mint-dark);
+        }
+
+        .ai-user-icon {
+            width: 20px !important;
+            height: 20px !important;
+        }
+
+        .ai-teacher-avatar {
+            background: #EDE9FF;
+            border: 1px solid #e5e0fa;
+        }
+
+        .ai-message-content {
+            max-width: min(78%, 620px);
+            min-width: 0;
+        }
+
+        .ai-message-name {
+            font-size: 10px;
+            font-weight: 700;
+            color: #8c879f;
+            margin-bottom: 6px;
+        }
+
+        .ai-message.user .ai-message-name {
+            text-align: right;
+        }
+
+        .ai-message-bubble {
+            padding: 13px 16px;
+            border-radius: 4px 15px 15px 15px;
+            background: #fff;
+            border: 1px solid var(--border);
+            color: #555267;
+            font-size: 12px;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+            box-shadow: 0 3px 12px rgba(65, 55, 120, .025);
+            white-space: pre-wrap;
+        }
+
+        .ai-message.user .ai-message-bubble {
+            background: var(--purple-light);
+            border-color: #e9e4ff;
+            border-radius: 15px 4px 15px 15px;
+            color: #51468f;
+        }
+
+        .ai-message-bubble p {
+            margin-bottom: 8px;
+        }
+
+        .ai-message-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* MESSAGE ANIMATION */
+
+        .ai-message:not(.user) .ai-message-content {
+            animation: teacherMessageIn .4s ease both;
+        }
+
+        .ai-message:not(.user) .ai-message-avatar {
+            animation: teacherAvatarIn .45s ease both;
+        }
+
+        .ai-message:not(.user) .ai-message-bubble {
+            animation: teacherBubbleIn .45s ease both;
+            transform-origin: left top;
+        }
+
+        @keyframes teacherMessageIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes teacherAvatarIn {
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes teacherBubbleIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* TYPING INDICATOR */
+
+        .ai-typing {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 2px;
+        }
+
+        .ai-typing span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #9283D9;
+            animation: typingBounce .8s infinite ease-in-out;
+        }
+
+        .ai-typing span:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .ai-typing span:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: .45;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        .ai-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 13px;
+            background: var(--purple);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: cursorBlink .7s infinite;
+        }
+
+        @keyframes cursorBlink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* INPUT */
+
+        .ai-input-area {
+            background: linear-gradient(to top, #faf9ff 80%, rgba(250,249,255,0));
+            padding: 13px 20px 20px;
+            z-index: 2;
+        }
+
+        .ai-input-inner {
+            max-width: 790px;
+            margin: 0 auto;
+        }
+
+        .ai-input-box {
+            background: #fff;
+            border: 1px solid #e9e6f4;
+            border-radius: 17px;
+            padding: 12px 13px 10px 17px;
+            box-shadow: 0 7px 25px rgba(70, 59, 130, .06);
+            transition: .2s;
+        }
+
+        .ai-input-box:focus-within {
+            border-color: #b9adef;
+            box-shadow: 0 7px 25px rgba(120, 104, 216, .11);
+        }
+
+        .ai-input-box textarea {
+            width: 100%;
+            min-height: 38px;
+            max-height: 120px;
+            resize: none;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--dark);
+            font-family: inherit;
+        }
+
+        .ai-input-box textarea::placeholder {
+            color: #aaa7b8;
+        }
+
+        .ai-input-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 7px;
+        }
+
+        .ai-input-hint {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #aaa6b9;
+            font-size: 9px;
+        }
+
+        .ai-input-hint svg {
+            width: 13px;
+            height: 13px;
+            color: var(--purple);
+        }
+
+        .ai-send-button {
+            width: 37px;
+            height: 37px;
+            border: none;
+            border-radius: 12px;
+            background: var(--purple);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .2s;
+        }
+
+        .ai-send-button:hover {
+            background: var(--purple-dark);
+            transform: scale(1.04);
+        }
+
+        .ai-send-button:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+        }
+
+        .ai-send-button svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        .ai-input-note {
+            text-align: center;
+            color: #aaa6b8;
+            font-size: 9px;
+            margin-top: 9px;
+        }
+
+        /* MOBILE */
+
+        .ai-mobile-menu {
+            display: none;
+            width: 35px;
+            height: 35px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--purple-light);
+            color: var(--purple);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-mobile-menu svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 850px) {
+            .ai-sidebar {
+                width: 215px;
+                min-width: 215px;
+            }
+
+            .ai-topbar {
+                padding: 0 20px;
+            }
+
+            .ai-chat-area {
+                padding-left: 17px;
+                padding-right: 17px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            body {
+                overflow: hidden;
+            }
+
+            .ai-sidebar {
+                position: fixed;
+                left: -260px;
+                top: 0;
+                bottom: 0;
+                z-index: 10;
+                width: 245px;
+                min-width: 245px;
+                box-shadow: 10px 0 30px rgba(40, 35, 80, .08);
+                transition: left .25s ease;
+            }
+
+            .ai-sidebar.open {
+                left: 0;
+            }
+
+            .ai-mobile-menu {
+                display: flex;
+            }
+
+            .ai-topbar {
+                height: 60px;
+                min-height: 60px;
+                padding: 0 13px;
+            }
+
+            .ai-topbar-left {
+                gap: 9px;
+            }
+
+            .ai-topbar-title {
+                font-size: 11px;
+            }
+
+            .ai-topbar-subtitle {
+                font-size: 9px;
+            }
+
+            .ai-topbar-badge {
+                font-size: 9px;
+                padding: 7px 9px;
+            }
+
+            .ai-chat-area {
+                padding: 18px 13px;
+            }
+
+            .ai-mascot-wrap {
+                width: 150px;
+                height: 150px;
+            }
+
+            .ai-mascot-halo {
+                width: 125px;
+                height: 125px;
+                top: 12px;
+                left: 12px;
+            }
+
+            .ai-welcome {
+                padding-top: 4px;
+            }
+
+            .ai-welcome h1 {
+                font-size: 22px;
+            }
+
+            .ai-welcome-description {
+                font-size: 11px;
+            }
+
+            .ai-suggestions {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .ai-suggestion {
+                min-height: auto;
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                padding: 10px 12px;
+            }
+
+            .ai-suggestion-icon {
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .ai-suggestion p {
+                margin-top: 3px;
+            }
+
+            .ai-suggestion-title {
+                margin-top: 8px;
+            }
+
+            .ai-input-area {
+                padding: 9px 12px 13px;
+            }
+
+            .ai-message-content {
+                max-width: 85%;
+            }
+
+            .ai-message-bubble {
+                font-size: 11px;
+                padding: 11px 13px;
+            }
+
+            .ai-input-box {
+                border-radius: 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .ai-topbar-badge {
+                padding: 6px 7px;
+            }
+
+            .ai-topbar-badge span {
+                display: none;
+            }
+
+            .ai-mascot-wrap {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ai-message:not(.user) *,
+            .ai-typing span,
+            .ai-mascot-svg {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="ai-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="ai-sidebar" id="aiSidebar">
+
+        <div class="ai-brand">
+            <div class="ai-brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/>
+                    <path d="M4 5.5v16M8 7h8M8 11h7"/>
+                </svg>
+            </div>
+            <div>
+                <div class="ai-brand-name">AI Buddy</div>
+                <div class="ai-brand-sub">English Learning Friend</div>
+            </div>
+        </div>
+
+        <a href="{{ url_for('tutor') }}" class="ai-new-chat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M12 5v14M5 12h14"/>
+            </svg>
+            Cuộc trò chuyện mới
+        </a>
+
+        <div class="ai-history-heading">
+            <span>Lịch sử trò chuyện</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M3 6h18M6 12h12M9 18h6"/>
+            </svg>
+        </div>
+
+        <div class="ai-history-list">
+            {% for session in chat_sessions %}
+            <a href="{{ url_for('tutor', chat_id=session.id) }}"
+               class="ai-history-item {% if chat and chat.id == session.id %}active{% endif %}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/>
+                </svg>
+                <span>{{ session.title }}</span>
+            </a>
+            {% else %}
+            <div style="padding: 10px 7px; color: #aaa6b8; font-size: 10px; line-height: 1.7;">
+                Chưa có cuộc trò chuyện nào.
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="ai-sidebar-bottom">
+            <div class="ai-learning-tip">
+                <div class="ai-tip-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        <circle cx="12" cy="12" r="4"/>
+                    </svg>
+                </div>
+                <strong>Mẹo học tập nhỏ</strong>
+                <p>Học tiếng Anh mỗi ngày một chút sẽ giúp bạn tiến bộ hơn đấy!</p>
+            </div>
+
+            <a href="{{ url_for('dashboard') }}" class="ai-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                    <path d="M9 12h12"/>
+                </svg>
+                Quay lại trang chủ
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ai-main">
+
+        <header class="ai-topbar">
+            <div class="ai-topbar-left">
+                <button class="ai-mobile-menu" id="aiMenuButton" type="button" aria-label="Mở lịch sử">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <div class="ai-status-dot"></div>
+
+                <div>
+                    <div class="ai-topbar-title">Gia sư tiếng Anh AI</div>
+                    <div class="ai-topbar-subtitle">Cùng bạn chinh phục tiếng Anh lớp 7</div>
+                </div>
+            </div>
+
+            <div class="ai-topbar-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="m5 12 4 4L19 6"/>
+                </svg>
+                <span>AI đang sẵn sàng</span>
+            </div>
+        </header>
+
+        <!-- CHAT CONTENT -->
+        <section class="ai-chat-area" id="chatMessages">
+            <div class="ai-chat-inner">
+
+                <!-- WELCOME -->
+                <div class="ai-welcome" id="welcome">
+
+                    <div class="ai-mascot-wrap">
+                        <div class="ai-mascot-halo"></div>
+
+                        <svg class="ai-mascot-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="120" cy="220" rx="65" ry="9" fill="#E3DFFA"/>
+
+                            <path d="M61 207 Q62 151 91 139 L149 139 Q179 151 180 207Z" fill="#8171D9"/>
+                            <path d="M103 145 L120 166 L137 145 L145 207 L95 207Z" fill="#FFFFFF"/>
+                            <path d="M91 143 L120 166 L107 207 L76 207Z" fill="#6B5BC4"/>
+                            <path d="M149 143 L120 166 L133 207 L164 207Z" fill="#6B5BC4"/>
+
+                            <path d="M105 124 L105 151 Q120 166 135 151 L135 124Z" fill="#F1B98F"/>
+
+                            <ellipse cx="120" cy="88" rx="49" ry="57" fill="#F6C9A7"/>
+                            <ellipse cx="71" cy="94" rx="9" ry="14" fill="#F1B98F"/>
+                            <ellipse cx="169" cy="94" rx="9" ry="14" fill="#F1B98F"/>
+
+                            <path d="M72 91 Q65 39 111 31 Q157 23 169 72 L164 91 Q151 75 143 57 Q126 72 93 70 L79 103Z" fill="#493B3A"/>
+                            <path d="M82 64 Q94 28 132 36 Q148 38 158 55 Q135 48 117 57 Q101 65 82 64Z" fill="#5A4845"/>
+                            <path d="M79 69 Q99 57 111 48 Q120 67 143 62 Q130 82 106 78 Q94 77 79 86Z" fill="#493B3A"/>
+
+                            <ellipse cx="102" cy="96" rx="4" ry="5" fill="#493B3A"/>
+                            <ellipse cx="138" cy="96" rx="4" ry="5" fill="#493B3A"/>
+
+                            <g fill="none" stroke="#514A64" stroke-width="3.5">
+                                <circle cx="101" cy="96" r="15"/>
+                                <circle cx="139" cy="96" r="15"/>
+                                <path d="M116 95 Q120 91 124 95"/>
+                                <path d="M86 94 L77 91 M154 94 L163 91"/>
+                            </g>
+
+                            <ellipse cx="89" cy="115" rx="8" ry="4" fill="#EA9C91" opacity=".5"/>
+                            <ellipse cx="151" cy="115" rx="8" ry="4" fill="#EA9C91" opacity=".5"/>
+                            <path d="M109 119 Q120 130 131 119" fill="none" stroke="#A65D58" stroke-width="2.5" stroke-linecap="round"/>
+
+                            <path d="M164 165 Q181 151 185 126" fill="none" stroke="#F1B98F" stroke-width="13" stroke-linecap="round"/>
+                            <path d="M184 129 Q174 112 182 102 Q188 96 192 106 L193 117 Q202 101 208 109 Q211 115 201 126 Q196 136 185 137Z" fill="#F6C9A7"/>
+
+                            <g transform="translate(32 151) rotate(-7)">
+                                <path d="M0 8 Q26 -1 49 10 L49 59 Q24 48 0 57Z" fill="#FFF1C9" stroke="#D6B86C" stroke-width="2"/>
+                                <path d="M49 10 Q73 -1 98 8 L98 57 Q73 48 49 59Z" fill="#FFFFFF" stroke="#D6B86C" stroke-width="2"/>
+                                <path d="M49 10 L49 59" stroke="#D6B86C" stroke-width="2"/>
+                                <path d="M12 19 L38 17 M12 29 L38 27 M61 18 L86 16 M61 28 L86 26" stroke="#9B8BD7" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M12 40 L33 38 M61 39 L82 37" stroke="#A6CFC1" stroke-width="2.5" stroke-linecap="round"/>
+                            </g>
+
+                            <path d="M190 54 L193 63 L202 66 L193 69 L190 78 L187 69 L178 66 L187 63Z" fill="#F2C96D"/>
+                            <path d="M48 86 L50 92 L56 94 L50 96 L48 102 L46 96 L40 94 L46 92Z" fill="#F2C96D"/>
+                        </svg>
+                    </div>
+
+                    <div class="ai-welcome-tag">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="m12 2 2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2Z"/>
+                        </svg>
+                        YOUR ENGLISH STUDY FRIEND
+                    </div>
+
+                    <h1>Hi! Hôm nay học gì <span>nhỉ?</span></h1>
+
+                    <p class="ai-welcome-description">
+                        Chào bạn! Mình là gia sư tiếng Anh của bạn.
+                        Hãy hỏi mình bất cứ điều gì về tiếng Anh lớp 7 nhé!
+                    </p>
+                </div>
+
+                <!-- SUGGESTIONS -->
+                <div id="suggestions">
+                    <div class="ai-suggestion-title" id="suggestionTitle">
+                        Bạn có thể bắt đầu bằng cách
+                    </div>
+
+                    <div class="ai-suggestions">
+
+                        <button type="button" class="ai-suggestion"
+                            onclick="askSuggestion('Giải thích cho mình một chủ điểm ngữ pháp tiếng Anh lớp 7 nhé!')">
+                            <div class="ai-suggestion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                                    <path d="M8 7h8M8 11h6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Học ngữ pháp</strong>
+                                <p>Giải thích công thức và ví dụ dễ hiểu</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="ai-suggestion"
+                            onclick="askSuggestion('Hãy giúp mình học và ghi nhớ từ vựng tiếng Anh lớp 7 nhé!')">
+                            <div class="ai-suggestion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 20h9"/>
+                                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Học từ vựng</strong>
+                                <p>Học từ mới và cách sử dụng</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="ai-suggestion"
+                            onclick="askSuggestion('Hãy tạo một bài tập tiếng Anh lớp 7 để mình luyện tập nhé!')">
+                            <div class="ai-suggestion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m9 11 3 3L22 4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Luyện tập</strong>
+                                <p>Làm bài tập và kiểm tra kiến thức</p>
+                            </div>
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- CONVERSATION HISTORY -->
+                <div class="ai-messages" id="aiMessageList">
+                    {% for conversation in conversations|reverse %}
+
+                    <div class="ai-message user">
+                        <div class="ai-message-content">
+                            <div class="ai-message-name">Bạn</div>
+                            <div class="ai-message-bubble">{{ conversation.question }}</div>
+                        </div>
+                        <div class="ai-message-avatar">
+                            <svg class="ai-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 21v-2a8 8 0 0 1 16 0v2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="ai-message">
+                        <div class="ai-message-avatar ai-teacher-avatar">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="48" height="48" rx="15" fill="#EDE9FF"/>
+                                <path d="M8 45 Q9 29 24 29 Q39 29 40 45Z" fill="#7868D8"/>
+                                <path d="M19 28 L24 34 L29 28 L32 45 L16 45Z" fill="#FFFFFF"/>
+                                <rect x="20" y="24" width="8" height="9" rx="3" fill="#F1B98F"/>
+                                <ellipse cx="24" cy="19" rx="12" ry="14" fill="#F6C9A7"/>
+                                <path d="M12 20 Q8 4 23 5 Q39 4 36 21 L33 17 Q29 15 27 11 Q20 17 13 15Z" fill="#493B3A"/>
+                                <path d="M14 17 Q20 15 24 11 Q28 17 34 16 L32 21 Q24 18 14 21Z" fill="#493B3A"/>
+                                <g fill="none" stroke="#514A64" stroke-width="1.7">
+                                    <circle cx="19.5" cy="20" r="4.5"/>
+                                    <circle cx="28.5" cy="20" r="4.5"/>
+                                    <path d="M24 20h0"/>
+                                </g>
+                                <circle cx="19.5" cy="20" r="1.2" fill="#493B3A"/>
+                                <circle cx="28.5" cy="20" r="1.2" fill="#493B3A"/>
+                                <path d="M21 26 Q24 29 27 26" fill="none" stroke="#A65D58" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="ai-message-content">
+                            <div class="ai-message-name">Gia sư tiếng Anh</div>
+                            <div class="ai-message-bubble">{{ conversation.answer }}</div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INPUT -->
+        <div class="ai-input-area">
+            <div class="ai-input-inner">
+
+                <form method="POST" action="{{ url_for('tutor') }}" id="chatForm">
+                    <input type="hidden" name="chat_id" value="{{ chat.id if chat else '' }}">
+
+                    <div class="ai-input-box">
+                        <textarea
+                            name="question"
+                            id="questionInput"
+                            rows="1"
+                            placeholder="Nhập câu hỏi tiếng Anh của bạn..."
+                            required
+                        ></textarea>
+
+                        <div class="ai-input-bottom">
+                            <div class="ai-input-hint">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                    <path d="M12 3v18M3 12h18"/>
+                                </svg>
+                                Hỏi bài, học từ mới hoặc luyện tập cùng AI
+                            </div>
+
+                            <button type="submit" class="ai-send-button" id="sendButton" aria-label="Gửi câu hỏi">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m22 2-7 20-4-9-9-4Z"/>
+                                    <path d="M22 2 11 13"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="ai-input-note">
+                    AI Buddy có thể mắc lỗi. Hãy kiểm tra lại thông tin khi cần thiết nhé!
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("chatForm");
+    const input = document.getElementById("questionInput");
+    const sendButton = document.getElementById("sendButton");
+    const chatMessages = document.getElementById("chatMessages");
+    const messageList = document.getElementById("aiMessageList");
+    const welcome = document.getElementById("welcome");
+    const suggestions = document.getElementById("suggestions");
+    const sidebar = document.getElementById("aiSidebar");
+    const menuButton = document.getElementById("aiMenuButton");
+
+    function updateWelcome() {
+        const hasMessages = messageList && messageList.children.length > 0;
+
+        if (welcome) {
+            welcome.style.display = hasMessages ? "none" : "flex";
+        }
+
+        if (suggestions) {
+            suggestions.style.display = hasMessages ? "none" : "block";
+        }
+    }
+
+    function scrollToBottom() {
+        if (chatMessages) {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+
+    function animateAnswer(bubble, index) {
+        const answer = bubble.textContent;
+
+        if (!answer || !answer.trim() || answer.length > 2500) {
+            return;
+        }
+
+        bubble.textContent = "";
+
+        const typing = document.createElement("div");
+        typing.className = "ai-typing";
+
+        for (let i = 0; i < 3; i++) {
+            typing.appendChild(document.createElement("span"));
+        }
+
+        bubble.appendChild(typing);
+
+        const delay = index * 180;
+
+        setTimeout(function () {
+            bubble.textContent = "";
+
+            const cursor = document.createElement("span");
+            cursor.className = "ai-cursor";
+
+            bubble.appendChild(cursor);
+
+            let position = 0;
+            const speed = answer.length > 500 ? 5 : 12;
+            const chunkSize = 3;
+
+            const timer = setInterval(function () {
+                const chunk = answer.slice(position, position + chunkSize);
+
+                cursor.before(document.createTextNode(chunk));
+                position += chunkSize;
+
+                scrollToBottom();
+
+                if (position >= answer.length) {
+                    clearInterval(timer);
+                    cursor.remove();
+                }
+            }, speed);
+
+        }, delay + 450);
+    }
+
+    updateWelcome();
+
+    const aiBubbles = document.querySelectorAll(
+        ".ai-message:not(.user) .ai-message-bubble"
+    );
+
+    aiBubbles.forEach(function (bubble, index) {
+        animateAnswer(bubble, index);
+    });
+
+    scrollToBottom();
+
+    if (form && input && sendButton) {
+        form.addEventListener("submit", function (event) {
+            if (!input.value.trim()) {
+                event.preventDefault();
+                return;
+            }
+
+            sendButton.disabled = true;
+
+            sendButton.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83
+                    M16.24 16.24l2.83 2.83M2 12h4M18 12h4
+                    M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+            `;
+        });
+
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+
+                if (input.value.trim() && !sendButton.disabled) {
+                    form.requestSubmit();
+                }
+            }
+        });
+
+        input.addEventListener("input", function () {
+            this.style.height = "auto";
+            this.style.height = Math.min(this.scrollHeight, 120) + "px";
+        });
+    }
+
+    if (menuButton && sidebar) {
+        menuButton.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+
+    document.addEventListener("click", function (event) {
+        if (
+            sidebar &&
+            menuButton &&
+            window.innerWidth <= 650 &&
+            sidebar.classList.contains("open") &&
+            !sidebar.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+            sidebar.classList.remove("open");
+        }
+    });
+});
+
+function askSuggestion(text) {
+    const input = document.getElementById("questionInput");
+
+    if (input) {
+        input.value = text;
+        input.focus();
+        input.dispatchEvent(new Event("input"));
+    }
+}
+
+function startNewChat() {
+    window.location.href = "{{ url_for('tutor') }}";
+}
+</script>
+
+</body>
+</html>

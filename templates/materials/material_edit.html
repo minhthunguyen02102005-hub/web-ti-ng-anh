@@ -1,0 +1,745 @@
+
+{% extends "base.html" %}
+
+{% block title %}Chỉnh sửa học liệu - English 7{% endblock %}
+
+{% block styles %}
+<style>
+    .edit-page {
+        --purple: #7566d8;
+        --purple-dark: #5c4db8;
+        --ink: #292943;
+        --muted: #858398;
+        --line: #eeedf4;
+        max-width: 1100px;
+        margin: 34px auto 60px;
+        padding: 0 26px;
+        color: var(--ink);
+    }
+
+    .edit-hero {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        min-height: 225px;
+        overflow: hidden;
+        margin-bottom: 28px;
+        border-radius: 22px;
+        background: #eeeaff;
+    }
+
+    .edit-hero-content {
+        align-self: center;
+        padding: 34px 38px;
+    }
+
+    .edit-kicker {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--purple);
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: 1.5px;
+    }
+
+    .edit-hero h1 {
+        margin: 0 0 10px;
+        font-size: clamp(27px, 3vw, 35px);
+        line-height: 1.25;
+        letter-spacing: -.8px;
+    }
+
+    .edit-hero p {
+        max-width: 430px;
+        margin: 0;
+        color: #73718b;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .edit-hero-image {
+        position: relative;
+        min-height: 225px;
+        overflow: hidden;
+    }
+
+    .edit-hero-image img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+    }
+
+    .edit-hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #eeeaff 0%, rgba(238,234,255,.08) 45%, rgba(30,25,55,.1));
+    }
+
+    .edit-main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 285px;
+        align-items: start;
+        gap: 22px;
+    }
+
+    .edit-form {
+        padding: 29px;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: white;
+        box-shadow: 0 5px 22px rgba(40,35,80,.045);
+    }
+
+    .form-section-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 18px;
+        margin-bottom: 23px;
+        border-bottom: 1px solid #f0eff5;
+    }
+
+    .form-section-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        background: #f0edff;
+        color: var(--purple);
+        font-size: 19px;
+    }
+
+    .form-section-heading h2 {
+        margin: 0 0 4px;
+        font-size: 17px;
+        font-weight: 850;
+    }
+
+    .form-section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11px;
+    }
+
+    .form-group {
+        min-width: 0;
+        margin-bottom: 21px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 9px;
+        color: #45435d;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .required {
+        color: #e56b75;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 45px;
+        padding: 11px 13px;
+        border: 1px solid #e6e4ef;
+        border-radius: 9px;
+        outline: none;
+        background: #fbfaff;
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 13px;
+        transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #9387e5;
+        box-shadow: 0 0 0 3px rgba(117,102,216,.1);
+        background: white;
+    }
+
+    .form-group textarea {
+        min-height: 115px;
+        resize: vertical;
+        line-height: 1.7;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .current-file {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 17px;
+        border: 1px solid #e8e4fa;
+        border-radius: 12px;
+        background: #f8f6ff;
+        overflow: hidden;
+    }
+
+    .current-file-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        background: #ebe7ff;
+        color: var(--purple);
+        font-size: 22px;
+    }
+
+    .current-file-info {
+        min-width: 0;
+    }
+
+    .current-file-info strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #51459d;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .current-file-info span {
+        color: #88849e;
+        font-size: 11px;
+    }
+
+    .file-upload-area {
+        display: block;
+        padding: 27px 20px;
+        border: 2px dashed #cfc9ee;
+        border-radius: 13px;
+        background: #faf9ff;
+        text-align: center;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .file-upload-area:hover,
+    .file-upload-area:focus-within {
+        border-color: var(--purple);
+        background: #f2efff;
+    }
+
+    .file-upload-area input {
+        display: none;
+    }
+
+    .file-upload-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        height: 55px;
+        margin: 0 auto 12px;
+        border-radius: 16px;
+        background: #eeeaff;
+        color: var(--purple);
+        font-size: 25px;
+    }
+
+    .file-upload-area strong {
+        display: block;
+        margin-bottom: 7px;
+        color: #45435d;
+        font-size: 13px;
+    }
+
+    .file-upload-area > span {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .file-name {
+        margin-top: 12px;
+        color: var(--purple);
+        font-size: 12px;
+        font-weight: 750;
+        overflow-wrap: anywhere;
+    }
+
+    .edit-note {
+        display: flex;
+        gap: 12px;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        background: #fff5df;
+        color: #856d3e;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .edit-note-icon {
+        flex-shrink: 0;
+        font-size: 19px;
+    }
+
+    .edit-note strong {
+        color: #735b2d;
+    }
+
+    .edit-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-top: 23px;
+        margin-top: 25px;
+        border-top: 1px solid #f0eff5;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 43px;
+        padding: 0 19px;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .btn-cancel {
+        background: #f1f0f7;
+        color: #69677e;
+    }
+
+    .btn-cancel:hover {
+        background: #e7e5f0;
+    }
+
+    .btn-submit {
+        background: var(--purple);
+        color: white;
+    }
+
+    .btn-submit:hover {
+        background: var(--purple-dark);
+        transform: translateY(-1px);
+    }
+
+    .edit-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .edit-side-image {
+        height: 170px;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #eeeaff;
+    }
+
+    .edit-side-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .edit-side-card {
+        padding: 19px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+    }
+
+    .edit-side-card h3 {
+        margin: 0 0 14px;
+        font-size: 14px;
+        font-weight: 850;
+    }
+
+    .edit-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .edit-step:last-child {
+        margin-bottom: 0;
+    }
+
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #f0edff;
+        color: var(--purple);
+        font-size: 11px;
+        font-weight: 850;
+    }
+
+    .edit-step strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 11px;
+    }
+
+    .edit-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .edit-reminder {
+        padding: 18px;
+        border-radius: 13px;
+        background: #e8f6ef;
+        color: #527e69;
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .edit-reminder strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #3e7058;
+        font-size: 12px;
+    }
+
+    @media (max-width: 850px) {
+        .edit-main {
+            grid-template-columns: 1fr;
+        }
+
+        .edit-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .edit-side-image {
+            height: 100%;
+            min-height: 170px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .edit-page {
+            margin: 22px auto 40px;
+            padding: 0 15px;
+        }
+
+        .edit-hero {
+            grid-template-columns: 1fr;
+        }
+
+        .edit-hero-content {
+            padding: 27px 23px;
+        }
+
+        .edit-hero-image {
+            min-height: 150px;
+        }
+
+        .edit-form {
+            padding: 20px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .edit-sidebar {
+            grid-template-columns: 1fr;
+        }
+
+        .edit-side-image {
+            min-height: 150px;
+        }
+
+        .edit-actions {
+            flex-direction: column-reverse;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="edit-page">
+
+    <section class="edit-hero">
+        <div class="edit-hero-content">
+            <span class="edit-kicker">VIRTUAL ACADEMY / TEACHER SPACE</span>
+            <h1>Update your<br>Learning Materials.</h1>
+            <p>
+                Cập nhật thông tin và nội dung học liệu đã đăng tải.
+                Hãy giữ cho thư viện tiếng Anh luôn đầy đủ,
+                chính xác và hữu ích với học sinh.
+            </p>
+        </div>
+
+        <div class="edit-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+                alt="Không gian lớp học"
+                onerror="this.style.display='none'"
+            >
+        </div>
+    </section>
+
+    <div class="edit-main">
+
+        <form method="POST"
+              action="{{ url_for('material_edit', material_id=material.id) }}"
+              enctype="multipart/form-data"
+              class="edit-form">
+
+            <div class="form-section-heading">
+                <div class="form-section-icon">✎</div>
+                <div>
+                    <h2>Thông tin học liệu</h2>
+                    <p>Điều chỉnh thông tin tài liệu của bạn.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">
+                    Tên tài liệu <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="{{ material.title }}"
+                    maxlength="200"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="description">Mô tả tài liệu</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                >{{ material.description or "" }}</textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="unit">
+                        Unit <span class="required">*</span>
+                    </label>
+
+                    <select id="unit" name="unit" required>
+                        {% for unit in units %}
+                        <option
+                            value="{{ unit }}"
+                            {% if material.unit == unit %}selected{% endif %}
+                        >
+                            Unit {{ unit }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="skill">
+                        Kỹ năng <span class="required">*</span>
+                    </label>
+
+                    <select id="skill" name="skill" required>
+                        {% for skill in skills %}
+                        <option
+                            value="{{ skill }}"
+                            {% if material.skill == skill %}selected{% endif %}
+                        >
+                            {% if skill == "vocabulary" %}Vocabulary
+                            {% elif skill == "grammar" %}Grammar
+                            {% elif skill == "reading" %}Reading
+                            {% elif skill == "listening" %}Listening
+                            {% elif skill == "speaking" %}Speaking
+                            {% elif skill == "writing" %}Writing
+                            {% else %}{{ skill }}
+                            {% endif %}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section-heading" style="margin-top: 28px;">
+                <div class="form-section-icon">▤</div>
+                <div>
+                    <h2>Tệp học liệu hiện tại</h2>
+                    <p>Kiểm tra tệp đang được lưu trong hệ thống.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="current-file">
+                    <div class="current-file-icon">▤</div>
+                    <div class="current-file-info">
+                        <strong>{{ material.original_filename or material.file_path }}</strong>
+                        <span>
+                            {% if material.file_size %}
+                                Dung lượng: {{ "%.2f"|format(material.file_size / 1048576) }} MB
+                            {% else %}
+                                Tệp đã được lưu trong hệ thống
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Thay thế tệp (không bắt buộc)</label>
+
+                <label for="file" class="file-upload-area">
+                    <input
+                        type="file"
+                        id="file"
+                        name="file"
+                        accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.png,.jpg,.jpeg,.webp,.mp3,.wav,.m4a"
+                    >
+
+                    <div class="file-upload-icon">↥</div>
+
+                    <strong>Nhấn để chọn tệp mới</strong>
+
+                    <span>
+                        Nếu không chọn, hệ thống sẽ giữ nguyên tệp hiện tại.
+                    </span>
+
+                    <div class="file-name" id="fileName">
+                        Chưa chọn tệp mới
+                    </div>
+                </label>
+            </div>
+
+            <div class="edit-note">
+                <div class="edit-note-icon">ⓘ</div>
+                <div>
+                    <strong>Lưu ý khi chỉnh sửa</strong><br>
+                    - Tệp mới không được vượt quá 20 MB.<br>
+                    - Chỉ hỗ trợ các định dạng tài liệu được hệ thống cho phép.<br>
+                    - Nếu không chọn tệp mới, tài liệu cũ sẽ được giữ nguyên.
+                </div>
+            </div>
+
+            <div class="edit-actions">
+                <a href="{{ url_for('material_detail', material_id=material.id) }}"
+                   class="btn btn-cancel">
+                    Hủy
+                </a>
+
+                <button type="submit" class="btn btn-submit">
+                    Lưu thay đổi →
+                </button>
+            </div>
+
+        </form>
+
+        <aside class="edit-sidebar">
+
+            <div class="edit-side-image">
+                <img
+                    src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=700&q=80"
+                    alt="Tài liệu học tập"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="edit-side-card">
+                <h3>QUY TRÌNH CHỈNH SỬA</h3>
+
+                <div class="edit-step">
+                    <span class="step-number">01</span>
+                    <div>
+                        <strong>Cập nhật thông tin</strong>
+                        <p>Kiểm tra tên và mô tả tài liệu.</p>
+                    </div>
+                </div>
+
+                <div class="edit-step">
+                    <span class="step-number">02</span>
+                    <div>
+                        <strong>Kiểm tra phân loại</strong>
+                        <p>Chọn lại Unit và kỹ năng nếu cần.</p>
+                    </div>
+                </div>
+
+                <div class="edit-step">
+                    <span class="step-number">03</span>
+                    <div>
+                        <strong>Thay thế tệp</strong>
+                        <p>Chọn tệp mới hoặc giữ nguyên tệp cũ.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edit-reminder">
+                <strong>✦ Keep your resources updated!</strong>
+                Một học liệu được cập nhật tốt sẽ giúp học sinh học tập hiệu quả hơn.
+            </div>
+
+        </aside>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("file");
+    const fileName = document.getElementById("fileName");
+
+    if (!fileInput || !fileName) return;
+
+    fileInput.addEventListener("change", function () {
+        if (this.files.length > 0) {
+            const file = this.files[0];
+
+            fileName.textContent = file.name;
+
+            if (file.size > 20 * 1024 * 1024) {
+                fileName.textContent = "Tệp vượt quá dung lượng 20 MB!";
+                fileName.style.color = "#dc2626";
+            } else {
+                fileName.style.color = "#7566d8";
+            }
+        } else {
+            fileName.textContent = "Chưa chọn tệp mới";
+            fileName.style.color = "#7566d8";
+        }
+    });
+});
+</script>
+{% endblock %}
