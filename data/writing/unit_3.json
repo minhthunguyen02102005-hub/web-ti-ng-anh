@@ -1,0 +1,76 @@
+﻿
+{
+  "title": "Community Service",
+  "topic": "Phục vụ cộng đồng",
+  "writing_type": "Email",
+  "writing_topic": "Write an email of about 70 words to a friend to tell him/her about your school's volunteer activities last summer.",
+  "grammar_focus": "Past Simple with regular verbs (V-ed) and irregular verbs (V2). Important structures: S + donated/tutored/cleaned up/planted + O + time expression; S + V-past + to help/in order to support + someone; I felt very happy/proud because + S + V. Email format: Dear [Name], How are you? I am writing to tell you about... Write back to me soon. Best regards,",
+  "sentence_guide": "1. Greeting and opening: Dear [Name], How are you? I am writing to tell you about... 2. Describe volunteer activities in the Past Simple: donated, tutored, cleaned up, planted. 3. Explain the purpose: We volunteered to help poor children/in order to support elderly people. 4. Express feelings: I felt very happy/proud because we helped many people. 5. Closing: Write back to me soon. Best regards, [Name].",
+  "ordering_exercises": [
+    {
+      "question": "donated / warm clothes / last winter / to / we / poor children /.",
+      "answer": "We donated warm clothes to poor children last winter."
+    },
+    {
+      "question": "rubbish / cleaned up / they / the park / in / last Sunday /.",
+      "answer": "They cleaned up rubbish in the park last Sunday."
+    },
+    {
+      "question": "tutored / primary students / maths / in / our club / last summer /.",
+      "answer": "Our club tutored primary students in maths last summer."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "Last year / our club / plant / hundreds of trees / local park.",
+      "answer": "Last year, our club planted hundreds of trees in the local park."
+    },
+    {
+      "question": "We / send / textbooks / children / mountainous areas / last month.",
+      "answer": "We sent textbooks to children in mountainous areas last month."
+    },
+    {
+      "question": "Volunteering / help / me / make / new friends.",
+      "answer": "Volunteering helps me make new friends."
+    }
+  ],
+  "writing_prompt": "Write an email of about 70 words to a friend to tell him/her about your school's volunteer activities last summer.",
+  "outline": "1. Opening: Write a greeting (Dear...), ask how your friend is, and explain why you are writing. 2. Main content: Describe 2–3 specific volunteer activities in the Past Simple, such as collecting bottles, tutoring children, or cleaning streets. 3. Closing: Express your feelings about the activities, say goodbye, and finish with Best regards, followed by your name.",
+  "sample_basic": "Dear Nick, How are you? Last summer, my school had many volunteer activities. We collected old books and clothes for poor children. We also cleaned up the local park on Sunday morning. I felt very happy because I helped many people. What about your summer? Write to me soon. Best, Nam.",
+  "sample_intermediate": "Dear Nick, I hope you are doing well. I am writing to tell you about our community service last summer. Our school club tutored primary students in English and maths. We also planted over fifty trees in the neighborhood. Participating in these activities helped me make new friends and become more responsible. What volunteer work did you do? Warm regards, Minh.",
+  "sample_advanced": "Dear Elena, It was great receiving your last email. I would love to share our community project called \"Green Summer\" with you. Last month, our team organized a food drive and donated hundreds of warm meals to homeless people. In addition, we recycled plastic bottles to raise funds for disadvantaged children. This meaningful experience taught me compassion and teamwork. I cannot wait to join more volunteer projects next term. Yours, Linh.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề hoặc không đúng dạng bài.",
+      "score_1": "Đúng chủ đề nhưng thiếu một số yêu cầu.",
+      "score_2": "Đúng chủ đề và đúng dạng bài theo yêu cầu."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Thiếu hầu hết ý chính.",
+      "score_1": "Có một số ý phù hợp nhưng chưa đầy đủ.",
+      "score_2": "Đủ các ý chính, có thông tin phù hợp."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi khiến khó hiểu.",
+      "score_1": "Có một số lỗi nhưng vẫn hiểu được.",
+      "score_2": "Dùng khá chính xác cấu trúc/ngữ pháp trọng tâm."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc rất hạn chế.",
+      "score_1": "Dùng được từ cơ bản, còn lặp.",
+      "score_2": "Dùng đúng từ vựng theo chủ đề."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Bài thiếu mạch lạc, nhiều lỗi.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Bố cục rõ, liên kết hợp lý, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Dùng sai thì khi kể về sự kiện tình nguyện trong quá khứ. Sai: Last summer, we donate clothes to poor children. Đúng: Last summer, we donated clothes to poor children.\n2. Dùng sai giới từ đi kèm với động từ tình nguyện. Sai: We tutored maths for primary students. Đúng: We tutored primary students in maths. / We donated clothes to poor children."
+}
+

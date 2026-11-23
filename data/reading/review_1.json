@@ -1,0 +1,204 @@
+
+{
+  "section_type": "review",
+  "unit": null,
+  "review_number": 1,
+  "title": "Minh's Happy Life",
+  "topic": "Review Units 1-3",
+  "description": "Review of hobbies, healthy living and community service; present simple and past simple.",
+  "content": "Minh is a thirteen-year-old boy from Da Nang. He is active and happy.\n\nMinh's hobby is collecting stamps. He has more than 300 stamps from different countries. He enjoys looking at them every evening. He says this hobby makes him patient.\n\nMinh also has healthy habits. He eats a lot of fruit and vegetables, and he avoids soft drinks. He plays football with his friends every Saturday, so he stays fit.\n\nLast month, Minh joined a volunteer project at his school. He and his classmates collected old books and gave them to children in a mountain village. They also taught the children some simple English songs. Minh felt proud because he helped other people.\n\nNext month, he wants to join another project and plant trees in his neighbourhood.",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where is Minh from?",
+      "options": {
+        "A": "Ha Noi",
+        "B": "Hue",
+        "C": "Da Nang",
+        "D": "Can Tho"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 says Minh is from Da Nang."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "How many stamps does Minh have?",
+      "options": {
+        "A": "About 30",
+        "B": "About 100",
+        "C": "More than 300",
+        "D": "More than 3,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 says Minh has more than 300 stamps from different countries."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What does Minh do every Saturday?",
+      "options": {
+        "A": "He collects stamps.",
+        "B": "He plays football with his friends.",
+        "C": "He plants trees.",
+        "D": "He teaches English."
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 3 says Minh plays football with his friends every Saturday."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What did Minh and his classmates collect last month?",
+      "options": {
+        "A": "Plastic bottles",
+        "B": "Stamps",
+        "C": "Old clothes",
+        "D": "Old books"
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 4 says Minh and his classmates collected old books."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What did they teach the children?",
+      "options": {
+        "A": "Maths",
+        "B": "English songs",
+        "C": "Football",
+        "D": "Cooking"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 4 says they taught the children some simple English songs."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the best title for the passage?",
+      "options": {
+        "A": "Minh's Football Team",
+        "B": "Minh's Happy Life",
+        "C": "A Stamp Collection",
+        "D": "A Village in the Mountains"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage describes Minh's hobby, healthy habits and community activities that make him happy."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the passage mainly about?",
+      "options": {
+        "A": "Minh's school subjects",
+        "B": "How to play football well",
+        "C": "Minh's hobby, healthy habits and community activity",
+        "D": "Minh's family and his hometown"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 describes Minh's hobby, paragraph 3 describes his healthy habits, and paragraph 4 describes his community project."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'avoids' in paragraph 3 means ____.",
+      "options": {
+        "A": "stays away from",
+        "B": "likes very much",
+        "C": "buys",
+        "D": "cooks"
+      },
+      "correct_answer": "A",
+      "explanation": "The sentence says Minh avoids soft drinks, meaning he stays away from them or does not drink them."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'fit' in paragraph 3 means ____.",
+      "options": {
+        "A": "very tired",
+        "B": "in good shape and healthy",
+        "C": "very fast",
+        "D": "ill"
+      },
+      "correct_answer": "B",
+      "explanation": "Playing football regularly helps Minh stay in good shape and healthy."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'proud' in paragraph 4 means ____.",
+      "options": {
+        "A": "afraid",
+        "B": "angry",
+        "C": "pleased about something you did",
+        "D": "bored"
+      },
+      "correct_answer": "C",
+      "explanation": "Minh felt proud because he helped other people, meaning he was pleased about what he had done."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about Minh?",
+      "options": {
+        "A": "He has a balanced and positive life.",
+        "B": "He dislikes school.",
+        "C": "He never helps other people.",
+        "D": "He is always tired."
+      },
+      "correct_answer": "A",
+      "explanation": "Minh has a hobby, healthy habits and takes part in volunteer work. The passage also describes him as active and happy."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "Why did the students probably give old books to children in a mountain village?",
+      "options": {
+        "A": "Because the children had too many books.",
+        "B": "Because the children may not have many books to read.",
+        "C": "Because the students did not like reading.",
+        "D": "Because the books were new."
+      },
+      "correct_answer": "B",
+      "explanation": "The students gave books to children in a mountain village, suggesting that the children may have needed more books to read. This is implied rather than directly stated."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Minh has stamps from different countries.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 2 says Minh has more than 300 stamps from different countries."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Minh drinks soft drinks every day.",
+      "correct_answer": "F",
+      "explanation": "False. The passage says Minh avoids soft drinks."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Minh's classmates taught the children some English songs.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 4 says Minh and his classmates taught the children some simple English songs."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Minh joined the volunteer project last year.",
+      "correct_answer": "F",
+      "explanation": "False. The passage says Minh joined the volunteer project last month, not last year."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Minh plays football at a sports club.",
+      "correct_answer": "NG",
+      "explanation": "Not Given. The passage says Minh plays football with his friends every Saturday but does not say where he plays."
+    }
+  ]
+}

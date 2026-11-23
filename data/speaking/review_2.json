@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "Music and Art in My Life",
+            "topic": "Review Units 4-6",
+            "description": "Talk about the role of music and art in your life.",
+            "prompt": "What kind of music do you like? Do you enjoy visiting art exhibitions? How can music and art make our lives better?",
+            "suggested_vocabulary": [
+                "music",
+                "art",
+                "favourite singer",
+                "musical instrument",
+                "painting",
+                "creative",
+                "relax",
+                "express feelings"
+            ],
+            "sample_answer": "Music and art are important in my life. I enjoy listening to pop music because it helps me relax. I also like looking at paintings because they are beautiful and creative. I sometimes visit art exhibitions with my friends. I think music and art make our lives more interesting.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Food Around the World",
+            "topic": "Review Units 4-6",
+            "description": "Talk about food and different eating habits around the world.",
+            "prompt": "What is your favourite Vietnamese dish? What food from another country would you like to try? Why is it interesting to learn about food in different cultures?",
+            "suggested_vocabulary": [
+                "traditional dish",
+                "Vietnamese cuisine",
+                "foreign food",
+                "ingredient",
+                "delicious",
+                "culture",
+                "taste",
+                "special occasion"
+            ],
+            "sample_answer": "My favourite Vietnamese dish is pho. It is made with rice noodles, meat and a delicious soup. I would also like to try sushi from Japan because it looks interesting. I think food is an important part of every culture. Trying different dishes helps us understand other countries and their traditions.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "The School I Would Like to Visit",
+            "topic": "Review Units 4-6",
+            "description": "Talk about a school you would like to visit and its facilities.",
+            "prompt": "Which school would you like to visit? What facilities would you like to see? What activities would you like to join? What could you learn from the visit?",
+            "suggested_vocabulary": [
+                "school visit",
+                "school campus",
+                "modern facilities",
+                "library",
+                "science laboratory",
+                "exchange ideas",
+                "learning environment",
+                "experience"
+            ],
+            "sample_answer": "I would like to visit a modern school with good learning facilities. I want to see its library, science laboratory and computer rooms. I would also like to join some activities with students there. I think visiting another school would be an interesting experience. I could learn new things and make new friends.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

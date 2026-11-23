@@ -1,0 +1,207 @@
+
+{
+  "passages": [
+    {
+      "section_type": "unit",
+      "unit": 2,
+      "title": "Linh's Healthy Habits",
+      "topic": "Healthy Living",
+      "description": "Unit 2 - Healthy Living",
+      "content": "Linh is a twelve-year-old girl from Ha Noi. She is healthy and active. She has many good habits.\n\nEvery morning, Linh eats bread, eggs and fruit for breakfast. She never drinks soft drinks, and she avoids fast food. Her mum says coloured vegetables give her vitamins and keep her fit.\n\nLinh also exercises a lot. She goes cycling with her father every Sunday. On sunny days, she wears a hat and uses suncream, so she does not get sunburn.\n\nShe goes to bed at 10 p.m. and gets up at 6 a.m. She never reads in dim light because it can affect her eyes. She also keeps her room tidy and washes her hands often to avoid viruses.\n\nLinh's friends want to be healthy like her. They say, \"Linh is a good example for all of us.\"",
+      "difficulty": "basic",
+      "questions": [
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "How old is Linh?",
+          "options": {
+            "A": "Ten",
+            "B": "Eleven",
+            "C": "Twelve",
+            "D": "Thirteen"
+          },
+          "correct_answer": "C",
+          "explanation": "Paragraph 1 states that Linh is a twelve-year-old girl."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What does Linh eat for breakfast?",
+          "options": {
+            "A": "Noodles and meat",
+            "B": "Bread, eggs and fruit",
+            "C": "Rice and fish",
+            "D": "Fast food"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 2 says that Linh eats bread, eggs and fruit for breakfast every morning."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "Who does Linh go cycling with?",
+          "options": {
+            "A": "Her mother",
+            "B": "Her friends",
+            "C": "Her father",
+            "D": "Her brother"
+          },
+          "correct_answer": "C",
+          "explanation": "Paragraph 3 states that Linh goes cycling with her father every Sunday."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What does Linh use on sunny days?",
+          "options": {
+            "A": "Lip balm",
+            "B": "Suncream",
+            "C": "Eye drops",
+            "D": "Special soap"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 3 says that Linh wears a hat and uses suncream on sunny days."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What time does Linh get up?",
+          "options": {
+            "A": "At 5 a.m.",
+            "B": "At 6 a.m.",
+            "C": "At 7 a.m.",
+            "D": "At 10 p.m."
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 4 states that Linh gets up at 6 a.m. She goes to bed at 10 p.m."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the best title for the passage?",
+          "options": {
+            "A": "A Day at School",
+            "B": "Linh's Healthy Habits",
+            "C": "How to Cook Healthy Food",
+            "D": "Cycling in Ha Noi"
+          },
+          "correct_answer": "B",
+          "explanation": "The whole passage describes Linh's healthy habits, including her diet, exercise, sleep and personal hygiene."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the passage mainly about?",
+          "options": {
+            "A": "Linh's favourite sport",
+            "B": "Linh's health problems",
+            "C": "The good habits that keep Linh healthy",
+            "D": "Linh's friends and her family"
+          },
+          "correct_answer": "C",
+          "explanation": "Every paragraph describes a good habit that helps Linh stay healthy. The passage is not mainly about her health problems or only her favourite sport."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'active' in paragraph 1 means ____.",
+          "options": {
+            "A": "Always lazy",
+            "B": "Often busy doing things, especially sports",
+            "C": "Very tired",
+            "D": "Often ill"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage says Linh exercises a lot and goes cycling every Sunday. These activities show that active means busy doing things, especially physical activities."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'avoids' in paragraph 2 means ____.",
+          "options": {
+            "A": "Stays away from",
+            "B": "Likes very much",
+            "C": "Cooks",
+            "D": "Buys"
+          },
+          "correct_answer": "A",
+          "explanation": "The passage says Linh never drinks soft drinks and avoids fast food. Avoids means stays away from something."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'affect' in paragraph 4 means ____.",
+          "options": {
+            "A": "Clean",
+            "B": "Protect",
+            "C": "Have an effect on",
+            "D": "Look at"
+          },
+          "correct_answer": "C",
+          "explanation": "The passage says reading in dim light can affect her eyes. Affect means to have an effect on or influence something."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "Why does Linh not get sunburn?",
+          "options": {
+            "A": "Because she never goes out.",
+            "B": "Because she wears a hat and uses suncream.",
+            "C": "Because she goes cycling at night.",
+            "D": "Because she eats a lot of fruit."
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 3 directly explains that Linh wears a hat and uses suncream on sunny days, so she does not get sunburn."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "What can we infer about Linh's mum?",
+          "options": {
+            "A": "She dislikes vegetables.",
+            "B": "She does not care about Linh's food.",
+            "C": "She knows about healthy food.",
+            "D": "She never cooks breakfast."
+          },
+          "correct_answer": "C",
+          "explanation": "Linh's mum says that coloured vegetables give her vitamins and keep her fit. This suggests that she understands the benefits of healthy food."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Linh sometimes drinks soft drinks.",
+          "correct_answer": "F",
+          "explanation": "The passage says that Linh never drinks soft drinks. The statement says sometimes, so it is false."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Linh goes cycling on Sundays.",
+          "correct_answer": "T",
+          "explanation": "The passage states that Linh goes cycling with her father every Sunday. This matches the statement."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Linh gets up at 7 a.m.",
+          "correct_answer": "F",
+          "explanation": "The passage says that Linh gets up at 6 a.m., not 7 a.m."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Linh does her homework before dinner.",
+          "correct_answer": "NG",
+          "explanation": "The passage does not mention when Linh does her homework. There is not enough information to decide whether the statement is true or false."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Linh washes her hands often.",
+          "correct_answer": "T",
+          "explanation": "Paragraph 4 states that Linh washes her hands often to avoid viruses. This matches the statement."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "My Favourite Food",
+            "topic": "Food and Drink",
+            "description": "Talk about your favourite food.",
+            "prompt": "What is your favourite food? What ingredients does it have? How often do you eat it? Why do you like it?",
+            "suggested_vocabulary": [
+                "favourite food",
+                "ingredient",
+                "delicious",
+                "traditional food",
+                "rice",
+                "vegetables",
+                "meat",
+                "taste"
+            ],
+            "sample_answer": "My favourite food is pho. It is a traditional Vietnamese dish. It is made with rice noodles, beef or chicken, and a special soup. I usually eat pho for breakfast. I love it because it tastes delicious and smells wonderful.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "A Traditional Vietnamese Dish",
+            "topic": "Food and Drink",
+            "description": "Introduce a traditional dish from Vietnam.",
+            "prompt": "What traditional Vietnamese dish would you like to introduce? Where does it come from? What ingredients are used? When do people usually eat it?",
+            "suggested_vocabulary": [
+                "traditional dish",
+                "Vietnamese cuisine",
+                "special occasion",
+                "ingredient",
+                "prepare",
+                "serve",
+                "flavour",
+                "popular"
+            ],
+            "sample_answer": "I would like to introduce banh chung. It is a traditional Vietnamese dish, especially popular during Tet. It is made with sticky rice, mung beans and pork. People wrap it in green leaves and boil it for many hours. It is an important dish because it represents Vietnamese traditions and family reunion.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Healthy Eating Habits",
+            "topic": "Food and Drink",
+            "description": "Talk about how to have a healthy diet.",
+            "prompt": "What should we eat to stay healthy? What food should we avoid? How can students develop healthy eating habits?",
+            "suggested_vocabulary": [
+                "healthy diet",
+                "fresh food",
+                "balanced meal",
+                "junk food",
+                "sugary drinks",
+                "eat regularly",
+                "nutritious",
+                "avoid"
+            ],
+            "sample_answer": "To have a healthy diet, we should eat different kinds of food. We should eat more vegetables, fruit and fish. We should also drink enough water every day. We should avoid eating too much fast food and drinking too many sugary drinks. Healthy eating habits help us grow and stay strong.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

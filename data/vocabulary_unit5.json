@@ -1,0 +1,324 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 5,
+  "unit_title": "Food and Drink",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: ingredient",
+      "correct_answer": "One of the foods or substances used to make a dish",
+      "explanation": "An ingredient is a food or substance used to prepare a particular dish."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: recipe",
+      "correct_answer": "A set of instructions for preparing a dish",
+      "explanation": "A recipe tells you what ingredients to use and how to cook a dish."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: fry",
+      "correct_answer": "To cook food in hot oil or fat",
+      "explanation": "Fry means to cook food in hot oil or fat."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: boil",
+      "correct_answer": "To cook food in hot water",
+      "explanation": "Boil means to cook food in water that is bubbling because of heat."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: slice",
+      "correct_answer": "To cut food into thin, flat pieces",
+      "explanation": "Slice means to cut something into thin pieces."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: peel",
+      "correct_answer": "To remove the skin of fruit or vegetables",
+      "explanation": "Peel means to remove the outer skin of fruit or vegetables."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: mix",
+      "correct_answer": "To combine two or more things together",
+      "explanation": "Mix means to put different ingredients together."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: delicious",
+      "correct_answer": "Having a very pleasant taste",
+      "explanation": "Delicious describes food that tastes very good."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Flour, eggs and milk are the main ______ of this cake.",
+      "correct_answer": "ingredients",
+      "explanation": "Ingredients are the foods or substances used to make a dish."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Can you give me the ______ for making chicken soup?",
+      "correct_answer": "recipe",
+      "explanation": "A recipe gives instructions for preparing a dish."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We usually ______ eggs in a little oil for breakfast.",
+      "correct_answer": "fry",
+      "explanation": "Fry means to cook food in hot oil."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "You should ______ the vegetables in hot water.",
+      "correct_answer": "boil",
+      "explanation": "Boil means to cook something in hot water."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Please ______ the carrots into small pieces.",
+      "correct_answer": "slice",
+      "explanation": "Slice means to cut food into thin pieces."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Remember to ______ the potatoes before cooking them.",
+      "correct_answer": "peel",
+      "explanation": "Peel means to remove the outer skin of a fruit or vegetable."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "Add the eggs and flour, then ______ them together.",
+      "correct_answer": "mix",
+      "explanation": "Mix means to combine different ingredients."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "This noodle soup is really ______. I want another bowl!",
+      "correct_answer": "delicious",
+      "explanation": "Delicious means having a very good taste."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What is a recipe?",
+      "options": [
+        "A type of fruit",
+        "Instructions for making a dish",
+        "A cooking machine",
+        "A place to eat"
+      ],
+      "correct_answer": "B",
+      "explanation": "A recipe tells us the ingredients and steps needed to prepare food."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which verb means 'cook food in hot oil'?",
+      "options": ["Boil", "Peel", "Fry", "Mix"],
+      "correct_answer": "C",
+      "explanation": "Fry means to cook food in hot oil or fat."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which verb means 'remove the skin of a fruit'?",
+      "options": ["Slice", "Peel", "Boil", "Mix"],
+      "correct_answer": "B",
+      "explanation": "Peel means to remove the outer skin of fruit or vegetables."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which container is commonly used for milk?",
+      "options": ["A carton", "A bar", "A slice", "A recipe"],
+      "correct_answer": "A",
+      "explanation": "Milk is often sold in cartons."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word is used with chocolate?",
+      "options": ["A bottle of chocolate", "A bar of chocolate", "A carton of chocolate", "A packet of chocolate"],
+      "correct_answer": "B",
+      "explanation": "We commonly say 'a bar of chocolate'."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which phrase is correct?",
+      "options": [
+        "A bottle of water",
+        "A slice of milk",
+        "A bar of rice",
+        "A carton of bread"
+      ],
+      "correct_answer": "A",
+      "explanation": "A bottle of water is a correct expression for a quantity of water in a bottle."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What does 'delicious' mean?",
+      "options": [
+        "Very expensive",
+        "Very difficult to cook",
+        "Having a very good taste",
+        "Not fresh"
+      ],
+      "correct_answer": "C",
+      "explanation": "Delicious describes food that tastes very good."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which action should you do before boiling potatoes?",
+      "options": ["Peel them", "Drink them", "Fry the water", "Mix them with a bottle"],
+      "correct_answer": "A",
+      "explanation": "We often peel potatoes before cooking them."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What does 'slice the bread' mean?",
+      "options": [
+        "Cook the bread in oil",
+        "Cut the bread into pieces",
+        "Mix the bread with water",
+        "Remove the skin of the bread"
+      ],
+      "correct_answer": "B",
+      "explanation": "Slice means to cut something into thin pieces."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "This dish is very ______. (TASTE)",
+      "correct_answer": "tasty",
+      "explanation": "Tasty is an adjective meaning having a good taste."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "My mother is a good ______. (COOK)",
+      "correct_answer": "cook",
+      "explanation": "Cook can be a noun referring to a person who prepares food."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The food smells ______. (DELIGHT)",
+      "correct_answer": "delightful",
+      "explanation": "Delightful is an adjective formed from delight."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Follow the ______ carefully to make the cake. (INSTRUCT)",
+      "correct_answer": "instructions",
+      "explanation": "Instructions are directions explaining how to do something."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "We need three main ______ for this dish. (INGREDIENT)",
+      "correct_answer": "ingredients",
+      "explanation": "Ingredient is a countable noun. The plural form is ingredients."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: I boil the fish in hot oil.",
+      "correct_answer": "boil → fry",
+      "explanation": "Fry means to cook food in hot oil. Boil means to cook food in hot water."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Please mix the apple before eating it to remove its skin.",
+      "correct_answer": "mix → peel",
+      "explanation": "Peel means to remove the skin of fruit or vegetables."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: A recipe is a person who cooks food.",
+      "correct_answer": "a person who cooks food → instructions for making a dish",
+      "explanation": "A recipe is a set of cooking instructions, not a person."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: My mother bought a bottle of chocolate at the supermarket.",
+      "correct_answer": "a bottle of chocolate → a bar of chocolate",
+      "explanation": "A bar of chocolate is the common expression for a solid block of chocolate."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: This soup tastes terrible. It is very delicious.",
+      "correct_answer": "delicious → terrible or unpleasant",
+      "explanation": "Delicious means very tasty, so it does not match the negative meaning of the first sentence."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Nam cuts a cucumber into thin, flat pieces. What is he doing?",
+      "options": ["Boiling", "Slicing", "Frying", "Mixing"],
+      "correct_answer": "B",
+      "explanation": "Slicing means cutting food into thin pieces."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Lan puts carrots, potatoes and meat into hot water to cook them. What is she doing?",
+      "options": ["Frying", "Peeling", "Boiling", "Slicing"],
+      "correct_answer": "C",
+      "explanation": "Boiling means cooking food in hot water."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A shop sells milk in a rectangular paper container. What is this container called?",
+      "options": ["A carton", "A bar", "A slice", "A packet"],
+      "correct_answer": "A",
+      "explanation": "A carton is a container commonly used for milk and juice."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "You are making a cake and need flour, eggs, sugar and butter. What are these items called?",
+      "options": ["Recipes", "Ingredients", "Instructions", "Cartons"],
+      "correct_answer": "B",
+      "explanation": "Ingredients are the items used to prepare a dish."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "After tasting the chicken soup, everyone says it tastes wonderful. Which adjective can describe it?",
+      "options": ["Rubbish", "Unusual", "Delicious", "Spacious"],
+      "correct_answer": "C",
+      "explanation": "Delicious means having a very pleasant taste."
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 2,
+  "unit_title": "Healthy Living",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: healthy",
+      "correct_answer": "Being in good physical or mental condition",
+      "explanation": "Healthy means being well and not ill."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the phrase: junk food",
+      "correct_answer": "Food that is unhealthy and often contains too much fat, sugar or salt",
+      "explanation": "Junk food is food with little nutritional value."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: vegetable",
+      "correct_answer": "A plant or part of a plant eaten as food",
+      "explanation": "Vegetables include carrots, potatoes and spinach."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: vitamin",
+      "correct_answer": "A natural substance needed by the body to stay healthy",
+      "explanation": "Vitamins help the body grow and work properly."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: sunburn",
+      "correct_answer": "Red and painful skin caused by too much sunlight",
+      "explanation": "Sunburn happens when the skin receives too much ultraviolet radiation."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: sore throat",
+      "correct_answer": "Pain or irritation in the throat",
+      "explanation": "A sore throat can make swallowing uncomfortable."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: stomachache",
+      "correct_answer": "Pain in the stomach",
+      "explanation": "A stomachache is pain felt in the stomach area."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: energetic",
+      "correct_answer": "Having a lot of energy",
+      "explanation": "Energetic describes someone who feels active and full of energy."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Eating fruit and vegetables helps you stay ______.",
+      "correct_answer": "healthy",
+      "explanation": "Healthy means being in good physical condition."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "You should not eat too much ______ because it is bad for your health.",
+      "correct_answer": "junk food",
+      "explanation": "Junk food usually contains too much fat, sugar or salt."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Carrots and potatoes are examples of ______.",
+      "correct_answer": "vegetables",
+      "explanation": "Vegetables are important parts of a balanced diet."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Milk and eggs contain important ______ for our bodies.",
+      "correct_answer": "vitamins",
+      "explanation": "Vitamins help the body stay healthy."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "You should wear a hat to avoid ______ on sunny days.",
+      "correct_answer": "sunburn",
+      "explanation": "Sunburn is skin damage caused by too much sunlight."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "I have a ______, so it hurts when I swallow.",
+      "correct_answer": "sore throat",
+      "explanation": "A sore throat causes pain or irritation when swallowing."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "I ate too much food, and now I have a ______.",
+      "correct_answer": "stomachache",
+      "explanation": "A stomachache is pain in the stomach."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "After doing exercise, I feel active and ______.",
+      "correct_answer": "energetic",
+      "explanation": "Energetic means having a lot of energy."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which food is usually considered junk food?",
+      "options": ["Fresh apples", "Green vegetables", "Potato chips", "Fresh fish"],
+      "correct_answer": "C",
+      "explanation": "Potato chips are often high in salt and fat, so they are considered junk food."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which of these is a vegetable?",
+      "options": ["Carrot", "Chicken", "Milk", "Bread"],
+      "correct_answer": "A",
+      "explanation": "A carrot is a vegetable."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What do vitamins help us do?",
+      "options": [
+        "Stay healthy",
+        "Become hungry all the time",
+        "Sleep less",
+        "Avoid drinking water"
+      ],
+      "correct_answer": "A",
+      "explanation": "Vitamins help the body grow and function properly."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What happens when you have sunburn?",
+      "options": [
+        "Your skin becomes red and painful",
+        "Your stomach hurts",
+        "You have a sore throat",
+        "You feel hungry"
+      ],
+      "correct_answer": "A",
+      "explanation": "Sunburn makes the skin red and painful after too much sun exposure."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which expression describes pain in your throat?",
+      "options": ["Stomachache", "Sore throat", "Sunburn", "Cough"],
+      "correct_answer": "B",
+      "explanation": "A sore throat is pain or irritation in the throat."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word means 'having a lot of energy'?",
+      "options": ["Healthy", "Energetic", "Sick", "Tired"],
+      "correct_answer": "B",
+      "explanation": "Energetic describes someone who has a lot of energy."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word describes a balanced diet?",
+      "options": [
+        "Eating only sweets",
+        "Eating different kinds of healthy food",
+        "Skipping every meal",
+        "Eating only fast food"
+      ],
+      "correct_answer": "B",
+      "explanation": "A balanced diet includes different types of food in suitable amounts."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word is closest in meaning to 'fit'?",
+      "options": ["Healthy and physically strong", "Very hungry", "Unhappy", "Sleepy"],
+      "correct_answer": "A",
+      "explanation": "Fit means being healthy and physically strong."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which symptom is related to coughing?",
+      "options": ["A cough", "A vegetable", "A vitamin", "A balanced meal"],
+      "correct_answer": "A",
+      "explanation": "A cough is an action or symptom involving sudden air coming from the lungs."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word means a small red mark or spot on the skin?",
+      "options": ["Vitamin", "Spot", "Energy", "Vegetable"],
+      "correct_answer": "B",
+      "explanation": "A spot can refer to a small mark on the skin."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which sentence uses 'balanced' correctly?",
+      "options": [
+        "I eat a balanced diet with different healthy foods.",
+        "I balanced a sore throat yesterday.",
+        "She has a balanced cough.",
+        "He drinks balanced every morning."
+      ],
+      "correct_answer": "A",
+      "explanation": "Balanced is commonly used in the phrase 'a balanced diet'."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which of these is NOT a symptom of illness?",
+      "options": ["Cough", "Stomachache", "Sore throat", "Vitamin"],
+      "correct_answer": "D",
+      "explanation": "A vitamin is a nutrient, not a symptom."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Eating vegetables is important for your ______. (HEALTHY)",
+      "correct_answer": "health",
+      "explanation": "Health is the noun form of healthy."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "My grandfather is very ______ and walks every morning. (ENERGY)",
+      "correct_answer": "energetic",
+      "explanation": "Energetic is the adjective form related to energy."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "You should eat a ______ diet. (BALANCE)",
+      "correct_answer": "balanced",
+      "explanation": "Balanced is the adjective form of balance."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Regular exercise helps you stay ______. (FIT)",
+      "correct_answer": "fit",
+      "explanation": "Fit is an adjective describing good physical condition."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Fruit is a good source of important ______. (VITAMIN)",
+      "correct_answer": "vitamins",
+      "explanation": "Vitamins is the plural form of vitamin."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Eating too much junk food is very health.",
+      "correct_answer": "health → unhealthy",
+      "explanation": "Unhealthy is the correct adjective to describe something bad for your health."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: I have a stomach throat, so I cannot swallow easily.",
+      "correct_answer": "stomach throat → sore throat",
+      "explanation": "Sore throat is the correct expression for pain in the throat."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Carrots and potatoes are kinds of vitamins.",
+      "correct_answer": "vitamins → vegetables",
+      "explanation": "Carrots and potatoes are vegetables, not vitamins."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: After playing football, I feel very energy.",
+      "correct_answer": "energy → energetic",
+      "explanation": "Energetic is the adjective needed after feel."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: He has a sunburn because he ate too much.",
+      "correct_answer": "sunburn → stomachache",
+      "explanation": "A stomachache is related to stomach pain after eating too much. Sunburn is caused by too much sunlight."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "After spending all afternoon in the sun without protection, Hoa's skin became red and painful. What happened to her?",
+      "options": ["Sunburn", "Cough", "Sore throat", "Stomachache"],
+      "correct_answer": "A",
+      "explanation": "Sunburn occurs when skin receives too much sunlight."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Minh eats vegetables, fruit, meat and rice in suitable amounts. What kind of diet does he have?",
+      "options": ["Junk food", "Balanced diet", "Unhealthy diet", "Fast food"],
+      "correct_answer": "B",
+      "explanation": "A balanced diet contains different types of food in suitable amounts."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Lan feels pain in her stomach after eating too much candy. What does she have?",
+      "options": ["A sore throat", "A cough", "A stomachache", "Sunburn"],
+      "correct_answer": "C",
+      "explanation": "A stomachache is pain in the stomach."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Nam exercises regularly and eats well. He is strong and in good physical condition. Which word describes him?",
+      "options": ["Fit", "Unusual", "Sore", "Hungry"],
+      "correct_answer": "A",
+      "explanation": "Fit means healthy and physically strong."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "After a good night's sleep, Mai feels active and ready to play sports. How does she feel?",
+      "options": ["Energetic", "Sick", "Painful", "Unhealthy"],
+      "correct_answer": "A",
+      "explanation": "Energetic means feeling active and having plenty of energy."
+    }
+  ]
+}

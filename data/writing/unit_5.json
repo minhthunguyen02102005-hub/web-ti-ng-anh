@@ -1,0 +1,75 @@
+﻿
+{
+  "title": "Food and Drink",
+  "topic": "Thức ăn và đồ uống",
+  "writing_type": "Paragraph",
+  "writing_topic": "Write a paragraph of about 70 words about eating habits in your area.",
+  "grammar_focus": "Countable and uncountable nouns; quantifiers: some, any, a lot of; adverbs of frequency: usually, often, sometimes; Present Simple.",
+  "sentence_guide": "1. Introduce general eating habits: People in my area usually have + meal + at + time. 2. Describe meals: For breakfast/lunch/dinner, they often eat/drink + food/drink. 3. Introduce popular dishes: A popular dish in my area is + food. 4. Give an opinion: I think these eating habits are + adjective. Vocabulary: have breakfast/lunch/dinner, rice, noodles, bread, vegetables, meat, fish, soup, fruit, milk, water, at about seven o'clock.",
+  "ordering_exercises": [
+    {
+      "question": "breakfast / people / usually / at / have / seven o'clock /.",
+      "answer": "People usually have breakfast at seven o'clock."
+    },
+    {
+      "question": "lunch / rice / for / many people / eat / and / vegetables /.",
+      "answer": "Many people eat rice and vegetables for lunch."
+    },
+    {
+      "question": "dinner / family / my / together / often / has /.",
+      "answer": "My family often has dinner together."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "People in my area / usually / have breakfast / 6:30 a.m.",
+      "answer": "People in my area usually have breakfast at 6:30 a.m."
+    },
+    {
+      "question": "There / be / some / vegetables / on the table.",
+      "answer": "There are some vegetables on the table."
+    },
+    {
+      "question": "How much / water / you / drink / every day?",
+      "answer": "How much water do you drink every day?"
+    }
+  ],
+  "writing_prompt": "Write a paragraph of about 70 words about eating habits in your area.",
+  "outline": "1. Opening: Introduce the general eating habits of people in your area. 2. Main content: Describe breakfast, lunch and dinner times; mention common food and drinks at each meal. 3. Conclusion: Give a short opinion about these eating habits, for example: healthy, simple or varied.",
+  "sample_basic": "People in my area have three meals a day. They usually have breakfast at 6:30 a.m. They often eat bread or noodles and drink milk. At noon, they have lunch with rice, meat and vegetables. They usually have dinner at 7 p.m. with their families. I think the food in my area is simple and delicious.",
+  "sample_intermediate": "Eating habits in my area are quite healthy. Most people have breakfast at about seven o'clock. They often eat bread, noodles or sticky rice. Lunch is usually at noon, and rice, fish and vegetables are popular. In the evening, families have dinner together at around seven. They often drink water or tea with their meals. I like these habits because people eat fresh food and spend time together.",
+  "sample_advanced": "People in my area usually eat three meals a day. Breakfast is often served early, at around 6:30, and people may have noodles, bread or sticky rice. Lunch is at about noon and often includes rice, meat and vegetables. Families usually have dinner together at 7 p.m. They also eat fresh fruit after meals. I think these habits are good because the meals are varied and bring family members together.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề, viết về công thức nấu ăn.",
+      "score_1": "Có nhắc đến ăn uống nhưng chưa tập trung vào khu vực sống.",
+      "score_2": "Mô tả đúng thói quen ăn uống ở khu vực sống."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Không nêu được bữa ăn hoặc món ăn.",
+      "score_1": "Nêu được một vài bữa ăn/món ăn.",
+      "score_2": "Có giờ ăn và món ăn/đồ uống cho các bữa chính."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi thì hoặc cấu trúc câu.",
+      "score_1": "Có lỗi nhưng nội dung vẫn hiểu được.",
+      "score_2": "Dùng đúng hiện tại đơn và cấu trúc cơ bản."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc không phù hợp.",
+      "score_1": "Có từ vựng về thức ăn, còn lặp.",
+      "score_2": "Dùng đúng và đa dạng từ chỉ món ăn, đồ uống."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Ý lộn xộn, nhiều lỗi.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Ý rõ ràng, liên kết đơn giản, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Nhầm lẫn giữa How many và How much. Sai: How many water do you drink? Đúng: How much water do you drink? Water là danh từ không đếm được.\n2. Dùng sai some/any. Sai: There isn't some milk in the fridge. Đúng: There isn't any milk in the fridge. Thông thường dùng any trong câu phủ định và nghi vấn."
+}

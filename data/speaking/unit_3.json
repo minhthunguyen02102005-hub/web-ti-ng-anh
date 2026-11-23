@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "Volunteer Activities",
+            "topic": "Community Service",
+            "description": "Talk about volunteer activities in your community.",
+            "prompt": "What volunteer activities do people do in your community? Have you ever joined a volunteer activity? What did you do?",
+            "suggested_vocabulary": [
+                "volunteer",
+                "community",
+                "help people",
+                "donate",
+                "clean up",
+                "elderly people",
+                "homeless people",
+                "take part in"
+            ],
+            "sample_answer": "There are many volunteer activities in my community. People often clean the streets, plant trees and help elderly people. I once joined a clean-up activity with my classmates. We collected rubbish around our school. I felt happy because I could do something useful for the community.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Helping People in Need",
+            "topic": "Community Service",
+            "description": "Talk about how students can help people in difficult situations.",
+            "prompt": "Who are the people in need? How can students help them? Why is helping others important?",
+            "suggested_vocabulary": [
+                "people in need",
+                "donate clothes",
+                "raise money",
+                "school supplies",
+                "support",
+                "kindness",
+                "share",
+                "make a difference"
+            ],
+            "sample_answer": "Students can help people in need in many ways. They can donate old clothes, books and school supplies to poor children. They can also raise money to support people in difficult situations. I think helping others is important because it shows kindness and makes our community better.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Organising a Volunteer Activity",
+            "topic": "Community Service",
+            "description": "Talk about a volunteer activity you would like to organise.",
+            "prompt": "What activity would you like to organise? Who would you invite? What preparations would you make? What benefits would the activity bring?",
+            "suggested_vocabulary": [
+                "organise",
+                "prepare",
+                "invite",
+                "volunteer group",
+                "collect rubbish",
+                "public places",
+                "work together",
+                "environment"
+            ],
+            "sample_answer": "I would like to organise a clean-up day in my neighbourhood. I would invite my classmates and neighbours to join. We would prepare rubbish bags, gloves and cleaning tools. Together, we would collect rubbish in public places. This activity would make our neighbourhood cleaner and bring people closer together.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

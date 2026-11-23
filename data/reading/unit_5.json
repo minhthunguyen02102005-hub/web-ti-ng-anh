@@ -1,0 +1,204 @@
+
+{
+  "section_type": "unit",
+  "unit": 5,
+  "review_number": null,
+  "title": "Bun Cha – My Favourite Lunch",
+  "topic": "Food and Drink",
+  "description": "Language focus: some, a lot of, lots of; food and drink vocabulary from Unit 5.",
+  "content": "Hi, everyone! Today I want to tell you about bun cha, a famous dish from Ha Noi.\n\nBun cha is a bowl of white rice noodles and grilled pork in sweet and sour fish sauce. People usually have it for lunch.\n\nThe pork is the most important part. Cooks cut it into small pieces, add some sugar, garlic and fish sauce, and then grill it over charcoal. The smell is wonderful! The dish also comes with a lot of fresh vegetables and herbs, such as mint. Some people put a few slices of green papaya in the sauce.\n\nMy family often eats bun cha at the weekend. We order lots of grilled pork and some fried spring rolls too. A bowl of bun cha is not expensive, so many students love it.\n\nTell me about a famous dish in your area!",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where is bun cha from?",
+      "options": {
+        "A": "Hue",
+        "B": "Da Nang",
+        "C": "Ha Noi",
+        "D": "Ho Chi Minh City"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 says bun cha is a famous dish from Ha Noi."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "When do people usually have bun cha?",
+      "options": {
+        "A": "For breakfast",
+        "B": "For lunch",
+        "C": "For dinner",
+        "D": "At midnight"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 2 says people usually have bun cha for lunch."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What do cooks add to the pork before grilling it?",
+      "options": {
+        "A": "Sugar, garlic and fish sauce",
+        "B": "Salt and pepper",
+        "C": "Butter and onions",
+        "D": "Milk and eggs"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 says cooks add sugar, garlic and fish sauce to the pork before grilling it."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What do some people put in the sauce?",
+      "options": {
+        "A": "Tomatoes",
+        "B": "Slices of green papaya",
+        "C": "Slices of lemon",
+        "D": "Pieces of tofu"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 3 says some people put a few slices of green papaya in the sauce."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What does the writer's family order with the grilled pork?",
+      "options": {
+        "A": "Fried spring rolls",
+        "B": "Fried chicken",
+        "C": "Eel soup",
+        "D": "Pancakes"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 says the writer's family orders some fried spring rolls with the grilled pork."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the best title for the passage?",
+      "options": {
+        "A": "Bun Cha – A Famous Dish from Ha Noi",
+        "B": "How to Make Fish Sauce",
+        "C": "Breakfast Around Viet Nam",
+        "D": "My Family's Restaurant"
+      },
+      "correct_answer": "A",
+      "explanation": "The whole post describes bun cha, a famous dish from Ha Noi, including its ingredients and how people enjoy it."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the passage mainly about?",
+      "options": {
+        "A": "The prices of food in Ha Noi",
+        "B": "A popular dish of Ha Noi: what it is made of and how people enjoy it",
+        "C": "Different kinds of rice noodles",
+        "D": "How to grow fresh vegetables"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraphs 2 and 3 describe the ingredients of bun cha, while paragraph 4 explains how the writer's family enjoys it."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'grill' in paragraph 3 means ____.",
+      "options": {
+        "A": "cook food over a fire or heat",
+        "B": "wash food with water",
+        "C": "keep food cold",
+        "D": "cut food into pieces"
+      },
+      "correct_answer": "A",
+      "explanation": "The passage says the pork is grilled over charcoal. Grilling means cooking food over a fire or heat."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'herbs' in paragraph 3 means ____.",
+      "options": {
+        "A": "small green plants used to add flavour to food",
+        "B": "kinds of meat",
+        "C": "kinds of drink",
+        "D": "kinds of rice"
+      },
+      "correct_answer": "A",
+      "explanation": "The passage mentions fresh vegetables and herbs such as mint. Herbs are small plants used to add flavour to food."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'slices' in paragraph 3 means ____.",
+      "options": {
+        "A": "whole fruits",
+        "B": "thin flat pieces cut from food",
+        "C": "bottles of sauce",
+        "D": "bowls of soup"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage mentions slices of green papaya. Slices are thin pieces cut from food."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about the writer?",
+      "options": {
+        "A": "She dislikes Vietnamese food.",
+        "B": "She never eats at home.",
+        "C": "She likes bun cha a lot.",
+        "D": "She cooks bun cha every day."
+      },
+      "correct_answer": "C",
+      "explanation": "The title calls bun cha the writer's favourite lunch, and her family often eats it. This suggests that she likes it a lot."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "Why does the writer end the post with 'Tell me about a famous dish in your area!'?",
+      "options": {
+        "A": "She wants readers to share their own dishes.",
+        "B": "She wants to sell bun cha.",
+        "C": "She is angry with her readers.",
+        "D": "She does not like bun cha."
+      },
+      "correct_answer": "A",
+      "explanation": "The writer asks readers to tell her about a famous dish in their area, showing that she wants them to share their own dishes."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Bun cha is a famous dish from Hue.",
+      "correct_answer": "F",
+      "explanation": "False. The passage says bun cha is a famous dish from Ha Noi, not Hue."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Cooks grill the pork over charcoal.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 3 directly says cooks grill the pork over charcoal."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Bun cha comes with a lot of fresh vegetables.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 3 says the dish comes with a lot of fresh vegetables and herbs."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The writer's family eats bun cha every day.",
+      "correct_answer": "F",
+      "explanation": "False. The passage says the writer's family often eats bun cha at the weekend, not every day."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "A bowl of bun cha costs 40,000 dong.",
+      "correct_answer": "NG",
+      "explanation": "Not Given. The passage says a bowl of bun cha is not expensive but does not provide an exact price."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "My School",
+            "topic": "A Visit to a School",
+            "description": "Talk about your school and its facilities.",
+            "prompt": "Where is your school? What does it look like? What facilities does it have? What do you like most about your school?",
+            "suggested_vocabulary": [
+                "school building",
+                "classroom",
+                "library",
+                "playground",
+                "computer room",
+                "modern",
+                "facilities",
+                "school yard"
+            ],
+            "sample_answer": "My school is in my neighbourhood. It is quite large and has many classrooms. There is also a library, a computer room and a big playground. My favourite place is the library because I can read books and study there. I love my school because my teachers and friends are very friendly.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "A Visit to Another School",
+            "topic": "A Visit to a School",
+            "description": "Describe a visit to another school.",
+            "prompt": "Have you ever visited another school? Where was it? What did you see there? What was different from your school?",
+            "suggested_vocabulary": [
+                "visit",
+                "school campus",
+                "classroom",
+                "laboratory",
+                "school facilities",
+                "different from",
+                "interesting",
+                "impressive"
+            ],
+            "sample_answer": "Last year, I visited another school with my classmates. The school was quite modern and had a large campus. I saw many classrooms, a science laboratory and a beautiful library. The facilities were different from those at my school. I enjoyed the visit because I learned more about another school's learning environment.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "My Ideal School",
+            "topic": "A Visit to a School",
+            "description": "Talk about the school you would like to study at.",
+            "prompt": "What would your ideal school look like? What facilities would it have? What activities could students do there? Why would you like to study there?",
+            "suggested_vocabulary": [
+                "ideal school",
+                "modern facilities",
+                "green space",
+                "comfortable",
+                "technology",
+                "outdoor activities",
+                "creative",
+                "learning environment"
+            ],
+            "sample_answer": "My ideal school would be modern, clean and green. It would have large classrooms, a good library, a science laboratory and a sports centre. Students could join many clubs and take part in outdoor activities. I would also like to have more technology in classrooms. I think this school would be a great place to learn and make friends.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

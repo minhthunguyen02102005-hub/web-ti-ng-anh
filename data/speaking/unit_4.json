@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "My Favourite Type of Music",
+            "topic": "Music and Arts",
+            "description": "Talk about your favourite type of music.",
+            "prompt": "What kind of music do you like? Who is your favourite singer or band? When do you usually listen to music? Why do you like it?",
+            "suggested_vocabulary": [
+                "pop music",
+                "classical music",
+                "rock music",
+                "singer",
+                "band",
+                "listen to music",
+                "relaxing",
+                "favourite song"
+            ],
+            "sample_answer": "I really like pop music because it is interesting and relaxing. My favourite singer is a Vietnamese singer. I usually listen to music when I am studying or relaxing at home. Music helps me feel better after a long day. I also enjoy sharing my favourite songs with my friends.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "A Musical Instrument I Like",
+            "topic": "Music and Arts",
+            "description": "Talk about a musical instrument you like or want to learn.",
+            "prompt": "What musical instrument do you like? Can you play it? Why would you like to learn it? What does it sound like?",
+            "suggested_vocabulary": [
+                "musical instrument",
+                "guitar",
+                "piano",
+                "violin",
+                "play an instrument",
+                "beautiful sound",
+                "learn to play",
+                "practise"
+            ],
+            "sample_answer": "I like the guitar because it has a beautiful sound. I cannot play it very well yet, but I would like to learn. I think playing the guitar is fun and creative. I will practise regularly and learn some simple songs first.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "A Work of Art I Admire",
+            "topic": "Music and Arts",
+            "description": "Talk about a painting, sculpture or other work of art you admire.",
+            "prompt": "What work of art do you admire? Who created it? What can you see in it? Why do you like it?",
+            "suggested_vocabulary": [
+                "work of art",
+                "painting",
+                "artist",
+                "colourful",
+                "beautiful",
+                "creative",
+                "traditional",
+                "express feelings"
+            ],
+            "sample_answer": "One work of art I admire is a beautiful painting of a countryside scene. It shows green fields, small houses and a peaceful river. I like the colours because they make the painting look warm and relaxing. I think art is important because it helps people express their feelings and ideas.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

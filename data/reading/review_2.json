@@ -1,0 +1,204 @@
+
+{
+  "section_type": "review",
+  "unit": null,
+  "review_number": 2,
+  "title": "An Open Day at Our School",
+  "topic": "Review Units 4-6",
+  "description": "Review of music and arts, food and drink, and a school visit; like / (not) as ... as, some / a lot of / lots of, at / in / on.",
+  "content": "Last Sunday, our school held an Open Day for new students and their parents. It started at 9 a.m. in the school yard.\n\nIn the morning, visitors visited the school facilities, such as the library, the computer rooms and the art room. In the art room, they saw paintings by gifted students. Some of the paintings looked like photos. The visitors also watched a concert in the hall. The school band played classical music, which is not as loud as rock music, so the parents enjoyed it.\n\nAt noon, everyone had lunch in the canteen. There was a lot of delicious food: spring rolls, fried chicken and fresh fruit. Some students cooked pancakes, and the visitors ate lots of them.\n\nIn the afternoon, the visitors went home. A little girl said to me, \"I want to study at this school next year.\" I felt very proud.",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "When was the Open Day?",
+      "options": {
+        "A": "Last Saturday",
+        "B": "Last Sunday",
+        "C": "Last Friday",
+        "D": "Last month"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says the school held an Open Day last Sunday."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What time did the Open Day start?",
+      "options": {
+        "A": "At 8 a.m.",
+        "B": "At 9 a.m.",
+        "C": "At noon",
+        "D": "In the afternoon"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says the Open Day started at 9 a.m."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where did the visitors see paintings?",
+      "options": {
+        "A": "In the library",
+        "B": "In the hall",
+        "C": "In the art room",
+        "D": "In the canteen"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 says the visitors saw paintings by gifted students in the art room."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What kind of music did the school band play?",
+      "options": {
+        "A": "Rock music",
+        "B": "Folk music",
+        "C": "Pop music",
+        "D": "Classical music"
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 2 says the school band played classical music."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What did some students cook?",
+      "options": {
+        "A": "Pancakes",
+        "B": "Spring rolls",
+        "C": "Fried chicken",
+        "D": "Omelettes"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 says some students cooked pancakes."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the best title for the passage?",
+      "options": {
+        "A": "A Rock Concert in Town",
+        "B": "An Open Day at Our School",
+        "C": "How to Cook Pancakes",
+        "D": "My New Art Teacher"
+      },
+      "correct_answer": "B",
+      "explanation": "The whole passage describes the school's Open Day and the activities visitors took part in."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the passage mainly about?",
+      "options": {
+        "A": "A school's Open Day, with art, music and food for visitors",
+        "B": "A famous painter",
+        "C": "The writer's family lunch",
+        "D": "The history of the school"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 2 describes art and music, paragraph 3 describes food, and paragraph 4 describes the end of the Open Day."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'gifted' in paragraph 2 means ____.",
+      "options": {
+        "A": "very tired",
+        "B": "very talented",
+        "C": "very young",
+        "D": "very shy"
+      },
+      "correct_answer": "B",
+      "explanation": "The paintings by gifted students looked like photos, suggesting that these students are very talented."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'band' in paragraph 2 means ____.",
+      "options": {
+        "A": "a group of musicians who play together",
+        "B": "a kind of food",
+        "C": "a school subject",
+        "D": "a painting"
+      },
+      "correct_answer": "A",
+      "explanation": "The school band played classical music. A band is a group of musicians who play together."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'proud' in paragraph 4 means ____.",
+      "options": {
+        "A": "afraid",
+        "B": "angry",
+        "C": "pleased about something good",
+        "D": "tired"
+      },
+      "correct_answer": "C",
+      "explanation": "The writer felt proud after hearing that a little girl wanted to study at the school. Proud means feeling pleased about something good."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about the Open Day?",
+      "options": {
+        "A": "It was a boring day.",
+        "B": "It was successful and the visitors enjoyed it.",
+        "C": "Nobody came to the school.",
+        "D": "It lasted for a week."
+      },
+      "correct_answer": "B",
+      "explanation": "The parents enjoyed the music, visitors ate lots of food, and a girl wanted to study at the school. These details suggest that the Open Day was successful and enjoyable."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about the little girl?",
+      "options": {
+        "A": "She did not like the school.",
+        "B": "She was already a student there.",
+        "C": "She liked the school and wants to join it.",
+        "D": "She was afraid of the teachers."
+      },
+      "correct_answer": "C",
+      "explanation": "The little girl says she wants to study at the school next year, showing that she likes it and wants to join."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The Open Day started in the morning.",
+      "correct_answer": "T",
+      "explanation": "True. The Open Day started at 9 a.m., which is in the morning."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The visitors watched a concert in the hall.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 2 says the visitors watched a concert in the hall."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The school band played rock music.",
+      "correct_answer": "F",
+      "explanation": "False. The school band played classical music, not rock music."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The visitors had lunch in the school garden.",
+      "correct_answer": "F",
+      "explanation": "False. Paragraph 3 says everyone had lunch in the canteen, not in the school garden."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The visitors bought some books at the Open Day.",
+      "correct_answer": "NG",
+      "explanation": "Not Given. The passage mentions a library but does not say that visitors bought any books."
+    }
+  ]
+}

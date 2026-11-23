@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "My Favourite Hobby",
+            "topic": "Hobbies",
+            "description": "Talk about your favourite hobby.",
+            "prompt": "What is your favourite hobby? When did you start it? Who do you do it with? Why do you enjoy it?",
+            "suggested_vocabulary": [
+                "hobby",
+                "free time",
+                "collect",
+                "enjoy",
+                "interesting",
+                "relax",
+                "in my opinion",
+                "every day"
+            ],
+            "sample_answer": "My favourite hobby is collecting stamps. I started this hobby two years ago. I usually collect stamps with my brother. I enjoy it because I can learn about different countries and cultures. I often spend my free time looking for new stamps.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Benefits of Hobbies",
+            "topic": "Hobbies",
+            "description": "Talk about the benefits of having a hobby.",
+            "prompt": "Why should people have hobbies? What can they learn from their hobbies? How can hobbies help them in daily life?",
+            "suggested_vocabulary": [
+                "benefit",
+                "reduce stress",
+                "creative",
+                "skill",
+                "make friends",
+                "healthy",
+                "spend time",
+                "improve"
+            ],
+            "sample_answer": "I think everyone should have a hobby. Hobbies help us relax after studying or working. They can also help us become more creative and learn new skills. For example, playing sports makes us healthier. Hobbies are a good way to spend our free time.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "A Hobby I Want to Try",
+            "topic": "Hobbies",
+            "description": "Talk about a hobby you would like to try in the future.",
+            "prompt": "What hobby would you like to try? Why do you want to try it? What do you need to start this hobby?",
+            "suggested_vocabulary": [
+                "in the future",
+                "take up",
+                "learn how to",
+                "equipment",
+                "practice",
+                "improve my skills",
+                "exciting",
+                "experience"
+            ],
+            "sample_answer": "In the future, I would like to learn how to play the guitar. I think it is an exciting hobby. I want to play my favourite songs and share music with my friends. I need a guitar and some time to practise every day.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

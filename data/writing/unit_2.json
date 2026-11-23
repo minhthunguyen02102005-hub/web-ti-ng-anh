@@ -1,0 +1,76 @@
+﻿
+{
+  "title": "Healthy Living",
+  "topic": "Lối sống lành mạnh",
+  "writing_type": "Paragraph",
+  "writing_topic": "Write a paragraph of about 70 words giving advice on how to avoid viruses.",
+  "grammar_focus": "Simple Sentences; modal verbs should and shouldn't. Advice: S + should + V-bare. Negative advice: S + shouldn't + V-bare. Purpose/reason: S + V ... to + V / S + V ... because + S + V.",
+  "sentence_guide": "1. Introduce the topic: Viruses can make people ill. / We should protect ourselves from viruses. 2. Give advice using should + V-bare. 3. Say what people should not do using shouldn't + V-bare. 4. Explain purposes or reasons using to + V or because + S + V. Suggested vocabulary: wash your hands, keep clean, cover your mouth and nose, wear a mask, avoid close contact with sick people, stay at home when you are ill.",
+  "ordering_exercises": [
+    {
+      "question": "your / wash / hands / you / should / regularly /.",
+      "answer": "You should wash your hands regularly."
+    },
+    {
+      "question": "close contact / avoid / sick people / with / should / we /.",
+      "answer": "We should avoid close contact with sick people."
+    },
+    {
+      "question": "your mouth / cover / you / when / cough / you /.",
+      "answer": "You should cover your mouth when you cough."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "You / should / wash / hands / soap and water.",
+      "answer": "You should wash your hands with soap and water."
+    },
+    {
+      "question": "We / shouldn't / share / cups and bottles / other people.",
+      "answer": "We shouldn't share cups and bottles with other people."
+    },
+    {
+      "question": "If you / feel ill / you / stay / home.",
+      "answer": "If you feel ill, you should stay at home."
+    }
+  ],
+  "writing_prompt": "Write a paragraph of about 70 words giving advice on how to avoid viruses.",
+  "outline": "1. Introduction: Explain that viruses can make us ill and that we need to know how to avoid them. 2. Supporting sentences: Give 3–4 pieces of advice, such as washing hands regularly with soap, covering your mouth and nose when coughing or sneezing, avoiding close contact with sick people, not sharing cups or bottles, and staying at home when ill. 3. Conclusion: Remind readers that these habits help protect themselves and other people.",
+  "sample_basic": "Viruses can make us ill. We should wash our hands with soap and water every day. We should cover our mouth when we cough or sneeze. We shouldn't share cups or bottles with other people. We should stay away from people who are ill. These simple things can help us stay healthy and protect our family.",
+  "sample_intermediate": "There are some easy ways to avoid viruses. First, you should wash your hands regularly, especially before eating. You should also cover your mouth and nose when you cough or sneeze. Don't share food, cups or bottles with other people. If you feel ill, you should stay at home and tell your parents. These habits help keep you and your friends healthy.",
+  "sample_advanced": "We can protect ourselves from viruses by following some simple rules. You should wash your hands carefully with soap, particularly after going outside. You should cover your mouth and nose when coughing or sneezing. It is also important to avoid close contact with people who are ill and not to share personal items. If you have a fever, stay at home and ask an adult for help. These actions help protect everyone.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề hoặc không viết về phòng tránh vi-rút.",
+      "score_1": "Đúng chủ đề nhưng còn thiếu ý.",
+      "score_2": "Đúng chủ đề, đáp ứng đầy đủ yêu cầu."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Không có hoặc có rất ít lời khuyên.",
+      "score_1": "Có 1–2 lời khuyên phù hợp.",
+      "score_2": "Có ít nhất 3 lời khuyên rõ ràng, hợp lý."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi khiến khó hiểu.",
+      "score_1": "Có một số lỗi nhưng vẫn hiểu được.",
+      "score_2": "Dùng đúng should/shouldn't + V-bare và câu đơn cơ bản."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc không phù hợp.",
+      "score_1": "Dùng được từ vựng cơ bản, còn lặp.",
+      "score_2": "Dùng đúng từ vựng về vệ sinh và phòng bệnh."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Ý lộn xộn, nhiều lỗi chính tả.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Ý rõ ràng, có từ nối đơn giản, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Dùng động từ có to sau should/shouldn't. Sai: You should to wash your hands. Đúng: You should wash your hands. Quy tắc: should + V-bare.\n2. Thiếu giới từ hoặc dùng sai cụm từ. Sai: You should wash your hands soap. Đúng: You should wash your hands with soap."
+}
+

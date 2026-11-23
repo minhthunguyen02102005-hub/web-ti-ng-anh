@@ -1,0 +1,314 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 6,
+  "unit_title": "A Visit to a School",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: boarding school",
+      "correct_answer": "A school where students live and study",
+      "explanation": "Students at a boarding school live at the school during the school term."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: classmate",
+      "correct_answer": "A student in the same class as you",
+      "explanation": "A classmate is someone who studies in the same class."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: uniform",
+      "correct_answer": "Special clothes worn by students at school",
+      "explanation": "A uniform is a set of clothes worn by members of a school or organisation."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: laboratory",
+      "correct_answer": "A room used for scientific experiments",
+      "explanation": "A laboratory is a place where students or scientists do experiments."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: gym",
+      "correct_answer": "A place where people do physical exercise",
+      "explanation": "A gym is a room or building used for sports and exercise."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: canteen",
+      "correct_answer": "A place in a school where students can buy or eat food",
+      "explanation": "A canteen is a place where people can have meals or buy food."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: playground",
+      "correct_answer": "An outdoor area where children play",
+      "explanation": "A playground is an area designed for children to play."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: library",
+      "correct_answer": "A place where people can read or borrow books",
+      "explanation": "A library is a place that contains books and other reading materials."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Students at a ______ live at school during the school year.",
+      "correct_answer": "boarding school",
+      "explanation": "A boarding school provides accommodation for students."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "My ______ sits next to me in English class.",
+      "correct_answer": "classmate",
+      "explanation": "A classmate is another student in your class."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Students must wear their school ______ on Mondays.",
+      "correct_answer": "uniform",
+      "explanation": "A uniform is the special clothing students wear at school."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We do science experiments in the ______.",
+      "correct_answer": "laboratory",
+      "explanation": "A laboratory is a room for scientific experiments."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We play basketball in the school ______.",
+      "correct_answer": "gym",
+      "explanation": "A gym is a place for sports and physical exercise."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "I often have lunch with my friends in the school ______.",
+      "correct_answer": "canteen",
+      "explanation": "A canteen is a place where students can buy or eat food."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "The children are playing football in the ______.",
+      "correct_answer": "playground",
+      "explanation": "A playground is an outdoor area where children play."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "You can borrow interesting books from the school ______.",
+      "correct_answer": "library",
+      "explanation": "A library is a place where people can read or borrow books."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Where do students do science experiments?",
+      "options": ["Canteen", "Laboratory", "Playground", "Library"],
+      "correct_answer": "B",
+      "explanation": "Students do science experiments in a laboratory."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Where can students borrow books?",
+      "options": ["Gym", "Canteen", "Library", "Playground"],
+      "correct_answer": "C",
+      "explanation": "A library is a place where people can read and borrow books."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What do students usually wear to school?",
+      "options": ["Uniform", "Recipe", "Instrument", "Ingredient"],
+      "correct_answer": "A",
+      "explanation": "A school uniform is special clothing worn by students."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Where can students buy lunch at school?",
+      "options": ["Laboratory", "Canteen", "Library", "Gym"],
+      "correct_answer": "B",
+      "explanation": "A canteen is a place where students can buy or eat food."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What is a classmate?",
+      "options": [
+        "A school building",
+        "A person who teaches students",
+        "A student in the same class",
+        "A person who works in a library"
+      ],
+      "correct_answer": "C",
+      "explanation": "A classmate is someone who studies in the same class as you."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What is a boarding school?",
+      "options": [
+        "A school where students only study online",
+        "A school where students live and study",
+        "A place where people borrow books",
+        "A school without teachers"
+      ],
+      "correct_answer": "B",
+      "explanation": "Students at a boarding school live at the school while studying."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Where do students usually play basketball indoors?",
+      "options": ["Library", "Gym", "Canteen", "Laboratory"],
+      "correct_answer": "B",
+      "explanation": "A gym is an indoor place for sports and exercise."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which place is usually outdoors?",
+      "options": ["Laboratory", "Library", "Playground", "Canteen"],
+      "correct_answer": "C",
+      "explanation": "A playground is generally an outdoor area for children to play."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word means 'large and having a lot of space'?",
+      "options": ["Modern", "Spacious", "Crowded", "Narrow"],
+      "correct_answer": "B",
+      "explanation": "Spacious means large and having plenty of room."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Our school has many modern ______. (FACILITATE)",
+      "correct_answer": "facilities",
+      "explanation": "Facility is a noun meaning a useful building, service or piece of equipment. The plural is facilities."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The new school building is very ______. (SPACE)",
+      "correct_answer": "spacious",
+      "explanation": "Spacious is an adjective meaning large and having plenty of space."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The school has a ______ computer room. (MODERN)",
+      "correct_answer": "modern",
+      "explanation": "Modern is an adjective describing something new or up to date."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The students are very ______ with their new school. (PLEASE)",
+      "correct_answer": "pleased",
+      "explanation": "Pleased is an adjective meaning happy or satisfied."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The school provides many useful learning ______. (FACILITY)",
+      "correct_answer": "facilities",
+      "explanation": "Facilities is the plural noun referring to useful spaces, equipment or services."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We borrow books and read them in the gym.",
+      "correct_answer": "gym → library",
+      "explanation": "A library is the place where students read or borrow books."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Students do chemistry experiments in the playground.",
+      "correct_answer": "playground → laboratory",
+      "explanation": "A laboratory is a suitable place for science experiments."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We have lunch and buy food in the library.",
+      "correct_answer": "library → canteen",
+      "explanation": "A canteen is a place where students can buy or eat meals."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: A boarding school is a place where students only visit for one hour.",
+      "correct_answer": "only visit for one hour → live and study",
+      "explanation": "Students at a boarding school live at the school during the school term."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Our classroom is very spacious because it is small and crowded.",
+      "correct_answer": "small and crowded → large and has plenty of space",
+      "explanation": "Spacious means large and having a lot of room, not small and crowded."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Hoa wants to find a book about animals and borrow it for a week. Where should she go?",
+      "options": ["Gym", "Library", "Canteen", "Laboratory"],
+      "correct_answer": "B",
+      "explanation": "Students can read and borrow books from a library."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "The students wear the same special clothes with the school logo. What are they wearing?",
+      "options": ["Uniforms", "Sports instruments", "Costumes for cooking", "Laboratory equipment"],
+      "correct_answer": "A",
+      "explanation": "A uniform is a set of special clothes worn by students at school."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A school has a room with test tubes, microscopes and other science equipment. What is this room?",
+      "options": ["Canteen", "Playground", "Laboratory", "Library"],
+      "correct_answer": "C",
+      "explanation": "A laboratory is a room used for scientific experiments."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Students live at school from Monday to Friday and return home at weekends. What kind of school do they attend?",
+      "options": ["Boarding school", "Language centre", "Art gallery", "Primary playground"],
+      "correct_answer": "A",
+      "explanation": "A boarding school provides accommodation for students."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "The new school has large classrooms, wide corridors and plenty of room for students. Which adjective describes it?",
+      "options": ["Crowded", "Spacious", "Narrow", "Unusual"],
+      "correct_answer": "B",
+      "explanation": "Spacious describes a place that is large and has plenty of space."
+    }
+  ]
+}

@@ -1,0 +1,1204 @@
+
+[
+  {
+    "content": "Which word means an activity you do for pleasure in your free time?",
+    "option_a": "hobby",
+    "option_b": "traffic",
+    "option_c": "appliance",
+    "option_d": "problem",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "My sister enjoys collecting stamps. This is her _____.",
+    "option_a": "habit",
+    "option_b": "hobby",
+    "option_c": "subject",
+    "option_d": "journey",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Which food is a kind of fruit?",
+    "option_a": "carrot",
+    "option_b": "potato",
+    "option_c": "apple",
+    "option_d": "onion",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "A person who does not eat meat is a _____.",
+    "option_a": "vegetarian",
+    "option_b": "visitor",
+    "option_c": "volunteer",
+    "option_d": "musician",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Which phrase is closest in meaning to 'unhealthy'?",
+    "option_a": "good for your health",
+    "option_b": "fit",
+    "option_c": "bad for your health",
+    "option_d": "delicious",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "We should do exercise regularly to stay _____.",
+    "option_a": "lazy",
+    "option_b": "fit",
+    "option_c": "sick",
+    "option_d": "tired",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Which of these is a community activity?",
+    "option_a": "Playing video games alone",
+    "option_b": "Helping elderly people",
+    "option_c": "Watching TV",
+    "option_d": "Sleeping late",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "A person who gives help without getting money is a _____.",
+    "option_a": "volunteer",
+    "option_b": "doctor",
+    "option_c": "driver",
+    "option_d": "customer",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Which word describes a person who paints pictures?",
+    "option_a": "singer",
+    "option_b": "artist",
+    "option_c": "farmer",
+    "option_d": "engineer",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "A performance with music and singing is a _____.",
+    "option_a": "concert",
+    "option_b": "museum",
+    "option_c": "market",
+    "option_d": "library",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "easy"
+  },
+  {
+    "content": "The school is holding a book _____ to raise money for children.",
+    "option_a": "sale",
+    "option_b": "traffic",
+    "option_c": "pollution",
+    "option_d": "journey",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You can borrow books from a _____.",
+    "option_a": "stadium",
+    "option_b": "library",
+    "option_c": "theatre",
+    "option_d": "factory",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Which word describes a film that makes people laugh?",
+    "option_a": "horror",
+    "option_b": "comedy",
+    "option_c": "documentary",
+    "option_d": "action",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "A film about real events or people is a _____.",
+    "option_a": "fantasy",
+    "option_b": "cartoon",
+    "option_c": "documentary",
+    "option_d": "comedy",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "The road is crowded, so there is a lot of _____.",
+    "option_a": "traffic",
+    "option_b": "talent",
+    "option_c": "energy",
+    "option_d": "advice",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "A vehicle that travels on rails in a city is a _____.",
+    "option_a": "helicopter",
+    "option_b": "tram",
+    "option_c": "coach",
+    "option_d": "ship",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Which source can produce electricity using sunlight?",
+    "option_a": "coal",
+    "option_b": "oil",
+    "option_c": "solar energy",
+    "option_d": "wood",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "We should turn off the lights to _____ energy.",
+    "option_a": "waste",
+    "option_b": "save",
+    "option_c": "pollute",
+    "option_d": "damage",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Air, water and land can be damaged by _____.",
+    "option_a": "pollution",
+    "option_b": "volunteers",
+    "option_c": "hobbies",
+    "option_d": "performances",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "A person who lives next door is your _____.",
+    "option_a": "passenger",
+    "option_b": "neighbour",
+    "option_c": "visitor",
+    "option_d": "tourist",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "medium"
+  },
+  {
+    "content": "What is the opposite of 'crowded'?",
+    "option_a": "busy",
+    "option_b": "noisy",
+    "option_c": "quiet",
+    "option_d": "modern",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "A place where people can see objects from the past is a _____.",
+    "option_a": "museum",
+    "option_b": "stadium",
+    "option_c": "supermarket",
+    "option_d": "restaurant",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Which word means 'to use something again'?",
+    "option_a": "reduce",
+    "option_b": "reuse",
+    "option_c": "repair",
+    "option_d": "waste",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "We can help the environment by _____ plastic bags.",
+    "option_a": "using more",
+    "option_b": "throwing away",
+    "option_c": "reusing",
+    "option_d": "burning",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "A person who travels to a place for pleasure is a _____.",
+    "option_a": "tourist",
+    "option_b": "volunteer",
+    "option_c": "artist",
+    "option_d": "patient",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Which adjective describes a person who likes giving things to others?",
+    "option_a": "selfish",
+    "option_b": "generous",
+    "option_c": "careless",
+    "option_d": "nervous",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "The word 'charity' is most closely related to _____.",
+    "option_a": "helping people in need",
+    "option_b": "winning a race",
+    "option_c": "buying expensive things",
+    "option_d": "watching films",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Which word refers to a machine used to wash clothes?",
+    "option_a": "fridge",
+    "option_b": "washing machine",
+    "option_c": "dishwasher",
+    "option_d": "fan",
+    "correct_answer": "B",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "A place where aircraft take off and land is an _____.",
+    "option_a": "airport",
+    "option_b": "station",
+    "option_c": "harbour",
+    "option_d": "underground",
+    "correct_answer": "A",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Which phrase means travelling to work or school every day?",
+    "option_a": "doing homework",
+    "option_b": "going on holiday",
+    "option_c": "commuting",
+    "option_d": "doing volunteer work",
+    "correct_answer": "C",
+    "skill": "vocabulary",
+    "difficulty": "hard"
+  },
+  {
+    "content": "My brother _____ football every Sunday.",
+    "option_a": "play",
+    "option_b": "plays",
+    "option_c": "playing",
+    "option_d": "played",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "They _____ to school by bus every morning.",
+    "option_a": "go",
+    "option_b": "goes",
+    "option_c": "going",
+    "option_d": "went",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "There _____ a book on the desk.",
+    "option_a": "are",
+    "option_b": "am",
+    "option_c": "is",
+    "option_d": "be",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "There _____ three students in the classroom.",
+    "option_a": "is",
+    "option_b": "are",
+    "option_c": "was",
+    "option_d": "be",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "I enjoy _____ comics in my free time.",
+    "option_a": "read",
+    "option_b": "reads",
+    "option_c": "reading",
+    "option_d": "to read",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "She likes _____ photos of flowers.",
+    "option_a": "take",
+    "option_b": "takes",
+    "option_c": "taking",
+    "option_d": "took",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "We _____ visit our grandparents tomorrow.",
+    "option_a": "are going to",
+    "option_b": "was",
+    "option_c": "is",
+    "option_d": "going",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "You _____ eat too much fast food.",
+    "option_a": "should",
+    "option_b": "shouldn't",
+    "option_c": "must",
+    "option_d": "can",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "How _____ apples do you need?",
+    "option_a": "much",
+    "option_b": "many",
+    "option_c": "often",
+    "option_d": "long",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "How _____ milk is there in the fridge?",
+    "option_a": "many",
+    "option_b": "much",
+    "option_c": "few",
+    "option_d": "some",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "easy"
+  },
+  {
+    "content": "My sister is _____ than me.",
+    "option_a": "tall",
+    "option_b": "taller",
+    "option_c": "tallest",
+    "option_d": "the tallest",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "This is _____ film I have ever seen.",
+    "option_a": "interesting",
+    "option_b": "more interesting",
+    "option_c": "the most interesting",
+    "option_d": "most interesting",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "He was tired, _____ he went to bed early.",
+    "option_a": "because",
+    "option_b": "so",
+    "option_c": "but",
+    "option_d": "although",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "We stayed at home _____ it was raining.",
+    "option_a": "because",
+    "option_b": "so",
+    "option_c": "but",
+    "option_d": "and",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "There isn't _____ cheese in the fridge.",
+    "option_a": "some",
+    "option_b": "many",
+    "option_c": "any",
+    "option_d": "a few",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Would you like _____ orange juice?",
+    "option_a": "some",
+    "option_b": "any",
+    "option_c": "many",
+    "option_d": "a few",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "The Temple of Literature _____ in 1070.",
+    "option_a": "build",
+    "option_b": "built",
+    "option_c": "was built",
+    "option_d": "is building",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "This bridge _____ by local workers last year.",
+    "option_a": "was repaired",
+    "option_b": "is repair",
+    "option_c": "repaired",
+    "option_d": "was repairing",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You should _____ your hands before meals.",
+    "option_a": "wash",
+    "option_b": "washing",
+    "option_c": "washed",
+    "option_d": "to wash",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "My father _____ dinner when I came home.",
+    "option_a": "cooks",
+    "option_b": "cooked",
+    "option_c": "was cooking",
+    "option_d": "is cooking",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "If we use less plastic, we _____ the environment.",
+    "option_a": "help",
+    "option_b": "will help",
+    "option_c": "helped",
+    "option_d": "are helping",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "The children _____ in the park when it started to rain.",
+    "option_a": "played",
+    "option_b": "are playing",
+    "option_c": "were playing",
+    "option_d": "play",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Although the film was long, we _____ it.",
+    "option_a": "enjoy",
+    "option_b": "enjoyed",
+    "option_c": "enjoying",
+    "option_d": "to enjoy",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "This painting is not _____ that one.",
+    "option_a": "as beautiful as",
+    "option_b": "beautiful than",
+    "option_c": "so beautiful",
+    "option_d": "more beautiful as",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "The music festival _____ place in the town square last weekend.",
+    "option_a": "takes",
+    "option_b": "take",
+    "option_c": "took",
+    "option_d": "taking",
+    "correct_answer": "C",
+    "skill": "grammar",
+    "difficulty": "medium"
+  },
+  {
+    "content": "A lot of trees _____ every year to protect the environment.",
+    "option_a": "plant",
+    "option_b": "are planted",
+    "option_c": "planted",
+    "option_d": "are planting",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "hard"
+  },
+  {
+    "content": "You _____ cross the street when the traffic light is red.",
+    "option_a": "must",
+    "option_b": "mustn't",
+    "option_c": "should",
+    "option_d": "can",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "hard"
+  },
+  {
+    "content": "I think people _____ travel more by public transport in the future.",
+    "option_a": "will",
+    "option_b": "are",
+    "option_c": "did",
+    "option_d": "were",
+    "correct_answer": "A",
+    "skill": "grammar",
+    "difficulty": "hard"
+  },
+  {
+    "content": "The bus is _____ than travelling by car during rush hour.",
+    "option_a": "convenient",
+    "option_b": "more convenient",
+    "option_c": "most convenient",
+    "option_d": "the convenient",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Nam asked me _____ I liked the new library.",
+    "option_a": "what",
+    "option_b": "whether",
+    "option_c": "which",
+    "option_d": "who",
+    "correct_answer": "B",
+    "skill": "grammar",
+    "difficulty": "hard"
+  },
+ 
+  {
+    "content": "Read the passage: Lan loves gardening. Every Saturday, she waters the plants and grows vegetables in her garden. What does Lan do every Saturday?",
+    "option_a": "She plays badminton.",
+    "option_b": "She waters the plants.",
+    "option_c": "She watches television.",
+    "option_d": "She visits her friends.",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Lan loves gardening. Every Saturday, she waters the plants and grows vegetables in her garden. What is Lan's hobby?",
+    "option_a": "Gardening",
+    "option_b": "Swimming",
+    "option_c": "Painting",
+    "option_d": "Cooking",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Minh gets up at six o'clock every morning. He has bread and fruit for breakfast before going to school. What time does Minh get up?",
+    "option_a": "At five",
+    "option_b": "At six",
+    "option_c": "At seven",
+    "option_d": "At eight",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Minh gets up at six o'clock every morning. He has bread and fruit for breakfast before going to school. What does he eat for breakfast?",
+    "option_a": "Rice and fish",
+    "option_b": "Noodles and meat",
+    "option_c": "Bread and fruit",
+    "option_d": "Cake and sweets",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Green Sunday takes place every month. Students collect paper, plant trees and clean the schoolyard. How often does Green Sunday take place?",
+    "option_a": "Every day",
+    "option_b": "Every week",
+    "option_c": "Every month",
+    "option_d": "Every year",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Green Sunday takes place every month. Students collect paper, plant trees and clean the schoolyard. What do students do during the activity?",
+    "option_a": "They play computer games.",
+    "option_b": "They clean the schoolyard.",
+    "option_c": "They watch films.",
+    "option_d": "They go shopping.",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Tom likes music. He plays the guitar, but he cannot play the piano. He practises on Tuesdays and Thursdays. Which instrument does Tom play?",
+    "option_a": "The piano",
+    "option_b": "The violin",
+    "option_c": "The guitar",
+    "option_d": "The drums",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Tom likes music. He plays the guitar, but he cannot play the piano. He practises on Tuesdays and Thursdays. When does Tom practise?",
+    "option_a": "On Mondays and Fridays",
+    "option_b": "On Tuesdays and Thursdays",
+    "option_c": "At weekends",
+    "option_d": "Every morning",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Mai's class meets in the school hall on the first day. Their teacher introduces a new student to everyone. Where does the class meet?",
+    "option_a": "In the library",
+    "option_b": "In the school hall",
+    "option_c": "In the playground",
+    "option_d": "In the computer room",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Mai's class meets in the school hall on the first day. Their teacher introduces a new student to everyone. Who introduces the new student?",
+    "option_a": "The teacher",
+    "option_b": "The principal",
+    "option_c": "Mai's mother",
+    "option_d": "A classmate",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Read the passage: Cycling to work is cheap and healthy. It also helps reduce air pollution. Why is cycling good for the environment?",
+    "option_a": "It makes roads wider.",
+    "option_b": "It reduces air pollution.",
+    "option_c": "It uses more fuel.",
+    "option_d": "It creates more traffic.",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Cycling to work is cheap and healthy. It also helps reduce air pollution. What should cyclists wear?",
+    "option_a": "A helmet",
+    "option_b": "A school uniform",
+    "option_c": "A scarf",
+    "option_d": "A pair of gloves only",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Last Saturday, our class visited the history museum. A guide showed us old photographs, traditional clothes and tools. When did the class visit the museum?",
+    "option_a": "Last Monday",
+    "option_b": "Last Friday",
+    "option_c": "Last Saturday",
+    "option_d": "Last Sunday",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Last Saturday, our class visited the history museum. A guide showed us old photographs, traditional clothes and tools. What did the guide show the students?",
+    "option_a": "Modern cars",
+    "option_b": "Old photographs and traditional objects",
+    "option_c": "New computers",
+    "option_d": "Sports equipment",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Hoa eats vegetables and drinks plenty of water. She goes swimming twice a week and sleeps eight hours every night. How often does Hoa go swimming?",
+    "option_a": "Once a week",
+    "option_b": "Twice a week",
+    "option_c": "Every day",
+    "option_d": "Three times a month",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Hoa eats vegetables and drinks plenty of water. She goes swimming twice a week and sleeps eight hours every night. How many hours does Hoa sleep?",
+    "option_a": "Six hours",
+    "option_b": "Seven hours",
+    "option_c": "Eight hours",
+    "option_d": "Nine hours",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: The community library opens from 8 a.m. to 5 p.m. from Monday to Friday. Each member can borrow two books for one week. How many books can a member borrow?",
+    "option_a": "One",
+    "option_b": "Two",
+    "option_c": "Three",
+    "option_d": "Four",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: The community library opens from 8 a.m. to 5 p.m. from Monday to Friday. Each member can borrow two books for one week. How long can members keep the books?",
+    "option_a": "One day",
+    "option_b": "Three days",
+    "option_c": "One week",
+    "option_d": "One month",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Our neighbourhood has a project to reduce plastic waste. People bring reusable bags and collect plastic bottles on Sunday. Where are the bottles taken?",
+    "option_a": "To the recycling centre",
+    "option_b": "To the cinema",
+    "option_c": "To the supermarket",
+    "option_d": "To the museum",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Our neighbourhood has a project to reduce plastic waste. People bring reusable bags and collect plastic bottles on Sunday. What do people use instead of plastic bags?",
+    "option_a": "Paper tickets",
+    "option_b": "Reusable bags",
+    "option_c": "Plastic boxes",
+    "option_d": "Glass bottles",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Nam joins a badminton club. He practises three afternoons a week and plays games after finishing his homework. What club does Nam join?",
+    "option_a": "A football club",
+    "option_b": "A music club",
+    "option_c": "A badminton club",
+    "option_d": "An art club",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Nam joins a badminton club. He practises three afternoons a week and plays games after finishing his homework. When does he play games?",
+    "option_a": "Before breakfast",
+    "option_b": "After finishing his homework",
+    "option_c": "During lessons",
+    "option_d": "Before going to school",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: The town is improving public transport. It is adding more buses and making bus stops safer. What is the town adding?",
+    "option_a": "More buses",
+    "option_b": "More cars",
+    "option_c": "More motorbikes",
+    "option_d": "More private roads",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: The town is improving public transport. It is adding more buses and making bus stops safer. What is one purpose of this plan?",
+    "option_a": "To increase traffic",
+    "option_b": "To reduce traffic problems",
+    "option_c": "To remove all bus stops",
+    "option_d": "To encourage more private cars",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Read the passage: Volunteers at an animal shelter clean rooms and prepare food for animals. They also walk dogs when the weather is good. What do volunteers prepare?",
+    "option_a": "School books",
+    "option_b": "Food for animals",
+    "option_c": "Clothes for visitors",
+    "option_d": "Sports equipment",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Read the passage: Volunteers at an animal shelter clean rooms and prepare food for animals. They also walk dogs when the weather is good. When do they walk the dogs?",
+    "option_a": "When the weather is good",
+    "option_b": "Only at midnight",
+    "option_c": "When it is snowing",
+    "option_d": "During school lessons",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Read the passage: People can save electricity by switching off lights when they leave a room. They can also use energy-efficient appliances. What should people do when leaving a room?",
+    "option_a": "Turn on every light",
+    "option_b": "Switch off the lights",
+    "option_c": "Open the fridge",
+    "option_d": "Use more electricity",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Read the passage: People can save electricity by switching off lights when they leave a room. They can also use energy-efficient appliances. Which appliances should people choose?",
+    "option_a": "Energy-efficient appliances",
+    "option_b": "Broken appliances",
+    "option_c": "Old appliances that waste energy",
+    "option_d": "Appliances they never use",
+    "correct_answer": "A",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Read the passage: At the school festival, class 7A sells bookmarks while class 7B holds an environmental quiz. The money goes to a children's charity. What does class 7A sell?",
+    "option_a": "Cakes",
+    "option_b": "Bookmarks",
+    "option_c": "Toys",
+    "option_d": "Flowers",
+    "correct_answer": "B",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Read the passage: At the school festival, class 7A sells bookmarks while class 7B holds an environmental quiz. The money goes to a children's charity. Who receives the money?",
+    "option_a": "A sports team",
+    "option_b": "A music club",
+    "option_c": "A children's charity",
+    "option_d": "A supermarket",
+    "correct_answer": "C",
+    "skill": "reading",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Your friend eats too much fast food. What should you advise?",
+    "option_a": "You should eat more vegetables.",
+    "option_b": "You should skip every meal.",
+    "option_c": "You should never drink water.",
+    "option_d": "You should eat more sweets.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "You want to invite your friend to play badminton. What do you say?",
+    "option_a": "Would you like to play badminton with me?",
+    "option_b": "You must buy a badminton racket.",
+    "option_c": "I played badminton yesterday.",
+    "option_d": "Badminton is a sport.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Your school is collecting books for children in need. What can you do?",
+    "option_a": "Throw away your old books.",
+    "option_b": "Donate books you no longer need.",
+    "option_c": "Hide all your books.",
+    "option_d": "Buy more plastic bags.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "You see rubbish on the classroom floor. What should you do?",
+    "option_a": "Leave it there.",
+    "option_b": "Kick it under a desk.",
+    "option_c": "Pick it up and put it in the bin.",
+    "option_d": "Ask someone to make more rubbish.",
+    "correct_answer": "C",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Your teacher asks how often you read books. Which answer is correct?",
+    "option_a": "I read books three times a week.",
+    "option_b": "I read books at the library yesterday.",
+    "option_c": "I like reading books.",
+    "option_d": "Books are interesting.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "A sandwich costs 20,000 dong. You buy two sandwiches. How much do you pay?",
+    "option_a": "20,000 dong",
+    "option_b": "30,000 dong",
+    "option_c": "40,000 dong",
+    "option_d": "50,000 dong",
+    "correct_answer": "C",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "You often feel tired because you go to bed very late. What should you do?",
+    "option_a": "Stay up later.",
+    "option_b": "Go to bed earlier.",
+    "option_c": "Skip breakfast.",
+    "option_d": "Play games all night.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Your school has a music club. You want to join it. What should you ask?",
+    "option_a": "Where can I buy a bicycle?",
+    "option_b": "What time does the music club meet?",
+    "option_c": "How much is this sandwich?",
+    "option_d": "Where is the hospital?",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Your class wants to make the school greener. Which activity is best?",
+    "option_a": "Planting more trees",
+    "option_b": "Throwing rubbish into the river",
+    "option_c": "Wasting water",
+    "option_d": "Cutting down all the trees",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "Your friend asks why you go to school by bus. What is a suitable answer?",
+    "option_a": "Because buses can carry many people.",
+    "option_b": "Because I dislike studying.",
+    "option_c": "Because I want to stay at home.",
+    "option_d": "Because buses are books.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "easy"
+  },
+  {
+    "content": "You are in a café and want to order water politely. What do you say?",
+    "option_a": "Give me water now!",
+    "option_b": "I don't want anything.",
+    "option_c": "Could I have a glass of water, please?",
+    "option_d": "Where is your school?",
+    "correct_answer": "C",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your friend says a film is boring, but you like it. How can you disagree politely?",
+    "option_a": "You are completely wrong!",
+    "option_b": "I see your point, but I think it is interesting.",
+    "option_c": "I don't want to talk to you.",
+    "option_d": "Stop watching films.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You plan to visit your grandparents next weekend. Which sentence describes your plan?",
+    "option_a": "I visited them last week.",
+    "option_b": "I am going to visit them next weekend.",
+    "option_c": "I visit them every day yesterday.",
+    "option_d": "I visiting them now.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You notice that someone leaves the tap running. What should you tell them?",
+    "option_a": "You should waste more water.",
+    "option_b": "You should turn off the tap.",
+    "option_c": "You should open another tap.",
+    "option_d": "You should leave it running.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You need a dictionary from your classmate. What is the most polite request?",
+    "option_a": "Can I borrow your dictionary, please?",
+    "option_b": "Give me your dictionary!",
+    "option_c": "I lost your dictionary.",
+    "option_d": "Where did you buy your shoes?",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your school is 5 kilometres away. Which form of transport is usually more environmentally friendly?",
+    "option_a": "A private car with one person",
+    "option_b": "A public bus",
+    "option_c": "Two private cars",
+    "option_d": "A motorbike for every student",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your neighbourhood is organising a clean-up day. How can you invite a friend?",
+    "option_a": "Would you like to join our clean-up activity?",
+    "option_b": "You must stay at home.",
+    "option_c": "I cleaned my room yesterday.",
+    "option_d": "Where is your new bag?",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "A new student joins your class. What should you say to welcome them?",
+    "option_a": "Don't sit here.",
+    "option_b": "Welcome to our class! Nice to meet you.",
+    "option_c": "You are late.",
+    "option_d": "I don't know you.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your family uses many plastic bottles. What is a good way to reduce plastic waste?",
+    "option_a": "Buy more disposable bottles.",
+    "option_b": "Use reusable water bottles.",
+    "option_c": "Throw bottles into the river.",
+    "option_d": "Burn plastic bottles.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You want to improve your English reading skill. What is a useful habit?",
+    "option_a": "Read English texts regularly.",
+    "option_b": "Avoid all English books.",
+    "option_c": "Only watch videos without reading.",
+    "option_d": "Stop learning new words.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "If more people use public buses, what will probably happen?",
+    "option_a": "There will be more private cars.",
+    "option_b": "Traffic and air pollution may decrease.",
+    "option_c": "All roads will disappear.",
+    "option_d": "People will stop travelling.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your friend has a headache and feels tired. What advice is suitable?",
+    "option_a": "You should get some rest.",
+    "option_b": "You should play games all night.",
+    "option_c": "You should skip drinking water.",
+    "option_d": "You should run for several hours.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your school is holding a book fair tomorrow. How can you invite your friend?",
+    "option_a": "Would you like to visit the book fair with me?",
+    "option_b": "I visited a museum last month.",
+    "option_c": "You should buy a new phone.",
+    "option_d": "Where is the bus station?",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "You want to save electricity at home. Which action is best?",
+    "option_a": "Leave the television on all day.",
+    "option_b": "Turn off electrical devices when not using them.",
+    "option_c": "Turn on every light.",
+    "option_d": "Open the fridge all the time.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "medium"
+  },
+  {
+    "content": "Your friend thinks volunteering is a waste of time. You disagree politely. What do you say?",
+    "option_a": "I understand, but I think volunteering helps our community.",
+    "option_b": "You never understand anything.",
+    "option_c": "Stop talking now.",
+    "option_d": "Volunteering is a kind of food.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "hard"
+  },
+  {
+    "content": "You visited a museum yesterday. Which sentence is correct?",
+    "option_a": "I visit a museum yesterday.",
+    "option_b": "I visited a museum yesterday.",
+    "option_c": "I visiting a museum yesterday.",
+    "option_d": "I visits a museum yesterday.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "hard"
+  },
+  {
+    "content": "A tourist asks you how to get to the library. Which response is most helpful?",
+    "option_a": "Go straight and turn left at the next street.",
+    "option_b": "I like reading books.",
+    "option_c": "The library is interesting.",
+    "option_d": "I went there yesterday.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Your family wants to reduce plastic waste when shopping. What should you bring?",
+    "option_a": "More disposable bags",
+    "option_b": "Reusable shopping bags",
+    "option_c": "Plastic bags for every item",
+    "option_d": "Single-use plastic cups",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Your friend asks which activity you prefer. You like cycling more than travelling by car. What do you say?",
+    "option_a": "I prefer cycling to travelling by car.",
+    "option_b": "I prefer cycle than car.",
+    "option_c": "I like cycling yesterday.",
+    "option_d": "I am prefer cycling.",
+    "correct_answer": "A",
+    "skill": "application",
+    "difficulty": "hard"
+  },
+  {
+    "content": "Your group is preparing a presentation. You want a quiet classmate to share an idea. What should you say?",
+    "option_a": "You must not speak.",
+    "option_b": "Would you like to share your idea with us?",
+    "option_c": "Your idea is always wrong.",
+    "option_d": "Please leave the group.",
+    "correct_answer": "B",
+    "skill": "application",
+    "difficulty": "hard"
+  }
+]

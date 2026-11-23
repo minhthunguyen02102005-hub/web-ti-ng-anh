@@ -1,0 +1,329 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 4,
+  "unit_title": "Music and Arts",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: anthem",
+      "correct_answer": "A special song that represents a country or organisation",
+      "explanation": "An anthem is an official or important song, such as a national anthem."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: character",
+      "correct_answer": "A person or animal in a story, film or play",
+      "explanation": "A character is someone or something that appears in a story or performance."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: compose",
+      "correct_answer": "To write music",
+      "explanation": "Compose means to create a piece of music."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: composer",
+      "correct_answer": "A person who writes music",
+      "explanation": "A composer creates music, such as songs or symphonies."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: concert",
+      "correct_answer": "A public performance of music",
+      "explanation": "A concert is an event where musicians perform for an audience."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: instrument",
+      "correct_answer": "An object used to make music",
+      "explanation": "A musical instrument is used to produce musical sounds."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: puppet",
+      "correct_answer": "A model of a person or animal controlled by someone",
+      "explanation": "A puppet is moved by a person, often during a show."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: audience",
+      "correct_answer": "The people who watch or listen to a performance",
+      "explanation": "An audience is a group of people watching or listening to an event."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "The Vietnamese national ______ is called Tien Quan Ca.",
+      "correct_answer": "anthem",
+      "explanation": "An anthem is an important or official song representing a country."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Who is your favourite ______ in this film?",
+      "correct_answer": "character",
+      "explanation": "A character is a person or animal in a film or story."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "My brother wants to ______ a song for his school.",
+      "correct_answer": "compose",
+      "explanation": "Compose means to write or create music."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "Mozart was a famous ______.",
+      "correct_answer": "composer",
+      "explanation": "A composer is someone who writes music."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We are going to a pop ______ this weekend.",
+      "correct_answer": "concert",
+      "explanation": "A concert is a public musical performance."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "The guitar is my favourite musical ______.",
+      "correct_answer": "instrument",
+      "explanation": "A guitar is a musical instrument."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "Water ______ is a traditional art form in Viet Nam.",
+      "correct_answer": "puppetry",
+      "explanation": "Water puppetry is a traditional Vietnamese art form performed on water."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "The ______ clapped loudly after the performance.",
+      "correct_answer": "audience",
+      "explanation": "The audience consists of people who watch or listen to a performance."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word means 'a person who writes music'?",
+      "options": ["Singer", "Composer", "Painter", "Dancer"],
+      "correct_answer": "B",
+      "explanation": "A composer is a person who creates music."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which of these is a musical instrument?",
+      "options": ["Gallery", "Sculpture", "Violin", "Audience"],
+      "correct_answer": "C",
+      "explanation": "A violin is an instrument used to make music."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Where can you see paintings and sculptures?",
+      "options": ["Gallery", "Canteen", "Laboratory", "Playground"],
+      "correct_answer": "A",
+      "explanation": "An art gallery is a place where artworks are displayed."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What is a concert?",
+      "options": [
+        "A place to buy paintings",
+        "A public musical performance",
+        "A traditional dish",
+        "A type of sculpture"
+      ],
+      "correct_answer": "B",
+      "explanation": "A concert is an event where musicians perform music for people."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What does 'compose' mean?",
+      "options": [
+        "To watch a film",
+        "To write music",
+        "To draw a picture",
+        "To perform a dance"
+      ],
+      "correct_answer": "B",
+      "explanation": "Compose means to create or write a piece of music."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which phrase refers to a traditional Vietnamese art form using puppets on water?",
+      "options": [
+        "Street painting",
+        "Water puppetry",
+        "Modern sculpture",
+        "Classical singing"
+      ],
+      "correct_answer": "B",
+      "explanation": "Water puppetry is a traditional Vietnamese performance art."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What is a sculpture?",
+      "options": [
+        "A three-dimensional work of art",
+        "A musical performance",
+        "A type of musical instrument",
+        "A group of singers"
+      ],
+      "correct_answer": "A",
+      "explanation": "A sculpture is an artwork made by shaping materials such as stone, wood or metal."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What does 'performance' mean?",
+      "options": [
+        "A written examination",
+        "An act of presenting music, dance or drama to people",
+        "A place for keeping books",
+        "A type of musical instrument"
+      ],
+      "correct_answer": "B",
+      "explanation": "A performance is an activity presented to an audience."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word describes the people watching a play?",
+      "options": ["Composer", "Character", "Audience", "Instrument"],
+      "correct_answer": "C",
+      "explanation": "The audience watches or listens to a performance."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "He is a famous music ______. (COMPOSE)",
+      "correct_answer": "composer",
+      "explanation": "Composer is the noun referring to a person who composes music."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The students will ______ a song for the school festival. (COMPOSER)",
+      "correct_answer": "compose",
+      "explanation": "Compose is the verb meaning to create music."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The singer gave an excellent ______ last night. (PERFORM)",
+      "correct_answer": "performance",
+      "explanation": "Performance is the noun form of perform."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The art gallery has many beautiful ______. (SCULPT)",
+      "correct_answer": "sculptures",
+      "explanation": "Sculpture is a noun referring to a three-dimensional work of art. The plural form is sculptures."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The children enjoyed the traditional water ______ show. (PUPPET)",
+      "correct_answer": "puppetry",
+      "explanation": "Puppetry is the art of performing with puppets."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Mozart was a famous compose.",
+      "correct_answer": "compose → composer",
+      "explanation": "Composer is the noun for a person who writes music."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We went to a gallery to listen to a live concert of rock music.",
+      "correct_answer": "gallery → concert hall",
+      "explanation": "A concert hall is a suitable place to listen to a live music performance."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: The audience performed the song on stage.",
+      "correct_answer": "audience → singers or performers",
+      "explanation": "The audience watches a performance. Singers or performers present it."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: A guitar is a traditional art gallery.",
+      "correct_answer": "art gallery → musical instrument",
+      "explanation": "A guitar is a musical instrument, not a place where artworks are displayed."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: Water puppetry is a person who writes music.",
+      "correct_answer": "a person who writes music → a traditional art form",
+      "explanation": "Water puppetry is a traditional performance art. A composer is a person who writes music."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Lan visits a place where paintings and sculptures are displayed. Where is she?",
+      "options": ["A gallery", "A concert", "A canteen", "A laboratory"],
+      "correct_answer": "A",
+      "explanation": "A gallery is a place where people can see works of art."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A musician creates a new melody and writes music for a song. What is the musician doing?",
+      "options": ["Performing", "Composing", "Recycling", "Painting"],
+      "correct_answer": "B",
+      "explanation": "Composing means creating or writing music."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "People are sitting in a theatre and watching actors perform a play. Who are these people?",
+      "options": ["Composers", "The audience", "Sculptors", "Characters"],
+      "correct_answer": "B",
+      "explanation": "The audience is the group of people watching a performance."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A person makes a statue from stone. What kind of artwork is it?",
+      "options": ["Anthem", "Concert", "Sculpture", "Painting"],
+      "correct_answer": "C",
+      "explanation": "A sculpture is a three-dimensional work of art made from materials such as stone or wood."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Artists use puppets and water to tell traditional stories to children. What is this art form?",
+      "options": ["Water puppetry", "Classical music", "Painting", "Sculpture"],
+      "correct_answer": "A",
+      "explanation": "Water puppetry is a traditional Vietnamese performance art using puppets on water."
+    }
+  ]
+}

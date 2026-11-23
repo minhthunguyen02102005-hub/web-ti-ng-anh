@@ -1,0 +1,76 @@
+﻿
+{
+  "title": "Music and Arts",
+  "topic": "Âm nhạc và nghệ thuật",
+  "writing_type": "Informal Email",
+  "writing_topic": "Write an informal letter/email of about 70 words to invite a friend to the Street Painting Festival.",
+  "grammar_focus": "Comparisons: like, different from, (not) as ... as. Structures: N1 + is like/different from + N2; N1 + is (not) as + Adj + as + N2. Invitations: Would you like to go to...? How about going to...? Let's meet at... Event details: The show starts at [Time] at [Place].",
+  "sentence_guide": "1. Compare art forms: N1 + is like/different from + N2; N1 + is (not) as + adjective + as + N2. 2. Make an invitation: Would you like to go to...? / How about going to...? / Let's meet at... 3. Give the time and place: The show starts at [Time] at [Place]. Remember to use different from, not different with; use V-ing after How about and to + V after Would you like.",
+  "ordering_exercises": [
+    {
+      "question": "as / painting / interesting / is / photography / not / as /.",
+      "answer": "Painting is not as interesting as photography. (Or: Photography is not as interesting as painting.)"
+    },
+    {
+      "question": "about / water puppet show / going / to / how / a / tonight / ?",
+      "answer": "How about going to a water puppet show tonight?"
+    },
+    {
+      "question": "different / my / art taste / from / is / yours /.",
+      "answer": "Our tastes in art are different."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "The new art gallery / be / different / the old museum.",
+      "answer": "The new art gallery is different from the old museum."
+    },
+    {
+      "question": "Let us / meet / front of / the theater / 7:30 p.m.",
+      "answer": "Let's meet in front of the theater at 7:30 p.m."
+    },
+    {
+      "question": "Would you / like / see / concert / with / me / this Sunday?",
+      "answer": "Would you like to see a concert with me this Sunday?"
+    }
+  ],
+  "writing_prompt": "Write an informal letter/email of about 70 words to invite a friend to the Street Painting Festival.",
+  "outline": "1. Opening: Greet your friend and invite them to an art or music event. 2. Main content: Give the festival time and location; describe street painting activities and explain why joining will be interesting. 3. Meeting and closing: Suggest a meeting time and place, then say that you hope your friend can come and look forward to their reply.",
+  "sample_basic": "Hi Mai, Would you like to join the Street Painting Festival with me this Sunday? It starts at 8 a.m. in the town square. We can watch students make colourful pictures on the street and enjoy the music. I think it will be fun. Let's meet at the bus stop at 7:45 a.m. Please tell me if you can come. Bye, Lan.",
+  "sample_intermediate": "Hi Mai, How about taking part in the Street Painting Festival this Saturday? It will be held in the town square from 8 a.m. to 11 a.m. Many students will draw colourful pictures on the street. We can work together and enjoy the festival atmosphere. Let's meet in front of the library at 7:45 a.m. I hope you can come. See you, Lan.",
+  "sample_advanced": "Dear Mai, There is a Street Painting Festival in our town this Sunday morning. Would you like to join me? The event will take place in the town square at 8 a.m. We can create a picture together, look at other students' artwork and have a great time. I think it will be an interesting way to enjoy art with our friends. Let's meet at the library at 7:45 a.m. Best, Lan.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề hoặc không đúng dạng bài.",
+      "score_1": "Đúng chủ đề nhưng thiếu một số yêu cầu.",
+      "score_2": "Đúng chủ đề và đúng dạng bài theo yêu cầu."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Thiếu hầu hết ý chính.",
+      "score_1": "Có một số ý phù hợp nhưng chưa đầy đủ.",
+      "score_2": "Đủ các ý chính, có thông tin phù hợp."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi khiến khó hiểu.",
+      "score_1": "Có một số lỗi nhưng vẫn hiểu được.",
+      "score_2": "Dùng khá chính xác cấu trúc/ngữ pháp trọng tâm."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc rất hạn chế.",
+      "score_1": "Dùng được từ cơ bản, còn lặp.",
+      "score_2": "Dùng đúng từ vựng theo chủ đề."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Bài thiếu mạch lạc, nhiều lỗi.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Bố cục rõ, liên kết hợp lý, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Dùng sai giới từ trong cấu trúc so sánh khác với. Sai: Pop music is different with classical music. Đúng: Pop music is different from classical music.\n2. Nhầm dạng động từ sau các mẫu câu mời. Sai: How about go to the show? / Would you like go with me? Đúng: How about going to the show? / Would you like to go with me?"
+}
+

@@ -1,0 +1,366 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 1,
+  "unit_title": "Hobbies",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: collect",
+      "options": [],
+      "correct_answer": "To bring or gather things as a hobby",
+      "explanation": "Collect means to gather and keep things that you are interested in."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: bird-watching",
+      "options": [],
+      "correct_answer": "The activity of watching birds in nature",
+      "explanation": "Bird-watching is a hobby in which people observe birds."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: board game",
+      "options": [],
+      "correct_answer": "A game played on a flat board",
+      "explanation": "Board games are played using a board, pieces or cards."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: carve",
+      "options": [],
+      "correct_answer": "To make something by cutting wood or another material",
+      "explanation": "Carve means to shape an object by cutting its surface."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: cardboard",
+      "options": [],
+      "correct_answer": "Thick, stiff paper used for making boxes",
+      "explanation": "Cardboard is a strong type of paper often used for packaging."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: dollhouse",
+      "options": [],
+      "correct_answer": "A small toy house for dolls",
+      "explanation": "A dollhouse is a miniature house used as a toy."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word with its meaning: creativity",
+      "options": [],
+      "correct_answer": "The ability to produce new and original ideas",
+      "explanation": "Creativity is the ability to think of and create new things."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the phrase with its meaning: belong to",
+      "options": [],
+      "correct_answer": "To be owned by someone",
+      "explanation": "Belong to means to be someone's property."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "I have many stamps in my collection. I love to ______ them.",
+      "options": [],
+      "correct_answer": "collect",
+      "explanation": "Collect means to gather and keep things as a hobby."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "My father enjoys ______ in the park to see different kinds of birds.",
+      "options": [],
+      "correct_answer": "bird-watching",
+      "explanation": "Bird-watching is the activity of observing birds."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We often play a ______ game with our family at weekends.",
+      "options": [],
+      "correct_answer": "board",
+      "explanation": "A board game is a game played on a board."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "The artist uses a knife to ______ a beautiful animal from wood.",
+      "options": [],
+      "correct_answer": "carve",
+      "explanation": "Carve means to shape something by cutting wood or another material."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We use ______ to make boxes and model houses.",
+      "options": [],
+      "correct_answer": "cardboard",
+      "explanation": "Cardboard is thick paper suitable for making boxes and models."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "My little sister has a pink ______ with tiny rooms and furniture.",
+      "options": [],
+      "correct_answer": "dollhouse",
+      "explanation": "A dollhouse is a small toy house for dolls."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "Making things by hand can develop your ______.",
+      "options": [],
+      "correct_answer": "creativity",
+      "explanation": "Creativity is the ability to think of original ideas."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "This unusual collection of coins ______ my grandfather.",
+      "options": [],
+      "correct_answer": "belongs to",
+      "explanation": "Belongs to is used to show ownership. The subject is singular."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word means 'to gather and keep things as a hobby'?",
+      "options": ["Collect", "Carve", "Arrange", "Benefit"],
+      "correct_answer": "A",
+      "explanation": "Collect means to gather and keep things that you are interested in."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which activity involves watching birds in nature?",
+      "options": ["Horse riding", "Bird-watching", "Ice-skating", "Carving"],
+      "correct_answer": "B",
+      "explanation": "Bird-watching means observing birds in their natural environment."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What is a board game?",
+      "options": [
+        "A game played on a flat board",
+        "A kind of bird",
+        "A wooden sculpture",
+        "A small house for animals"
+      ],
+      "correct_answer": "A",
+      "explanation": "A board game is a game played on a board, often with pieces."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What does 'carve' mean?",
+      "options": [
+        "To watch carefully",
+        "To cut and shape a material",
+        "To collect stamps",
+        "To ride a horse"
+      ],
+      "correct_answer": "B",
+      "explanation": "Carve means to make something by cutting wood or another material."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which material is often used to make boxes?",
+      "options": ["Cotton", "Glass", "Cardboard", "Metal"],
+      "correct_answer": "C",
+      "explanation": "Cardboard is thick paper commonly used to make boxes."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "A dollhouse is ______.",
+      "options": [
+        "A house for birds",
+        "A small toy house for dolls",
+        "A large family house",
+        "A board game"
+      ],
+      "correct_answer": "B",
+      "explanation": "A dollhouse is a miniature toy house for dolls."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word means 'the ability to produce original ideas'?",
+      "options": ["Benefit", "Creativity", "Collection", "Unusual"],
+      "correct_answer": "B",
+      "explanation": "Creativity means the ability to think of new and original ideas."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "This bicycle belongs ______ my brother.",
+      "options": ["at", "for", "to", "with"],
+      "correct_answer": "C",
+      "explanation": "The correct phrase is belong to someone."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which activity means moving on ice wearing special boots?",
+      "options": ["Horse riding", "Ice-skating", "Bird-watching", "Carving"],
+      "correct_answer": "B",
+      "explanation": "Ice-skating is the activity of moving across ice using ice skates."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which word is closest in meaning to 'unusual'?",
+      "options": ["Common", "Ordinary", "Strange", "Boring"],
+      "correct_answer": "C",
+      "explanation": "Unusual means different from what is normal or common."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What is a benefit of having a hobby?",
+      "options": [
+        "It can help us relax and learn new skills",
+        "It always makes us tired",
+        "It stops us from learning",
+        "It makes us dislike free time"
+      ],
+      "correct_answer": "A",
+      "explanation": "A benefit is a good or helpful result of an activity."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Complete the sentence with the correct form of the word in brackets: She is very ______ and always makes interesting things. (CREATE)",
+      "options": [],
+      "correct_answer": "creative",
+      "explanation": "Creative is the adjective form of create. It describes someone who has original ideas."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "My brother enjoys stamp ______. (COLLECT)",
+      "options": [],
+      "correct_answer": "collecting",
+      "explanation": "Collecting is the noun or gerund form used to describe the hobby."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "This is an ______ hobby. I have never heard of it before. (USUAL)",
+      "options": [],
+      "correct_answer": "unusual",
+      "explanation": "Unusual is formed by adding the prefix un- to usual."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Reading books has many ______ for children. (BENEFIT)",
+      "options": [],
+      "correct_answer": "benefits",
+      "explanation": "Benefits is the plural noun form of benefit."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "My hobby is collecting old coins. It is an interesting ______. (ACT)",
+      "options": [],
+      "correct_answer": "activity",
+      "explanation": "Activity is a noun meaning something that a person does."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: I enjoy bird-looking in the garden.",
+      "options": [],
+      "correct_answer": "bird-looking → bird-watching",
+      "explanation": "The correct expression for observing birds is bird-watching."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: My hobby is collecting unusual things. It gives me many benefices.",
+      "options": [],
+      "correct_answer": "benefices → benefits",
+      "explanation": "The correct plural noun of benefit is benefits."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: I made a toy house for my doll using a doll-home.",
+      "options": [],
+      "correct_answer": "doll-home → dollhouse",
+      "explanation": "Dollhouse is the correct word for a small toy house for dolls."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: My father likes horse-driving at the weekend.",
+      "options": [],
+      "correct_answer": "horse-driving → horse riding",
+      "explanation": "Horse riding is the correct expression for riding a horse as an activity."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: This collection of postcards belongs for my sister.",
+      "options": [],
+      "correct_answer": "belongs for → belongs to",
+      "explanation": "The correct phrase to show ownership is belong to."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Nam spends every Sunday watching different birds through binoculars. What is his hobby?",
+      "options": ["Bird-watching", "Ice-skating", "Carving", "Horse riding"],
+      "correct_answer": "A",
+      "explanation": "Watching and observing birds is called bird-watching."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Lan uses pieces of thick paper to make a model house. Which material does she use?",
+      "options": ["Glass", "Cardboard", "Cotton", "Leather"],
+      "correct_answer": "B",
+      "explanation": "Cardboard is thick paper often used for models and boxes."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Tom makes small wooden animals by cutting and shaping pieces of wood. What does he do?",
+      "options": ["Collect", "Arrange", "Carve", "Watch"],
+      "correct_answer": "C",
+      "explanation": "Carve means to cut and shape a material, such as wood."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Mai can think of many new ways to decorate her room. Which quality does she show?",
+      "options": ["Creativity", "Illness", "Boredom", "Difficulty"],
+      "correct_answer": "A",
+      "explanation": "Creativity is the ability to produce new and original ideas."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Peter collects very rare toys that most people have never seen. Which adjective best describes these toys?",
+      "options": ["Usual", "Ordinary", "Unusual", "Common"],
+      "correct_answer": "C",
+      "explanation": "Unusual describes something that is different from what is normal or common."
+    }
+  ]
+}

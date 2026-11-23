@@ -1,0 +1,76 @@
+﻿
+{
+  "title": "Hobbies",
+  "topic": "Sở thích",
+  "writing_type": "Paragraph",
+  "writing_topic": "Write a paragraph of about 70 words about your favourite hobby.",
+  "grammar_focus": "Present Simple; verbs of liking and disliking + V-ing/N. Important structures: My favourite hobby is + V-ing/N; S + enjoy/love/like + V-ing; S + started/took up this hobby + time ago; S + share this hobby with + someone; To do this hobby, I need + N; V-ing + makes me feel...; helps me relax; helps me develop creativity. Note: When a gerund is the subject, the main verb usually takes the singular form.",
+  "sentence_guide": "1. Introduce your hobby: My favourite hobby is + V-ing/N. 2. Say when you started it: I started/took up this hobby... 3. Say who you share it with: I share this hobby with... 4. Mention the tools or materials you need: To do this hobby, I need... 5. Explain its benefits and how it makes you feel: It makes me feel... / It helps me relax. Remember: Drawing makes me happy.",
+  "ordering_exercises": [
+    {
+      "question": "models / my / of / brother / small / making / enjoys / cars /.",
+      "answer": "My brother enjoys making small models of cars."
+    },
+    {
+      "question": "start / your / when / drawing / class / does / ?",
+      "answer": "When does your drawing class start?"
+    },
+    {
+      "question": "paper / need / coloured / glue / and / we / dollhouses / to build /.",
+      "answer": "We need coloured paper and glue to build dollhouses."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "My sister / love / collect / teddy bears / free time.",
+      "answer": "My sister loves collecting teddy bears in her free time."
+    },
+    {
+      "question": "Doing judo / help / Mark / become / patient / healthy.",
+      "answer": "Doing judo helps Mark become patient and healthy."
+    },
+    {
+      "question": "Gardening / teach / us / patience / love for nature.",
+      "answer": "Gardening teaches us patience and a love for nature."
+    }
+  ],
+  "writing_prompt": "Write a paragraph of about 70 words about your favourite hobby.",
+  "outline": "1. Topic sentence: Introduce your favourite hobby and when you started it. 2. Supporting sentences: Explain who you do it with, what tools or materials you need, and how often you do it. 3. Concluding sentence: Describe your feelings and the benefits of this hobby.",
+  "sample_basic": "My favourite hobby is drawing. I started it two years ago. I often draw pictures in my bedroom in my free time. I share this hobby with my sister. To draw, I only need paper, pencils, and erasers. Drawing makes me feel happy and relaxed after school. I love drawing very much.",
+  "sample_intermediate": "My favourite hobby is building dollhouses. I started this hobby three years ago after watching an online video. I usually build models at weekends with my best friend, Hoa. To do this hobby, we need cardboard, glue, fabric, and paint. Building dollhouses requires patience, but it develops our creativity. It makes us very proud when we finish a new model.",
+  "sample_advanced": "Gardening is my absolute favourite hobby, which I took up during the summer holiday two years ago. Every afternoon, I spend about an hour in the garden with my grandmother, caring for flowering plants and fresh vegetables. This hobby requires basic tools like spades and watering cans, but most importantly, a great deal of patience. Gardening not only reduces my school stress but also teaches me valuable lessons about nature and responsibility.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề hoặc không đúng dạng bài.",
+      "score_1": "Đúng chủ đề nhưng thiếu một số yêu cầu.",
+      "score_2": "Đúng chủ đề và đúng dạng bài theo yêu cầu."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Thiếu hầu hết ý chính.",
+      "score_1": "Có một số ý phù hợp nhưng chưa đầy đủ.",
+      "score_2": "Đủ các ý chính, có thông tin phù hợp."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi khiến khó hiểu.",
+      "score_1": "Có một số lỗi nhưng vẫn hiểu được.",
+      "score_2": "Dùng khá chính xác cấu trúc/ngữ pháp trọng tâm."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc rất hạn chế.",
+      "score_1": "Dùng được từ cơ bản, còn lặp.",
+      "score_2": "Dùng đúng từ vựng theo chủ đề."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Bài thiếu mạch lạc, nhiều lỗi.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Bố cục rõ, liên kết hợp lý, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Quên chia V-ing sau động từ yêu thích. Sai: I enjoy build model cars. Đúng: I enjoy building model cars. Quy tắc: enjoy + V-ing.\n2. Dùng sai tính từ chỉ cảm xúc sau make. Sai: Drawing makes me happy and relax. Đúng: Drawing makes me happy and relaxed. Hoặc: Drawing helps me relax."
+}
+

@@ -1,0 +1,204 @@
+
+{
+  "section_type": "unit",
+  "unit": 4,
+  "review_number": null,
+  "title": "Two Cousins, Two Hobbies",
+  "topic": "Music and Arts",
+  "description": "Language focus: like, different from, (not) as ... as; music and arts vocabulary from Unit 4.",
+  "content": "Lan and her cousin Hung are in grade 7. They both love the arts, but their hobbies are different from each other.\n\nLan loves painting. She often paints portraits of her family in her free time. Her portraits look like photos, and her friends say she is very talented.\n\nHung likes music. He plays the guitar and the piano. He thinks the piano is not as easy as the guitar, so he practises it for an hour every evening.\n\nLast Saturday, they went to an art gallery in the city centre. Lan enjoyed the paintings very much, but Hung felt a bit bored. He said, \"A gallery is not as lively as a concert.\" Lan smiled and said, \"Painting is different from music, but they both make people happy.\"\n\nNext weekend, they are going to a concert at the city concert hall. It is Hung's choice, and Lan agrees.",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What is Lan's hobby?",
+      "options": {
+        "A": "Playing the guitar",
+        "B": "Taking photos",
+        "C": "Painting",
+        "D": "Singing"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 says Lan loves painting."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What does Lan often paint?",
+      "options": {
+        "A": "Landscapes",
+        "B": "Portraits of her family",
+        "C": "Animals",
+        "D": "Her school"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 2 says Lan often paints portraits of her family in her free time."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Which instruments does Hung play?",
+      "options": {
+        "A": "The guitar and the piano",
+        "B": "The violin and the drum",
+        "C": "The cello and the guitar",
+        "D": "The piano and the violin"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 says Hung plays the guitar and the piano."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where did Lan and Hung go last Saturday?",
+      "options": {
+        "A": "To a concert hall",
+        "B": "To a museum",
+        "C": "To an art gallery",
+        "D": "To a puppet theatre"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 says they went to an art gallery in the city centre."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where are Lan and Hung going next weekend?",
+      "options": {
+        "A": "To an art gallery",
+        "B": "To a concert",
+        "C": "To a music festival at school",
+        "D": "To a talent show"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 5 says they are going to a concert at the city concert hall next weekend."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the best title for the passage?",
+      "options": {
+        "A": "A Day at the Art Gallery",
+        "B": "How to Play the Piano",
+        "C": "Two Cousins, Two Hobbies",
+        "D": "A Famous Painter"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage describes two cousins who love the arts but have different hobbies."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the passage mainly about?",
+      "options": {
+        "A": "Two cousins who love the arts but like different things",
+        "B": "A school concert",
+        "C": "The history of painting",
+        "D": "A music lesson"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 introduces Lan and Hung as two cousins who both love the arts but have different hobbies. The other options are not the main focus."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'portraits' in paragraph 2 means ____.",
+      "options": {
+        "A": "pictures of people",
+        "B": "pictures of animals",
+        "C": "pictures of mountains",
+        "D": "paint and brushes"
+      },
+      "correct_answer": "A",
+      "explanation": "Lan paints portraits of her family, and the passage says they look like photos. Portraits are pictures of people."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'talented' in paragraph 2 means ____.",
+      "options": {
+        "A": "very tired",
+        "B": "very shy",
+        "C": "having a natural ability to do something well",
+        "D": "very lazy"
+      },
+      "correct_answer": "C",
+      "explanation": "Lan's portraits look like photos, so her friends think she has a natural ability to paint well."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'lively' in paragraph 4 means ____.",
+      "options": {
+        "A": "quiet and slow",
+        "B": "full of energy and fun",
+        "C": "very expensive",
+        "D": "very old"
+      },
+      "correct_answer": "B",
+      "explanation": "Hung says a gallery is not as lively as a concert. In this context, lively means full of energy and fun."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about Hung?",
+      "options": {
+        "A": "He prefers concerts to art galleries.",
+        "B": "He dislikes music.",
+        "C": "He loves painting more than Lan.",
+        "D": "He never plays the piano."
+      },
+      "correct_answer": "A",
+      "explanation": "Hung felt bored at the art gallery and chose to go to a concert next weekend. This suggests that he prefers concerts to art galleries."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about Lan and Hung?",
+      "options": {
+        "A": "They never go out together.",
+        "B": "They respect each other's different hobbies.",
+        "C": "They argue about their hobbies all the time.",
+        "D": "They want to change each other's hobbies."
+      },
+      "correct_answer": "B",
+      "explanation": "Lan enjoys painting but agrees to go to Hung's chosen concert. She also says painting and music both make people happy, suggesting that they respect each other's interests."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Lan and Hung have the same hobby.",
+      "correct_answer": "F",
+      "explanation": "False. The first paragraph says their hobbies are different from each other."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Lan's portraits look like photos.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 2 directly says her portraits look like photos."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Hung practises the piano for an hour every evening.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 3 says he practises the piano for an hour every evening."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Hung enjoyed the art gallery very much.",
+      "correct_answer": "F",
+      "explanation": "False. Paragraph 4 says Hung felt a bit bored at the art gallery."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Lan sings in the school choir.",
+      "correct_answer": "NG",
+      "explanation": "Not Given. The passage does not mention Lan singing in a school choir."
+    }
+  ]
+}

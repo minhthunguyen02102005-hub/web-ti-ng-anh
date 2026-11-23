@@ -1,0 +1,207 @@
+
+{
+  "passages": [
+    {
+      "section_type": "unit",
+      "unit": 3,
+      "title": "My Volunteer Summer",
+      "topic": "Community Service",
+      "description": "Unit 3 - Community Service",
+      "content": "Last summer, I joined the Green Hands Club in my town. The club had thirty members, and we worked together every Saturday morning.\n\nIn June, we cleaned the lake near our school. We picked up a lot of litter and put the plastic bottles in the recycling bins. In July, we visited a nursing home. We sang songs for the old people and read them stories. They were very happy. In August, we collected old books and clothes. Then we donated them to homeless children in our city.\n\nI learnt many things from the club. I was shy before, but now I speak to new people easily. I became more confident, and I made new friends. Most importantly, I felt useful because I helped other people. Next summer, I want to join the club again.",
+      "difficulty": "basic",
+      "questions": [
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What is the name of the club?",
+          "options": {
+            "A": "The Green School Club",
+            "B": "The Green Hands Club",
+            "C": "The Lending Hand Club",
+            "D": "The Green Heart Club"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 1 states that the writer joined the Green Hands Club in their town."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "How many members did the club have?",
+          "options": {
+            "A": "Thirteen",
+            "B": "Thirty",
+            "C": "Three hundred",
+            "D": "Twenty"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 1 says that the club had thirty members."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What did the members do at the lake in June?",
+          "options": {
+            "A": "They planted trees.",
+            "B": "They cleaned it.",
+            "C": "They taught English.",
+            "D": "They visited a nursing home."
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 2 states: In June, we cleaned the lake near our school."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "Who did the members sing songs for in July?",
+          "options": {
+            "A": "Homeless children",
+            "B": "Primary students",
+            "C": "Old people",
+            "D": "Teachers"
+          },
+          "correct_answer": "C",
+          "explanation": "In July, the members visited a nursing home and sang songs for the old people."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "Who did the members give old books and clothes to?",
+          "options": {
+            "A": "Old people",
+            "B": "Poor farmers",
+            "C": "Their classmates",
+            "D": "Homeless children"
+          },
+          "correct_answer": "D",
+          "explanation": "Paragraph 2 says that the members donated old books and clothes to homeless children in their city."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the best title for the passage?",
+          "options": {
+            "A": "A Summer Holiday at the Beach",
+            "B": "My Volunteer Summer",
+            "C": "How to Recycle Plastic Bottles",
+            "D": "Our Town's Lake"
+          },
+          "correct_answer": "B",
+          "explanation": "The passage describes the writer's volunteer activities during the summer and what they learnt from them."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the passage mainly about?",
+          "options": {
+            "A": "A trip to a nursing home",
+            "B": "The writer's school life",
+            "C": "The writer's community activities last summer and what the writer learnt",
+            "D": "The history of the Green Hands Club"
+          },
+          "correct_answer": "C",
+          "explanation": "Paragraphs 1 and 2 describe the community activities, while paragraph 3 explains what the writer learnt and how they changed."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'litter' in paragraph 2 means ____.",
+          "options": {
+            "A": "Small trees",
+            "B": "Rubbish left on the ground",
+            "C": "Old books",
+            "D": "Clean water"
+          },
+          "correct_answer": "B",
+          "explanation": "The members picked up litter near the lake and put plastic bottles in recycling bins. Litter means rubbish left in a public place or on the ground."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'donated' in paragraph 2 means ____.",
+          "options": {
+            "A": "Sold",
+            "B": "Borrowed",
+            "C": "Gave",
+            "D": "Bought"
+          },
+          "correct_answer": "C",
+          "explanation": "The members collected old books and clothes and donated them to homeless children. Donated means gave something to help others."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word 'confident' in paragraph 3 means ____.",
+          "options": {
+            "A": "Shy and quiet",
+            "B": "Sure about yourself",
+            "C": "Tired of work",
+            "D": "Afraid of people"
+          },
+          "correct_answer": "B",
+          "explanation": "The writer says they were shy before but became more confident. Confident means feeling sure about yourself and your abilities."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "What can we infer about the writer before joining the club?",
+          "options": {
+            "A": "The writer was very popular.",
+            "B": "The writer was shy with new people.",
+            "C": "The writer disliked old people.",
+            "D": "The writer had many friends in the club."
+          },
+          "correct_answer": "B",
+          "explanation": "The writer says, 'I was shy before, but now I speak to new people easily.' This shows that the writer was shy before joining the club."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "What can we infer about the writer's feelings about the club?",
+          "options": {
+            "A": "The writer enjoyed it and wants to continue.",
+            "B": "The writer felt bored.",
+            "C": "The writer wants to leave the club.",
+            "D": "The writer did not learn anything."
+          },
+          "correct_answer": "A",
+          "explanation": "The writer felt useful after helping other people and wants to join the club again next summer. This suggests a positive experience."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The club members worked together every Saturday morning.",
+          "correct_answer": "T",
+          "explanation": "Paragraph 1 states that the members worked together every Saturday morning. This matches the statement."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "In June, the members planted trees near the school.",
+          "correct_answer": "F",
+          "explanation": "In June, the members cleaned the lake near their school. The passage describes cleaning the lake, not planting trees."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The members sang songs for old people in a nursing home.",
+          "correct_answer": "T",
+          "explanation": "Paragraph 2 says that the members visited a nursing home and sang songs for the old people in July."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The members gave old books and clothes to old people.",
+          "correct_answer": "F",
+          "explanation": "The members donated the old books and clothes to homeless children, not old people."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The club gave money to the nursing home.",
+          "correct_answer": "NG",
+          "explanation": "The passage does not mention whether the club gave money to the nursing home. Therefore, the information is not given."
+        }
+      ]
+    }
+  ]
+}

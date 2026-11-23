@@ -1,0 +1,204 @@
+
+{
+  "section_type": "unit",
+  "unit": 6,
+  "review_number": null,
+  "title": "A Visit to Sunshine Lower Secondary School",
+  "topic": "A Visit to a School",
+  "description": "Language focus: prepositions of time and place (at, in, on); school vocabulary from Unit 6.",
+  "content": "Last Saturday, my class visited Sunshine Lower Secondary School in Da Lat. It is on Hoa Binh Street, near the city centre. We arrived at 8 a.m. and a teacher met us at the school gate.\n\nThe school has about 800 students, and many of them are gifted. They are very intelligent and learn quickly. To study there, students must pass an entrance exam in June. The school also has excellent facilities: a big library with thousands of books, two computer rooms, a sports hall and a beautiful school garden.\n\nOn Mondays and Wednesdays in the afternoon, students take part in outdoor activities. Some students play football on the playground, and others grow flowers in the garden. At lunch, we ate in the school canteen on the second floor.\n\nWe left the school at 3 p.m. We learnt a lot. I want to study at a school like this in the future.",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "When did the writer's class visit the school?",
+      "options": {
+        "A": "Last Friday",
+        "B": "Last Saturday",
+        "C": "Last Sunday",
+        "D": "Last month"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says the writer's class visited Sunshine Lower Secondary School last Saturday."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where is the school?",
+      "options": {
+        "A": "In Ha Noi",
+        "B": "In Hue",
+        "C": "In Da Lat",
+        "D": "In Da Nang"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 says Sunshine Lower Secondary School is in Da Lat."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "About how many students does the school have?",
+      "options": {
+        "A": "80",
+        "B": "180",
+        "C": "800",
+        "D": "8,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 says the school has about 800 students."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "What do some students do on the playground?",
+      "options": {
+        "A": "Grow flowers",
+        "B": "Play football",
+        "C": "Read books",
+        "D": "Use computers"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 3 says some students play football on the playground."
+    },
+    {
+      "task_type": "A",
+      "question_type": "multiple_choice",
+      "question_text": "Where did the class have lunch?",
+      "options": {
+        "A": "In the school canteen",
+        "B": "In the school garden",
+        "C": "In the sports hall",
+        "D": "In the library"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 says the class ate in the school canteen on the second floor."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the best title for the passage?",
+      "options": {
+        "A": "A Visit to Sunshine Lower Secondary School",
+        "B": "How to Pass an Entrance Exam",
+        "C": "My Weekend in Da Lat",
+        "D": "Outdoor Activities for Students"
+      },
+      "correct_answer": "A",
+      "explanation": "The passage describes the class visit to Sunshine Lower Secondary School and the things the writer saw there."
+    },
+    {
+      "task_type": "B",
+      "question_type": "multiple_choice",
+      "question_text": "What is the passage mainly about?",
+      "options": {
+        "A": "The writer's favourite subjects",
+        "B": "The writer's class visit to a school and what the writer saw there",
+        "C": "The history of a famous school",
+        "D": "A school football match"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 describes the visit, paragraphs 2 and 3 describe the school and its activities, and the final paragraph gives the writer's feelings."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'gifted' in paragraph 2 means ____.",
+      "options": {
+        "A": "very intelligent or talented",
+        "B": "very tall",
+        "C": "very shy",
+        "D": "very tired"
+      },
+      "correct_answer": "A",
+      "explanation": "The passage explains that gifted students are very intelligent and learn quickly."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The phrase 'entrance exam' in paragraph 2 means ____.",
+      "options": {
+        "A": "an exam at the end of the school year",
+        "B": "an exam taken to get into a school",
+        "C": "an English test",
+        "D": "a sports competition"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage says students must pass an entrance exam to study at the school. It is an exam taken to get into a school."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "The word 'facilities' in paragraph 2 means ____.",
+      "options": {
+        "A": "teachers and students",
+        "B": "school rules",
+        "C": "buildings, rooms and equipment that people can use",
+        "D": "school subjects"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage lists a library, computer rooms, a sports hall and a school garden as examples of the school's facilities."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about the school?",
+      "options": {
+        "A": "It is a small school with old buildings.",
+        "B": "It is a good school with strong students and good facilities.",
+        "C": "It does not have any outdoor activities.",
+        "D": "It is only for teachers."
+      },
+      "correct_answer": "B",
+      "explanation": "The school has gifted students, an entrance exam and excellent facilities. These details suggest that it is a good school."
+    },
+    {
+      "task_type": "C",
+      "question_type": "multiple_choice",
+      "question_text": "What can we infer about the writer's feelings after the visit?",
+      "options": {
+        "A": "The writer was bored.",
+        "B": "The writer did not like the school.",
+        "C": "The writer was afraid of the teachers.",
+        "D": "The writer liked the school and wants to study at a similar one."
+      },
+      "correct_answer": "D",
+      "explanation": "The writer says they learnt a lot and want to study at a school like this in the future. This shows a positive impression."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The writer's class visited the school on a Saturday.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 1 says the class visited the school last Saturday."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "A teacher met the students at the school gate.",
+      "correct_answer": "T",
+      "explanation": "True. Paragraph 1 says a teacher met the class at the school gate."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "Students can study at the school without taking any exam.",
+      "correct_answer": "F",
+      "explanation": "False. Paragraph 2 says students must pass an entrance exam in June to study there."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The school canteen is on the first floor.",
+      "correct_answer": "F",
+      "explanation": "False. Paragraph 3 says the school canteen is on the second floor."
+    },
+    {
+      "task_type": "D",
+      "question_type": "true_false_not_given",
+      "question_text": "The school has a swimming pool.",
+      "correct_answer": "NG",
+      "explanation": "Not Given. The passage lists several school facilities but does not mention a swimming pool."
+    }
+  ]
+}

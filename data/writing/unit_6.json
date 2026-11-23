@@ -1,0 +1,94 @@
+﻿
+{
+  "title": "A Visit to a School",
+  "topic": "Thăm một ngôi trường",
+  "writing_type": "Paragraph",
+  "writing_topic": "Write a paragraph of about 70 words about an outdoor activity at your school.",
+  "grammar_focus": "Prepositions of time: at + specific time/break time; in + parts of the day/months/years; on + dates/days of the week. Prepositions of place: at + specific places; in + spaces/rooms; on + surfaces/floors. Describe school activities using: S + take part in/join + activity + at/in/on + place/time.",
+  "sentence_guide": "1. Prepositions of time: at + specific time or break time; in + parts of the day, months or years; on + dates or days of the week. 2. Prepositions of place: at + specific places (at school, at home); in + spaces (in the yard, in the library); on + surfaces or floors (on the 2nd floor, on the playground). 3. Describe school activities: S + take part in/join + activity + at/in/on + place/time.",
+  "ordering_exercises": [
+    {
+      "question": "on / second floor / our / is / the / English classroom /.",
+      "answer": "Our English classroom is on the second floor."
+    },
+    {
+      "question": "students / outdoor activities / do / what / at break time / join / ?",
+      "answer": "What outdoor activities do students join at break time?"
+    },
+    {
+      "question": "library / quiet / is / a / place / study / to / in / school / my /.",
+      "answer": "The library in my school is a quiet place to study."
+    }
+  ],
+  "completion_exercises": [
+    {
+      "question": "Chu Van An Lower Secondary School / be / famous / intelligent students.",
+      "answer": "Chu Van An Lower Secondary School is famous for its intelligent students."
+    },
+    {
+      "question": "My friends / usually / play / football / school playground / afternoon.",
+      "answer": "My friends usually play football in the school playground in the afternoon."
+    },
+    {
+      "question": "Students / study / computer science / computer room / Wednesdays.",
+      "answer": "Students study computer science in the computer room on Wednesdays."
+    }
+  ],
+  "writing_prompt": "Write a paragraph of about 70 words about an outdoor activity at your school.",
+  "outline": "1. Opening: Introduce the name of an outdoor activity at your school, such as playing football, planting trees or reading books in the schoolyard, and say when it takes place. 2. Main content: Describe where the activity takes place, how students participate and what they do. Use the correct prepositions at, in and on. 3. Conclusion: Explain how the outdoor activity benefits students' health and learning spirit.",
+  "sample_basic": "At my school, we have many outdoor activities. Playing football is the most popular activity at break time. We usually play football in the school yard in the afternoon. My classmates and I join two teams to play together. It is very fun. This outdoor activity helps us keep fit and relax after lessons.",
+  "sample_intermediate": "Outdoor activities play an important role at my school. Every Thursday afternoon, many students take part in cleaning the school garden. We pick up litter, water green plants, and sweep the pathways. This activity takes place in the garden behind the main building. Working together outdoors not only keeps our school clean but also teaches us how to protect the environment.",
+  "sample_advanced": "Among various extracurricular events, the annual Sports Day is the most thrilling outdoor activity at my lower secondary school. Held on the spacious sports field in November, the event attracts hundreds of students competing in running, basketball, and tug-of-war. Participating in these games allows us to improve physical health and foster team spirit. It is always a memorable experience that connects students across all grades.",
+  "rubric": [
+    {
+      "criterion": "Đúng yêu cầu đề",
+      "score_0": "Lạc đề hoặc không đúng dạng bài.",
+      "score_1": "Đúng chủ đề nhưng thiếu một số yêu cầu.",
+      "score_2": "Đúng chủ đề và đúng dạng bài theo yêu cầu."
+    },
+    {
+      "criterion": "Nội dung",
+      "score_0": "Thiếu hầu hết ý chính.",
+      "score_1": "Có một số ý phù hợp nhưng chưa đầy đủ.",
+      "score_2": "Đủ các ý chính, có thông tin phù hợp."
+    },
+    {
+      "criterion": "Ngữ pháp",
+      "score_0": "Nhiều lỗi khiến khó hiểu.",
+      "score_1": "Có một số lỗi nhưng vẫn hiểu được.",
+      "score_2": "Dùng khá chính xác cấu trúc/ngữ pháp trọng tâm."
+    },
+    {
+      "criterion": "Từ vựng",
+      "score_0": "Từ vựng sai hoặc rất hạn chế.",
+      "score_1": "Dùng được từ cơ bản, còn lặp.",
+      "score_2": "Dùng đúng từ vựng theo chủ đề."
+    },
+    {
+      "criterion": "Bố cục, chính tả",
+      "score_0": "Bài thiếu mạch lạc, nhiều lỗi.",
+      "score_1": "Có trình tự tương đối rõ, còn vài lỗi.",
+      "score_2": "Bố cục rõ, liên kết hợp lý, ít hoặc không có lỗi."
+    }
+  ],
+  "common_errors": "1. Dùng sai giới từ đi với thứ trong tuần và tầng nhà. Sai: We have English in Monday. Đúng: We have English on Monday. Sai: We have English at the second floor. Đúng: We have English on the second floor. 2. Nhầm lẫn giữa at school và in the classroom. Sai: I study at the classroom. Đúng: I study in the classroom / at school.",
+  "self_editing_checklist": [
+    {
+      "step": "Kiểm tra số từ (Word Count)",
+      "description": "Đảm bảo độ dài đoạn văn/email nằm trong khoảng 60–80 từ."
+    },
+    {
+      "step": "Kiểm tra thì động từ (Verb Tenses)",
+      "description": "Units 1, 2, 5, 6: Kiểm tra chia thì Hiện tại đơn (S + V-s/es). Unit 3: Kiểm tra động từ thì Quá khứ đơn (V-ed/V2)."
+    },
+    {
+      "step": "Kiểm tra cấu trúc đặc trưng",
+      "description": "Unit 1: V-ing sau like/enjoy/love. Unit 2: V-bare sau should/shouldn't. Unit 4: different from, (not) as...as, Would you like to V. Unit 5: How many + danh từ đếm được số nhiều; How much + danh từ không đếm được; mô tả giờ ăn và món ăn trong khu vực. Unit 6: Kiểm tra giới từ at/in/on."
+    },
+    {
+      "step": "Kiểm tra hình thức (Formatting)",
+      "description": "Viết hoa chữ cái đầu câu và tên riêng, dùng dấu chấm cuối câu, lùi đầu dòng đối với đoạn văn hoặc có dòng chào/kết đối với email."
+    }
+  ]
+}
+

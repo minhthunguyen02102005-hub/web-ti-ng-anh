@@ -1,0 +1,59 @@
+
+{
+    "topics": [
+        {
+            "title": "My Healthy Habits",
+            "topic": "Healthy Living",
+            "description": "Talk about your daily habits to stay healthy.",
+            "prompt": "What do you do every day to stay healthy? How often do you exercise? What healthy food do you eat?",
+            "suggested_vocabulary": [
+                "healthy habits",
+                "exercise",
+                "balanced diet",
+                "vegetables",
+                "fruit",
+                "drink water",
+                "get enough sleep",
+                "stay healthy"
+            ],
+            "sample_answer": "I have some healthy habits to stay healthy. I eat vegetables and fruit every day. I drink plenty of water and do exercise in the morning. I also try to get enough sleep every night. I think these habits help me feel better and have more energy.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "How to Stay Fit",
+            "topic": "Healthy Living",
+            "description": "Talk about ways to keep your body fit and strong.",
+            "prompt": "What should students do to stay fit? What sports can they play? Why is exercise important?",
+            "suggested_vocabulary": [
+                "stay fit",
+                "physical activity",
+                "play sports",
+                "go jogging",
+                "keep fit",
+                "strong",
+                "energy",
+                "regularly"
+            ],
+            "sample_answer": "Students should do exercise regularly to stay fit. They can play badminton, football or go jogging with their friends. Exercise makes our bodies stronger and helps us feel happier. We should also eat healthy food and avoid staying up late.",
+            "difficulty": "basic"
+        },
+        {
+            "title": "Giving Advice for a Healthy Lifestyle",
+            "topic": "Healthy Living",
+            "description": "Give advice to someone who wants to have a healthier lifestyle.",
+            "prompt": "Your friend often eats fast food and stays up late. What advice would you give? Why should they change these habits?",
+            "suggested_vocabulary": [
+                "should",
+                "shouldn't",
+                "fast food",
+                "junk food",
+                "lifestyle",
+                "give up",
+                "instead of",
+                "take care of"
+            ],
+            "sample_answer": "I think my friend should change some habits. They shouldn't eat too much fast food because it is not good for their health. They should eat more vegetables and fruit instead. They should also go to bed earlier and do exercise regularly. These changes can help them have a healthier lifestyle.",
+            "difficulty": "intermediate"
+        }
+    ]
+}

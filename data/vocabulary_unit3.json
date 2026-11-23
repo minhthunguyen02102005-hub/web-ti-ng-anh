@@ -1,0 +1,332 @@
+
+{
+  "skill": "vocabulary",
+  "grade": 7,
+  "curriculum": "Global Success",
+  "unit": 3,
+  "unit_title": "Community Service",
+  "questions": [
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: community",
+      "correct_answer": "A group of people living in the same area",
+      "explanation": "Community means the people who live in a particular area."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: volunteer",
+      "correct_answer": "A person who works without being paid",
+      "explanation": "A volunteer offers to help others without receiving money."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: donate",
+      "correct_answer": "To give money or things to help someone",
+      "explanation": "Donate means to give something to a person or organisation in need."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: charity",
+      "correct_answer": "An organisation that helps people in need",
+      "explanation": "A charity provides help to people who need support."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: elderly",
+      "correct_answer": "Old people",
+      "explanation": "Elderly describes people who are old."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: recycle",
+      "correct_answer": "To use waste materials again",
+      "explanation": "Recycle means to process used materials so they can be used again."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: rubbish",
+      "correct_answer": "Things that people throw away because they are no longer needed",
+      "explanation": "Rubbish means waste or unwanted things."
+    },
+    {
+      "question_type": "matching",
+      "difficulty": "basic",
+      "question_text": "Match the word: homeless",
+      "correct_answer": "Having no home",
+      "explanation": "Homeless describes people who do not have a place to live."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "People in our ______ often help each other.",
+      "correct_answer": "community",
+      "explanation": "Community refers to people living in the same area."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "My sister is a ______ at a local animal centre.",
+      "correct_answer": "volunteer",
+      "explanation": "A volunteer works to help others without being paid."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We should ______ old clothes to children in need.",
+      "correct_answer": "donate",
+      "explanation": "Donate means to give something to help others."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "The students collect money for a children's ______.",
+      "correct_answer": "charity",
+      "explanation": "A charity is an organisation that helps people in need."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We should help ______ people because some of them live alone.",
+      "correct_answer": "elderly",
+      "explanation": "Elderly refers to old people."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "basic",
+      "question_text": "We can ______ paper, plastic and glass to protect the environment.",
+      "correct_answer": "recycle",
+      "explanation": "Recycle means to process used materials so they can be used again."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "Please put the ______ into the bin instead of throwing it on the street.",
+      "correct_answer": "rubbish",
+      "explanation": "Rubbish means waste or unwanted things."
+    },
+    {
+      "question_type": "fill_blank",
+      "difficulty": "medium",
+      "question_text": "Many people help ______ children by giving them food and shelter.",
+      "correct_answer": "homeless",
+      "explanation": "Homeless describes people who have no home."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What does 'volunteer' mean?",
+      "options": [
+        "A person who helps without being paid",
+        "A person who sells food",
+        "A person who collects rubbish for money",
+        "A person who studies at school"
+      ],
+      "correct_answer": "A",
+      "explanation": "A volunteer gives time and effort to help others without being paid."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word means 'to give money or things to help others'?",
+      "options": ["Recycle", "Donate", "Plant", "Tutor"],
+      "correct_answer": "B",
+      "explanation": "Donate means to give money or useful things to people in need."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which people are described as elderly?",
+      "options": ["Young children", "Old people", "Teachers", "Students"],
+      "correct_answer": "B",
+      "explanation": "Elderly means old or advanced in age."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What should we do with used paper and plastic bottles?",
+      "options": ["Burn them", "Throw them into rivers", "Recycle them", "Leave them on the street"],
+      "correct_answer": "C",
+      "explanation": "Recycling helps reduce waste and protect the environment."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "What is rubbish?",
+      "options": ["Fresh food", "Unwanted waste", "A charity", "A school subject"],
+      "correct_answer": "B",
+      "explanation": "Rubbish refers to waste or things that people throw away."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "basic",
+      "question_text": "Which word describes someone who has no home?",
+      "options": ["Elderly", "Volunteer", "Homeless", "Healthy"],
+      "correct_answer": "C",
+      "explanation": "Homeless means having no home or permanent place to live."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What is the environment?",
+      "options": [
+        "The natural world around us",
+        "A kind of charity",
+        "A group of volunteers",
+        "A school building"
+      ],
+      "correct_answer": "A",
+      "explanation": "The environment includes the air, water, land, plants and animals around us."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "What does a tutor usually do?",
+      "options": [
+        "Teach or help someone learn",
+        "Collect rubbish",
+        "Build houses",
+        "Sell old clothes"
+      ],
+      "correct_answer": "A",
+      "explanation": "A tutor teaches or gives extra help to a learner."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which action can make your neighbourhood greener?",
+      "options": [
+        "Throwing rubbish everywhere",
+        "Cutting down all trees",
+        "Planting more trees",
+        "Wasting water"
+      ],
+      "correct_answer": "C",
+      "explanation": "Planting trees helps make the neighbourhood greener and improves the environment."
+    },
+    {
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "question_text": "Which phrase means 'the area where you live'?",
+      "options": ["Environment", "Neighbourhood", "Charity", "Rubbish"],
+      "correct_answer": "B",
+      "explanation": "Neighbourhood means the area around someone's home."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "Many students take part in ______ activities at weekends. (VOLUNTEER)",
+      "correct_answer": "voluntary",
+      "explanation": "Voluntary is the adjective form related to volunteer."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "We should keep our neighbourhood clean and ______. (BEAUTY)",
+      "correct_answer": "beautiful",
+      "explanation": "Beautiful is the adjective form of beauty."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The local ______ helps poor children go to school. (CHARITABLE)",
+      "correct_answer": "charity",
+      "explanation": "Charity is the noun used to refer to an organisation or activity that helps people in need."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "We need to protect the natural ______. (ENVIRONMENTAL)",
+      "correct_answer": "environment",
+      "explanation": "Environment is the noun form of environmental."
+    },
+    {
+      "question_type": "word_form",
+      "difficulty": "medium",
+      "question_text": "The students are collecting clothes for ______ people. (HOME)",
+      "correct_answer": "homeless",
+      "explanation": "Homeless is formed by adding the suffix -less to home."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We should donation clothes to poor children.",
+      "correct_answer": "donation → donate",
+      "explanation": "Donate is a verb and is needed after the modal verb should."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: My brother teaches English to young students. He is a charity.",
+      "correct_answer": "charity → tutor",
+      "explanation": "A tutor is a person who teaches or gives extra lessons."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We should throw more rubbish into the environment.",
+      "correct_answer": "throw more rubbish → reduce or collect rubbish",
+      "explanation": "Throwing rubbish into the environment causes pollution. We should collect and dispose of it properly."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: The old people in our village need our help. We should ignore the elderly.",
+      "correct_answer": "ignore → help or support",
+      "explanation": "The sentence is about helping old people, so help or support is the appropriate expression."
+    },
+    {
+      "question_type": "find_mistake",
+      "difficulty": "medium",
+      "question_text": "Find and correct the vocabulary mistake: We can plant old bottles to protect the environment.",
+      "correct_answer": "plant old bottles → recycle old bottles",
+      "explanation": "We recycle bottles. We plant trees or flowers."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Every Saturday, Minh gives free English lessons to younger children in his village. What is Minh doing?",
+      "options": ["Tutoring", "Recycling", "Donating", "Planting"],
+      "correct_answer": "A",
+      "explanation": "Tutoring means teaching or giving extra help to learners."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "The students collect old clothes and give them to families who cannot afford new ones. What are the students doing?",
+      "options": ["Throwing rubbish", "Donating", "Carving", "Bird-watching"],
+      "correct_answer": "B",
+      "explanation": "Donating means giving things to people who need help."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A group of students cleans the streets and collects plastic bottles for reuse. What activity are they doing?",
+      "options": ["Making junk food", "Recycling and community service", "Horse riding", "Playing board games"],
+      "correct_answer": "B",
+      "explanation": "Collecting plastic bottles for reuse is part of recycling and community service."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "Mrs Hoa lives alone and is 80 years old. Which word describes her?",
+      "options": ["Homeless", "Elderly", "Energetic", "Unusual"],
+      "correct_answer": "B",
+      "explanation": "Elderly describes someone who is old."
+    },
+    {
+      "question_type": "contextual_vocabulary",
+      "difficulty": "medium",
+      "question_text": "A local organisation provides food and temporary places to live for people without homes. Which group does it help?",
+      "options": ["Volunteers", "Tutors", "Homeless people", "Classmates"],
+      "correct_answer": "C",
+      "explanation": "Homeless people are those who do not have a home."
+    }
+  ]
+}

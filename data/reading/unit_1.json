@@ -1,0 +1,207 @@
+
+{
+  "passages": [
+    {
+      "section_type": "unit",
+      "unit": 1,
+      "title": "Hobbies in My Family",
+      "topic": "Hobbies",
+      "description": "Unit 1 - Hobbies",
+      "content": "Hobbies are activities that we enjoy in our free time. In my family, everyone has a different hobby.\n\nMy dad loves jogging. He goes to the park near our house at 6 a.m. every day. He says jogging keeps him fit and relaxed.\n\nMy mum enjoys doing yoga. She does yoga for thirty minutes every evening. It helps her reduce stress after a long working day.\n\nMy brother, Nam, likes making models of planes. It is not easy, so he has to be very patient. He hates playing sports, but he can spend hours with his models on Sunday afternoons.\n\nI collect coins from different countries. I have more than 200 coins now. Some of them are rare. They are very hard to find.\n\nWe all share our hobbies at dinner. It is our favourite time of the day.",
+      "difficulty": "basic",
+      "questions": [
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What time does the writer's dad go jogging?",
+          "options": {
+            "A": "At 5 a.m.",
+            "B": "At 6 a.m.",
+            "C": "At 6 p.m.",
+            "D": "At 7 a.m."
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 2: He goes to the park near their house at 6 a.m. every day."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "How long does the writer's mum do yoga every evening?",
+          "options": {
+            "A": "Twenty minutes",
+            "B": "Thirty minutes",
+            "C": "One hour",
+            "D": "Two hours"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 3: She does yoga for thirty minutes every evening."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "What does Nam make?",
+          "options": {
+            "A": "Dollhouses",
+            "B": "Clothes",
+            "C": "Models of planes",
+            "D": "Furniture"
+          },
+          "correct_answer": "C",
+          "explanation": "Paragraph 4: Nam likes making models of planes."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "How many coins does the writer have now?",
+          "options": {
+            "A": "About 20",
+            "B": "About 100",
+            "C": "More than 200",
+            "D": "More than 2,000"
+          },
+          "correct_answer": "C",
+          "explanation": "Paragraph 5: The writer has more than 200 coins."
+        },
+        {
+          "task_type": "A",
+          "question_type": "multiple_choice",
+          "question_text": "When does Nam spend hours with his models?",
+          "options": {
+            "A": "On Saturday mornings",
+            "B": "On Sunday afternoons",
+            "C": "Every evening",
+            "D": "At dinner"
+          },
+          "correct_answer": "B",
+          "explanation": "Paragraph 4: Nam spends hours with his models on Sunday afternoons."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the best title for the passage?",
+          "options": {
+            "A": "A Family Dinner",
+            "B": "Hobbies in My Family",
+            "C": "How to Collect Coins",
+            "D": "Sports for Teens"
+          },
+          "correct_answer": "B",
+          "explanation": "The whole passage talks about each family member's hobby."
+        },
+        {
+          "task_type": "B",
+          "question_type": "multiple_choice",
+          "question_text": "What is the passage mainly about?",
+          "options": {
+            "A": "How to do yoga at home",
+            "B": "The benefits of jogging",
+            "C": "The different hobbies of the writer's family members",
+            "D": "The writer's favourite sport"
+          },
+          "correct_answer": "C",
+          "explanation": "Dad, mum, Nam and the writer each have a different hobby. A, B and D cover only one small detail or are not mentioned."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word relaxed in paragraph 2 is closest in meaning to ____.",
+          "options": {
+            "A": "Tired",
+            "B": "Calm and not worried",
+            "C": "Very busy",
+            "D": "Angry"
+          },
+          "correct_answer": "B",
+          "explanation": "Jogging keeps the writer's dad fit and relaxed. Relaxed is a positive feeling, so calm and not worried fits."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word patient in paragraph 4 means ____.",
+          "options": {
+            "A": "Able to wait for a long time without getting angry",
+            "B": "Very strong",
+            "C": "Good at sports",
+            "D": "Always in a hurry"
+          },
+          "correct_answer": "A",
+          "explanation": "Making models takes time, so Nam must be able to wait without getting angry."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "The word rare in paragraph 5 means ____.",
+          "options": {
+            "A": "Cheap",
+            "B": "Very old",
+            "C": "Not easy to find",
+            "D": "Easy to collect"
+          },
+          "correct_answer": "C",
+          "explanation": "The next sentence explains that the coins are very hard to find."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "Why does Nam have to be patient?",
+          "options": {
+            "A": "Because he hates sports.",
+            "B": "Because making models is not easy and takes time.",
+            "C": "Because he has many coins.",
+            "D": "Because he plays with friends."
+          },
+          "correct_answer": "B",
+          "explanation": "The text says making models is not easy, so Nam has to be patient. The link is implied, not stated directly."
+        },
+        {
+          "task_type": "C",
+          "question_type": "multiple_choice",
+          "question_text": "What can we infer about the writer's family?",
+          "options": {
+            "A": "They never eat together.",
+            "B": "They all have the same hobby.",
+            "C": "They enjoy talking about their hobbies together.",
+            "D": "They do not like their hobbies."
+          },
+          "correct_answer": "C",
+          "explanation": "The family shares their hobbies at dinner, and it is their favourite time of the day."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The writer's dad goes jogging in the morning.",
+          "correct_answer": "T",
+          "explanation": "True. He goes to the park at 6 a.m. every day. 6 a.m. is in the morning."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The writer's mum does yoga in the morning.",
+          "correct_answer": "F",
+          "explanation": "False. Mum does yoga every evening, not in the morning."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "Nam enjoys playing sports.",
+          "correct_answer": "F",
+          "explanation": "False. The passage says that Nam hates playing sports."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The writer's grandfather also collects coins.",
+          "correct_answer": "NG",
+          "explanation": "Not Given. The passage gives no information about the writer's grandfather."
+        },
+        {
+          "task_type": "D",
+          "question_type": "true_false_not_given",
+          "question_text": "The writer has some rare coins.",
+          "correct_answer": "T",
+          "explanation": "True. The passage says that some of the writer's coins are rare."
+        }
+      ]
+    }
+  ]
+}
